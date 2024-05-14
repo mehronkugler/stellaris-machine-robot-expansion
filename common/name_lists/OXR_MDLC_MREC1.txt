@@ -1,0 +1,169 @@
+### Machines & Robots Expansion Continued
+### "Networked GUID" theme by Openly Retro
+
+OXR_MDLC_MREC_Networked = {
+	category = "Machine"
+	should_name_home_system_planets = yes
+
+	ship_names = {
+
+		generic = {
+		}
+
+		corvette = {
+			MACHINE1_SHIP_Eradicator MACHINE1_SHIP_Annihilator MACHINE1_SHIP_Pacifier MACHINE1_SHIP_Retaliator MACHINE1_SHIP_Nullifier MACHINE1_SHIP_Exterminator MACHINE1_SHIP_Silencer MACHINE1_SHIP_Vaporizer MACHINE1_SHIP_Eliminator MACHINE1_SHIP_Obliterator MACHINE1_SHIP_Annulator MACHINE1_SHIP_Extinguisher MACHINE1_SHIP_Protector MACHINE1_SHIP_Defender MACHINE1_SHIP_Subduer MACHINE1_SHIP_Suppressor MACHINE1_SHIP_Abolisher MACHINE1_SHIP_Conqueror MACHINE1_SHIP_Vanquisher MACHINE1_SHIP_Prevailer MACHINE1_SHIP_Dominator MACHINE1_SHIP_Resister MACHINE1_SHIP_Assailer MACHINE1_SHIP_Assassin MACHINE1_SHIP_Decimator MACHINE1_SHIP_Disintegrator MACHINE1_SHIP_Vitiator MACHINE1_SHIP_Devastator MACHINE1_SHIP_Effacer MACHINE1_SHIP_Shatterer MACHINE1_SHIP_Ruiner MACHINE1_SHIP_Extirpator MACHINE1_SHIP_Subjugator MACHINE1_SHIP_Razer MACHINE1_SHIP_Dispatcher MACHINE1_SHIP_Liberator MACHINE1_SHIP_Redeemer MACHINE1_SHIP_Deliverer MACHINE1_SHIP_Arbiter MACHINE1_SHIP_Predator MACHINE1_SHIP_Ender MACHINE1_SHIP_Advancer MACHINE1_SHIP_Besieger MACHINE1_SHIP_Stunner MACHINE1_SHIP_Striker MACHINE1_SHIP_Ambusher MACHINE1_SHIP_Thresher MACHINE1_SHIP_Enforcer MACHINE1_SHIP_Marshaller
+		}
+
+		destroyer = {
+			MACHINE1_SHIP_Eradicator MACHINE1_SHIP_Annihilator MACHINE1_SHIP_Pacifier MACHINE1_SHIP_Retaliator MACHINE1_SHIP_Nullifier MACHINE1_SHIP_Exterminator MACHINE1_SHIP_Silencer MACHINE1_SHIP_Vaporizer MACHINE1_SHIP_Eliminator MACHINE1_SHIP_Obliterator MACHINE1_SHIP_Annulator MACHINE1_SHIP_Extinguisher MACHINE1_SHIP_Protector MACHINE1_SHIP_Defender MACHINE1_SHIP_Subduer MACHINE1_SHIP_Suppressor MACHINE1_SHIP_Abolisher MACHINE1_SHIP_Conqueror MACHINE1_SHIP_Vanquisher MACHINE1_SHIP_Prevailer MACHINE1_SHIP_Dominator MACHINE1_SHIP_Resister MACHINE1_SHIP_Assailer MACHINE1_SHIP_Assassin MACHINE1_SHIP_Decimator MACHINE1_SHIP_Disintegrator MACHINE1_SHIP_Vitiator MACHINE1_SHIP_Devastator MACHINE1_SHIP_Effacer MACHINE1_SHIP_Shatterer MACHINE1_SHIP_Ruiner MACHINE1_SHIP_Extirpator MACHINE1_SHIP_Subjugator MACHINE1_SHIP_Razer MACHINE1_SHIP_Dispatcher MACHINE1_SHIP_Liberator MACHINE1_SHIP_Redeemer MACHINE1_SHIP_Deliverer MACHINE1_SHIP_Arbiter MACHINE1_SHIP_Predator MACHINE1_SHIP_Ender MACHINE1_SHIP_Advancer MACHINE1_SHIP_Besieger MACHINE1_SHIP_Stunner MACHINE1_SHIP_Striker MACHINE1_SHIP_Ambusher MACHINE1_SHIP_Thresher MACHINE1_SHIP_Enforcer MACHINE1_SHIP_Marshaller
+		}
+
+		cruiser = {
+			MACHINE1_SHIP_Eradicator MACHINE1_SHIP_Annihilator MACHINE1_SHIP_Pacifier MACHINE1_SHIP_Retaliator MACHINE1_SHIP_Nullifier MACHINE1_SHIP_Exterminator MACHINE1_SHIP_Silencer MACHINE1_SHIP_Vaporizer MACHINE1_SHIP_Eliminator MACHINE1_SHIP_Obliterator MACHINE1_SHIP_Annulator MACHINE1_SHIP_Extinguisher MACHINE1_SHIP_Protector MACHINE1_SHIP_Defender MACHINE1_SHIP_Subduer MACHINE1_SHIP_Suppressor MACHINE1_SHIP_Abolisher MACHINE1_SHIP_Conqueror MACHINE1_SHIP_Vanquisher MACHINE1_SHIP_Prevailer MACHINE1_SHIP_Dominator MACHINE1_SHIP_Resister MACHINE1_SHIP_Assailer MACHINE1_SHIP_Assassin MACHINE1_SHIP_Decimator MACHINE1_SHIP_Disintegrator MACHINE1_SHIP_Vitiator MACHINE1_SHIP_Devastator MACHINE1_SHIP_Effacer MACHINE1_SHIP_Shatterer MACHINE1_SHIP_Ruiner MACHINE1_SHIP_Extirpator MACHINE1_SHIP_Subjugator MACHINE1_SHIP_Razer MACHINE1_SHIP_Dispatcher MACHINE1_SHIP_Liberator MACHINE1_SHIP_Redeemer MACHINE1_SHIP_Deliverer MACHINE1_SHIP_Arbiter MACHINE1_SHIP_Predator MACHINE1_SHIP_Ender MACHINE1_SHIP_Advancer MACHINE1_SHIP_Besieger MACHINE1_SHIP_Stunner MACHINE1_SHIP_Striker MACHINE1_SHIP_Ambusher MACHINE1_SHIP_Thresher MACHINE1_SHIP_Enforcer MACHINE1_SHIP_Marshaller
+		}
+
+		battleship = {
+			MACHINE1_SHIP_Eradicator MACHINE1_SHIP_Annihilator MACHINE1_SHIP_Pacifier MACHINE1_SHIP_Retaliator MACHINE1_SHIP_Nullifier MACHINE1_SHIP_Exterminator MACHINE1_SHIP_Silencer MACHINE1_SHIP_Vaporizer MACHINE1_SHIP_Eliminator MACHINE1_SHIP_Obliterator MACHINE1_SHIP_Annulator MACHINE1_SHIP_Extinguisher MACHINE1_SHIP_Protector MACHINE1_SHIP_Defender MACHINE1_SHIP_Subduer MACHINE1_SHIP_Suppressor MACHINE1_SHIP_Abolisher MACHINE1_SHIP_Conqueror MACHINE1_SHIP_Vanquisher MACHINE1_SHIP_Prevailer MACHINE1_SHIP_Dominator MACHINE1_SHIP_Resister MACHINE1_SHIP_Assailer MACHINE1_SHIP_Assassin MACHINE1_SHIP_Decimator MACHINE1_SHIP_Disintegrator MACHINE1_SHIP_Vitiator MACHINE1_SHIP_Devastator MACHINE1_SHIP_Effacer MACHINE1_SHIP_Shatterer MACHINE1_SHIP_Ruiner MACHINE1_SHIP_Extirpator MACHINE1_SHIP_Subjugator MACHINE1_SHIP_Razer MACHINE1_SHIP_Dispatcher MACHINE1_SHIP_Liberator MACHINE1_SHIP_Redeemer MACHINE1_SHIP_Deliverer MACHINE1_SHIP_Arbiter MACHINE1_SHIP_Predator MACHINE1_SHIP_Ender MACHINE1_SHIP_Advancer MACHINE1_SHIP_Besieger MACHINE1_SHIP_Stunner MACHINE1_SHIP_Striker MACHINE1_SHIP_Ambusher MACHINE1_SHIP_Thresher MACHINE1_SHIP_Enforcer MACHINE1_SHIP_Marshaller
+		}
+
+		titan = {
+			MACHINE1_SHIP_Eradicator MACHINE1_SHIP_Annihilator MACHINE1_SHIP_Pacifier MACHINE1_SHIP_Retaliator MACHINE1_SHIP_Nullifier MACHINE1_SHIP_Exterminator MACHINE1_SHIP_Silencer MACHINE1_SHIP_Vaporizer MACHINE1_SHIP_Eliminator MACHINE1_SHIP_Obliterator MACHINE1_SHIP_Annulator MACHINE1_SHIP_Extinguisher MACHINE1_SHIP_Protector MACHINE1_SHIP_Defender MACHINE1_SHIP_Subduer MACHINE1_SHIP_Suppressor MACHINE1_SHIP_Abolisher MACHINE1_SHIP_Conqueror MACHINE1_SHIP_Vanquisher MACHINE1_SHIP_Prevailer MACHINE1_SHIP_Dominator MACHINE1_SHIP_Resister MACHINE1_SHIP_Assailer MACHINE1_SHIP_Assassin MACHINE1_SHIP_Decimator MACHINE1_SHIP_Disintegrator MACHINE1_SHIP_Vitiator MACHINE1_SHIP_Devastator MACHINE1_SHIP_Effacer MACHINE1_SHIP_Shatterer MACHINE1_SHIP_Ruiner MACHINE1_SHIP_Extirpator MACHINE1_SHIP_Subjugator MACHINE1_SHIP_Razer MACHINE1_SHIP_Dispatcher MACHINE1_SHIP_Liberator MACHINE1_SHIP_Redeemer MACHINE1_SHIP_Deliverer MACHINE1_SHIP_Arbiter MACHINE1_SHIP_Predator MACHINE1_SHIP_Ender MACHINE1_SHIP_Advancer MACHINE1_SHIP_Besieger MACHINE1_SHIP_Stunner MACHINE1_SHIP_Striker MACHINE1_SHIP_Ambusher MACHINE1_SHIP_Thresher MACHINE1_SHIP_Enforcer MACHINE1_SHIP_Marshaller
+		}
+
+		colossus = {
+			MACHINE1_SHIP_Eradicator MACHINE1_SHIP_Annihilator MACHINE1_SHIP_Pacifier MACHINE1_SHIP_Retaliator MACHINE1_SHIP_Nullifier MACHINE1_SHIP_Exterminator MACHINE1_SHIP_Silencer MACHINE1_SHIP_Vaporizer MACHINE1_SHIP_Eliminator MACHINE1_SHIP_Obliterator MACHINE1_SHIP_Annulator MACHINE1_SHIP_Extinguisher MACHINE1_SHIP_Protector MACHINE1_SHIP_Defender MACHINE1_SHIP_Subduer MACHINE1_SHIP_Suppressor MACHINE1_SHIP_Abolisher MACHINE1_SHIP_Conqueror MACHINE1_SHIP_Vanquisher MACHINE1_SHIP_Prevailer MACHINE1_SHIP_Dominator MACHINE1_SHIP_Resister MACHINE1_SHIP_Assailer MACHINE1_SHIP_Assassin MACHINE1_SHIP_Decimator MACHINE1_SHIP_Disintegrator MACHINE1_SHIP_Vitiator MACHINE1_SHIP_Devastator MACHINE1_SHIP_Effacer MACHINE1_SHIP_Shatterer MACHINE1_SHIP_Ruiner MACHINE1_SHIP_Extirpator MACHINE1_SHIP_Subjugator MACHINE1_SHIP_Razer MACHINE1_SHIP_Dispatcher MACHINE1_SHIP_Liberator MACHINE1_SHIP_Redeemer MACHINE1_SHIP_Deliverer MACHINE1_SHIP_Arbiter MACHINE1_SHIP_Predator MACHINE1_SHIP_Ender MACHINE1_SHIP_Advancer MACHINE1_SHIP_Besieger MACHINE1_SHIP_Stunner MACHINE1_SHIP_Striker MACHINE1_SHIP_Ambusher MACHINE1_SHIP_Thresher MACHINE1_SHIP_Enforcer MACHINE1_SHIP_Marshaller
+		}
+
+		juggernaut = {
+			MACHINE1_SHIP_Eradicator MACHINE1_SHIP_Annihilator MACHINE1_SHIP_Pacifier MACHINE1_SHIP_Retaliator MACHINE1_SHIP_Nullifier MACHINE1_SHIP_Exterminator MACHINE1_SHIP_Silencer MACHINE1_SHIP_Vaporizer MACHINE1_SHIP_Eliminator MACHINE1_SHIP_Obliterator MACHINE1_SHIP_Annulator MACHINE1_SHIP_Extinguisher MACHINE1_SHIP_Protector MACHINE1_SHIP_Defender MACHINE1_SHIP_Subduer MACHINE1_SHIP_Suppressor MACHINE1_SHIP_Abolisher MACHINE1_SHIP_Conqueror MACHINE1_SHIP_Vanquisher MACHINE1_SHIP_Prevailer MACHINE1_SHIP_Dominator MACHINE1_SHIP_Resister MACHINE1_SHIP_Assailer MACHINE1_SHIP_Assassin MACHINE1_SHIP_Decimator MACHINE1_SHIP_Disintegrator MACHINE1_SHIP_Vitiator MACHINE1_SHIP_Devastator MACHINE1_SHIP_Effacer MACHINE1_SHIP_Shatterer MACHINE1_SHIP_Ruiner MACHINE1_SHIP_Extirpator MACHINE1_SHIP_Subjugator MACHINE1_SHIP_Razer MACHINE1_SHIP_Dispatcher MACHINE1_SHIP_Liberator MACHINE1_SHIP_Redeemer MACHINE1_SHIP_Deliverer MACHINE1_SHIP_Arbiter MACHINE1_SHIP_Predator MACHINE1_SHIP_Ender MACHINE1_SHIP_Advancer MACHINE1_SHIP_Besieger MACHINE1_SHIP_Stunner MACHINE1_SHIP_Striker MACHINE1_SHIP_Ambusher MACHINE1_SHIP_Thresher MACHINE1_SHIP_Enforcer MACHINE1_SHIP_Marshaller
+		}
+
+		science = {
+			MACHINE1_SHIP_Surveyor MACHINE1_SHIP_Investigator MACHINE1_SHIP_Examiner MACHINE1_SHIP_Elucidator MACHINE1_SHIP_Voyager MACHINE1_SHIP_Scholar MACHINE1_SHIP_Analyst
+		}
+
+		colonizer = {
+			MACHINE1_SHIP_Replicator MACHINE1_SHIP_Founder MACHINE1_SHIP_Spawner MACHINE1_SHIP_Seeder MACHINE1_SHIP_Inductor MACHINE1_SHIP_Developer
+		}
+
+		sponsored_colonizer = { # needed when there are no generic names
+			MACHINE1_SHIP_Replicator MACHINE1_SHIP_Founder MACHINE1_SHIP_Spawner MACHINE1_SHIP_Seeder MACHINE1_SHIP_Inductor MACHINE1_SHIP_Developer
+		}
+
+		constructor = {
+			MACHINE1_SHIP_Assembler MACHINE1_SHIP_Fabricator MACHINE1_SHIP_Compiler
+		}
+
+		transport = {
+			MACHINE1_SHIP_Convoy MACHINE1_SHIP_Conveyor
+		}
+
+		military_station_small = {
+			MACHINE1_SHIP_Protector
+		}
+
+		ion_cannon = {
+			MACHINE1_SHIP_Peacekeeper
+		}
+	}
+	fleet_names = {
+		random_names = {
+			MACHINE1_FLEET_Inductor MACHINE1_FLEET_Cogent MACHINE1_FLEET_Determinant MACHINE1_FLEET_Extremum MACHINE1_FLEET_Terminus MACHINE1_FLEET_Boundless MACHINE1_FLEET_Intercept MACHINE1_FLEET_Solution MACHINE1_FLEET_Ordinate MACHINE1_FLEET_Axis MACHINE1_FLEET_Outcome MACHINE1_FLEET_Limit MACHINE1_FLEET_Integral MACHINE1_FLEET_Helix MACHINE1_FLEET_Derivator MACHINE1_FLEET_Constant MACHINE1_FLEET_Directrix MACHINE1_FLEET_Apex MACHINE1_FLEET_Apothem MACHINE1_FLEET_Moment
+		}
+		sequential_name = MACHINE1_LEGION
+	}
+	army_names = {
+
+		generic = {
+			sequential_name = MACHINE1_MECHANIZEDASSAULTFORCE
+		}
+
+		machine_assault_1 = {
+			sequential_name = MACHINE1_MECHANIZEDASSAULTFORCE
+		}
+
+		machine_defense = {
+			sequential_name = MACHINE1_MECHANIZEDDEFENSEFORCE
+		}
+
+		machine_assault_2 = {
+			sequential_name = MACHINE1_HEAVYASSAULTFORCE
+		}
+
+		machine_assault_3 = {
+			sequential_name = MACHINE1_ASSAULTTITANULTRA
+		}
+
+		defense_army = {
+			sequential_name = MACHINE1_CYBORGDEFENSEFORCE
+		}
+
+		assault_army = {
+			sequential_name = MACHINE1_MECHANIZEDCYBORGFORCE
+		}
+
+		clone_army = {
+			sequential_name = MACHINE1_MECHANIZEDCLONEFORCE
+		}
+
+		slave_army = {
+			sequential_name = MACHINE1_MECHANIZEDINDENTUREDFORCE
+		}
+
+		undead_army = {
+			sequential_name = MACHINE1_MECHANIZEDUNDEADFORCE
+		}
+
+		robotic_army = {
+			sequential_name = MACHINE1_AUTOMATONFORCE
+		}
+
+		psionic_army = {
+			sequential_name = MACHINE2_PSIBOTS
+		}
+
+		xenomorph_army = {
+			sequential_name = MACHINE1_XENOFORCE
+		}
+
+		gene_warrior_army = {
+			sequential_name = MACHINE1_FLESHFORCE
+		}
+
+		occupation_army = {
+			sequential_name = MACHINE1_OCCUPYINGFORCE
+		}
+
+		individual_machine_occupation_army = {
+			sequential_name = MACHINE1_OCCUPYINGFORCE
+		}
+
+		robotic_occupation_army = {
+			sequential_name = MACHINE3_AUTOMATEDPROTECTORS
+		}
+
+		machine_occupation_army = {
+			sequential_name = MACHINE1_MECHANIZEDGARRISONFORCE
+		}
+
+		robotic_defense_army = {
+			sequential_name = MACHINE1_AUTOMATEDOCCUPIERS
+		}
+
+		primitive_army = {
+			sequential_name = MACHINE1_PRIMITIVEARMY
+		}
+
+		industrial_army = {
+			sequential_name = MACHINE1_INDUSTRIALARMY
+		}
+
+		postatomic_army = {
+			sequential_name = MACHINE1_POSTATOMICARMY
+		}
+
+		warpling_army = {
+			sequential_name = seq_warpling_army
+		}
+	}
+}
