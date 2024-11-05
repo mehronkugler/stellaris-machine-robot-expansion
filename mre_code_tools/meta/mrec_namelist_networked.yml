@@ -1,0 +1,165 @@
+﻿name_theme: Networked
+loc_prefix: MACHINE_MREC1
+fleet_names:
+  - INT10H
+  - rm
+  - fdisk
+  - dd
+  - shred
+ruler_names:
+  - sudo
+  - pid0
+empire_name_parts_list:
+  - Thinkbot
+species:
+  - name: Cydran
+    plural: Cydrans
+    home_planet: Cyd
+    home_system: Cydus
+    name_list: this
+  - name: Darcon
+    plural: Darcons
+    home_planet: Darcon
+    home_system: Darca
+    name_list: this
+  - name: NEM
+    plural: NEM
+    home_planet: 0xF0001
+    home_system: eth0
+    name_list: this
+  - name: S3M
+    plural: S3M
+    home_planet: S4M1
+    home_system: Tammilehto
+    name_list: TOX3
+ship_classes:
+  generic: int000H
+  corvette: int001H
+  frigate: int002H
+  destroyer: int003H
+  cruiser: int004H
+  battleship: int005H
+  titan: int006H
+  colossus: int007H
+  juggernaut: int008H
+  science: GREP
+  colonizer: FDISK
+  sponsored_colonizer: zFDISK
+  constructor: CMAKE
+  transport: SMBUS
+  military_station_small: DDx01
+  military_station_medium: DDx02
+  military_station_large: DDx03
+  ion_cannon: DDx04
+  mining_station: MPU
+  research_station: FPGA
+  observation_station: LOG
+military_ship_names: []
+army_names:
+  generic: TSRx01
+  machine_assault_1: TSRx01
+  machine_defense: ICEx00
+  machine_assault_2: TSRx02
+  machine_assault_3: TSRx03
+  defense_army: ICEx01
+  assault_army: TSRx01
+  clone_army: TSRxBC
+  slave_army: TSRxBS
+  undead_army: TSRxBU
+  robotic_army: TSRx00
+  psionic_army: TSR-404
+  xenomorph_army: TSR-404
+  gene_warrior_army: TSR-404
+  occupation_army: TSRx00
+  individual_machine_occupation_army: TCMx03
+  robotic_occupation_army: TCMx01
+  machine_occupation_army: TCMx00
+  robotic_defense_army: ICEx01
+  primitive_army: TSRv0.1-alpha
+  industrial_army: TSRv0.2-beta
+  postatomic_army: TSRv0.3
+  warpling_army: TSR
+planet_names:
+  # Habitables: 3
+  generic: 3x000
+  pc_desert: 3x001
+  pc_arid: 3x002
+  pc_savannah: 3x003
+  pc_tropical: 3x004
+  pc_ocean: 3x005
+  pc_continental: 3x006
+  pc_arctic: 3x007
+  pc_tundra: 3x008
+  pc_alpine: 3x009
+  pc_machine: 3x101
+  xvcv_mdlc_pc_mechanical: 3x102
+  xvcv_mdlc_pc_machine_auto: 3x103
+  xvcv_mdlc_pc_machine_ecu: 3x104
+  xvcv_mdlc_pc_machine_cpu: 3x105
+  xvcv_mdlc_pc_machine_ser: 3x106
+  xvcv_mdlc_pc_virtual: 3x107
+  pc_gaia: 3x010
+  # Non-habitables: 2
+  pc_gas_giant: 2xGG
+  pc_asteroid: 2x0A
+  pc_ice_asteroid: 2x1A
+  pc_rare_crystal_asteroid: 2x3A
+  pc_molten: 2x0M
+  pc_barren: 2x0B
+  pc_barren_cold: 2x1B
+  pc_toxic: 2x0X
+  pc_frozen: 2x0F
+  pc_nuked: 2x0N
+  pc_hive: 2x0H
+  pc_machine_broken: 2x1M
+  pc_shielded: 2x0S
+  pc_ai: 2x0I
+  pc_infested: 2xIF
+  pc_cybrex: 2xCB
+  pc_nanotech: 2xNN
+  # Stars: 0
+  pc_b_star: 0xB
+  pc_a_star: 0xA
+  pc_f_star: 0xF
+  pc_g_star: 0xG
+  pc_k_star: 0xK
+  pc_m_star: 0xM
+  pc_m_giant_star: 0xJ
+  pc_t_star: 0xT
+  pc_black_hole: 0xH
+  pc_neutron_star: 0xN
+  pc_pulsar: 0xP
+  # Special: 4
+  pc_ringworld_habitable: 4x0R
+  pc_ringworld_habitable_damaged: 4xBR
+  pc_ringworld_tech: 4x0T
+  pc_ringworld_tech_damaged: 4xBT
+  pc_ringworld_seam: 4x0S
+  pc_ringworld_seam_damaged: 4xBS
+  pc_shattered_ring_habitable: 4xSR
+  pc_habitat: 4x0H
+  pc_cosmogenesis_world: 4xCG
+  pc_shrouded: 4xSH
+  pc_broken: 4x0B
+  pc_shattered: 4xBB
+  pc_toxoid_star: 4xTX
+character_names:
+  default:
+    full_names:
+      - "sudo"
+      - "su"
+      - "chmod ugo+x"
+      # - "cat"
+      # - "ls -la"
+      - "less"
+      - "echo"
+      - "dh -u"
+      - "ps aux | grep"
+      - "chmod og-r"
+      - "touch"
+    regnal_full_names:
+      - Root Process
+      - Infinite Uptime
+      - RAID Controller
+      - Primary Hub
+      - Re Tupmocym
