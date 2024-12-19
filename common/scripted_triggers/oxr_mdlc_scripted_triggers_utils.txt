@@ -1,0 +1,26 @@
+oxr_mdlc_col_is_foundry = {
+	OR = {
+		has_designation = col_capital_foundry
+		has_designation = col_ecu_foundry
+		has_designation = col_foundry
+		has_designation = xvcv_mdlc_col_machine_ecu_auto_forge
+	}
+}
+oxr_mdlc_col_is_factory = {
+	OR = {
+		has_designation = col_capital_factory
+		has_designation = col_ecu_factory
+		has_designation = col_factory
+		# has_designation = xvcv_mdlc_col_machine_ecu_auto_factory
+	}
+}
+
+oxr_is_machine_servitor = {
+	has_civic = civic_machine_servitor
+}
+oxr_is_machine_terminator = {
+	has_civic = civic_machine_terminator
+}
+oxr_is_machine_assimilator = {
+	has_civic = civic_machine_assimilator
+}

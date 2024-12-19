@@ -1,0 +1,178 @@
+# From planets to auto-world machine
+# from = planet
+# effect scope = country
+#for the T3 machines
+
+# Changing to T3 world with origin is done via decision
+
+#for the 'xvcv_mdlc_pc_machine_ecu' planet class
+# terraform_link = {
+# 	from = "xvcv_mdlc_pc_machine_ecu"
+# 	to = "xvcv_mdlc_pc_machine_cpu"
+	
+# 	resources = {
+# 		category = terraforming
+# 		cost = { energy = @xvcv_mdlc_world_machines_cost }
+# 	}
+# 	duration = @xvcv_mdlc_world_machines_time
+	
+# 	potential = { oxr_mdlc_planet_owner_can_build_wm_districts = yes }
+	
+# 	ai_weight = { weight = 0 }
+# }
+# terraform_link = {
+# 	from = "xvcv_mdlc_pc_machine_ecu"
+# 	to = "xvcv_mdlc_pc_machine_ser"
+	
+# 	resources = {
+# 		category = terraforming
+# 		cost = { energy = @xvcv_mdlc_world_machines_cost }
+# 	}
+# 	duration = @xvcv_mdlc_world_machines_time
+	
+# 	potential = { oxr_mdlc_planet_owner_can_build_wm_districts = yes }
+	
+# 	ai_weight = { weight = 0 }
+# }
+# terraform_link = {
+# 	from = "xvcv_mdlc_pc_machine_ecu"
+# 	to = "xvcv_mdlc_pc_machine_auto"
+	
+# 	resources = {
+# 		category = terraforming
+# 		cost = { energy = @xvcv_mdlc_world_machines_cost }
+# 	}
+# 	duration = @xvcv_mdlc_world_machines_time
+
+# 	potential = {
+# 		has_ascension_perk = ap_machine_worlds
+# 	}
+
+# 	effect = {
+# 		from = {
+# 			switch = {
+# 				trigger = has_modifier
+# 				xvcv_mdlc_world_machines_districts_heat_indicator_good = { remove_modifier = xvcv_mdlc_world_machines_districts_heat_indicator_good }
+# 				xvcv_mdlc_world_machines_districts_heat_indicator_neutral = { remove_modifier = xvcv_mdlc_world_machines_districts_heat_indicator_neutral }
+# 				xvcv_mdlc_world_machines_districts_heat_indicator_bad = { remove_modifier = xvcv_mdlc_world_machines_districts_heat_indicator_bad }
+# 			}
+# 		}
+# 	}
+
+# 	ai_weight = { weight = 0 }
+# }
+
+# #for the 'xvcv_mdlc_pc_machine_cpu' planet class
+# terraform_link = {
+# 	from = "xvcv_mdlc_pc_machine_cpu"
+# 	to = "xvcv_mdlc_pc_machine_ecu"
+	
+# 	resources = {
+# 		category = terraforming
+# 		cost = { energy = @xvcv_mdlc_world_machines_cost }
+# 	}
+# 	duration = @xvcv_mdlc_world_machines_time
+	
+# 	potential = { oxr_mdlc_planet_owner_can_build_wm_districts = yes }
+	
+# 	ai_weight = { weight = 0 }
+# }
+# terraform_link = {
+# 	from = "xvcv_mdlc_pc_machine_cpu"
+# 	to = "xvcv_mdlc_pc_machine_ser"
+	
+# 	resources = {
+# 		category = terraforming
+# 		cost = { energy = @xvcv_mdlc_world_machines_cost }
+# 	}
+# 	duration = @xvcv_mdlc_world_machines_time
+	
+# 	potential = { oxr_mdlc_planet_owner_can_build_wm_districts = yes }
+	
+# 	ai_weight = { weight = 0 }
+# }
+# terraform_link = {
+# 	from = "xvcv_mdlc_pc_machine_cpu"
+# 	to = "xvcv_mdlc_pc_machine_auto"
+
+# 	resources = {
+# 		category = terraforming
+# 		cost = { energy = @xvcv_mdlc_world_machines_cost }
+# 	}
+# 	duration = @xvcv_mdlc_world_machines_time
+	
+# 	potential = {
+# 		has_ascension_perk = ap_machine_worlds
+# 		oxr_mdlc_planet_owner_can_build_wm_districts = yes
+# 	}
+
+# 	effect = {
+# 		from = {
+# 			switch = {
+# 				trigger = has_modifier
+# 				xvcv_mdlc_world_machines_districts_heat_indicator_good = { remove_modifier = xvcv_mdlc_world_machines_districts_heat_indicator_good }
+# 				xvcv_mdlc_world_machines_districts_heat_indicator_neutral = { remove_modifier = xvcv_mdlc_world_machines_districts_heat_indicator_neutral }
+# 				xvcv_mdlc_world_machines_districts_heat_indicator_bad = { remove_modifier = xvcv_mdlc_world_machines_districts_heat_indicator_bad }
+# 			}
+# 		}
+# 	}
+	
+# 	ai_weight = { weight = 0 }
+# }
+# #for the 'xvcv_mdlc_pc_machine_ser' planet class
+# terraform_link = {
+# 	from = "xvcv_mdlc_pc_machine_ser"
+# 	to = "xvcv_mdlc_pc_machine_ecu"
+	
+# 	resources = {
+# 		category = terraforming
+# 		cost = { energy = @xvcv_mdlc_world_machines_cost }
+# 	}
+# 	duration = @xvcv_mdlc_world_machines_time
+	
+# 	potential = { oxr_mdlc_planet_owner_can_build_wm_districts = yes }
+	
+# 	ai_weight = { weight = 0 }
+# }
+# terraform_link = {
+# 	from = "xvcv_mdlc_pc_machine_ser"
+# 	to = "xvcv_mdlc_pc_machine_cpu"
+
+# 	resources = {
+# 		category = terraforming
+# 		cost = { energy = @xvcv_mdlc_world_machines_cost }
+# 	}
+# 	duration = @xvcv_mdlc_world_machines_time
+	
+# 	potential = { oxr_mdlc_planet_owner_can_build_wm_districts = yes }
+	
+# 	ai_weight = { weight = 0 }
+# }
+# terraform_link = {
+# 	from = "xvcv_mdlc_pc_machine_ser"
+# 	to = "xvcv_mdlc_pc_machine_auto"
+	
+# 	resources = {
+# 		category = terraforming
+# 		cost = { energy = @xvcv_mdlc_world_machines_cost }
+# 	}
+# 	duration = @xvcv_mdlc_world_machines_time
+	
+# 	potential = {
+# 		has_ascension_perk = ap_machine_worlds
+# 		oxr_mdlc_planet_owner_can_build_wm_districts = yes
+# 	}
+
+# 	effect = {
+# 		from = {
+# 			switch = {
+# 				trigger = has_modifier
+# 				xvcv_mdlc_world_machines_districts_heat_indicator_good = { remove_modifier = xvcv_mdlc_world_machines_districts_heat_indicator_good }
+# 				xvcv_mdlc_world_machines_districts_heat_indicator_neutral = { remove_modifier = xvcv_mdlc_world_machines_districts_heat_indicator_neutral }
+# 				xvcv_mdlc_world_machines_districts_heat_indicator_bad = { remove_modifier = xvcv_mdlc_world_machines_districts_heat_indicator_bad }
+# 			}
+# 		}
+# 	}
+	
+# 	ai_weight = { weight = 0 }
+# }

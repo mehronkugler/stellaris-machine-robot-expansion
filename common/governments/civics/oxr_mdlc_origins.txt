@@ -1,0 +1,117 @@
+## COMPLETED ##
+
+
+## IN PROGRESS ##
+oxr_mdlc_origin_world_machine_awakened = {
+    # automated no-pops empire, popless districts & buildings
+	is_origin = yes
+	icon = "gfx/interface/icons/origins/origins_remnant.dds"
+	picture = GFX_evt_oxr_mdlc_origin_world_machine_awakened
+
+	starting_colony = xvcv_mdlc_pc_machine_auto
+
+	playable = {
+		host_has_dlc = "Synthetic Dawn Story Pack"
+		# oxr_mdlc_origin_world_machine_feature_enabled = yes
+	}
+	possible = {
+		authority = { value = auth_machine_intelligence }
+		civics = {
+			NOR = {
+				value = civic_machine_terminator
+				value = civic_machine_servitor
+				value = civic_machine_assimilator
+			}
+		}
+	}
+	potential = {
+		authority = { value = auth_machine_intelligence }
+	}
+	modifier = {
+		# pop_growth_speed = -2
+		empire_size_pops_mult = 0.5  # base 1x4 = 4
+		empire_size_districts_mult = 0.75  # base 0.5x4 = 2
+		empire_size_colonies_mult = 0.50  # 15
+	}
+	flags = {
+		custom_start_screen
+	}
+
+	random_weight = { base = 5 }
+	description = "oxr_mdlc_origin_world_machine_awakened_tooltip"
+	traits = {
+		trait = oxr_mdlc_trait_world_machine_automaton
+		trait = trait_oxr_mdlc_pc_auto_world_specialist_preference
+	}
+}
+
+## UPCOMING ##
+# oxr_mdlc_origin_trashbots = {
+#     # comedic bots that sling garbage, hoard it, make trash deals, and produce questionable strategic resources
+#     is_origin = yes
+#     playable = { always = no }
+#     possible = { always = no }
+#     modifier = { }
+#     traits = {
+#         # oxr_mdlc_trait_clankerbot
+#     }
+# }
+# oxr_mdlc_origin_return_to_void = {
+#     # dissassemble the galaxy, concentrate matter into singularity
+#     is_origin = yes
+#     playable = { always = no }
+#     possible = { always = no }
+#     modifier = { }
+#     traits = {
+#         # oxr_mdlc_trait_void_servant
+#     }
+# }
+# oxr_mdlc_origin_replicators = {
+#     # pops are the primary construction resource for all things
+#     is_origin = yes
+#     playable = { always = no }
+#     possible = { always = no }
+#     modifier = {
+#         # none really
+#     }
+#     traits = {
+#         # oxr_mdlc_trait_origin_replicators
+#     }
+# }
+# oxr_mdlc_origin_deepsea_miners = {
+#     # pre-ftl aquatic machines with ocean planet exploration mechanic & backstory
+#     is_origin = yes
+#     playable = { always = no }
+#     possible = { always = no }
+#     modifier = { }
+#     traits = {
+#         # oxr_mdlc_trait_deepsea_minerbots
+#     }
+# }
+# oxr_mdlc_origin_clankerbots = {
+#     # (pre-ftl?) tech-challenged warbots that barely made it to space, they'll be lucky to make it to mid-game
+#     is_origin = yes
+#     playable = { always = no }
+#     possible = { always = no }
+#     modifier = {
+#         # empire research mult = -0.75
+#         # kinetic weapon damage mult = 0.5
+#         # explosive weapon damage mult = 0.5
+#         # ship armor hp mult = 0.5
+#     }
+#     traits = {
+#         # oxr_mdlc_trait_clankerbot
+#     }
+# }
+# oxr_mdlc_origin_biomech_integrators = {
+#     # catalytic bio-engineers harnessing space fauna
+#     is_origin = yes
+#     playable = { always = no }
+#     possible = { always = no }
+#     modifier = {
+#         # none really
+#     }
+#     traits = {
+#         # oxr_mdlc_trait_origin_replicators
+#     }
+# }

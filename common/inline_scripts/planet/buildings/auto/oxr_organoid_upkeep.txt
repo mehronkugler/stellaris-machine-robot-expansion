@@ -1,0 +1,31 @@
+# Goes in "resources" block
+upkeep = {
+	trigger = {
+		has_active_building = oxr_mdlc_building_auto_organoid_research_center
+		owner = { has_technology = oxr_mdlc_tech_organoid_1 }
+		exists = owner
+	}
+	energy = -1.5
+	food = 1
+	mult = $TIER$
+}
+upkeep = {
+	trigger = {
+		has_active_building = oxr_mdlc_building_auto_organoid_research_center
+		owner = { has_technology = oxr_mdlc_tech_organoid_2 }
+		exists = owner
+	}
+	energy = -1.5
+	food = 1
+	mult = $TIER$
+}
+upkeep = {
+	trigger = {
+		has_active_building = oxr_mdlc_building_auto_organoid_research_center
+		owner = { has_technology = oxr_mdlc_tech_organoid_3 }
+		exists = owner
+	}
+	energy = -2
+	food = 2
+	mult = $TIER$
+}

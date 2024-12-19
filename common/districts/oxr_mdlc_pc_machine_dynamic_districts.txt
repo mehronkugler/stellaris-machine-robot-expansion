@@ -1,0 +1,187 @@
+# oxr_mdlc_pc_machine_auto_dynamic_district = {
+#     base_buildtime = @xvcv_mdlc_district_time_3
+#     is_capped_by_modifier = no
+
+#     show_on_uncolonized = {
+# 		always = no
+# 	}
+# 	potential = {
+# 		exists = owner
+# 		owner = {
+# 			oxr_mdlc_planet_owner_can_build_wm_districts = yes
+#             oxr_mdlc_debug_mode_on = yes
+# 		}
+# 		uses_district_set = oxr_mdlc_pc_machine_dynamic_district_set
+# 	}
+#     conversion_ratio = 0.5
+#     convert_to = {
+#         district_city
+#     }
+#     allow = {
+#         owner = {
+#             oxr_mdlc_planet_owner_can_build_wm_districts = yes
+#         }
+#     }
+
+#     # The principle is "decent but not great" output
+#     # because these are "non-specialized" districts, unlike dedicated districts
+#     # This district will produce 20 of something
+#     # upkeep is 1/4 of output
+#     resources = {
+#         category = xvcv_mdlc_world_machines_districts
+#         cost = {
+#             minerals = @xvcv_mdlc_district_cost_3
+#             alloys = 10
+#         }
+#         upkeep = {
+#             energy = 5
+#             volatile_motes = 0.25
+#             exotic_gases = 0.25
+#             rare_crystals = 0.25
+#         }
+
+#         produces = {
+#             trigger = {
+#                 OR = {
+#                     has_designation = col_default_machine
+#                     has_designation = col_default
+#                 }
+#             }
+#             food = 2
+#             alloys = 2
+#             consumer_goods = 2
+#             minerals = 2
+#             energy = 2
+#             unity = 2
+#             physics_research = 2
+#             society_research = 2
+#             engineering_research = 2
+#         }
+#         # col_city
+#         # col_mining
+#         produces = {
+#             trigger = { has_designation = col_mining }
+#             minerals = 20
+#         }
+#         # col_farming
+#         produces = {
+#             trigger = { has_designation = col_farming }
+#             food = 20
+#         }
+#         # col_generator
+#         produces = {
+#             trigger = { has_designation = col_generator }
+#             energy = 25
+#         }
+#         # col_nexus
+#         # col_industrial
+#         produces = {
+#             trigger = { has_designation = col_industrial }
+#             alloys = 10
+#             consumer_goods = 10
+#         }
+#         upkeep = {
+#             trigger = {
+#                 has_designation = col_industrial
+#                 owner = { is_catalytic_empire = no }
+#             }
+#             minerals = 30
+#         }
+#         upkeep = {
+#             trigger = {
+#                 has_designation = col_industrial
+#                 owner = { is_catalytic_empire = yes }
+#             }
+#             minerals = 10
+#             food = 24
+#         }
+#         # col_foundry
+#         produces = {
+#             trigger = { has_designation = col_foundry }
+#             alloys = 20
+#         }
+#         upkeep = {
+#             trigger = {
+#                 has_designation = col_industrial
+#                 owner = { is_catalytic_empire = no }
+#             }
+#             minerals = 40
+#         }
+#         upkeep = {
+#             trigger = {
+#                 has_designation = col_industrial
+#                 owner = { is_catalytic_empire = yes }
+#             }
+#             food = 48
+#         }
+#         # col_factory
+#         produces = {
+#             trigger = { has_designation = col_factory }
+#             consumer_goods = 20
+#         }
+#         upkeep = {
+#             trigger = { has_designation = col_factory }
+#             minerals = 20
+#         }
+#         # col_bureau and all unity designations
+#         produces = {
+#             trigger = {
+#                 OR = {
+#                     has_designation = col_bureau
+#                     has_designation = col_bureau_spiritualist
+#                     has_designation = col_bureau_machine
+#                 }
+#             }
+#             unity = 20
+#         }
+#         # col_refinery
+#         produces = {
+#             trigger = { has_designation = col_refinery }
+#             rare_crystals = 8
+#             exotic_gases = 8
+#             volatile_motes = 8
+#         }
+#         upkeep = {
+#             trigger = { has_designation = col_refinery }
+#             minerals = 100  # above par with auto ecu district
+#         }
+#         # col_research
+#         produces = {
+#             trigger = { has_designation = col_research }
+#             society_research = 20
+#             physics_research = 20
+#             engineering_research = 20
+#         }
+#         upkeep = {
+#             trigger = { has_designation = col_research }
+#             energy = 30
+#         }
+#         # col_fortress
+#         # see triggered country modifiers
+#     }
+
+#     triggered_country_modifier = {
+#         potential = {
+#             planet = {
+#                 has_designation = col_default
+#             }
+#         }
+#         modifier = {
+# 			country_naval_cap_add = 2  # base of 4, times 2 jobs
+# 		}
+#     }
+#     triggered_country_modifier = {
+#         potential = {
+#             planet = { has_designation = col_fortress }
+#         }
+#         modifier = {
+# 			country_naval_cap_add = 20  # 1/3 of ecu naval 
+# 		}
+#     }
+#     triggered_planet_modifier = {
+#         potential = {
+#             planet = { has_designation = col_fortress }
+#         }
+# 		planet_orbital_bombardment_damage = -0.1
+#     }
+# }

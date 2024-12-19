@@ -7,3 +7,15 @@ defined_text = {
 		localization_key = oxr_mdlc_necroids_20_note
 	}
 }
+defined_text = {
+	name = "ShowCatalyticBiofuelBuildingForOrigin"
+	text = {
+		trigger = {
+			OR = {
+				has_origin = oxr_mdlc_origin_world_machine_awakened
+				has_ascension_perk = xvcv_mdlc_ap_world_machines
+			}
+		}
+		localization_key = oxr_mdlc_civic_tooltip_machine_catalytic_bio_building.wm
+	}
+}

@@ -1,0 +1,4 @@
+oxr_mdlc_multiply = {
+	base = $OUTPUT$
+	mult = $BY$
+}

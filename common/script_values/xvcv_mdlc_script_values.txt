@@ -86,12 +86,28 @@ count_world_machines_districts_of_type = {
 	complex_trigger_modifier = {
 		trigger = num_districts
 		parameters = {
-			limit = {
-				type = $DISTRICT_NAME$
-			}
+			type = $DISTRICT_NAME$
 		}
 		mode = add
 	}
+}
+
+count_world_machines_districts_not_cooling = {
+	base = 0
+	complex_trigger_modifier = {
+		trigger = num_districts
+		parameters = { 
+			type = any
+		}
+		mode = add
+	}
+	subtract = value:count_world_machines_districts_of_type|DISTRICT_NAME|xvcv_mdlc_common_district_cooling|
+}
+
+collected_world_machine_bonuses = { #Because auto worlds share same category as jobs, world_machine upkeep/produces mults won't apply to them. This is a substitute.
+	base = 0
+	add =  value:scripted_modifier_mult|MODIFIER|rikk_mdlc_world_machine_districts_base_production|
+	mult = value:scripted_modifier_mult|MODIFIER|xvcv_mdlc_world_machines_industrial_districts_produces_mult|
 }
 
 count_cat_1_mamp_on_planet = {
@@ -120,4 +136,9 @@ count_non_mamp_non_bio_pops_on_planet = {
 		}
 		mode = add
 	}
+}
+
+oxr_mdlc_count_wmc_max = {
+	base = 0
+	add = modifier:country_resource_max_oxr_mdlc_world_machine_core_add
 }

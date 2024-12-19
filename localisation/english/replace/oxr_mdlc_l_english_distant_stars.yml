@@ -5,3 +5,5 @@
  distar.25.b.tooltip:0 "§B4 £pops£ Robot Pops§! have been found on [From.GetName]"
  distar.26.a.tooltip:0 "Gain §B£pops£ Robot Pops§! on [Root.GetName]."
  distar.26.d.tooltip:0 "Displace the §B£pops£ Robot Pops§! on [Root.GetName]."
+ # spelling error in base game
+ distar.162.a.machi:1 "[Root.GetAdj] units performed repairs to your systems."

@@ -3,12 +3,13 @@ xvcv_mdlc_pc_machine_cpu_district_physics = {
 	is_capped_by_modifier = no
 
 	show_on_uncolonized = {
-		exists = from
-		from = { has_ascension_perk = xvcv_mdlc_ap_world_machines }
+		exists = owner
+		owner = { oxr_mdlc_planet_owner_can_build_wm_districts = yes }
 		uses_district_set = xvcv_mdlc_pc_machine_cpu_district_set
 	}
 	potential = {
-		xvcv_mdlc_world_machines_districts_valid_trigger = yes
+		exists = owner
+		owner = { oxr_mdlc_planet_owner_can_build_wm_districts = yes }
 		uses_district_set = xvcv_mdlc_pc_machine_cpu_district_set
 	}
 
@@ -26,17 +27,32 @@ xvcv_mdlc_pc_machine_cpu_district_physics = {
 	}
 
 	resources = {
-		category = xvcv_mdlc_world_machines_districts
+		category = xvcv_mdlc_world_machines_computer_districts
+		# category = planet_researchers
 		cost = {
 			minerals = @xvcv_mdlc_district_cost_5
-			exotic_gases = 100
+			mult = value:scripted_modifier_mult|MODIFIER|rikk_mdlc_world_machine_districts_mineral_cost_add|
 		}
-		produces = { physics_research = 30 }  # was 70
+		cost = { exotic_gases = 100 }
+		produces = {
+			trigger = {
+				NOT = {
+					has_active_building = oxr_mdlc_world_machines_building_fractal_fpga
+				}
+			}
+			physics_research = @oxr_mdlc_cpu_district_base # was 70
+			mult =  value:scripted_modifier_mult|MODIFIER|rikk_mdlc_world_machine_districts_base_production|
+		}
+		inline_script = {
+			script = planet/districts/pc_cpu/oxr_auto_fpga_produces
+			CPU_DISTRICT_PRODUCES = physics_research
+		}
 		upkeep = {
-			energy = 20
+			energy = @oxr_mdlc_cpu_district_upkeep
 			exotic_gases = 1
 		}
 	}
+	inline_script = planet/districts/pc_cpu/oxr_auto_fpga_desc
 
 	ai_resource_production = {
 		physics_research = 10
@@ -49,11 +65,12 @@ xvcv_mdlc_pc_machine_cpu_district_society = {
 
 	show_on_uncolonized = {
 		exists = from
-		from = { has_ascension_perk = xvcv_mdlc_ap_world_machines }
+		owner = { oxr_mdlc_planet_owner_can_build_wm_districts = yes }
 		uses_district_set = xvcv_mdlc_pc_machine_cpu_district_set
 	}
 	potential = {
-		xvcv_mdlc_world_machines_districts_valid_trigger = yes
+		exists = owner
+		owner = { oxr_mdlc_planet_owner_can_build_wm_districts = yes }
 		uses_district_set = xvcv_mdlc_pc_machine_cpu_district_set
 	}
 
@@ -71,17 +88,28 @@ xvcv_mdlc_pc_machine_cpu_district_society = {
 	}
 
 	resources = {
-		category = xvcv_mdlc_world_machines_districts
+		category = xvcv_mdlc_world_machines_computer_districts
 		cost = {
 			minerals = @xvcv_mdlc_district_cost_5
-			exotic_gases = 100
+			mult = value:scripted_modifier_mult|MODIFIER|rikk_mdlc_world_machine_districts_mineral_cost_add|
 		}
-		produces = { society_research = 30 }  # was 70
+		cost = { exotic_gases = 100 }
+		produces = {
+			trigger = {
+				NOT = {
+					has_active_building = oxr_mdlc_world_machines_building_fractal_fpga
+				}
+			}
+			society_research = @oxr_mdlc_cpu_district_base # was 70
+			mult = value:scripted_modifier_mult|MODIFIER|rikk_mdlc_world_machine_districts_base_production|
+		}
+		inline_script = planet/districts/pc_cpu/oxr_auto_fpga_produces
 		upkeep = {
-			energy = 20
+			energy = @oxr_mdlc_cpu_district_upkeep
 			exotic_gases = 1
 		}
 	}
+	inline_script = planet/districts/pc_cpu/oxr_auto_fpga_desc
 
 	ai_resource_production = {
 		society_research = 10
@@ -94,11 +122,12 @@ xvcv_mdlc_pc_machine_cpu_district_engineering = {
 
 	show_on_uncolonized = {
 		exists = from
-		from = { has_ascension_perk = xvcv_mdlc_ap_world_machines }
+		owner = { oxr_mdlc_planet_owner_can_build_wm_districts = yes }
 		uses_district_set = xvcv_mdlc_pc_machine_cpu_district_set
 	}
 	potential = {
-		xvcv_mdlc_world_machines_districts_valid_trigger = yes
+		exists = owner
+		owner = { oxr_mdlc_planet_owner_can_build_wm_districts = yes }
 		uses_district_set = xvcv_mdlc_pc_machine_cpu_district_set
 	}
 
@@ -116,18 +145,26 @@ xvcv_mdlc_pc_machine_cpu_district_engineering = {
 	}
 
 	resources = {
-		category = xvcv_mdlc_world_machines_districts
+		category = xvcv_mdlc_world_machines_computer_districts
 		cost = {
 			minerals = @xvcv_mdlc_district_cost_5
-			exotic_gases = 100
+			mult = value:scripted_modifier_mult|MODIFIER|rikk_mdlc_world_machine_districts_mineral_cost_add|
 		}
-		produces = { engineering_research = 30 }  # was 70
+		cost = { exotic_gases = 100 }
+		produces = {
+			trigger = {
+				NOT = { has_active_building = oxr_mdlc_world_machines_building_fractal_fpga }
+			}
+			engineering_research = @oxr_mdlc_cpu_district_base # was 70
+			mult =  value:scripted_modifier_mult|MODIFIER|rikk_mdlc_world_machine_districts_base_production|
+		}
+		inline_script = planet/districts/pc_cpu/oxr_auto_fpga_produces
 		upkeep = {
-			energy = 20
+			energy = @oxr_mdlc_cpu_district_upkeep
 			exotic_gases = 1
 		}
 	}
-
+	inline_script = planet/districts/pc_cpu/oxr_auto_fpga_desc
 	ai_resource_production = {
 		engineering_research = 10
 		trigger = { always = yes }
@@ -139,11 +176,12 @@ xvcv_mdlc_pc_machine_cpu_district_decryption = {
 
 	show_on_uncolonized = {
 		exists = from
-		from = { has_ascension_perk = xvcv_mdlc_ap_world_machines }
+		owner = { oxr_mdlc_planet_owner_can_build_wm_districts = yes }
 		uses_district_set = xvcv_mdlc_pc_machine_cpu_district_set
 	}
 	potential = {
-		xvcv_mdlc_world_machines_districts_valid_trigger = yes
+		exists = owner
+		owner = { oxr_mdlc_planet_owner_can_build_wm_districts = yes }
 		uses_district_set = xvcv_mdlc_pc_machine_cpu_district_set
 	}
 
@@ -166,11 +204,12 @@ xvcv_mdlc_pc_machine_cpu_district_decryption = {
 	}
 
 	resources = {
-		category = xvcv_mdlc_world_machines_districts
+		category = xvcv_mdlc_world_machines_computer_districts
 		cost = {
 			minerals = @xvcv_mdlc_district_cost_5
-			exotic_gases = 100
+			mult = value:scripted_modifier_mult|MODIFIER|rikk_mdlc_world_machine_districts_mineral_cost_add|
 		}
+		cost = { rare_crystals = 100 }
 		upkeep = {
 			energy = 15
 			rare_crystals = 1

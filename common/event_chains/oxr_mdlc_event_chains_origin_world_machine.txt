@@ -1,0 +1,74 @@
+oxr_mdlc_origin_wm_chain_info_basic = {
+	icon = "gfx/interface/icons/situation_log/situation_log_modification.dds"
+	picture = GFX_evt_ancient_databank
+}
+
+oxr_mdlc_origin_wm_chain_clear_blockers = {
+	icon = "gfx/interface/icons/situation_log/situation_log_planet.dds"
+	picture = GFX_evt_physics_cache
+	counter = {
+		oxr_mdlc_origin_wm_blockers = {
+			max = 6
+		}
+	}
+}
+
+oxr_mdlc_origin_wm_chain_clear_blockers_2 = {
+	icon = "gfx/interface/icons/situation_log/situation_log_planet.dds"
+	picture = GFX_evt_physics_cache
+	counter = {
+		oxr_mdlc_origin_wm_blockers = {
+			max = 50
+		}
+	}
+}
+
+oxr_mdlc_origin_wm_chain_gather_insights = {
+	icon = "gfx/interface/icons/situation_log/situation_log_engineering.dds"
+	picture = GFX_evt_rare_tech_cache
+	counter = {
+		oxr_mdlc_origin_wm_core_insights = {
+			max = 8
+		}
+	}
+}
+
+oxr_mdlc_origin_wm_chain_our_origins = {
+	icon = "gfx/interface/icons/situation_log/situation_log_modification.dds"
+	picture = GFX_evt_fleet_from_surface
+}
+
+oxr_mdlc_origin_wm_chain_deploy_world_cores = {
+	icon = "gfx/interface/icons/situation_log/situation_log_scanning_beam.dds"
+	picture = GFX_evt_star_chart
+	counter = {
+		oxr_mdlc_origin_wm_starting_cores_deployed = {
+			max = 2
+		}
+	}
+}
+
+oxr_mdlc_origin_wm_chain_empire_data = {
+	icon = "gfx/interface/icons/situation_log/situation_log_balance.dds"
+	picture = GFX_evt_strategic_resources
+}
+
+oxr_mdlc_origin_wm_chain_geologic_upgrade_tree = {
+	icon = "gfx/interface/icons/situation_log/situation_log_physics.dds"
+	picture = GFX_evt_oxr_mdlc_wm_expansion
+}
+
+oxr_mdlc_origin_wm_t3_worlds_chain = {
+	icon = "gfx/interface/icons/situation_log/situation_log_planet.dds"
+	picture = GFX_evt_oxr_mdlc_wm_t3_worlds_start
+}
+
+oxr_mdlc_origin_wm_starting_directives = {
+	icon = "gfx/interface/icons/situation_log/situation_log_main_quest.dds"
+	picture = GFX_evt_fleet_from_surface
+}
+
+oxr_mdlc_origin_wm_lore_databank = {
+	icon = "gfx/interface/icons/situation_log/situation_log_modification.dds"
+	picture = GFX_evt_ancient_databank
+}

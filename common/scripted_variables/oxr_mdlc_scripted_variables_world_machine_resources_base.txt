@@ -1,0 +1,87 @@
+# JOB STUFF. Vanilla values for reference in WM maths
+# Complex drone energy upkeep base = 1
+# simple drone energy upkeep base = 1
+@oxr_mdlc_wm_base_miner_output = 4
+@oxr_mdlc_wm_base_technician_output = 8  # base 6 + robot empire 2
+@oxr_mdlc_wm_base_farmer_output = 5  # base 6 minus 1 robot empire = 5
+@oxr_mdlc_wm_base_crystal_miner_output = 2  # upkeep 1 energy
+@oxr_mdlc_wm_base_gas_extractor_output = 2
+@oxr_mdlc_wm_base_mote_harvester_output = 2
+@oxr_mdlc_wm_base_soldier_naval_cap = 4  # naval cap
+@oxr_mdlc_wm_base_soldier_armies_add = 3
+@oxr_mdlc_wm_base_soldier_stability_add = 0.25
+@oxr_mdlc_wm_base_coordinator_output = 4
+@oxr_mdlc_wm_base_calculator_output = 3;
+@oxr_mdlc_wm_base_calculator_upkeep = 4  # energy
+@oxr_mdlc_wm_base_artisan_output = 10  # goods
+@oxr_mdlc_wm_base_artisan_upkeep = 10  # minerals
+@oxr_mdlc_wm_base_fabricator_output = 4  # alloys
+@oxr_mdlc_wm_base_fabricator_upkeep = 8
+@oxr_mdlc_wm_base_catalytic_output = 5 #
+@oxr_mdlc_wm_base_catalytic_upkeep_food = 12
+@oxr_mdlc_wm_base_chemist_drone_output = 2
+@oxr_mdlc_wm_base_chemist_drone_upkeep = 10  # minerals
+# same for translucer and gas refiner
+@oxr_mdlc_wm_base_patrol_drone_armies_add = 2
+# planet_crime_no_happiness_add = -20
+@oxr_mdlc_wm_base_maintenance_drone_output = 1
+# @oxr_mdlc_wm_base_astral_output
+# produces = {
+# 	physics_research = 5
+# 	engineering_research = 1
+# 	society_research = 1
+# 	astral_threads = 0.3
+# }
+# oxr_mdlc_wm_base_astral_upkeep = 2 consumer goods
+
+### AUTO-DISTRICT BASE PRODUCTION VALUES
+# These are all multiplied by 2
+@oxr_mdlc_auto_generator_base = 16  # was 20
+@oxr_mdlc_auto_generator_upkeep = 2
+@oxr_mdlc_auto_mining_base = 12
+@oxr_mdlc_auto_farming_base = 10    # was 14
+@oxr_mdlc_auto_industrial_alloys_base = 8  # 4 alloys : 8 minerals
+@oxr_mdlc_auto_industrial_alloys_upkeep = 16
+@oxr_mdlc_auto_industrial_catalytic_base = 10  # 5 alloys: 12 minerals
+@oxr_mdlc_auto_industrial_catalytic_upkeep = 24
+@oxr_mdlc_auto_industrial_factory_base = 20
+@oxr_mdlc_auto_industrial_factory_upkeep = 20
+@oxr_mdlc_auto_industrial_foundry_base = 8
+
+## ECU-INDUSTRIAL VALUES
+@oxr_mdlc_ecu_industrial_alloys_base = 60 	  # alloys
+@oxr_mdlc_ecu_industrial_alloys_upkeep = 60  # minerals. should be 120 (1:2)
+@oxr_mdlc_ecu_industrial_catalytic_base = 60
+@oxr_mdlc_ecu_industrial_catalytic_upkeep = 90  # should be 144 (5:12)
+@oxr_mdlc_ecu_goods_base = 120
+@oxr_mdlc_ecu_goods_upkeep = 60  # should be 120 (1:1)
+
+## CPU district values
+# research bld is 3:4 production/upkeep
+# district is 5:3
+@oxr_mdlc_cpu_district_base = 60
+@oxr_mdlc_cpu_district_upkeep = 32  # upkeep is 60% of production
+
+## AUTO-RINGWORLD VALUES
+@oxr_mdlc_auto_ringworld_generator_output = 80
+@oxr_mdlc_auto_ringworld_generator_upkeep = 10
+@oxr_mdlc_auto_ringworld_foundry_output = 40 # was 60
+@oxr_mdlc_auto_ringworld_foundry_catalytic_output = 50
+@oxr_mdlc_auto_ringworld_foundry_upkeep = 80
+@oxr_mdlc_auto_ringworld_foundry_catalytic_upkeep = 120
+# for "not foundry, not factory" designation
+@oxr_mdlc_auto_ringworld_foundry_output_half = 20
+@oxr_mdlc_auto_ringworld_foundry_catalytic_output_half = 25
+@oxr_mdlc_auto_ringworld_foundry_upkeep_half = 40
+@oxr_mdlc_auto_ringworld_foundry_catalytic_upkeep_half = 60
+@oxr_mdlc_auto_ringworld_industrial_goods = 100
+@oxr_mdlc_auto_ringworld_industrial_goods_upkeep = 100
+@oxr_mdlc_auto_ringworld_industrial_goods_produces_5x = 50
+@oxr_mdlc_auto_ringworld_industrial_goods_upkeep_5x = 50
+
+## Copy from vanilla
+@rw_cost = 1000
+@rw_cost_sr = 50
+@rw_maintenance = 5
+@rw_maintenance_sr = 2
+@rw_district_buildtime = 360

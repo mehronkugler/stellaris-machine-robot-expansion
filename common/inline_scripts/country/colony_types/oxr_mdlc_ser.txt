@@ -1,0 +1,9 @@
+potential = {
+	exists = owner
+	is_capital = no
+	owner = { oxr_mdlc_planet_owner_can_build_wm_districts = yes }
+	uses_district_set = xvcv_mdlc_pc_machine_ser_district_set
+}
+weight_modifier = {
+	base = 20000
+}

@@ -1,0 +1,493 @@
+# time
+@oxr_mdlc_deposit_easy_blocker_time = 180
+@oxr_mdlc_deposit_normal_time = 400
+@oxr_mdlc_deposit_rare_blocker_time = 900
+# costs
+@oxr_mdlc_deposit_easy_blocker_cost = 650
+@oxr_mdlc_deposit_normal_cost = 1000
+@oxr_mdlc_deposit_rare_blocker_cost = 1400
+
+# block generator
+oxr_mdlc_d_world_machine_collapsed_charge_controller = {
+	time = @oxr_mdlc_deposit_easy_blocker_time
+
+	# is_for_colonizable = yes
+	category = oxr_mdlc_deposit_cat_blockers_world_machine
+
+	resources = {
+		category = oxr_mdlc_deposit_blockers_world_machine
+		cost = {
+			energy = 1000
+		}
+	}
+	potential = {
+		planet_size >= 10
+	}
+	planet_modifier = {
+		# district_generator_max = -2
+		planet_max_districts_add = -1
+		planet_max_buildings_add = -1
+		# planet_xvcv_mdlc_pc_machine_auto_district_generator_build_speed_mult = -0.1
+	}
+
+	inline_script = deposits/ai_weight_natural_blocker
+
+	prerequisites = { "oxr_mdlc_tech_world_machine_planetary_proficiency" }
+	on_cleared = {
+		hidden_effect = {
+			owner = {
+				fire_on_action = { on_action = on_world_machine_blocker_cleared }
+			}
+			fire_on_action = { on_action = on_world_machine_planet_blocker_cleared }
+		}
+	}
+}
+# Block mining
+oxr_mdlc_d_world_machine_flooded_borehole = {
+	time = @oxr_mdlc_deposit_easy_blocker_time
+
+	# is_for_colonizable = yes
+	category = oxr_mdlc_deposit_cat_blockers_world_machine
+
+	resources = {
+		category = oxr_mdlc_deposit_blockers_world_machine
+		cost = {
+			energy = 1000
+		}
+	}
+
+	potential = {
+		planet_size >= 5
+	}
+	planet_modifier = {
+		# xvcv_mdlc_pc_machine_auto_district_mining_max = -2
+		planet_max_districts_add = -1
+	}
+	inline_script = deposits/ai_weight_natural_blocker
+	prerequisites = { "oxr_mdlc_tech_world_machine_planetary_proficiency" }
+	on_cleared = {
+		hidden_effect = {
+			owner = {
+				fire_on_action = { on_action = on_world_machine_blocker_cleared }
+			}
+			fire_on_action = { on_action = on_world_machine_planet_blocker_cleared }
+		}
+	}
+}
+# block food
+oxr_mdlc_d_world_machine_fossilized_nutrient_bog = {
+	time = @oxr_mdlc_deposit_easy_blocker_time
+
+	# is_for_colonizable = yes
+	category = oxr_mdlc_deposit_cat_blockers_world_machine
+
+	resources = {
+		category = oxr_mdlc_deposit_blockers_world_machine
+		cost = {
+			energy = 1000
+		}
+	}
+
+	potential = {
+		planet_size >= 5
+	}
+	planet_modifier = {
+		# xvcv_mdlc_pc_machine_auto_district_farming_max = -2
+		planet_max_districts_add = -1
+		planet_max_buildings_add = -1
+	}
+	inline_script = deposits/ai_weight_natural_blocker
+	prerequisites = { "oxr_mdlc_tech_world_machine_planetary_proficiency" }
+	on_cleared = {
+		hidden_effect = {
+			owner = {
+				fire_on_action = { on_action = on_world_machine_blocker_cleared }
+			}
+			fire_on_action = { on_action = on_world_machine_planet_blocker_cleared }
+		}
+	}
+}
+# alloy / goods
+oxr_mdlc_d_world_machine_clogged_furnace_discharge = {
+	time = @oxr_mdlc_deposit_easy_blocker_time
+
+	# is_for_colonizable = yes
+	category = oxr_mdlc_deposit_cat_blockers_world_machine
+
+	resources = {
+		category = oxr_mdlc_deposit_blockers_world_machine
+		cost = {
+			energy = 1000
+		}
+	}
+
+	potential = {
+		planet_size >= 5
+	}
+	planet_modifier = {
+		# xvcv_mdlc_pc_machine_auto_district_industrial_max = -2
+		planet_max_districts_add = -1
+		planet_max_buildings_add = -1
+	}
+	inline_script = deposits/ai_weight_natural_blocker
+	prerequisites = { "oxr_mdlc_tech_world_machine_planetary_proficiency" }
+	on_cleared = {
+		hidden_effect = {
+			owner = {
+				fire_on_action = { on_action = on_world_machine_blocker_cleared }
+			}
+			fire_on_action = { on_action = on_world_machine_planet_blocker_cleared }
+		}
+	}
+}
+# nexus
+oxr_mdlc_d_world_machine_irradiated_drone_storage = {
+	time = @oxr_mdlc_deposit_easy_blocker_time
+
+	# is_for_colonizable = yes
+	category = oxr_mdlc_deposit_cat_blockers_world_machine
+
+	resources = {
+		category = oxr_mdlc_deposit_blockers_world_machine
+		cost = {
+			energy = 1000
+		}
+	}
+
+	potential = {
+		planet_size >= 5
+	}
+	planet_modifier = {
+		# xvcv_mdlc_pc_machine_auto_district_nexus_max = -2
+		# xvcv_mdlc_pc_machine_auto_district_city_max = -2
+		planet_max_districts_add = -1
+		planet_max_buildings_add = -1
+	}
+	inline_script = deposits/ai_weight_natural_blocker
+	prerequisites = { "oxr_mdlc_tech_world_machine_planetary_proficiency" }
+	on_cleared = {
+		hidden_effect = {
+			owner = {
+				fire_on_action = { on_action = on_world_machine_blocker_cleared }
+			}
+			fire_on_action = { on_action = on_world_machine_planet_blocker_cleared }
+		}
+	}
+}
+
+# All the below blockers also reduce max building cap
+
+# generic max district
+oxr_mdlc_d_world_machine_meteor_shower_impacts = {
+	time = @oxr_mdlc_deposit_normal_time
+
+	# is_for_colonizable = yes
+	category = oxr_mdlc_deposit_cat_blockers_world_machine
+
+	resources = {
+		category = oxr_mdlc_deposit_blockers_world_machine
+		cost = {
+			energy = 1000
+		}
+	}
+	on_cleared = {
+		owner = {
+			add_resource = { minerals = 300 }
+			add_resource = { alloys = 200 }
+			add_resource = { rare_crystals = 50 }
+			add_resource = { volatile_motes = 50 }
+		}
+		hidden_effect = {
+			owner = {
+				fire_on_action = { on_action = on_world_machine_blocker_cleared }
+			}
+			fire_on_action = { on_action = on_world_machine_planet_blocker_cleared }
+		}
+	}
+
+	potential = {
+		planet_size >= 5
+	}
+	planet_modifier = {
+		# xvcv_mdlc_pc_machine_auto_district_nexus_max = -2
+		# xvcv_mdlc_pc_machine_auto_district_city_max = -2
+		planet_max_districts_add = -1
+		planet_max_buildings_add = -1
+	}
+	inline_script = deposits/ai_weight_natural_blocker
+	prerequisites = { "oxr_mdlc_tech_world_machine_planetary_proficiency" }
+}
+# generic max district
+oxr_mdlc_d_world_machine_collapsed_transportation_hubs = {
+	time = @oxr_mdlc_deposit_normal_time
+
+	# is_for_colonizable = yes
+	category = oxr_mdlc_deposit_cat_blockers_world_machine
+
+	resources = {
+		category = oxr_mdlc_deposit_blockers_world_machine
+		cost = {
+			energy = 1000
+		}
+	}
+	on_cleared = {
+		owner = {
+			add_resource = { minerals = 300 }
+			add_resource = { alloys = 200 }
+			add_resource = { rare_crystals = 10 }
+			add_resource = { volatile_motes = 10 }
+			add_resource = { exotic_gases = 10 }
+		}
+		hidden_effect = {
+			owner = {
+				fire_on_action = { on_action = on_world_machine_blocker_cleared }
+			}
+			fire_on_action = { on_action = on_world_machine_planet_blocker_cleared }
+		}
+	}
+
+	potential = {
+		planet_size >= 5
+	}
+	planet_modifier = {
+		# xvcv_mdlc_pc_machine_auto_district_nexus_max = -2
+		# xvcv_mdlc_pc_machine_auto_district_city_max = -2
+		planet_max_districts_add = -1
+		planet_max_buildings_add = -1
+	}
+	inline_script = deposits/ai_weight_natural_blocker
+	prerequisites = { "oxr_mdlc_tech_world_machine_planetary_proficiency" }
+}
+# generic max district
+oxr_mdlc_d_world_machine_exposed_structural_chasms = {
+	time = @oxr_mdlc_deposit_normal_time
+
+	# is_for_colonizable = yes
+	category = oxr_mdlc_deposit_cat_blockers_world_machine
+
+	resources = {
+		category = oxr_mdlc_deposit_blockers_world_machine
+		cost = {
+			energy = 1000
+		}
+	}
+
+	potential = {
+		planet_size >= 5
+	}
+	planet_modifier = {
+		# xvcv_mdlc_pc_machine_auto_district_nexus_max = -2
+		# xvcv_mdlc_pc_machine_auto_district_city_max = -2
+		planet_max_districts_add = -1
+		planet_max_buildings_add = -1
+	}
+	inline_script = deposits/ai_weight_natural_blocker
+	prerequisites = { "oxr_mdlc_tech_world_machine_planetary_proficiency" }
+	on_cleared = {
+		hidden_effect = {
+			owner = {
+				fire_on_action = { on_action = on_world_machine_blocker_cleared }
+			}
+			fire_on_action = { on_action = on_world_machine_planet_blocker_cleared }
+		}
+	}
+}
+# generic max district
+oxr_mdlc_d_world_machine_dense_geologic_mass = {
+	time = @oxr_mdlc_deposit_normal_time
+
+	# is_for_colonizable = yes
+	category = oxr_mdlc_deposit_cat_blockers_world_machine
+
+	resources = {
+		category = oxr_mdlc_deposit_blockers_world_machine
+		cost = {
+			energy = @oxr_mdlc_deposit_normal_cost
+		}
+	}
+	on_cleared = {
+		owner = {
+			add_resource = { minerals = 800 }
+		}
+		hidden_effect = {
+			owner = {
+				fire_on_action = { on_action = on_world_machine_blocker_cleared }
+			}
+			fire_on_action = { on_action = on_world_machine_planet_blocker_cleared }
+		}
+	}
+
+	potential = {
+		planet_size >= 5
+	}
+	planet_modifier = {
+		# xvcv_mdlc_pc_machine_auto_district_nexus_max = -2
+		# xvcv_mdlc_pc_machine_auto_district_city_max = -2
+		planet_max_districts_add = -1
+		planet_max_buildings_add = -1
+	}
+	inline_script = deposits/ai_weight_natural_blocker
+	prerequisites = { "oxr_mdlc_tech_world_machine_planetary_proficiency" }
+
+}
+
+# Insight / rare
+oxr_mdlc_d_world_machine_offline_data_routers = {
+	time = @oxr_mdlc_deposit_rare_blocker_time
+	# is_for_colonizable = yes
+	category = deposit_cat_rare_blocker
+
+	resources = {
+		category = oxr_mdlc_deposit_blockers_world_machine
+		cost = {
+			energy = 1000
+		}
+	}
+	on_cleared = {
+		owner = {
+			add_resource = { minerals = 300 }
+			add_resource = { alloys = 200 }
+			add_resource = { rare_crystals = 50 }
+			add_resource = { volatile_motes = 50 }
+		}
+		hidden_effect = {
+			owner = {
+				fire_on_action = { on_action = on_world_machine_insight_blocker_cleared }
+			}
+			fire_on_action = { on_action = on_world_machine_planet_insight_blocker_cleared }
+		}
+	}
+
+	potential = {
+		planet_size >= 5
+	}
+	planet_modifier = {
+		# xvcv_mdlc_pc_machine_auto_district_nexus_max = -2
+		# xvcv_mdlc_pc_machine_auto_district_city_max = -2
+		planet_max_districts_add = -1
+		planet_max_buildings_add = -1
+	}
+	inline_script = deposits/ai_weight_natural_blocker
+	prerequisites = { "oxr_mdlc_tech_world_machine_planetary_proficiency" }
+}
+# Insight / rare
+oxr_mdlc_d_world_machine_damaged_data_cold_storages = {
+	time = @oxr_mdlc_deposit_rare_blocker_time
+
+	# is_for_colonizable = yes
+	category = deposit_cat_rare_blocker
+
+	resources = {
+		category = oxr_mdlc_deposit_blockers_world_machine
+		cost = {
+			energy = 1000
+		}
+	}
+	on_cleared = {
+		owner = {
+			add_resource = { minerals = 300 }
+			add_resource = { alloys = 200 }
+			add_resource = { rare_crystals = 50 }
+			add_resource = { volatile_motes = 50 }
+		}
+		hidden_effect = {
+			owner = {
+				fire_on_action = { on_action = on_world_machine_insight_blocker_cleared }
+			}
+			fire_on_action = { on_action = on_world_machine_planet_insight_blocker_cleared }
+		}
+	}
+
+	potential = {
+		planet_size >= 5
+	}
+	planet_modifier = {
+		# xvcv_mdlc_pc_machine_auto_district_nexus_max = -2
+		# xvcv_mdlc_pc_machine_auto_district_city_max = -2
+		planet_max_districts_add = -1
+		planet_max_buildings_add = -1
+	}
+	inline_script = deposits/ai_weight_natural_blocker
+	prerequisites = { "oxr_mdlc_tech_world_machine_planetary_proficiency" }
+
+}
+# Insight / rare
+oxr_mdlc_d_world_machine_frozen_waterway_pistons = {
+	time = @oxr_mdlc_deposit_rare_blocker_time
+
+	# is_for_colonizable = yes
+	category = deposit_cat_rare_blocker
+
+	resources = {
+		category = oxr_mdlc_deposit_blockers_world_machine
+		cost = {
+			energy = 1000
+		}
+	}
+	on_cleared = {
+		owner = {
+			add_resource = { minerals = 300 }
+			add_resource = { alloys = 200 }
+			add_resource = { rare_crystals = 50 }
+			add_resource = { volatile_motes = 50 }
+		}
+		hidden_effect = {
+			owner = {
+				fire_on_action = { on_action = on_world_machine_insight_blocker_cleared }
+			}
+			fire_on_action = { on_action = on_world_machine_planet_insight_blocker_cleared }
+		}
+	}
+
+	potential = {
+		planet_size >= 5
+	}
+	planet_modifier = {
+		# xvcv_mdlc_pc_machine_auto_district_nexus_max = -2
+		# xvcv_mdlc_pc_machine_auto_district_city_max = -2
+		planet_max_districts_add = -1
+		planet_max_buildings_add = -1
+	}
+	inline_script = deposits/ai_weight_natural_blocker
+	prerequisites = { "oxr_mdlc_tech_world_machine_planetary_proficiency" }
+}
+# Insight / rare
+oxr_mdlc_d_world_machine_incomplete_construction_bays = {
+	time = @oxr_mdlc_deposit_rare_blocker_time
+
+	# is_for_colonizable = yes
+	category = deposit_cat_rare_blocker
+
+	resources = {
+		category = oxr_mdlc_deposit_blockers_world_machine
+		cost = {
+			energy = 1000
+		}
+	}
+	on_cleared = {
+		owner = {
+			add_resource = { minerals = 300 }
+			add_resource = { alloys = 200 }
+			add_resource = { rare_crystals = 50 }
+			add_resource = { volatile_motes = 50 }
+		}
+		hidden_effect = {
+			owner = {
+				fire_on_action = { on_action = on_world_machine_insight_blocker_cleared }
+			}
+			fire_on_action = { on_action = on_world_machine_planet_insight_blocker_cleared }
+		}
+	}
+
+	potential = {
+		planet_size >= 5
+	}
+	planet_modifier = {
+		# xvcv_mdlc_pc_machine_auto_district_nexus_max = -2
+		# xvcv_mdlc_pc_machine_auto_district_city_max = -2
+		planet_max_districts_add = -1
+		planet_max_buildings_add = -1
+	}
+	inline_script = deposits/ai_weight_natural_blocker
+	prerequisites = { "oxr_mdlc_tech_world_machine_planetary_proficiency" }
+}

@@ -1,0 +1,115 @@
+# oxr_mdlc_pop_cat_mamp_frame = {
+# 	rank = 0
+# 	clothes_texture_index = 2
+# 	change_job_threshold = 1.15
+
+# 	# This is called whenever a Pop is created, moved to a different planet, or gets a new owner
+# 	assign_to_pop = {
+# 		exists = owner
+# 		owner = {
+# 			is_machine_empire = yes
+# 			has_ascension_perk = oxr_mdlc_ap_mamp
+# 		}
+# 		has_trait = oxr_mdlc_mamp_frame_base
+# 	}
+# 	weight = { weight = 5 }
+
+# 	pop_modifier = {
+# 		pop_housing_usage_base = 0
+# 		pop_amenities_usage_no_happiness_base = 1
+# 	}
+
+# 	# scope: pop to be resettled
+# 	allow_resettlement = { always = yes }
+# 	resettlement_cost = { energy = 100 }
+
+# 	resettlement_cost = {
+# 		trigger = {
+# 			owner = {
+# 				NOR = {
+# 					has_valid_civic = civic_machine_ota_updates
+# 					has_valid_civic = civic_hive_subsumed_will
+# 				}
+# 			}
+# 		}
+# 		unity = 10
+# 	}
+
+# 	# triggered_planet_modifier = {
+# 	# 	potential = {
+# 	# 		can_assemble_budding_pop = yes
+# 	# 	}
+# 	# 	planet_pop_assembly_organic_add = @plantoid_budding_rate
+# 	# 	mult = value:budding_multiplier
+# 	# }
+
+# 	# Triggered Modifiers
+# 	inline_script = "pop_categories/social_classes_triggered_modifiers_no_happiness"
+
+# 	# unemployment_resources = {
+# 	# 	category = unemployment_resources
+# 	# 	produces = {
+# 	# 		trigger = {
+# 	# 			owner = {
+# 	# 				is_hive_empire = yes
+# 	# 			}
+# 	# 		}
+# 	# 		minerals = 1
+# 	# 	}
+# 	# 	produces = {
+# 	# 		trigger = {
+# 	# 			owner = {
+# 	# 				is_hive_empire = yes
+# 	# 				has_civic = civic_hive_natural_neural_network
+# 	# 			}
+# 	# 		}
+# 	# 		physics_research = 1
+# 	# 		engineering_research = 1
+# 	# 		society_research = 1.5
+# 	# 	}
+# 	# 	upkeep = {
+# 	# 	}
+# 	# }
+
+# 	resources = {
+# 		category = pop_category_drones
+
+# 		# Regular food, mineral and energy upkeep.
+# 		inline_script = "pop_categories/regular_upkeep"
+
+# 		# Additional energy upkeep for cyborgs.
+# 		inline_script = "pop_categories/cyborg_upkeep"
+
+# 		# Additional energy upkeep for robot traits.
+# 		inline_script = "pop_categories/trait_upkeep"
+
+# 		# Exotic Metabolism Upkeep
+# 		upkeep = {
+# 			trigger = {
+# 				is_organic_species = yes
+# 				has_trait = trait_exotic_metabolism
+# 			}
+# 			exotic_gases = @exotic_metabolism
+# 		}
+
+# 		# Resource Production
+		
+# 		# Lithoid Trait Output
+# 		inline_script = "pop_categories/trait_production"
+
+# 		produces = {
+# 			trigger = {
+# 				is_organic_species = yes
+# 				has_trait = trait_inorganic_breath
+# 			}
+# 			exotic_gases = @inorganic_breath
+# 		}
+
+# 		produces = {
+# 			trigger = {
+# 				has_trait = trait_drake_scaled
+# 			}
+# 			alloys = @drake_scaled_trait_resource_production
+# 		}
+# 	}
+# }

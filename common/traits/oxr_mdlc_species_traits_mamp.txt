@@ -1,3 +1,9 @@
+@oxr_mdlc_mamp_cat_1_upkeep_sr = 0.25
+@oxr_mdlc_mamp_cat_1_multiplier = 2.5
+@oxr_mdlc_mamp_cat_2_multiplier = 5
+@oxr_mdlc_mamp_cat_3_multiplier = 10
+
+
 oxr_mdlc_mamp_frame_base = {
 	cost = 0
 	initial = no
@@ -22,6 +28,8 @@ oxr_mdlc_mamp_frame_base = {
 		species_leader_exp_gain = -1
 		# Temp fix until merger of rules patch is in
 		planet_pop_assembly_mult = -1000
+		pop_housing_usage_base = 1
+		pop_amenities_usage_base = 1
 	}
 	# Can't do ruler jobs, and other specific jobs
 	triggered_pop_modifier = {
@@ -38,7 +46,7 @@ oxr_mdlc_mamp_frame_base = {
 }
 
 oxr_mdlc_mamp_frame_1 = {
-	cost = 2
+	cost = 0
 	initial = no
 	randomized = no
 	allowed_archetypes = { OXR_MDLC_MAMP }
@@ -50,21 +58,13 @@ oxr_mdlc_mamp_frame_1 = {
 			has_ascension_perk = oxr_mdlc_ap_mamp
 		}
 	}
-	species_possible_remove = {
-		always = no
-	}
-	species_possible_merge_add = {
-		always = no
-	}
+	species_possible_remove = { always = no }
+	species_possible_merge_add = { always = no }
 
 	modifier = {
-		planet_jobs_produces_mult = 2
-		planet_jobs_upkeep_mult = 2
-		pop_housing_usage_mult = 2
-		pop_resettlement_cost_mult = 2
-		pop_amenities_usage_robotic_mult = 2
-		planet_pops_robotics_upkeep_mult = 2
-		army_defense_health_mult = 2
+		planet_jobs_produces_mult = @oxr_mdlc_mamp_cat_1_multiplier
+		planet_jobs_upkeep_mult = @oxr_mdlc_mamp_cat_1_multiplier
+		pop_resettlement_cost_mult = @oxr_mdlc_mamp_cat_1_multiplier
 	}
 	opposites = {
 		"oxr_mdlc_mamp_frame_2"
@@ -74,7 +74,7 @@ oxr_mdlc_mamp_frame_1 = {
 	assembly_score = { modifier = { add = 0.5 } } #always good
 }
 oxr_mdlc_mamp_frame_2 = {
-	cost = 3
+	cost = 0
 	initial = no
 	randomized = no
 	allowed_archetypes = { OXR_MDLC_MAMP }
@@ -97,9 +97,11 @@ oxr_mdlc_mamp_frame_2 = {
 	modifier = {
 		planet_jobs_produces_mult = 5
 		planet_jobs_upkeep_mult = 5
-		pop_housing_usage_mult = 5
+		pop_housing_usage_add = 4
+		pop_amenities_usage_add = 4
+		# pop_housing_usage_mult = 5
 		pop_resettlement_cost_mult = 5
-		pop_amenities_usage_robotic_mult = 5
+		# pop_amenities_usage_robotic_mult = 5
 		planet_pops_robotics_upkeep_mult = 5
 		army_defense_health_mult = 5
 	}
@@ -111,7 +113,7 @@ oxr_mdlc_mamp_frame_2 = {
 	assembly_score = { modifier = { add = 0.5 } } #always good
 }
 oxr_mdlc_mamp_frame_3 = {
-	cost = 4
+	cost = 0
 	initial = no
 	randomized = no
 	allowed_archetypes = { OXR_MDLC_MAMP }
@@ -134,9 +136,11 @@ oxr_mdlc_mamp_frame_3 = {
 	modifier = {
 		planet_jobs_produces_mult = 10
 		planet_jobs_upkeep_mult = 10
-		pop_housing_usage_mult = 10
+		pop_housing_usage_add = 9
+		pop_amenities_usage_add = 9
+		# pop_housing_usage_mult = 10
 		pop_resettlement_cost_mult = 10
-		pop_amenities_usage_robotic_mult = 10
+		# pop_amenities_usage_robotic_mult = 10
 		planet_pops_robotics_upkeep_mult = 10
 		army_defense_health_mult = 10
 	}
@@ -146,4 +150,199 @@ oxr_mdlc_mamp_frame_3 = {
 	}
 
 	assembly_score = { modifier = { add = 0.5 } } #always good
+}
+
+# Army / mil-spec
+oxr_mdlc_mamp_trait_delia_module = {
+	cost = 1
+	initial = no
+	randomized = no
+	allowed_archetypes = { OXR_MDLC_MAMP }
+	icon = "gfx/interface/icons/traits/xvcv_mdlc_trait_warbot.dds"
+	species_potential_add = {
+		from = {
+			is_machine_empire = yes
+			has_ascension_perk = oxr_mdlc_ap_mamp
+			has_technology = oxr_mdlc_tech_mamp_1
+		}
+		has_trait = oxr_mdlc_mamp_frame_1
+	}
+	species_possible_remove = {
+		always = yes
+	}
+	species_possible_merge_add = {
+		has_trait = oxr_mdlc_mamp_frame_1
+	}
+	modifier = {
+		army_damage_mult = 3
+		army_morale_damage_mult = 3
+		army_health = 3
+		army_defense_health_mult = 3
+		army_defense_damage_mult = 3
+		# planet_crime_add = -15
+		# planet_stability_add = 0.5
+		# country_naval_cap_add = 1
+		pop_defense_armies_add = 1
+		planet_combat_width_add = 0.25
+
+		armies_upkeep_mult = 1.5
+		planet_jobs_produces_mult = -0.5
+
+		pop_category_simple_drones_volatile_motes_upkeep_add = @oxr_mdlc_mamp_cat_1_upkeep_sr
+		pop_category_simple_drones_energy_upkeep_add = 3
+
+		pop_category_complex_drones_volatile_motes_upkeep_add = @oxr_mdlc_mamp_cat_1_upkeep_sr
+		pop_category_complex_drones_energy_upkeep_add = 3
+	}
+	# triggered_pop_modifier = {
+	# 	potential = {
+	# 		from = { is_individual_machine = yes }
+	# 	}
+	# 	pop_category_workers_volatile_motes_upkeep_add = 0.5
+	# 	pop_category_workers_energy_upkeep_add = 3
+
+	# 	pop_category_specialists_volatile_motes_upkeep_add = 0.5
+	# 	pop_category_specialists_energy_upkeep_add = 3
+	# }
+	# triggered_planet_modifier = {
+	# 	potential = {
+	# 		OR = {
+	# 			has_job = soldier
+	# 			has_job = enforcer
+	# 		}
+	# 	}
+	# 	planet_orbital_bombardment_damage = -0.05
+	# }
+	# planet_modifier = {
+	# 	planet_orbital_bombardment_damage = -0.05
+	# }
+
+	triggered_pop_modifier = {
+		potential = {
+			OR = {
+				has_job = soldier
+				has_job = enforcer
+			}
+		}
+		pop_defense_armies_add = 2
+		# country_naval_cap_add = 3
+	}
+	opposites = {
+		"oxr_mdlc_mamp_trait_aryx_module"
+		"oxr_mdlc_mamp_trait_owl1_module"
+	}
+}
+
+# Service
+oxr_mdlc_mamp_trait_aryx_module = {
+	cost = 1
+	initial = no
+	randomized = no
+	allowed_archetypes = { OXR_MDLC_MAMP }
+	icon = "gfx/interface/icons/traits/trait_robot_enhanced_memory.dds"
+	species_potential_add = {
+		from = {
+			is_machine_empire = yes
+			has_ascension_perk = oxr_mdlc_ap_mamp
+			has_technology = oxr_mdlc_tech_mamp_1
+		}
+		has_trait = oxr_mdlc_mamp_frame_1
+	}
+	species_possible_remove = { always = yes }
+	species_possible_merge_add = { has_trait = oxr_mdlc_mamp_frame_1 }
+
+	modifier = {
+		pop_job_amenities_mult = 2
+		planet_amenities_add = 16
+		planet_crime_add = -1
+		
+		pop_environment_tolerance = 0.2
+		pop_housing_usage_base = -0.5
+		pop_amenities_usage_base = -1
+		
+		pop_category_simple_drones_unity_produces_add = 6
+		pop_category_complex_drones_unity_produces_add = 6
+		country_resource_max_add = 1000
+
+		pop_category_simple_drones_rare_crystals_upkeep_add = @oxr_mdlc_mamp_cat_1_upkeep_sr
+		pop_category_simple_drones_alloys_upkeep_add = 1
+		pop_category_simple_drones_energy_upkeep_add = 3
+
+		pop_category_complex_drones_rare_crystals_upkeep_add = @oxr_mdlc_mamp_cat_1_upkeep_sr
+		pop_category_complex_drones_alloys_upkeep_add = 1
+		pop_category_complex_drones_energy_upkeep_add = 3
+	}
+
+	opposites = {
+		"oxr_mdlc_mamp_trait_delia_module"
+		"oxr_mdlc_mamp_trait_owl1_module"
+	}
+}
+
+# Science
+oxr_mdlc_mamp_trait_owl1_module = {
+	cost = 1
+	initial = no
+	randomized = no
+	allowed_archetypes = { OXR_MDLC_MAMP }
+	icon = "gfx/interface/icons/traits/oxr_mdlc_mamp_trait_owl1_module.dds"
+	species_potential_add = {
+		from = {
+			is_machine_empire = yes
+			has_ascension_perk = oxr_mdlc_ap_mamp
+			has_technology = oxr_mdlc_tech_mamp_1
+		}
+		has_trait = oxr_mdlc_mamp_frame_1
+	}
+	species_possible_remove = {
+		always = yes
+	}
+	species_possible_merge_add = {
+		has_trait = oxr_mdlc_mamp_frame_1
+	}
+	modifier = {
+		# Effectively the science output of 1 researcher
+		pop_category_simple_drones_physics_research_produces_add = 6
+		pop_category_simple_drones_society_research_produces_add = 6
+		pop_category_simple_drones_engineering_research_produces_add = 6
+		pop_category_simple_drones_sr_dark_matter_produces_add = 0.1
+		pop_category_simple_drones_exotic_gases_upkeep_add = @oxr_mdlc_mamp_cat_1_upkeep_sr
+		pop_category_simple_drones_energy_upkeep_add = 3
+
+		pop_category_complex_drones_physics_research_produces_add = 6
+		pop_category_complex_drones_society_research_produces_add = 6
+		pop_category_complex_drones_engineering_research_produces_add = 6
+		pop_category_complex_drones_sr_dark_matter_produces_add = 0.1
+		pop_category_complex_drones_energy_upkeep_add = 3
+		pop_category_complex_drones_exotic_gases_upkeep_add = @oxr_mdlc_mamp_cat_1_upkeep_sr
+
+	}
+	# triggered_pop_modifier = {
+	# 	potential = {
+	# 		from = { is_individual_machine = yes }
+	# 	}
+	# 	pop_category_workers_engineering_research_produces_add = 3
+	# 	pop_category_specialists_engineering_research_produces_add = 3
+
+	# 	pop_category_workers_alloys_upkeep_add = 1
+	# 	pop_category_workers_energy_upkeep_add = 3
+
+	# 	pop_category_specialists_alloys_upkeep_add = 1
+	# 	pop_category_specialists_energy_upkeep_add = 3
+
+	# }
+
+	# triggered_pop_modifier = {
+	# 	potential = {
+	# 		OR = {
+	# 			has_job = researcher
+	# 			has_job = dimensional_portal_researcher
+	# 		}
+	# 	}
+	# }
+
+	opposites = {
+		"oxr_mdlc_mamp_trait_delia_module"
+		"oxr_mdlc_mamp_trait_aryx_module"
+	}
 }

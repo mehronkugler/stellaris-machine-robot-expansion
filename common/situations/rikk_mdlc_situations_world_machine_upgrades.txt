@@ -1,0 +1,299 @@
+rikk_mdlc_situation_core_core = {
+	complete_icon_frame = GFX_situation_outcome_frame_green
+	complete_icon = GFX_rikk_mdlc_situation_outcome_icon_world_machine_core
+	picture = GFX_evt_sapient_AI
+	
+	desc = {
+		trigger = {
+			current_stage = stage_1
+		}
+		text = rikk_mdlc_situation_core_core_cooling_desc
+	}
+	desc = {
+		trigger = {
+			current_stage = stage_2
+		}
+		text = rikk_mdlc_situation_core_core_carving_desc
+	}
+	desc = {
+		trigger = {
+			current_stage = stage_3
+		}
+		text = rikk_mdlc_situation_core_core_implanting_desc
+	}
+	
+	stages = {
+		stage_1 = {
+			icon = GFX_situation_stage_1
+			icon_background = GFX_situation_stage_frame_green
+			end = 200
+			custom_tooltip = rikk_mdlc_stage_core_core_cooling
+		}
+	}
+	stages = {
+		stage_2 = {
+			icon = GFX_situation_stage_2
+			icon_background = GFX_situation_stage_frame_green
+			end = 800
+			custom_tooltip = rikk_mdlc_stage_core_core_carving
+			
+			on_first_enter = { 
+				situation_event = { id = rikk_mdlc_wm_upgrade_events.20 }
+				target = { planet_event = { id = rikk_mdlc_wm_upgrade_events.70 days = 1 } }
+				if = {
+					limit = {
+						owner = { has_country_flag = rikk_mdlc_core_core_shaddup }
+					}
+					target = { add_modifier = { modifier = weak_magnetic_field } }
+				}
+			}
+		}
+	}
+	stages = {
+		stage_3 = {
+			icon = GFX_situation_stage_3
+			icon_background = GFX_situation_stage_frame_green
+			end = 1000
+			custom_tooltip = rikk_mdlc_stage_core_core_implanting
+			
+			on_first_enter = { 
+				situation_event = { id = rikk_mdlc_wm_upgrade_events.30 }
+			}
+		}
+	}
+
+	category = positive
+	start_value = 0
+	on_monthly = {
+		random_events = {
+			1 = 0
+			1 = rikk_mdlc_wm_upgrade_events.23
+		}
+	}
+
+	on_progress_complete = {
+		custom_tooltip = rikk_mdlc_situation_core_core_complete
+		situation_event = { id = rikk_mdlc_wm_upgrade_events.40 }
+		target  = {
+			remove_modifier = weak_magnetic_field
+			add_deposit = rikk_mdlc_d_world_machine_core_core
+			hidden_effect = {
+				set_planet_flag = rikk_mdlc_core_core_installed
+				remove_planet_flag = rikk_mdlc_situation_core_core_active
+				remove_planet_flag = rikk_mdlc_core_core_monster
+			}
+		}
+		destroy_situation = this
+	}
+	on_abort = { 
+		target = { 
+			hidden_effect = { 
+				remove_planet_flag = rikk_mdlc_situation_core_core_active 
+				remove_planet_flag = rikk_mdlc_core_core_monster 
+				planet_event = { id = rikk_mdlc_wm_upgrade_events.70 days = 1 }
+			}
+		}
+	}
+	
+	#always active approaches
+	approach = {
+		name = rikk_mdlc_approach_abort
+		icon = GFX_situation_approach_shrug
+		icon_background = GFX_situation_approach_bg_red
+		ai_weight = {
+			base = 0
+		}
+		allow = { owner = { resource_stockpile_compare = { resource = unity value >= 1000 } } }
+		on_select = {
+			custom_tooltip = rikk_mdlc_approach_abort_effect
+			owner = { add_resource = { unity = -1000 } }
+			abort_situation = this
+		}
+	}
+	approach = {
+		name = rikk_mdlc_approach_normal
+		default = yes
+		icon = GFX_situation_approach_balance_sheet
+		icon_background = GFX_situation_approach_bg_green
+		ai_weight = { base = 10 }
+		resources = {
+			category = situations
+			upkeep = {
+				trigger = {
+					OR = {
+						current_stage = stage_2
+						current_stage = stage_3
+					}
+				}
+				energy = 50
+			}
+			produces = {
+				trigger = {
+					current_stage = stage_2
+				}
+				minerals = 200
+			}
+		}
+		on_select = {
+			custom_tooltip = rikk_mdlc_approach_normal_effect
+			target = { hidden_effect = { planet_event = { id = rikk_mdlc_wm_upgrade_events.70 days = 1 } } }
+		}
+	}
+	approach = {
+		name = rikk_mdlc_approach_extra
+		icon = GFX_situation_approach_energy_credits
+		icon_background = GFX_situation_approach_bg_green
+		ai_weight = { base = 10 }
+		
+		resources = {
+			category = situations
+			upkeep = {
+				energy = 100
+			}
+			produces = {
+				trigger = {
+					current_stage = stage_2
+				}
+				minerals = 50
+			}
+		}
+		target_modifier = {
+			planet_stability_add = -20
+		}
+		on_select = {
+			custom_tooltip = rikk_mdlc_approach_extra_effect
+			target = { hidden_effect = { planet_event = { id = rikk_mdlc_wm_upgrade_events.70 days = 1 } } }
+		}
+	}
+	
+	#approach for stage 1, use cooling districts
+	approach = {
+		name = rikk_mdlc_approach_cooling_district
+		icon = GFX_situation_approach_exotic
+		icon_background = GFX_situation_approach_bg_yellow
+		ai_weight = { base = 0 }
+		potential = { current_stage = stage_1 }
+		allow = { owner = { resource_stockpile_compare = { resource = alloys value >= 1000 } } }
+		resources = {
+			category = situations
+			cost = { alloys = -1000 }
+		}
+		target_modifier = {
+			rikk_mdlc_world_machine_cooling_district_effectiveness = -0.10
+		}
+		on_select = {
+			custom_tooltip = rikk_mdlc_approach_cooling_district_effect
+			target = { hidden_effect = { planet_event = { id = rikk_mdlc_wm_upgrade_events.70 days = 1 } } }
+		}
+	}
+	
+	#approach for stage 2, use pops for mining
+	approach = {
+		name = rikk_mdlc_approach_carving_pops
+		icon = GFX_situation_approach_this_is_fine
+		icon_background = GFX_situation_approach_bg_yellow
+		ai_weight = { base = 0 }
+		potential = {
+			AND = {
+				current_stage = stage_2 
+				NOT = { owner = { has_origin = oxr_mdlc_origin_world_machine_awakened } }
+			}
+		}
+		allow = { target = { num_sapient_pops > 10 } }
+		on_select = {
+			custom_tooltip = rikk_mdlc_approach_carving_pops_effect
+			target = {
+				hidden_effect = {
+					planet_event = { id = rikk_mdlc_wm_upgrade_events.70 days = 1 } 
+				}
+				if = {
+					limit = {
+						NOT = { has_planet_flag = rikk_mdlc_core_core_monster }
+					}
+					hidden_effect = {
+						planet_event = { id = rikk_mdlc_wm_upgrade_events.21 }
+					}
+				}
+			}
+		}
+	}
+	
+	#approach for stage 2, version for world machine origin since no pops
+	approach = {
+		name = rikk_mdlc_approach_dumping_grounds
+		icon = GFX_situation_approach_this_is_fine
+		icon_background = GFX_situation_approach_bg_yellow
+		ai_weight = { base = 0 }
+		potential = {
+			AND = {
+				current_stage = stage_2 
+				owner = { has_origin = oxr_mdlc_origin_world_machine_awakened }
+			}
+		}
+		on_select = {
+			custom_tooltip = rikk_mdlc_approach_dumping_grounds_effect
+			target = {
+				hidden_effect = {
+					planet_event = { id = rikk_mdlc_wm_upgrade_events.70 days = 1 }
+				}
+				if = {
+					limit = {
+						NOT = { has_planet_flag = rikk_mdlc_core_core_monster }
+					}
+					hidden_effect = { 
+						planet_event = { id = rikk_mdlc_wm_upgrade_events.22 }
+					}
+				}
+			}
+		}
+	}
+	
+	#approach for stage 3, 
+	approach = {
+		name = rikk_mdlc_approach_tear_new_one
+		icon = GFX_situation_approach_fist
+		icon_background = GFX_situation_approach_bg_yellow
+		ai_weight = { base = 0 }
+		potential = { current_stage = stage_3 }
+		on_select = { custom_tooltip = rikk_mdlc_approach_tear_new_one_effect }
+		target_modifier = {
+			rikk_mdlc_world_machine_districts_base_production = -0.50
+		}
+	}
+	
+	monthly_progress = {
+		base = 10
+		modifier = {
+			add = 30
+			desc = rikk_mdlc_approach_extra_desc
+			current_situation_approach = rikk_mdlc_approach_extra
+		}
+		modifier = {
+			add = 20
+			desc = rikk_mdlc_approach_cooling_district_desc
+			current_situation_approach = rikk_mdlc_approach_cooling_district
+		}
+		modifier = {
+			add = 20
+			desc = rikk_mdlc_approach_carving_pops_desc
+			current_situation_approach = rikk_mdlc_approach_carving_pops
+		}
+		modifier = {
+			add = 20
+			desc = rikk_mdlc_approach_dumping_grounds_desc
+			current_situation_approach = rikk_mdlc_approach_dumping_grounds
+		}
+		modifier = {
+			add = 20
+			desc = rikk_mdlc_approach_tear_new_one_desc
+			current_situation_approach = rikk_mdlc_approach_tear_new_one
+		}
+	}
+
+	abort_trigger = {
+		OR = {
+			NOT = { exists = target.owner }
+			target.owner = { NOT = { is_same_value = root.owner } }
+		}
+	}
+}

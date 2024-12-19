@@ -1,0 +1,30 @@
+# END
+produces = {
+	trigger = {
+		has_designation = xvcv_mdlc_col_machine_cpu_engineering
+		has_active_building = oxr_mdlc_world_machines_building_fractal_fpga
+	}
+	# $CPU_DISTRICT_PRODUCES$ = -30
+	engineering_research = 30
+	mult =  value:scripted_modifier_mult|MODIFIER|rikk_mdlc_world_machine_districts_base_production|
+}
+# PHYS
+produces = {
+	trigger = {
+		has_designation = xvcv_mdlc_col_machine_cpu_physics
+		has_active_building = oxr_mdlc_world_machines_building_fractal_fpga
+	}
+	# $CPU_DISTRICT_PRODUCES$ = -30
+	physics_research = 30
+	mult =  value:scripted_modifier_mult|MODIFIER|rikk_mdlc_world_machine_districts_base_production|
+}
+# SOC
+produces = {
+	trigger = {
+		has_designation = xvcv_mdlc_col_machine_cpu_society
+		has_active_building = oxr_mdlc_world_machines_building_fractal_fpga
+	}
+	# $CPU_DISTRICT_PRODUCES$ = -30
+	society_research = 30
+	mult =  value:scripted_modifier_mult|MODIFIER|rikk_mdlc_world_machine_districts_base_production|
+}

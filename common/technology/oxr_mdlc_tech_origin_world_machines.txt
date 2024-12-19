@@ -1,0 +1,610 @@
+# Basic tech given for origin that acts as a limiter
+oxr_mdlc_tech_world_machines_unlocked = {
+	cost = @tier3cost1
+	area = society
+	tier = 3
+	category = { new_worlds }
+	prerequisites = { }
+	weight = @tier3cost1
+
+	potential = {
+		has_origin = oxr_mdlc_origin_world_machine_awakened
+	}
+
+	is_reverse_engineerable = no
+
+	weight_modifier = {
+		factor = 4
+		modifier = {
+			OR = {
+				has_technology = tech_assembly_pattern
+				has_technology = tech_planetary_infrastructure_1
+			}
+		}
+		factor = 4
+		modifier = {
+			OR = {
+				has_technology = tech_mountain_range
+				has_technology = tech_volcano
+			}
+		}
+		factor = 12
+		modifier = {
+			has_technology = oxr_mdlc_tech_world_machine_planetary_proficiency
+		}
+	}
+}
+
+oxr_mdlc_tech_world_machine_planetary_proficiency = {
+	cost = @tier3cost3
+	area = society
+	tier = 3
+	category = { new_worlds }
+	prerequisites = {
+		oxr_mdlc_tech_world_machines_unlocked
+		tech_assembly_pattern
+		tech_planetary_infrastructure_1
+		tech_mountain_range
+		tech_volcano
+		tech_deep_sinkhole
+	}
+	weight = @tier3weight3
+
+	potential = {
+		has_origin = oxr_mdlc_origin_world_machine_awakened
+	}
+
+	is_reverse_engineerable = no
+
+	weight_modifier = {
+		factor = 4
+		modifier = {
+			OR = {
+				has_technology = tech_assembly_pattern
+				has_technology = tech_planetary_infrastructure_1
+			}
+		}
+		factor = 4
+		modifier = {
+			OR = {
+				has_technology = tech_mountain_range
+				has_technology = tech_volcano
+			}
+		}
+	}
+}
+
+oxr_mdlc_tech_world_machine_planetary_mastery = {
+	cost = @tier4cost1
+	area = society
+	tier = 4
+	category = { new_worlds }
+	prerequisites = {
+		oxr_mdlc_tech_world_machine_planetary_proficiency
+	}
+	weight = @tier4cost1
+
+	potential = {
+		has_origin = oxr_mdlc_origin_world_machine_awakened
+	}
+	modifier = {
+		custom_tooltip = oxr_mdlc_tech_world_machine_planetary_mastery_effect
+		show_only_custom_tooltip = yes
+	}
+	is_reverse_engineerable = no
+
+	weight_modifier = {
+		factor = 4
+		modifier = {
+			OR = {
+				has_technology = tech_assembly_pattern
+				has_technology = tech_planetary_infrastructure_1
+			}
+		}
+		factor = 4
+		modifier = {
+			OR = {
+				has_technology = tech_mountain_range
+				has_technology = tech_volcano
+			}
+		}
+		factor = 12
+		modifier = {
+			has_technology = oxr_mdlc_tech_world_machine_planetary_proficiency
+		}
+	}
+}
+
+# Currently only awarded via event, completion of final research project
+# oxr_mdlc_origin_wm_main.1210
+oxr_mdlc_tech_world_machine_wmc_core = {
+	cost = @tier3cost3
+	area = engineering
+	tier = 3
+	category = { voidcraft }
+	weight = @tier3cost3
+	potential = {
+		has_origin = oxr_mdlc_origin_world_machine_awakened
+	}
+	is_reverse_engineerable = no
+}
+
+# Lore / Roleplaying tech
+oxr_mdlc_tech_fractal_basics = {
+	cost = @tier2cost1
+	area = physics
+	tier = 2
+	category = { oxr_mdlc_tech_physics_category_fractal_field_research }
+	weight = @tier2cost1
+	prerequisites = {
+		oxr_mdlc_tech_world_machine_wmc_core
+	}
+	potential = {
+		OR = {
+			has_ascension_perk = xvcv_mdlc_ap_world_machines
+			AND = {
+				has_origin = oxr_mdlc_origin_world_machine_awakened
+				has_country_flag = oxr_mdlc_world_machine_core_tech_obtained
+			}
+		}
+	}
+	is_reverse_engineerable = no
+	modifier = {
+		category_computing_research_speed_mult = 0.3
+		category_computing_draw_chance_mult = 0.3
+	}
+}
+oxr_mdlc_tech_fractal_2_topological_insulators = {
+	inline_script = planet/buildings/auto/oxr_mdlc_fractal
+	cost = @tier2cost1
+	tier = 2
+	weight = @tier2cost1
+	prerequisites = {
+		oxr_mdlc_tech_fractal_basics
+		oxr_mdlc_tech_world_machine_wmc_core
+	}
+	modifier = {
+		oxr_mdlc_world_machines_science_buildings_energy_upkeep_mult = -0.1
+		oxr_mdlc_world_machines_science_buildings_produces_mult = 0.1
+	}
+}
+oxr_mdlc_tech_fractal_3_star_mapping = {
+	inline_script = planet/buildings/auto/oxr_mdlc_fractal
+	cost = @tier2cost3
+	tier = 2
+	weight = @tier2cost3
+	prerequisites = {
+		oxr_mdlc_tech_fractal_2_topological_insulators
+	}
+	modifier = {
+		owned_ship_speed_mult = 0.1
+		ship_ftl_jumpdrive_range_mult = -0.15
+	}
+}
+oxr_mdlc_tech_fractal_4_perimeter_subdivision = {
+	inline_script = planet/buildings/auto/oxr_mdlc_fractal
+	cost = @tier3cost1
+	tier = 3
+	weight = @tier3cost1
+	prerequisites = {
+		oxr_mdlc_tech_fractal_2_topological_insulators
+	}
+	modifier = {
+		intel_encryption_add = 1
+		ship_cloaking_detection_add = 1
+	}
+}
+oxr_mdlc_tech_fractal_5_shapes_for_sensors = {
+	inline_script = planet/buildings/auto/oxr_mdlc_fractal
+	cost = @tier3cost2
+	tier = 3
+	weight = @tier3cost2
+	prerequisites = {
+		oxr_mdlc_tech_fractal_4_perimeter_subdivision
+	}
+	modifier = {
+		ship_sensor_range_add = 1
+		planet_sensor_range_add = 2
+	}
+}
+
+### TECH BOOSTERS
+oxr_mdlc_tech_boost_1_uniform_resource_locators = {
+	area = physics
+	category = { computing }
+	is_reverse_engineerable = no
+	tier = 2
+	weight = @tier2cost1
+	cost = @tier2cost1
+	prerequisites = {
+		oxr_mdlc_tech_fractal_basics
+		oxr_mdlc_tech_world_machine_wmc_core
+	}
+	modifier = {
+		oxr_mdlc_world_machines_science_buildings_produces_mult = 0.1
+		xvcv_mdlc_world_machines_computer_districts_produces_mult = 0.1
+		country_edict_fund_mult = 0.1
+		country_edict_fund_add = 25
+	}
+}
+oxr_mdlc_tech_boost_2_specialized_hardware_instructions = {
+	area = physics
+	category = { computing }
+	is_reverse_engineerable = no
+	tier = 2
+	weight = @tier2cost3
+	cost = @tier2cost3
+	prerequisites = {
+		oxr_mdlc_tech_boost_1_uniform_resource_locators
+	}
+	modifier = {
+		oxr_mdlc_world_machines_science_buildings_cost_mult = 0.2
+		oxr_mdlc_world_machines_science_buildings_alloys_cost_add = 2
+		oxr_mdlc_world_machines_science_buildings_produces_mult = 0.1
+		xvcv_mdlc_world_machines_computer_districts_produces_mult = 0.1
+	}
+}
+oxr_mdlc_tech_boost_3_intergalactic_file_system = {
+	area = physics
+	category = { computing }
+	is_reverse_engineerable = no
+	tier = 3
+	weight = @tier3cost1
+	cost = @tier3cost1
+	prerequisites = {
+		oxr_mdlc_tech_boost_2_specialized_hardware_instructions
+	}
+	modifier = {
+		intel_encryption_add = 0.5
+		oxr_mdlc_world_machines_science_buildings_produces_mult = 0.1
+		xvcv_mdlc_world_machines_computer_districts_produces_mult = 0.1
+	}
+}
+oxr_mdlc_tech_boost_4_improved_atom_modeling = {
+	area = physics
+	category = { computing }
+	is_reverse_engineerable = no
+	tier = 3
+	weight = @tier3cost3
+	cost = @tier3cost3
+	prerequisites = {
+		oxr_mdlc_tech_boost_3_intergalactic_file_system
+	}
+	modifier = {
+		category_computing_research_speed_mult = 0.05
+		category_field_manipulation_research_speed_mult = 0.05
+		category_particles_research_speed_mult = 0.05
+		oxr_mdlc_world_machines_science_buildings_produces_mult = 0.1
+		xvcv_mdlc_world_machines_computer_districts_produces_mult = 0.1
+	}
+}
+
+# oxr_mdlc_pc_machine_auto_district_infrastructure
+oxr_mdlc_tech_world_machine_district_infrastructure = {
+	cost = @tier3cost1
+	area = society
+	tier = 3
+	category = { new_worlds }
+	weight = @tier3cost1
+	potential = {
+		# has_origin = oxr_mdlc_origin_world_machine_awakened
+		always = no
+	}
+	is_reverse_engineerable = no
+	prerequisites = {
+		"oxr_mdlc_tech_world_machines_unlocked"
+		"oxr_mdlc_tech_world_machine_planetary_proficiency"
+	}
+}
+
+## World-Machine upgrades tech (Alternate)
+# expansion theory will be given via project
+oxr_mdlc_tech_geologic_world_expansion_theory = {
+	potential = {
+		has_origin = oxr_mdlc_origin_world_machine_awakened
+	}
+	area = society
+	category = { new_worlds }
+	tier = 3
+	cost = @tier3cost1
+	weight = @tier3cost1
+	is_rare = yes
+	prerequisites = {
+		"oxr_mdlc_tech_world_machine_planetary_mastery"
+	}
+	modifier = {
+		custom_tooltip = oxr_mdlc_tech_geologic_world_expansion_theory_tooltip
+	}
+}
+### GEOPHYSICS TECH TREE ###
+oxr_mdlc_tech_geologic_heat_shielding_1 = {
+	potential = {
+		has_origin = oxr_mdlc_origin_world_machine_awakened
+	}
+	category = { field_manipulation }
+	area = physics
+	tier = 3
+	cost = @tier3cost1 weight = @tier3cost1
+	modifier = {
+		ship_shield_mult = 0.1
+		ship_shield_regen_add_perc = 0.1
+	}
+	prerequisites = {
+		"oxr_mdlc_tech_geologic_world_expansion_theory"
+	}
+}
+oxr_mdlc_tech_geologic_heat_shielding_2 = {
+	potential = {
+		has_origin = oxr_mdlc_origin_world_machine_awakened
+	}
+	category = { field_manipulation }
+	area = physics
+	tier = 4
+	cost = @tier4cost1 weight = @tier4cost1
+	prerequisites = {
+		oxr_mdlc_tech_geologic_heat_shielding_1
+		oxr_mdlc_tech_geologic_world_expansion_theory
+	}
+	modifier = {
+		ship_shield_hardening_add = 0.05
+		custom_tooltip = oxr_mdlc_tech_geologic_heat_shielding_2.decision_unlock
+	}
+}
+oxr_mdlc_tech_geologic_heat_shielding_3 = {
+	potential = {
+		has_origin = oxr_mdlc_origin_world_machine_awakened
+	}
+	category = { field_manipulation }
+	area = physics
+	tier = 5
+	cost = @tier5cost1 weight = @tier5cost1
+	prerequisites = {
+		oxr_mdlc_tech_geologic_heat_shielding_2
+		oxr_mdlc_tech_geologic_heat_shielding_1
+		oxr_mdlc_tech_geologic_world_expansion_theory
+	}
+	modifier = { ship_shield_hardening_add = 0.05 }
+}
+oxr_mdlc_tech_geologic_scaling_thermoelectrics = {
+	potential = {
+		has_origin = oxr_mdlc_origin_world_machine_awakened
+	}
+	category = { industry }
+	area = engineering
+	tier = 3
+	cost = @tier3cost1 weight = @tier3cost1
+	modifier = {
+		country_energy_produces_mult = 0.05
+	}
+	prerequisites = {
+		oxr_mdlc_tech_geologic_world_expansion_theory
+	}
+}
+oxr_mdlc_tech_geologic_pressurized_construction_1 = {
+	potential = {
+		has_origin = oxr_mdlc_origin_world_machine_awakened
+	}
+	category = { industry }
+	area = engineering
+	tier = 3
+	cost = @tier3cost1 weight = @tier3cost1
+	modifier = {
+		shipclass_military_build_speed_mult = 0.1
+		# shipsize_colonizer_build_speed_mult = 0.05
+	}
+	prerequisites = {
+		oxr_mdlc_tech_geologic_world_expansion_theory
+	}
+}
+oxr_mdlc_tech_geologic_pressurized_construction_2 = {
+	potential = {
+		has_origin = oxr_mdlc_origin_world_machine_awakened
+	}
+	category = { industry }
+	area = engineering
+	tier = 4
+	cost = @tier4cost1 weight = @tier4cost1
+	modifier = {
+		ship_military_cost_mult = -0.1
+		# ship_colonizer_cost_mult = -0.05
+		# ship_science_cost_mult = -0.05
+		# shipclass_transport_build_cost_mult = -0.05
+		# ship_constructor_cost_mult = -0.05
+		owned_ship_speed_mult = 0.01
+	}
+	prerequisites = {
+		oxr_mdlc_tech_geologic_pressurized_construction_1
+		oxr_mdlc_tech_geologic_world_expansion_theory
+	}
+}
+oxr_mdlc_tech_geologic_elastic_materials_1 = {
+	potential = {
+		has_origin = oxr_mdlc_origin_world_machine_awakened
+	}
+	category = { materials }
+	area = engineering
+	tier = 4
+	cost = @tier4cost1 weight = @tier4cost1
+	modifier = {
+		ship_hull_mult = 0.05
+		ship_armor_mult = 0.05
+	}
+	prerequisites = {
+		oxr_mdlc_tech_geologic_world_expansion_theory
+	}
+}
+oxr_mdlc_tech_geologic_elastic_materials_2 = {
+	potential = {
+		has_origin = oxr_mdlc_origin_world_machine_awakened
+	}
+	category = { materials }
+	area = engineering
+	tier = 5
+	cost = @tier5cost1 weight = @tier5cost1
+	modifier = {
+		ship_armor_hardening_add = 0.1
+	}
+	prerequisites = {
+		oxr_mdlc_tech_geologic_elastic_materials_1
+		oxr_mdlc_tech_geologic_world_expansion_theory
+	}
+}
+oxr_mdlc_tech_geologic_seismic_wave_harvesting_1 = {
+	potential = {
+		has_origin = oxr_mdlc_origin_world_machine_awakened
+	}
+	area = physics
+	category = { oxr_mdlc_tech_physics_category_mechanics }
+	tier = 4
+	cost = @tier4cost1 weight = @tier4cost1
+	modifier = {
+		ship_sensor_range_add = 3
+		planet_sensor_range_add = 3
+	}
+	prerequisites = {
+		oxr_mdlc_tech_geologic_world_expansion_theory
+	}
+}
+oxr_mdlc_tech_geologic_geodynamo_theory = {
+	potential = {
+		has_origin = oxr_mdlc_origin_world_machine_awakened
+	}
+	category = { oxr_mdlc_tech_physics_category_geophysics }
+	area = physics
+	tier = 5
+	cost = @tier5cost1 weight = @tier5cost1
+	modifier = {
+		terraform_speed_mult = 0.3
+		terraforming_cost_mult = -0.3
+	}
+	prerequisites = {
+		oxr_mdlc_tech_geologic_seismic_wave_harvesting_1
+		oxr_mdlc_tech_geologic_elastic_materials_1
+		oxr_mdlc_tech_geologic_pressurized_construction_1
+		oxr_mdlc_tech_geologic_heat_shielding_2
+		oxr_mdlc_tech_geologic_world_expansion_theory
+	}
+}
+
+## T3 World Tech
+oxr_mdlc_tech_world_machine_t3_worlds = {
+	potential = {
+		has_origin = oxr_mdlc_origin_world_machine_awakened
+	}
+	category = { new_worlds }
+	area = society
+	tier = 4
+	cost = @tier4cost1
+	weight = 0
+	prerequisites = {
+		oxr_mdlc_tech_geologic_world_expansion_theory
+	}
+}
+oxr_mdlc_tech_world_machine_cpu = {
+	potential = {
+		has_origin = oxr_mdlc_origin_world_machine_awakened
+		has_completed_special_project_in_log = OXR_MDLC_ORIGIN_WM_T3_CPU_WORLD
+	}
+	category = { new_worlds }
+	area = society
+	tier = 4
+	cost = @tier4cost1
+	weight = 0
+	prerequisites = {
+		oxr_mdlc_tech_geologic_world_expansion_theory
+	}
+	modifier = {
+		custom_tooltip = oxr_mdlc_tech_world_machine_cpu_tooltip
+		show_only_custom_tooltip = yes
+	}
+}
+oxr_mdlc_tech_world_machine_ecu = {
+	potential = {
+		has_origin = oxr_mdlc_origin_world_machine_awakened
+		has_completed_special_project_in_log = OXR_MDLC_ORIGIN_WM_T3_ECU_WORLD
+	}
+	category = { new_worlds }
+	area = society
+	tier = 4
+	cost = @tier4cost1
+	weight = 0
+	prerequisites = {
+		oxr_mdlc_tech_geologic_world_expansion_theory
+	}
+	modifier = {
+		custom_tooltip = oxr_mdlc_tech_world_machine_ecu_tooltip
+		show_only_custom_tooltip = yes
+	}
+}
+oxr_mdlc_tech_world_machine_ser = {
+	potential = {
+		has_origin = oxr_mdlc_origin_world_machine_awakened
+		has_completed_special_project_in_log = OXR_MDLC_ORIGIN_WM_T3_SER_WORLD
+	}
+	category = { new_worlds }
+	area = society
+	tier = 4
+	cost = @tier4cost1
+	weight = 0
+	prerequisites = {
+		oxr_mdlc_tech_geologic_world_expansion_theory
+	}
+	modifier = {
+		custom_tooltip = oxr_mdlc_tech_world_machine_ser_tooltip
+		show_only_custom_tooltip = yes
+	}
+}
+
+# CPU World reprogrammble gate
+oxr_mdlc_tech_world_machine_cpu_reprogrammable_gate = {
+	potential = {
+		has_origin = oxr_mdlc_origin_world_machine_awakened
+		has_technology = oxr_mdlc_tech_world_machine_cpu
+	}
+	category = { new_worlds }
+	area = society
+	tier = 5
+	cost = @tier5cost1
+	weight = @tier5weight1
+	prerequisites = {
+		oxr_mdlc_tech_world_machine_cpu
+	}
+}
+
+# Other
+oxr_mdlc_tech_organoid_2_wm = {
+	icon = oxr_mdlc_tech_organoid_2
+	cost = @tier4cost2
+	area = engineering
+	tier = 4
+	category = { computing }
+	weight = @tier4weight2
+	potential = {
+		has_origin = oxr_mdlc_origin_world_machine_awakened
+	}
+	prerequisites = {
+		"oxr_mdlc_tech_organoid_1"
+	}
+	modifier = {
+		custom_tooltip = oxr_mdlc_tech_organoid_2_wm_tooltip
+		show_only_custom_tooltip = yes
+	}
+}
+oxr_mdlc_tech_organoid_3_wm = {
+	icon = oxr_mdlc_tech_organoid_3
+	cost = @tier4cost2
+	area = engineering
+	tier = 4
+	category = { computing }
+	weight = @tier4weight2
+	potential = {
+		has_origin = oxr_mdlc_origin_world_machine_awakened
+	}
+	prerequisites = {
+		"oxr_mdlc_tech_organoid_2_wm"
+	}
+	modifier = {
+		custom_tooltip = oxr_mdlc_tech_organoid_3_wm_tooltip
+		show_only_custom_tooltip = yes
+	}
+}

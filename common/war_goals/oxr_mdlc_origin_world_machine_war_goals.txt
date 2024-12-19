@@ -1,0 +1,69 @@
+# oxr_mdlc_wg_stolen_tech = {
+# 	casus_belli = oxr_mdlc_cb_stolen_tech
+# 	hide_if_no_cb = yes
+# 	defender_default = no
+
+# 	allowed_peace_offers = {
+# 		status_quo
+# 		surrender
+# 		demand_surrender
+# 	}
+
+# 	surrender_acceptance = -25
+
+# 	potential = {
+# 		has_total_war_cb = no
+# 		NAND = {
+# 			is_galactic_emperor = yes
+# 			from = { is_galactic_community_member = yes }
+# 		}
+# 	}
+# 	possible = {
+# 		custom_tooltip = {
+# 			fail_text = has_claimed_all_systems
+# 			from = {
+# 				is_country_type = default
+# 				any_owned_planet = {
+# 					is_colony = yes
+# 					root = {
+# 						NOT = { has_claim = prev.solar_system }
+# 					}
+# 				}
+# 			}
+# 		}
+# 		custom_tooltip = {
+# 			fail_text = cannot_use_against_emperor
+# 			OR = {
+# 				from = { is_galactic_emperor = no }
+# 				is_galactic_community_member = no
+# 			}
+# 		}
+# 		custom_tooltip = {
+# 			fail_text = pax_galactica_active
+# 			NAND = {
+# 				is_active_resolution = resolution_emperor_pax_galactica
+# 				is_galactic_community_member = yes
+# 				from = { is_galactic_community_member = yes }
+# 			}
+# 		}
+# 	}
+# 	on_accept = {
+#         # prev: Winner
+#         # from: loser
+#         custom_tooltip = oxr_mdlc_wg_stolen_tech_accept
+#         hidden_effect = {
+#             add_resource = { influence = 100 }
+#             prev = {
+#                 remove_country_flag = oxr_mdlc_world_machine_tech_stolen
+#                 # TODO: Call event to say we got our tech back, with delay of a few days for UX
+#             }
+#             from = {
+#                 add_modifier = { modifier = humiliated days = 3600 }
+#             }
+#         }
+# 	}
+
+# 	ai_weight = {
+# 		weight = 1
+# 	}
+# }

@@ -1,0 +1,170 @@
+oxr_mdlc_category_world_machines_buildings = {
+	parent = planet_buildings
+	use_for_ai_budget = yes
+	generate_mult_modifiers = {
+		produces
+		upkeep
+		# cost
+	}
+	modifier_category = planet
+	# use_for_ai_budget = yes
+	# generate_add_modifiers = {
+	# 	produces
+	# 	upkeep
+	# 	cost
+	# }
+}
+
+oxr_mdlc_world_machines_government_buildings = {
+	parent = oxr_mdlc_category_world_machines_buildings
+	modifier_category = planet
+	generate_mult_modifiers = {
+		upkeep
+	}
+}
+oxr_mdlc_world_machines_science_buildings = {
+	parent = oxr_mdlc_category_world_machines_buildings
+	generate_mult_modifiers = {
+		produces
+		upkeep
+		cost
+	}
+	generate_add_modifiers = {
+		# produces
+		cost
+		upkeep
+	}
+	modifier_category = planet
+}
+oxr_mdlc_world_machines_food_buildings = {
+	parent = oxr_mdlc_category_world_machines_buildings
+	modifier_category = planet
+	generate_mult_modifiers = {
+		produces
+		upkeep
+		# cost
+	}
+	generate_add_modifiers = {
+		# produces
+		upkeep
+		# cost
+	}
+}
+oxr_mdlc_world_machines_generator_buildings = {
+	parent = oxr_mdlc_category_world_machines_buildings
+	modifier_category = planet
+	generate_mult_modifiers = {
+		produces
+		upkeep
+		# cost
+	}
+	generate_add_modifiers = {
+		# produces
+		upkeep
+		# cost
+	}
+}
+oxr_mdlc_world_machines_mining_buildings = {
+	parent = oxr_mdlc_category_world_machines_buildings
+	modifier_category = planet
+	generate_mult_modifiers = {
+		produces
+		upkeep
+		# cost
+	}
+	generate_add_modifiers = {
+		# produces
+		upkeep
+		# cost
+	}
+}
+oxr_mdlc_world_machines_industrial_buildings = {
+	parent = oxr_mdlc_category_world_machines_buildings
+	modifier_category = planet
+	generate_mult_modifiers = {
+		produces
+		upkeep
+		# cost
+	}
+	generate_add_modifiers = {
+		# produces
+		upkeep
+		# cost
+	}
+}
+oxr_mdlc_world_machines_factory_buildings = {
+	parent = oxr_mdlc_world_machines_industrial_buildings
+	modifier_category = planet
+	generate_mult_modifiers = {
+		produces
+		upkeep
+		# cost
+	}
+	generate_add_modifiers = {
+		# produces
+		upkeep
+		# cost
+	}
+}
+oxr_mdlc_world_machines_foundry_buildings = {
+	parent = oxr_mdlc_world_machines_industrial_buildings
+	modifier_category = planet
+	generate_mult_modifiers = {
+		produces
+		upkeep
+		# cost
+	}
+	generate_add_modifiers = {
+		# produces
+		upkeep
+		# cost
+	}
+}
+oxr_mdlc_world_machines_unity_buildings = {
+	parent = oxr_mdlc_category_world_machines_buildings
+	modifier_category = planet
+	generate_mult_modifiers = {
+		upkeep
+		produces
+	}
+	use_for_ai_budget = no
+}
+oxr_mdlc_world_machines_strategic_resource_buildings = {
+	parent = oxr_mdlc_category_world_machines_buildings
+}
+oxr_mdlc_world_machines_military_buildings = {
+	parent = oxr_mdlc_category_world_machines_buildings
+}
+oxr_mdlc_world_machines_services_buildings = {
+	parent = oxr_mdlc_category_world_machines_buildings
+}
+
+oxr_mdlc_category_district_defense_armies = {
+	use_for_ai_budget = no
+
+	generate_mult_modifiers = {
+		cost
+		upkeep
+	}
+	modifier_category = army
+
+	parent = armies
+}
+
+oxr_mdlc_category_wm_decisions = {
+	use_for_ai_budget = no
+	generate_mult_modifiers = {
+		cost
+		upkeep
+	}
+	parent = decisions
+}
+
+oxr_mdlc_deposit_blockers_world_machine = {
+	parent = deposit_blockers
+	use_for_ai_budget = no
+	generate_mult_modifiers = {
+		cost
+	}
+	modifier_category = deposit
+}

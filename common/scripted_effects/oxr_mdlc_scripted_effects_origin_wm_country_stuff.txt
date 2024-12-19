@@ -1,0 +1,212 @@
+# Core Thieves - Slag and Blade
+@oxr_mdlc_origin_wm_slag_blade_starting_ships_count = 10
+
+oxr_mdlc_origin_world_machine_spawn_core_thieves_enclave = {
+	# Slag and Blade Bandit Kingdom
+
+	random_system_within_border = {
+		save_event_target_as = oxr_mdlc_core_thieves_enclave_neighbor
+	}
+	event_target:oxr_mdlc_core_thieves_enclave_neighbor = {
+		spawn_system = {
+			min_distance = 10
+			max_distance = 30
+			max_jumps = 0
+			initializer = "oxr_mdlc_origin_wm_core_thieves_system"
+		}
+		if = {
+			limit = { last_created_system = { NOT = { has_hyperlane_to = prev } } }
+			add_hyperlane = {
+				from = this
+				to = last_created_system
+			}
+		}
+		else = {
+			add_extra_hyperlane_to_spawned_system_effect = yes
+		}
+		last_created_system = {
+			every_system_planet = {
+				limit = {
+					has_planet_flag = slag_blade_homeworld
+				}
+				save_global_event_target_as = oxr_mdlc_slag_blade_homeworld
+			}
+		}
+		last_created_system = {
+			save_event_target_as = oxr_mdlc_slag_blade_system
+		}
+	}
+	
+	create_species = {
+		name = "NAME_oxr_mdlc_slag_blade_species"
+		class = MACHINE
+		namelist = MACHINE3
+		portrait = random
+		traits = {
+			ideal_planet_class = xvcv_mdlc_pc_machine_auto
+			trait = trait_machine_unit
+			trait = random_traits
+		}
+		extra_trait_points = 3
+		allow_negative_traits = no
+	}
+	last_created_species = {
+		save_event_target_as = oxr_mdlc_core_thieves_species
+	}
+	create_country = {
+		name = "NAME_oxr_mdlc_slag_blade"
+		# type = enclave_mercenary
+		type = nomad
+		ignore_initial_colony_error = yes
+		authority = auth_imperial
+		ethos = {
+			ethic = ethic_authoritarian
+			ethic = ethic_militarist
+			ethic = ethic_spiritualist
+		}
+		civics = {
+			# civic = civic_mercenary_enclave
+			civic = civic_barbaric_despoilers
+			civic = civic_warrior_culture
+		}
+		species = event_target:oxr_mdlc_core_thieves_species
+		flag = random
+		origin = "origin_default"
+		ship_prefix = "NAME_oxr_mdlc_slag_blade_ship_prefix"
+		effect = {
+			set_country_flag = oxr_mdlc_slag_blade_country
+			set_graphical_culture = arthropoid_01
+			# set_custom_capital_location = event_target:oxr_mdlc_slag_blade_homeworld
+			# must initialize global designs here
+			# add_global_ship_design = "NAME_Omega"
+			# add_global_ship_design = "NAME_Alpha"
+			# add_global_ship_design = "NAME_Beta"
+			# add_global_ship_design = "NAME_Gamma"
+			# add_global_ship_design = "NAME_Theta"
+			# add_global_ship_design = "NAME_Tau"
+			# add_global_ship_design = "NAME_Sigma"
+			# add_global_ship_design = "NAME_FE_Starbase"
+			add_global_ship_design = "NAME_Mercenary_Enclave_Station"
+			add_global_ship_design = "NAME_Protector"
+			add_global_ship_design = "NAME_Home_One"
+			add_global_ship_design = "NAME_Home_Two"
+			add_global_ship_design = "NAME_Home_Three"
+			add_global_ship_design = "starbase_marauder"
+			create_leader = {
+				class = commander
+				species = event_target:oxr_mdlc_core_thieves_species
+				name = NAME_oxr_mdlc_slag_blade_commander
+				skill = 6
+				custom_description = oxr_mdlc_slag_blade_commander_backstory
+			}
+			ruler = {
+				add_skill = 9
+				set_name = NAME_oxr_mdlc_slag_blade_ruler
+			}
+			# 125% weapons damage
+			add_modifier = {
+				modifier = nomad_strength
+				days = -1
+			}
+			# Increase resource storage
+			add_modifier = {
+				modifier = oxr_mdlc_empire_slag_blade_seasoned_escorts
+				days = -1
+			}
+			add_resource = {
+				minerals = 10000
+				energy = 10000
+				food = 1000
+				influence = 500
+			}
+			create_fleet = {
+				settings = { spawn_debris = no }
+				effect = {
+					set_owner = prev
+					create_ship = {
+						name = random
+						design = "NAME_Mercenary_Enclave_Station"
+						graphical_culture = arthropoid_01
+					}
+					set_location = {
+						target = event_target:oxr_mdlc_slag_blade_homeworld
+						distance = 90
+					}
+					save_event_target_as = oxr_mdlc_slag_blade_mercenary_enclave_station
+				}
+			}
+			create_fleet = {
+				name = "NAME_oxr_mdlc_slag_blade_armada"
+				effect = {
+					set_owner = prev
+					set_fleet_flag = nomad_main_fleet
+					set_fleet_stance = passive
+					set_aggro_range_measure_from = self
+					set_aggro_range = 50
+					#while = {
+					#	count = 15
+					#	create_ship = {
+					#		name = "NAME_Defender"
+					#		design = NAME_Defender
+					#	}
+					#}
+					while = {
+						#count = 6
+						count = @oxr_mdlc_origin_wm_slag_blade_starting_ships_count
+						create_ship = {
+							name = "NAME_Protector"
+							design = NAME_Protector
+						}
+					}
+					create_ship = {
+						name = "NAME_Home_One"
+						design = NAME_Diaspora
+					}
+					create_ship = {
+						name = "NAME_Home_Two"
+						design = NAME_Diaspora
+					}
+					create_ship = {
+						name = "NAME_Home_Three"
+						design = NAME_Diaspora
+					}
+					#create_ship = {
+					#	name = "NAME_Home_Four"
+					#	design = Diaspora
+					#}
+					#create_ship = {
+					#	name = "NAME_Home_Five"
+					#	design = Diaspora
+					#}
+					assign_leader = last_created_leader
+					set_location = event_target:oxr_mdlc_slag_blade_homeworld
+					set_fleet_flag = nomad_fleet
+					set_formation_scale = 1.6
+					fleet_event = { id = nomad.2 days = 1 } #Nomads fly towards current destination
+					save_event_target_as = CustomCapital
+				}
+			}
+		}
+	}
+	last_created_country = {
+		save_global_event_target_as = oxr_mdlc_slag_blade_country
+	}
+	event_target:oxr_mdlc_slag_blade_system = {
+		# create_starbase = {
+		# 	size = "starbase_marauder"
+		# 	owner = event_target:oxr_mdlc_slag_blade_country
+		# }
+		create_starbase = {
+			size = starbase_starport
+			module = shipyard
+			building = crew_quarters
+			owner = event_target:oxr_mdlc_slag_blade_country
+			effect = {
+				set_starbase_module = {
+					slot = 1
+					module = trading_hub
+				}
+			}
+		}
+	}
+}

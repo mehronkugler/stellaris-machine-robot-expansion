@@ -1,0 +1,31 @@
+# oxr_mdlc_world_machines_building_auto_capital_fully_upgraded
+triggered_planet_modifier = {
+	potential = {
+		exists = owner
+		owner = { has_technology = tech_capital_productivity_3 }
+		OR = {
+			is_planet_class = xvcv_mdlc_pc_machine_auto
+			xvcv_mdlc_world_machines_planet_classes_trigger = yes
+		}
+	}
+	modifier = {
+		planet_jobs_productive_upkeep_mult = 0.3
+		planet_jobs_productive_produces_mult = 0.3
+
+		xvcv_mdlc_world_machines_districts_produces_mult = 0.15
+		xvcv_mdlc_world_machines_districts_upkeep_mult = 0.15
+		oxr_mdlc_category_world_machines_buildings_produces_mult = 0.15
+		oxr_mdlc_category_world_machines_buildings_upkeep_mult = 0.15
+	}
+}
+
+triggered_planet_modifier = {
+	potential = {
+		exists = owner
+		owner = {
+			has_origin = oxr_mdlc_origin_world_machine_awakened
+		}
+	}
+	planet_jobs_productive_upkeep_mult = -0.3
+	planet_jobs_productive_produces_mult = -0.3
+}

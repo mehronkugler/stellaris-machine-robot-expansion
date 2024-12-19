@@ -1,0 +1,39 @@
+# Triggers for compatibility with Gigastructural Engineering
+
+
+# oxr_mdlc_check_is_ring_from_giga = {
+# 	if = {
+# 		limit = {
+# 			merg_has_gigastructures = yes
+# 		}
+# 		# Checks from giga_city_rings.txt
+# 		OR = {
+# 			# is_planet_class = pc_ringworld_city
+# 			merg_is_artificial_arcology = yes
+# 			# is_planet_class = pc_ringworld_machine
+# 			giga_is_pc_ringworld_machine = yes
+# 			# is_planet_class = pc_ringworld_hive
+# 			giga_is_pc_ringworld_hive = yes
+# 			is_planet_class = pc_alderson_slice_gaia
+# 			is_planet_class = pc_alderson_slice_gaia_shattered
+# 			is_planet_class = pc_alderson_slice_ecu
+# 			is_planet_class = pc_alderson_slice_hive
+# 			is_planet_class = pc_alderson_slice_machine
+# 			is_planet_class = pc_alderson_slice_pc
+# 			is_planet_class = pc_giga_frameworld
+# 			is_planet_class = pc_giga_frameworld_outpost_ringworld
+# 			is_planet_class = pc_giga_maginot_ringworld
+# 			is_planet_class = pc_squareworld_habitable
+# 			is_planet_class = pc_giga_penrose_habitable
+# 			is_planet_class = pc_interstellar_ringworld_habitable
+# 			is_planet_class = pc_ringworld_habitable_shrouded
+# 			is_planet_class = pc_squareworld_shrouded_habitable
+# 			is_planet_class = pc_giga_penrose_shrouded_habitable
+# 			is_planet_class = pc_shrouded_equatorial_shipyard
+# 			is_planet_class = pc_interstellar_shrouded_ringworld_habitable
+# 		}
+# 	}
+# 	else = {
+# 		always = no
+# 	}
+# }

@@ -50,7 +50,7 @@ trait_xvcv_mdlc_pc_virtual_preference = {
 }
 trait_oxr_mdlc_pc_auto_world_specialist_preference = {
 	icon = "gfx/interface/icons/traits/trait_pc_ring_preference.dds"
-	allowed_archetypes = { MACHINE }
+	allowed_archetypes = { MACHINE XVCV_MDLC_BIO_ROBOT }
 	sorting_priority = 30
 	cost = 0
 	initial = no
@@ -67,12 +67,20 @@ trait_oxr_mdlc_pc_auto_world_specialist_preference = {
 		xvcv_mdlc_pc_machine_ecu_habitability = 1.0
 		xvcv_mdlc_pc_machine_auto_habitability = 1.0
 		xvcv_mdlc_pc_ringworld_machine_auto_habitability = 1.0
-		habitability_floor_add = -0.25
+		habitability_floor_add = -0.5
 	}
 	ai_weight = {
 		weight = 0
 	}
-	species_potential_add = { from = { has_ascension_perk = xvcv_mdlc_ap_world_machines } }
+	
+	species_potential_add = {
+		# hidden_trigger = { exists = from }
+		# from = {
+		# 	# oxr_mdlc_planet_owner_can_build_wm_districts = yes
+		# 	has_origin = oxr_mdlc_origin_world_machine_awakened
+		# }
+		always = no
+	}
 }
 
 ###############################

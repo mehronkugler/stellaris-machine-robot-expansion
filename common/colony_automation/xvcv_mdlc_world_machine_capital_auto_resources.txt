@@ -1,36 +1,103 @@
-# automate_xvcv_world_machine_capital_auto_resources = {
-# 	category = "planet_automation_designation_construction"
+automate_xvcv_world_machine_capital_auto_default = {
+	category = "planet_automation_designation_construction"
 
-# 	available = {
-# 		has_designation = xvcv_mdlc_col_capital_resources
-# 	}
+	available = {
+		has_designation = xvcv_mdlc_col_machine_auto_capital
+	}
 
-# 	prio_districts = {
-# 		xvcv_mdlc_pc_machine_auto_district_generator
-# 		xvcv_mdlc_pc_machine_auto_district_mining
-# 		xvcv_mdlc_pc_machine_auto_district_farming
-# 	}
+	prio_districts = {
+		xvcv_mdlc_pc_machine_auto_district_generator
+		xvcv_mdlc_pc_machine_auto_district_mining
+		xvcv_mdlc_pc_machine_auto_district_farming
+	}
 
-# 	buildings = {
-# 		1 = {
-# 			building = building_capital
-# 		}
-
-# 		2 = {
-# 			building = building_betharian_power_plant
-# 		}
-
-# 		4 = {
-# 			building = building_food_processing_facility
-# 		}
-
-# 		5 = {
-# 			building = building_energy_grid
-# 		}
-
-# 		6 = {
-# 			building = building_bio_reactor
-# 		}
-
-# 	}
-# }
+	buildings = {
+		1 = {
+			building = oxr_mdlc_world_machines_building_auto_capital
+			available = {
+				owner = { has_origin = oxr_mdlc_origin_world_machine_awakened }
+			}
+		}
+		1 = {
+			building = building_capital
+			available = {
+				owner = { has_ascension_perk = xvcv_mdlc_ap_world_machines }
+			}
+		}
+		2 = {
+			building = oxr_mdlc_world_machines_auto_farm_1
+			available = {
+				num_free_districts = {
+					type = xvcv_mdlc_pc_machine_auto_district_farming
+					value < 2
+				}
+			}
+		}
+		3 = {
+			building = oxr_mdlc_world_machines_auto_mine_1
+			available = {
+				num_free_districts = {
+					type = xvcv_mdlc_pc_machine_auto_district_mining
+					value < 2
+				}
+			}
+		}
+		4 = {
+			building = oxr_mdlc_world_machines_auto_generator_1
+			available = {
+				num_free_districts = {
+					type = xvcv_mdlc_pc_machine_auto_district_generator
+					value < 2
+				}
+			}
+		}
+		5 = {
+			building = oxr_mdlc_world_machines_auto_energy_grid_1
+			available = {
+				num_free_districts = {
+					type = xvcv_mdlc_pc_machine_auto_district_generator
+					value > 0
+				}
+			}
+		}
+		6 = {
+			building = oxr_mdlc_world_machines_building_auto_farm_logistics
+			available = {
+				num_free_districts = {
+					type = xvcv_mdlc_pc_machine_auto_district_farming
+					value > 0
+				}
+			}
+		}
+		7 = {
+			building = oxr_mdlc_world_machines_building_auto_mining_support
+			available = {
+				num_free_districts = {
+					type = xvcv_mdlc_pc_machine_auto_district_mining
+					value > 0
+				}
+			}
+		}
+		# Attempt to stop automation from making these buildings all the time
+		8 = {
+			building = building_crystal_plant
+			available = { always = no }
+		}
+		9 = {
+			building = building_refinery
+			available = { always = no }
+		}
+		10 = {
+			building = building_chemical_plant
+			available = { always = no }
+		}
+		11 = {
+			building = building_machine_assembly_plant
+			available = { always = no }
+		}
+		12 = {
+			building = building_robot_assembly_plant
+			available = { always = no }
+		}
+	}
+}

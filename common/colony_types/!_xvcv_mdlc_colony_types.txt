@@ -74,261 +74,162 @@ xvcv_mdlc_col_organic_sanctuary = {
 xvcv_mdlc_col_machine_ecu = {
 	icon = GFX_xvcv_mdlc_col_machine_ecu
 
-	potential = {
-		is_capital = no
-		xvcv_mdlc_world_machines_districts_valid_trigger = yes
-		uses_district_set = xvcv_mdlc_pc_machine_ecu_district_set
-	}
+	inline_script = country/colony_types/oxr_mdlc_ecu
 
 	planet_modifier = {
 		planet_building_build_speed_mult = 0.25
 	}
 
-	weight_modifier = {
-		base = 20000
-	}
 }
 xvcv_mdlc_col_machine_ecu_auto_forge = {
 	icon = GFX_xvcv_mdlc_col_machine_ecu_auto_forge
 
-	potential = {
-		is_capital = no
-		xvcv_mdlc_world_machines_districts_valid_trigger = yes
-		uses_district_set = xvcv_mdlc_pc_machine_ecu_district_set
-	}
+	inline_script = country/colony_types/oxr_mdlc_ecu
 
 	planet_modifier = {
 		planet_xvcv_mdlc_pc_machine_ecu_district_alloys_build_speed_mult = 0.25
 	}
 
-	weight_modifier = {
-		base = 20000
-	}
 }
 xvcv_mdlc_col_machine_ecu_industrial = {
 	icon = GFX_xvcv_mdlc_col_machine_ecu_industrial
 
-	potential = {
-		is_capital = no
-		xvcv_mdlc_world_machines_districts_valid_trigger = yes
-		uses_district_set = xvcv_mdlc_pc_machine_ecu_district_set
-	}
+	inline_script = country/colony_types/oxr_mdlc_ecu
 
 	planet_modifier = {
 		planet_xvcv_mdlc_pc_machine_ecu_district_goods_build_speed_mult = 0.25
 	}
 
-	weight_modifier = {
-		base = 20000
-	}
 }
 xvcv_mdlc_col_machine_ecu_refinery = {
 	icon = GFX_xvcv_mdlc_col_machine_ecu_refinery
 
-	potential = {
-		is_capital = no
-		xvcv_mdlc_world_machines_districts_valid_trigger = yes
-		uses_district_set = xvcv_mdlc_pc_machine_ecu_district_set
-	}
+	inline_script = country/colony_types/oxr_mdlc_ecu
 
 	planet_modifier = {
 		planet_xvcv_mdlc_pc_machine_ecu_district_rare_resources_build_speed_mult = 0.25
 	}
 
-	weight_modifier = {
-		base = 20000
-	}
 }
 xvcv_mdlc_col_machine_ecu_munitions = {
 	icon = GFX_xvcv_mdlc_col_machine_ecu_munitions
 
-	potential = {
-		is_capital = no
-		xvcv_mdlc_world_machines_districts_valid_trigger = yes
-		uses_district_set = xvcv_mdlc_pc_machine_ecu_district_set
-	}
+	inline_script = country/colony_types/oxr_mdlc_ecu
 
 	planet_modifier = {
 		planet_xvcv_mdlc_pc_machine_ecu_district_naval_cap_build_speed_mult = 0.25
 	}
 
-	weight_modifier = {
-		base = 20000
-	}
 }
 
 ### CPU
 xvcv_mdlc_col_machine_cpu = {
 	icon = GFX_xvcv_mdlc_col_machine_cpu
 
-	potential = {
-		is_capital = no
-		xvcv_mdlc_world_machines_districts_valid_trigger = yes
-		uses_district_set = xvcv_mdlc_pc_machine_cpu_district_set
-	}
+	inline_script = country/colony_types/oxr_mdlc_cpu
 
 	planet_modifier = {
 		planet_building_build_speed_mult = 0.25
 	}
 
-	weight_modifier = {
-		base = 20000
-	}
 }
 xvcv_mdlc_col_machine_cpu_engineering = {
 	icon = GFX_xvcv_mdlc_col_type_machine_cpu_engineering
 
-	potential = {
-		is_capital = no
-		xvcv_mdlc_world_machines_districts_valid_trigger = yes
-		uses_district_set = xvcv_mdlc_pc_machine_cpu_district_set
-	}
+	inline_script = country/colony_types/oxr_mdlc_cpu
 
 	planet_modifier = {
 		planet_xvcv_mdlc_pc_machine_cpu_district_engineering_build_speed_mult = 0.25
-	}
-
-	weight_modifier = {
-		base = 20000
+		planet_oxr_mdlc_world_machines_building_fractal_sanitizer_1_build_speed_mult = 0.25
+		# xvcv_mdlc_world_machines_science_districts_engineering_research_produces_mult = 0.25
+		# oxr_mdlc_world_machines_science_buildings_engineering_research_produces_mult = 0.25
+		# xvcv_mdlc_world_machines_science_districts_physics_research_produces_mult = -0.1
+		# oxr_mdlc_world_machines_science_buildings_physics_research_produces_mult = -0.1
+		# xvcv_mdlc_world_machines_science_districts_society_research_produces_mult = -0.1
+		# oxr_mdlc_world_machines_science_buildings_society_research_produces_mult = -0.1
 	}
 }
 xvcv_mdlc_col_machine_cpu_physics = {
 	icon = GFX_xvcv_mdlc_col_type_machine_cpu_physics
 
-	potential = {
-		is_capital = no
-		xvcv_mdlc_world_machines_districts_valid_trigger = yes
-		uses_district_set = xvcv_mdlc_pc_machine_cpu_district_set
-	}
+	inline_script = country/colony_types/oxr_mdlc_cpu
 
 	planet_modifier = {
 		planet_xvcv_mdlc_pc_machine_cpu_district_physics_build_speed_mult = 0.25
 	}
 
-	weight_modifier = {
-		base = 20000
-	}
 }
 xvcv_mdlc_col_machine_cpu_society = {
 	icon = GFX_xvcv_mdlc_col_type_machine_cpu_society
 
-	potential = {
-		is_capital = no
-		xvcv_mdlc_world_machines_districts_valid_trigger = yes
-		uses_district_set = xvcv_mdlc_pc_machine_cpu_district_set
-	}
+	inline_script = country/colony_types/oxr_mdlc_cpu
 
 	planet_modifier = {
 		planet_xvcv_mdlc_pc_machine_cpu_district_society_build_speed_mult = 0.25
 	}
 
-	weight_modifier = {
-		base = 20000
-	}
 }
 xvcv_mdlc_col_machine_cpu_decryption = {
 	icon = GFX_xvcv_mdlc_col_machine_cpu_decryption
 
-	potential = {
-		is_capital = no
-		xvcv_mdlc_world_machines_districts_valid_trigger = yes
-		uses_district_set = xvcv_mdlc_pc_machine_cpu_district_set
-	}
+	inline_script = country/colony_types/oxr_mdlc_cpu
 
 	planet_modifier = {
 		planet_xvcv_mdlc_pc_machine_cpu_district_decryption_build_speed_mult = 0.25
 	}
 
-	weight_modifier = {
-		base = 20000
-	}
 }
 
 ### Server
 xvcv_mdlc_col_machine_ser = {
 	icon = GFX_xvcv_mdlc_col_machine_ser
 
-	potential = {
-		is_capital = no
-		xvcv_mdlc_world_machines_districts_valid_trigger = yes
-		uses_district_set = xvcv_mdlc_pc_machine_ser_district_set
-	}
+	inline_script = country/colony_types/oxr_mdlc_ser
 
 	planet_modifier = {
 		planet_building_build_speed_mult = 0.25
 	}
 
-	weight_modifier = {
-		base = 20000
-	}
+	
 }
 xvcv_mdlc_col_machine_ser_drive = {
 	icon = GFX_xvcv_mdlc_col_machine_ser_drive
 
-	potential = {
-		is_capital = no
-		xvcv_mdlc_world_machines_districts_valid_trigger = yes
-		uses_district_set = xvcv_mdlc_pc_machine_ser_district_set
-	}
+	inline_script = country/colony_types/oxr_mdlc_ser
 
 	planet_modifier = {
 		planet_xvcv_mdlc_pc_machine_ser_district_unity_build_speed_mult = 0.25
 	}
 
-	weight_modifier = {
-		base = 20000
-	}
 }
 xvcv_mdlc_col_machine_ser_router = {
 	icon = GFX_xvcv_mdlc_col_machine_ser_router
 
-	potential = {
-		is_capital = no
-		xvcv_mdlc_world_machines_districts_valid_trigger = yes
-		uses_district_set = xvcv_mdlc_pc_machine_ser_district_set
-	}
+	inline_script = country/colony_types/oxr_mdlc_ser
 
 	planet_modifier = {
 		planet_xvcv_mdlc_pc_machine_ser_district_admin_cap_build_speed_mult = 0.25
-	}
-
-	weight_modifier = {
-		base = 20000
 	}
 }
 xvcv_mdlc_col_machine_ser_antivirus = {
 	icon = GFX_xvcv_mdlc_col_machine_ser_antivirus
 
-	potential = {
-		is_capital = no
-		xvcv_mdlc_world_machines_districts_valid_trigger = yes
-		uses_district_set = xvcv_mdlc_pc_machine_ser_district_set
-	}
+	inline_script = country/colony_types/oxr_mdlc_ser
 
 	planet_modifier = {
 		planet_xvcv_mdlc_pc_machine_ser_district_crime_build_speed_mult = 0.25
 	}
 
-	weight_modifier = {
-		base = 20000
-	}
 }
 xvcv_mdlc_col_machine_ser_firewall = {
 	icon = GFX_xvcv_mdlc_col_machine_ser_encryption
 
-	potential = {
-		is_capital = no
-		xvcv_mdlc_world_machines_districts_valid_trigger = yes
-		uses_district_set = xvcv_mdlc_pc_machine_ser_district_set
-	}
+	inline_script = country/colony_types/oxr_mdlc_ser
 
 	planet_modifier = {
 		planet_xvcv_mdlc_pc_machine_ser_district_encryption_build_speed_mult = 0.25
 	}
 
-	weight_modifier = {
-		base = 20000
-	}
 }
 xvcv_mdlc_col_virtual_research = {
 	icon = GFX_xvcv_mdlc_col_virtual_research
@@ -484,451 +385,3 @@ xvcv_mdlc_col_virtual_admin = {
 # 		base = 1000
 # 	}
 # }
-# Standard Auto-Machine World designations
-xvcv_mdlc_col_machine_auto_standard = {
-	icon = GFX_xvcv_mdlc_colony_type_machine_auto
-
-	potential = {
-		exists = owner
-		xvcv_mdlc_world_machines_districts_valid_trigger = yes
-		uses_district_set = xvcv_mdlc_pc_machine_auto_district_set
-		is_capital = no
-	}
-
-	planet_modifier = {
-		planet_stability_add = 5
-		planet_amenities_no_happiness_add = 10
-		planet_resettlement_unemployed_destination_mult = 0.25
-	}
-
-	triggered_planet_modifier = {
-		potential = { uses_district_set = ring_world }
-		pop_growth_speed = 0.1
-		planet_pop_assembly_mult = 0.1
-		planet_pop_assembly_organic_mult = 0.1
-	}
-
-	weight_modifier = {
-		base = 100
-	}
-}
-xvcv_mdlc_col_machine_auto_generator = {
-	# Focus on raw resources
-	icon = GFX_xvcv_mdlc_col_machine_auto_generator
-
-	potential = {
-		exists = owner
-		is_capital = no
-		xvcv_mdlc_world_machines_districts_valid_trigger = yes
-		uses_district_set = xvcv_mdlc_pc_machine_auto_district_set
-	}
-
-	planet_modifier = {
-		planet_xvcv_mdlc_pc_machine_auto_district_generator_build_speed_mult = 0.25
-		planet_technician_produces_mult = 0.25
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				is_galactic_community_member = yes
-				is_gestalt = no
-			}
-			OR = {
-				is_active_resolution = "resolution_greatergood_five_year_plans"
-				is_active_resolution = "resolution_greatergood_greater_than_ourselves"
-				is_active_resolution = "resolution_greatergood_balance_in_the_middle"
-				is_active_resolution = "resolution_greatergood_universal_prosperity_mandate"
-			}
-		}
-		modifier = {
-			planet_jobs_worker_produces_mult = 0.1
-		}
-	}
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				is_galactic_community_member = yes
-				is_gestalt = yes
-			}
-			OR = {
-				is_active_resolution = "resolution_greatergood_five_year_plans"
-				is_active_resolution = "resolution_greatergood_greater_than_ourselves"
-				is_active_resolution = "resolution_greatergood_balance_in_the_middle"
-				is_active_resolution = "resolution_greatergood_universal_prosperity_mandate"
-			}
-		}
-		modifier = {
-			planet_jobs_simple_drone_produces_mult = 0.1
-		}
-	}
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_tradition = tr_adaptability_finish }
-		}
-		modifier = { planet_technician_produces_mult = 0.1 }
-	}
-
-	weight_modifier = {
-		modifier = {
-			add = @stickiness
-			has_designation = col_generator
-		}
-		complex_trigger_modifier = {
-			trigger = num_districts
-			parameters = {
-				type = district_generator
-			}
-			mode = add
-			mult = 2
-		}
-		complex_trigger_modifier = {
-			trigger = num_districts
-			parameters = {
-				type = district_generator_uncapped
-			}
-			mode = add
-			mult = 2
-		}
-		complex_trigger_modifier = {
-			trigger = num_free_districts
-			parameters = {
-				type = district_generator
-			}
-			mode = add
-		}
-		modifier = {
-			add = 5
-			OR = {
-				has_modifier = hazardous_weather
-				has_modifier = strong_magnetic_field
-			}
-		}
-		modifier = {
-			add = 10
-			OR = {
-				has_building = building_energy_grid
-				has_building = building_energy_nexus
-			}
-		}
-		modifier = {
-			add = 5
-			has_building = building_betharian_power_plant
-		}
-		modifier = {
-			add = -10
-			has_modifier = energy_poor
-		}
-	}
-}
-xvcv_mdlc_col_machine_auto_mining = {
-	icon = GFX_xvcv_mdlc_col_machine_auto_mining
-
-	potential = {
-		exists = owner
-		is_capital = no
-		xvcv_mdlc_world_machines_districts_valid_trigger = yes
-		uses_district_set = xvcv_mdlc_pc_machine_auto_district_set
-	}
-
-	planet_modifier = {
-		planet_xvcv_mdlc_pc_machine_auto_district_mining_build_speed_mult = 0.25
-		planet_miners_produces_mult = 0.25
-	}
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				is_galactic_community_member = yes
-				is_gestalt = no
-			}
-			OR = {
-				is_active_resolution = "resolution_greatergood_five_year_plans"
-				is_active_resolution = "resolution_greatergood_greater_than_ourselves"
-				is_active_resolution = "resolution_greatergood_balance_in_the_middle"
-				is_active_resolution = "resolution_greatergood_universal_prosperity_mandate"
-			}
-		}
-		modifier = {
-			planet_jobs_worker_produces_mult = 0.1
-		}
-	}
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				is_galactic_community_member = yes
-				is_gestalt = yes
-			}
-			OR = {
-				is_active_resolution = "resolution_greatergood_five_year_plans"
-				is_active_resolution = "resolution_greatergood_greater_than_ourselves"
-				is_active_resolution = "resolution_greatergood_balance_in_the_middle"
-				is_active_resolution = "resolution_greatergood_universal_prosperity_mandate"
-			}
-		}
-		modifier = {
-			planet_jobs_simple_drone_produces_mult = 0.1
-		}
-	}
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_tradition = tr_adaptability_finish }
-		}
-		modifier = { planet_miners_produces_mult = 0.1 }
-	}
-
-	weight_modifier = {
-		modifier = {
-			add = @stickiness
-			has_designation = col_mining
-		}
-		complex_trigger_modifier = {
-			trigger = num_districts
-			parameters = {
-				type = district_mining
-			}
-			mode = add
-			mult = 2
-		}
-		complex_trigger_modifier = {
-			trigger = num_districts
-			parameters = {
-				type = district_mining_uncapped
-			}
-			mode = add
-			mult = 2
-		}
-		complex_trigger_modifier = {
-			trigger = num_free_districts
-			parameters = {
-				type = district_mining
-			}
-			mode = add
-		}
-		modifier = {
-			add = 10
-			OR = {
-				has_building = building_mineral_purification_plant
-				has_building = building_mineral_purification_hub
-			}
-		}
-		modifier = {
-			add = 5
-			OR = {
-				has_modifier = asteroid_belt
-				has_modifier = mineral_rich
-				has_modifier = ultra_rich
-				has_modifier = extensive_moon_system
-				has_modifier = asteroid_impacts
-				has_modifier = carbon_world
-			}
-		}
-		modifier = {
-			add = -10
-			has_modifier = mineral_poor
-		}
-	}
-}
-xvcv_mdlc_col_machine_auto_farming = {
-	icon = GFX_xvcv_mdlc_col_machine_auto_farming
-
-	potential = {
-		is_capital = no
-		xvcv_mdlc_world_machines_districts_valid_trigger = yes
-		uses_district_set = xvcv_mdlc_pc_machine_auto_district_set
-	}
-
-	planet_modifier = {
-		planet_xvcv_mdlc_pc_machine_auto_district_farming_build_speed_mult = 0.25
-		planet_farmers_produces_mult = 0.25
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				is_galactic_community_member = yes
-				is_gestalt = no
-			}
-			OR = {
-				is_active_resolution = "resolution_greatergood_five_year_plans"
-				is_active_resolution = "resolution_greatergood_greater_than_ourselves"
-				is_active_resolution = "resolution_greatergood_balance_in_the_middle"
-				is_active_resolution = "resolution_greatergood_universal_prosperity_mandate"
-			}
-		}
-		modifier = {
-			planet_jobs_worker_produces_mult = 0.1
-		}
-	}
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				is_galactic_community_member = yes
-				is_gestalt = yes
-			}
-			OR = {
-				is_active_resolution = "resolution_greatergood_five_year_plans"
-				is_active_resolution = "resolution_greatergood_greater_than_ourselves"
-				is_active_resolution = "resolution_greatergood_balance_in_the_middle"
-				is_active_resolution = "resolution_greatergood_universal_prosperity_mandate"
-			}
-		}
-		modifier = {
-			planet_jobs_simple_drone_produces_mult = 0.1
-		}
-	}
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_tradition = tr_adaptability_finish }
-		}
-		modifier = { planet_farmers_produces_mult = 0.1 }
-	}
-
-	weight_modifier = {
-		modifier = {
-			add = @stickiness
-			has_designation = col_farming
-		}
-		complex_trigger_modifier = {
-			trigger = num_districts
-			parameters = {
-				type = district_farming
-			}
-			mode = add
-			mult = 2
-		}
-		complex_trigger_modifier = {
-			trigger = num_districts
-			parameters = {
-				type = district_farming_uncapped
-			}
-			mode = add
-			mult = 2
-		}
-		complex_trigger_modifier = {
-			trigger = num_buildings
-			parameters = {
-				type = building_hydroponics_farm
-			}
-			mode = add
-			mult = 2
-		}
-		complex_trigger_modifier = {
-			trigger = num_free_districts
-			parameters = {
-				type = district_farming
-			}
-			mode = add
-		}
-		modifier = {
-			add = 5
-			has_modifier = lush_planet
-		}
-		modifier = {
-			add = 10
-			OR = {
-				has_building = building_food_processing_facility
-				has_building = building_food_processing_center
-			}
-		}
-		modifier = {
-			add = 5
-			has_building = building_baol_organic_plant
-		}
-		modifier = {
-			add = -10
-			OR = {
-				has_modifier = bleak_planet
-				has_modifier = unbalanced_ecosystem
-				has_modifier = irradiated_planet
-			}
-		}
-	}
-}
-xvcv_mdlc_col_machine_auto_industrial = {
-	icon = GFX_xvcv_mdlc_col_machine_auto_industrial
-
-	potential = {
-		exists = owner
-		xvcv_mdlc_world_machines_districts_valid_trigger = yes
-		uses_district_set = xvcv_mdlc_pc_machine_auto_district_set
-		is_capital = no
-	}
-
-	planet_modifier = {
-		planet_xvcv_mdlc_pc_machine_auto_district_industrial_build_speed_mult = 0.25
-	}
-
-	triggered_planet_modifier = {
-		potential = { uses_district_set = ring_world }
-		pop_growth_speed = 0.1
-		planet_pop_assembly_mult = 0.1
-		planet_pop_assembly_organic_mult = 0.1
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				is_galactic_community_member = yes
-			}
-			OR = {
-				is_active_resolution = "resolution_industry_environmental_ordinance_waivers"
-				is_active_resolution = "resolution_industry_project_cornucopia"
-			}
-		}
-		modifier = {
-			planet_artisans_produces_mult = 0.0375
-			planet_metallurgists_produces_mult = 0.0375
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_tradition = tr_adaptability_finish }
-		}
-		modifier = {
-			planet_artisans_produces_mult = 0.05
-			planet_metallurgists_produces_mult = 0.05
-		}
-	}
-
-	weight_modifier = {
-		modifier = {
-			add = @stickiness
-			has_designation = col_industrial
-		}
-		complex_trigger_modifier = {
-			trigger = num_districts
-			parameters = {
-				type = district_industrial
-			}
-			mode = add
-			mult = 3
-		}
-		modifier = {
-			add = 15
-			AND = {
-				OR = {
-					has_building = building_factory_1
-					has_building = building_factory_2
-					has_building = building_factory_3
-				}
-				OR = {
-					has_building = building_foundry_1
-					has_building = building_foundry_2
-					has_building = building_foundry_3
-				}
-			}
-		}
-	}
-}

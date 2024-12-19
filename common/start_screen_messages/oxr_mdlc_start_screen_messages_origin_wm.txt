@@ -1,0 +1,34 @@
+# World Machine Origin
+part = {
+	location = 0
+	localization = "START_SCREEN_PART_ONE_ORIGIN_WORLD_MACHINE"
+
+	trigger = {
+        # authority = { value = auth_machine_intelligence }
+		is_machine_empire = yes
+		has_country_flag = custom_start_screen
+        has_origin = oxr_mdlc_origin_world_machine_awakened
+	}
+}
+
+part = {
+	location = 1
+	localization = "START_SCREEN_PART_TWO_ORIGIN_WORLD_MACHINE"
+
+	trigger = {
+		is_machine_empire = yes
+		has_country_flag = custom_start_screen
+        has_origin = oxr_mdlc_origin_world_machine_awakened
+	}
+}
+
+part = {
+	location = 2
+	localization = "START_SCREEN_PART_THREE_ORIGIN_WORLD_MACHINE"
+
+	trigger = {
+		is_machine_empire = yes
+		has_country_flag = custom_start_screen
+        has_origin = oxr_mdlc_origin_world_machine_awakened
+	}
+}

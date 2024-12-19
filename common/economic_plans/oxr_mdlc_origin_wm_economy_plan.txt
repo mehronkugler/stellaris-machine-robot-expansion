@@ -1,0 +1,48 @@
+#basic_economy_plan = {
+#
+#	subplan = {
+#		set_name = "World machine empire scaling SR"
+#		optional = yes
+#		scaling = yes
+#		potential = {
+#			OR = {
+#				has_origin = oxr_mdlc_origin_world_machine_awakened
+#				has_ascension_perk = xvcv_mdlc_ap_world_machines
+#			}
+#		}
+#
+#		income = {
+#			exotic_gases = 3
+#			volatile_motes = 3
+#			rare_crystals = 3
+#		}
+#	}
+#
+#	subplan = {
+#		scaling = yes
+#		potential = {
+#			OR = {
+#				has_origin = oxr_mdlc_origin_world_machine_awakened
+#				has_ascension_perk = xvcv_mdlc_ap_world_machines
+#			}
+#		}
+#		set_name = "World Machines general scaling"
+#		potential = {
+#			has_monthly_income = { resource = energy value > 50 }
+#			has_monthly_income = { resource = minerals value > 50 }
+#			has_monthly_income = { resource = alloys value > 50 }
+#		}
+#
+#		income = {
+#			alloys = 20
+#			minerals = 25
+#			energy = 20
+#			physics_research = 50
+#			society_research = 50
+#			engineering_research = 50
+#			unity = 40
+#		}
+#	}
+#
+#}
+#

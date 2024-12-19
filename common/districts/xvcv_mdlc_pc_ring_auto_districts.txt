@@ -35,23 +35,18 @@ xvcv_mdlc_pc_ringworld_machine_auto_generator = {
 		xvcv_mdlc_world_machines_districts_produces_mult = -0.1
 		xvcv_mdlc_world_machines_districts_upkeep_mult = 0.1
 	}
-
+	## RESOURCES
 	resources = {
-		category = xvcv_mdlc_world_machines_districts
-		cost = {
-			minerals = @rw_cost
-			rare_crystals = @rw_cost_sr
-		}
-		upkeep = {
-			energy = @rw_maintenance
-			rare_crystals = @rw_maintenance_sr
-		}
-		# auto_district_generator produces 20 in lieu of 2 jobs,
-		# so 1 job = 10 automated energy, x10 ringworld jobs = 100 energy
-		produces = {
-			energy = 100
+		inline_script = {
+			script = planet/districts/auto/oxr_mdlc_generator
+			PRODUCES_MULT = value:oxr_mdlc_wm_output|OUTPUT_VAR|planet.modifier:xvcv_mdlc_world_machines_districts_produces_mult|
+			UPKEEP_MULT = value:oxr_mdlc_wm_output|OUTPUT_VAR|planet.modifier:xvcv_mdlc_world_machines_districts_upkeep_mult|
+			ENERGY = @oxr_mdlc_auto_ringworld_generator_output
+			UPKEEP = @oxr_mdlc_auto_ringworld_generator_upkeep
+			BIOFUEL_UPKEEP = 20
 		}
 	}
+
 	ai_resource_production = {
 		energy = 50
 		trigger = { always = yes }
@@ -214,7 +209,8 @@ xvcv_mdlc_pc_ringworld_machine_auto_industrial = {
 	}
 
 	resources = {
-		category = xvcv_mdlc_world_machines_districts
+		# category = xvcv_mdlc_world_machines_districts
+		category = planet_metallurgists
 		cost = {
 			minerals = @rw_cost
 			volatile_motes = @rw_cost_sr
@@ -232,71 +228,36 @@ xvcv_mdlc_pc_ringworld_machine_auto_industrial = {
 			}
 			energy = 4
 		}
-		# Default, if no designation
-		produces = {
-			consumer_goods = 60  # uses 30 minerals
-			alloys = 30
+		# No colony designation: covers catalytic and "uses goods"
+		# All params should be 5x the base job produces/upkeep, except RARE
+		inline_script = {
+			script = planet/resources/produces/auto_ringworld_industrial/oxr_mdlc_default
+			RARE = 1
+			PRODUCES_MULT = value:oxr_mdlc_wm_output|OUTPUT_VAR|planet.modifier:xvcv_mdlc_world_machines_districts_produces_mult|
+			UPKEEP_MULT = value:oxr_mdlc_wm_output|OUTPUT_VAR|planet.modifier:xvcv_mdlc_world_machines_districts_upkeep_mult|
+		}
+		# # Factory designation
+		inline_script = {
+			script = planet/resources/produces/auto_industrial/oxr_mdlc_factory
+			GOODS = @oxr_mdlc_auto_ringworld_industrial_goods
+			GOODS_UPKEEP = @oxr_mdlc_auto_ringworld_industrial_goods
+			RARE = 1
+			PRODUCES_MULT = value:oxr_mdlc_wm_output|OUTPUT_VAR|planet.modifier:xvcv_mdlc_world_machines_districts_produces_mult|
+			UPKEEP_MULT = value:oxr_mdlc_wm_output|OUTPUT_VAR|planet.modifier:xvcv_mdlc_world_machines_districts_upkeep_mult|
 		}
 		# Foundry designation
-		produces = {
-			trigger = {
-				OR = {
-					has_designation = col_capital_foundry
-					has_designation = col_ecu_foundry
-					has_designation = col_foundry
-				}
-			}
-			alloys = 30  # total of 60, equal to ECU alloys district
-			consumer_goods = -60
+		inline_script = {
+			script = planet/resources/produces/auto_industrial/oxr_mdlc_foundry
+			PRODUCES = @oxr_mdlc_auto_ringworld_foundry_output
+			CATALYTIC = @oxr_mdlc_auto_ringworld_foundry_catalytic_output
+			UPKEEP = @oxr_mdlc_auto_ringworld_foundry_upkeep
+			RARE = 1
+			CATALYTIC_UPKEEP = @oxr_mdlc_auto_ringworld_foundry_catalytic_upkeep
+			# PRODUCES_MULT = value:oxr_mdlc_wm_output|OUTPUT_VAR|planet.modifier:xvcv_mdlc_world_machines_districts_produces_mult|
+			UPKEEP_MULT = value:oxr_mdlc_wm_output|OUTPUT_VAR|planet.modifier:xvcv_mdlc_world_machines_districts_upkeep_mult|
+			PRODUCES_MULT = value:oxr_mdlc_join_mults|MULT1|planet.modifier:xvcv_mdlc_world_machines_districts_produces_mult|MULT2|xvcv_mdlc_world_machines_industrial_districts_upkeep_mult|
 		}
-		upkeep = {
-			trigger = {
-				OR = {
-					has_designation = col_capital_foundry
-					has_designation = col_ecu_foundry
-					has_designation = col_foundry
-				}
-				exists = owner
-				owner = { is_catalytic_empire = no }
-			}
-			minerals = 60
-		}
-		upkeep = {
-			trigger = {
-				OR = {
-					has_designation = col_capital_foundry
-					has_designation = col_ecu_foundry
-					has_designation = col_foundry
-				}
-				exists = owner
-				owner = { is_catalytic_empire = yes }
-			}
-			food = 90
-			minerals = -60
-		}
-		# Factory designation
-		produces = {
-			trigger = {
-				OR = {
-					has_designation = col_capital_factory
-					has_designation = col_ecu_factory
-					has_designation = col_factory
-				}
-			}
-			alloys = -15
-			consumer_goods = 90  # total of 120, equal to ECU goods district
-		}
-		upkeep = {
-			trigger = {
-				OR = {
-					has_designation = col_capital_factory
-					has_designation = col_ecu_factory
-					has_designation = col_factory
-				}
-			}
-			minerals = 60
-		}
-	}	
+	}
 }
 
 xvcv_mdlc_pc_ringworld_machine_auto_farming = {

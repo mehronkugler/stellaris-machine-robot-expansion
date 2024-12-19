@@ -1,0 +1,72 @@
+# BUILDINGS
+# If tiers start at 0 and go to 10 then technically there are 11 tiers
+@c0_tier = 0
+@c0_time = 180
+@c0_minerals = 200
+@c0_upkeep = 1
+@c0_jobs = 2
+
+# All vanilla buildings start at this tier
+# but every WM resource building represents 2 jobs at start
+# essentially 1 district giving 2 jobs
+@c1_tier = 1
+@c1_time = 360
+@c1_alloy_upkeep = 2
+@c1_jobs = 2
+@c1_minerals = 400
+@c1_upkeep = 2
+@c1_rare_upkeep = 0
+@c1_rare_cost = 0
+
+@c2_tier = 2
+@c2_time = 480
+@c2_alloy_upkeep = 3
+@c2_jobs = 4
+@c2_minerals = 600
+@c2_rare_cost = 50
+@c2_rare_upkeep = 1
+@c2_upkeep = 3
+
+@c3_tier = 3
+@c3_time = 600
+@c3_alloy_upkeep = 5
+@c3_jobs = 6
+@c3_minerals = 800
+@c3_rare_cost = 100
+@c3_rare_upkeep = 2
+@c3_upkeep = 5
+
+@c4_tier = 4
+@c4_time = 900
+@c4_alloy_upkeep = 3
+@c4_jobs = 8
+@c4_minerals = 1000
+@c4_rare_cost = 150
+@c4_rare_upkeep = 3
+@c4_upkeep = 8
+
+@c5_tier = 5
+@c5_time = 1080
+@c5_alloy_upkeep = 5
+@c5_jobs = 10
+@c5_minerals = 1200
+@c5_rare_cost = 200
+@c5_rare_upkeep = 4
+@c5_upkeep = 13
+
+@c6_tier = 6
+@c6_time = 1260
+@c6_minerals = 1400
+@c6_upkeep = 21
+@c6_jobs = 12
+@c6_alloy_upkeep = 5
+@c6_rare_cost = 250
+@c6_rare_upkeep = 4
+
+@c10_time = 2000
+@c10_minerals = 2200
+@c10_upkeep = 144
+@c10_jobs = 20
+@c10_alloy_upkeep = 13
+@c10_rare_cost = 450
+@c10_rare_upkeep = 9

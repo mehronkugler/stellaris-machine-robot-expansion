@@ -1,0 +1,6 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_rikk_mdlc_situation_outcome_icon_world_machine_core"
+		texturefile = "gfx/interface/icons/situation_log/situations/outcomes/rikk_mdlc_situation_outcome_icon_world_machine_core.dds"
+	}
+}

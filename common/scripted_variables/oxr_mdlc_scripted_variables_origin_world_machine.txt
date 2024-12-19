@@ -1,0 +1,90 @@
+# clear digsite +1
+# clear blocker +1
+# clear arc stage +1
+# Each Arc Site: total 4
+# 6-8 arc sites: 24-32 pts
+# discover world machine planet +5
+# restore planet : 5 stages + 10 pts = 15 pts
+# build wm district +1
+# build wm building +1
+# 1 year: +3 pts
+
+@oxr_mdlc_situation_core_insight_digsite_points = 1
+@oxr_mdlc_situation_core_insight_blocker_points = 1
+@oxr_mdlc_situation_core_insight_arc_stage_points = 1
+@oxr_mdlc_situation_core_insight_discover_wm = 5
+@oxr_mdlc_situation_core_insight_build_district_points = 1
+@oxr_mdlc_situation_core_insight_make_building = 5
+
+@oxr_mdlc_situation_core_insights_on_world_machine_blocker_digsite_finished_points = 1
+@oxr_mdlc_situation_core_insights_on_world_machine_blocker_cleared_points = 1
+@oxr_mdlc_situation_core_insights_on_world_machine_arc_site_progress_points = 1
+@oxr_mdlc_situation_core_insights_on_world_machine_restoration_stage_complete = 1
+@oxr_mdlc_situation_core_insights_on_world_machine_insight_blocker_cleared_points = 1
+@oxr_mdlc_situation_core_insights_on_world_machine_ruin_discovered = 5
+@oxr_mdlc_situation_core_insights_on_world_machine_restoration_finished = 10
+@oxr_mdlc_situation_core_insight_wm_building_constructed = 2
+
+# random reward
+@oxr_mdlc_situation_core_tech_fun_points = 5
+
+@oxr_mdlc_modifier_wmc_fabrication_monthly_energy = 138  # 138.8
+@oxr_mdlc_modifier_wmc_fabrication_monthly_alloys = 41   # 41.6
+@oxr_mdlc_modifier_wmc_fabrication_planet_build_speed_mult = -0.25
+
+# WMC Build Costs
+@oxr_mdlc_world_machine_core_build_time_days = 1080
+@oxr_mdlc_world_machine_core_build_cost_energy = 140
+@oxr_mdlc_world_machine_core_build_cost_alloys = 42
+
+@oxr_mdlc_world_machine_defense_armies_per_district = 2
+@oxr_mdlc_world_machine_defense_armies_refill_cost = 100
+@oxr_mdlc_world_machine_defense_armies_refill_time = 7  # days
+
+# Game starting conditions
+@oxr_mdlc_world_machine_starting_cores_amount = 1
+
+# decisions
+@oxr_mdlc_world_machine_decision_temp_automaton_amount_1 = 4
+@oxr_mdlc_world_machine_decision_temp_automaton_amount_2 = 8
+@oxr_mdlc_world_machine_decision_temp_automaton_amount_3 = 16
+
+# Modifier doesn't seem to like to take a var for its duration
+@oxr_mdlc_world_machine_decision_temp_automaton_assembly_days_1 = 7
+@oxr_mdlc_world_machine_decision_temp_automaton_days_1 = 180
+@oxr_mdlc_world_machine_decision_temp_automaton_days_2 = 360
+@oxr_mdlc_world_machine_decision_temp_automaton_days_3 = 720
+
+# These are not implemented yet
+@oxr_mdlc_world_machine_decision_temp_automaton_energy_upkeep_1 = 1
+@oxr_mdlc_world_machine_decision_temp_automaton_energy_upkeep_2 = 2
+@oxr_mdlc_world_machine_decision_temp_automaton_energy_upkeep_3 = 3
+
+@oxr_mdlc_world_machine_decision_temp_automaton_amenities_upkeep_1 = 0.3
+@oxr_mdlc_world_machine_decision_temp_automaton_amenities_upkeep_2 = 0.6
+@oxr_mdlc_world_machine_decision_temp_automaton_amenities_upkeep_3 = 1
+
+@oxr_mdlc_world_machine_max_upgrades_no_ap = 3
+
+# TERRAFORMING / DECISION
+@oxr_mdlc_world_machine_direct_time = 3600
+
+### TIER 3 PLANETS REQS
+@oxr_mdlc_t3_ser_unity_target = 500
+@oxr_mdlc_t3_ecu_naval_cap_target = 500
+@oxr_mdlc_t3_cpu_any_research_target = 500
+@oxr_mdlc_t3_ecu_sr_target = 20
+@oxr_mdlc_t3_ecu_alloys_target = 700
+
+### BOOM ?
+@oxr_mdlc_world_machine_self_destruct_damage = 2000
+@oxr_mdlc_world_machine_self_destruct_damage_per_district = 100
+@oxr_mdlc_world_machine_self_destruct_max_distance = 300
+@oxr_mdlc_world_machine_self_destruct_radius_increment_distance = 25
+@oxr_mdlc_world_machine_self_destruct_scaling_modifier = -0.1
+@oxr_mdlc_world_machine_self_destruct_diminishing_return_base = 0.80
+
+# Origin start values - for reference only
+@oxr_mdlc_origin_wm_empire_size_districts_mult = 4
+@oxr_mdlc_origin_wm_empire_size_colonies_mult = 0.5
+@oxr_mdlc_origin_wm_empire_size_pops_mult = 4

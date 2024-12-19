@@ -1,0 +1,228 @@
+@oxr_mdlc_origin_world_machine_arc_site_difficulty_easy = -1
+@oxr_mdlc_origin_world_machine_arc_site_difficulty_normal = 1
+@oxr_mdlc_origin_world_machine_arc_site_difficulty_insight = 2
+
+oxr_mdlc_collapsed_charge_controller_site = {
+	desc = "oxr_mdlc_collapsed_charge_controller_site_desc"
+	inline_script = country/arc_site/oxr_mdlc_wm_site
+
+	stage = {
+		difficulty = -1
+		event = oxr_mdlc_origin_wm_arc.10
+		icon = GFX_archaeology_runes_A1
+	}
+	stage = {
+		difficulty = -1
+		event = oxr_mdlc_origin_wm_arc.15
+		icon = GFX_archaeology_runes_A2
+	}
+	on_roll_failed = { from = { standard_archaeological_site_on_roll_failed = { RANDOM_EVENTS = all_random_events } } }
+}
+oxr_mdlc_fossilized_nutrient_bog_site = {
+	desc = "oxr_mdlc_fossilized_nutrient_bog_site_desc"
+
+	inline_script = country/arc_site/oxr_mdlc_wm_site
+
+	stage = {
+		difficulty = -1
+		event = oxr_mdlc_origin_wm_arc.20
+		icon = GFX_archaeology_runes_A1
+	}
+	stage = {
+		difficulty = -1
+		event = oxr_mdlc_origin_wm_arc.25
+		icon = GFX_archaeology_runes_A2
+	}
+	on_roll_failed = { from = { standard_archaeological_site_on_roll_failed = { RANDOM_EVENTS = all_random_events } } }
+}
+oxr_mdlc_world_machine_flooded_borehole_site = {
+	desc = "oxr_mdlc_world_machine_flooded_borehole_site_desc"
+
+	inline_script = country/arc_site/oxr_mdlc_wm_site
+
+	stage = {
+		difficulty = -1
+		event = oxr_mdlc_origin_wm_arc.30
+		icon = GFX_archaeology_runes_A1
+	}
+	stage = {
+		difficulty = -1
+		event = oxr_mdlc_origin_wm_arc.35
+		icon = GFX_archaeology_runes_A2
+	}
+	on_roll_failed = { from = { standard_archaeological_site_on_roll_failed = { RANDOM_EVENTS = all_random_events } } }
+}
+oxr_mdlc_world_machine_clogged_furnace_discharge_site = {
+	desc = "oxr_mdlc_world_machine_clogged_furnace_discharge_site_desc"
+
+	inline_script = country/arc_site/oxr_mdlc_wm_site
+
+	stage = {
+		difficulty = -1
+		event = oxr_mdlc_origin_wm_arc.40
+		icon = GFX_archaeology_runes_A1
+	}
+	stage = {
+		difficulty = -1
+		event = oxr_mdlc_origin_wm_arc.45
+		icon = GFX_archaeology_runes_A2
+	}
+	on_roll_failed = { from = { standard_archaeological_site_on_roll_failed = { RANDOM_EVENTS = all_random_events } } }
+}
+oxr_mdlc_world_machine_irradiated_drone_storage_site = {
+	desc = "oxr_mdlc_world_machine_irradiated_drone_storage_site_desc"
+
+	inline_script = country/arc_site/oxr_mdlc_wm_site
+
+	stage = {
+		difficulty = -1
+		event = oxr_mdlc_origin_wm_arc.50
+		icon = GFX_archaeology_runes_A1
+	}
+	stage = {
+		difficulty = -1
+		event = oxr_mdlc_origin_wm_arc.55
+		icon = GFX_archaeology_runes_A2
+	}
+	on_roll_failed = { from = { standard_archaeological_site_on_roll_failed = { RANDOM_EVENTS = all_random_events } } }
+}
+
+# GENERIC DISTRICT BLOCKERS
+oxr_mdlc_world_machine_meteor_shower_impacts_site = {
+	desc = "oxr_mdlc_world_machine_meteor_shower_impacts_site_desc"
+
+	inline_script = country/arc_site/oxr_mdlc_wm_site
+
+	stage = {
+		difficulty = 0
+		event = oxr_mdlc_origin_wm_arc.60
+		icon = GFX_archaeology_runes_A1
+	}
+	stage = {
+		difficulty = 0
+		event = oxr_mdlc_origin_wm_arc.65
+		icon = GFX_archaeology_runes_A2
+	}
+	on_roll_failed = { from = { standard_archaeological_site_on_roll_failed = { RANDOM_EVENTS = all_random_events } } }
+}
+oxr_mdlc_world_machine_collapsed_transportation_hubs_site = {
+	desc = "oxr_mdlc_world_machine_meteor_shower_impacts_site_desc"
+
+	inline_script = country/arc_site/oxr_mdlc_wm_site
+
+	stage = {
+		difficulty = 0
+		event = oxr_mdlc_origin_wm_arc.70
+		icon = GFX_archaeology_runes_A1
+	}
+	stage = {
+		difficulty = 0
+		event = oxr_mdlc_origin_wm_arc.75
+		icon = GFX_archaeology_runes_A2
+	}
+	on_roll_failed = { from = { standard_archaeological_site_on_roll_failed = { RANDOM_EVENTS = all_random_events } } }
+}
+oxr_mdlc_world_machine_exposed_structural_chasms_site = {
+	desc = "oxr_mdlc_world_machine_exposed_structural_chasms_site_desc"
+
+	inline_script = country/arc_site/oxr_mdlc_wm_site
+
+	stage = {
+		difficulty = 0
+		event = oxr_mdlc_origin_wm_arc.80
+		icon = GFX_archaeology_runes_A1
+	}
+	stage = {
+		difficulty = 0
+		event = oxr_mdlc_origin_wm_arc.85
+		icon = GFX_archaeology_runes_A2
+	}
+	on_roll_failed = { from = { standard_archaeological_site_on_roll_failed = { RANDOM_EVENTS = all_random_events } } }
+}
+oxr_mdlc_world_machine_dense_geologic_mass_site = {
+	desc = "oxr_mdlc_world_machine_dense_geologic_mass_site_desc"
+
+	inline_script = country/arc_site/oxr_mdlc_wm_site
+
+	stage = {
+		difficulty = 0
+		event = oxr_mdlc_origin_wm_arc.90
+		icon = GFX_archaeology_runes_A1
+	}
+	stage = {
+		difficulty = 0
+		event = oxr_mdlc_origin_wm_arc.95
+		icon = GFX_archaeology_runes_A2
+	}
+	on_roll_failed = { from = { standard_archaeological_site_on_roll_failed = { RANDOM_EVENTS = all_random_events } } }
+}
+
+# INSIGHTS
+oxr_mdlc_world_machine_offline_data_routers_site = {
+	desc = "oxr_mdlc_world_machine_offline_data_routers_site_desc"
+
+	inline_script = country/arc_site/oxr_mdlc_wm_site
+
+	stage = {
+		difficulty = 0
+		event = oxr_mdlc_origin_wm_arc.100
+		icon = GFX_archaeology_runes_A1
+	}
+	stage = {
+		difficulty = 0
+		event = oxr_mdlc_origin_wm_arc.105
+		icon = GFX_archaeology_runes_A2
+	}
+	on_roll_failed = { from = { standard_archaeological_site_on_roll_failed = { RANDOM_EVENTS = all_random_events } } }
+}
+oxr_mdlc_world_machine_damaged_data_cold_storages_site = {
+	desc = "oxr_mdlc_world_machine_damaged_data_cold_storages_site_desc"
+
+	inline_script = country/arc_site/oxr_mdlc_wm_site
+
+	stage = {
+		difficulty = 0
+		event = oxr_mdlc_origin_wm_arc.110
+		icon = GFX_archaeology_runes_A1
+	}
+	stage = {
+		difficulty = 0
+		event = oxr_mdlc_origin_wm_arc.115
+		icon = GFX_archaeology_runes_A2
+	}
+	on_roll_failed = { from = { standard_archaeological_site_on_roll_failed = { RANDOM_EVENTS = all_random_events } } }
+}
+oxr_mdlc_world_machine_frozen_waterway_pistons_site = {
+	desc = "oxr_mdlc_world_machine_frozen_waterway_pistons_site_desc"
+
+	inline_script = country/arc_site/oxr_mdlc_wm_site
+
+	stage = {
+		difficulty = 0
+		event = oxr_mdlc_origin_wm_arc.120
+		icon = GFX_archaeology_runes_A1
+	}
+	stage = {
+		difficulty = 0
+		event = oxr_mdlc_origin_wm_arc.125
+		icon = GFX_archaeology_runes_A2
+	}
+	on_roll_failed = { from = { standard_archaeological_site_on_roll_failed = { RANDOM_EVENTS = all_random_events } } }
+}
+oxr_mdlc_world_machine_incomplete_construction_bays_site = {
+	desc = "oxr_mdlc_world_machine_incomplete_construction_bays_site_desc"
+
+	inline_script = country/arc_site/oxr_mdlc_wm_site
+
+	stage = {
+		difficulty = 0
+		event = oxr_mdlc_origin_wm_arc.130
+		icon = GFX_archaeology_runes_A1
+	}
+	stage = {
+		difficulty = 0
+		event = oxr_mdlc_origin_wm_arc.135
+		icon = GFX_archaeology_runes_A2
+	}
+	on_roll_failed = { from = { standard_archaeological_site_on_roll_failed = { RANDOM_EVENTS = all_random_events } } }
+}

@@ -55,6 +55,15 @@ Workflow:
 1. Create a branch for the patch, following the next in the series at https://github.com/openly-retro/stellaris-machine-robot-expansion/tags (if 2.3.2 is the latest then the next is 2.3.3), named `patch-#.#.#` where #.#.# is the patch version
 2. Do some work in your feature or bug branch and then make a pull request to the patch branch
 
+# Art Credits
+
+- https://pixabay.com/illustrations/water-technology-sci-fi-futuristic-7547817/ by [https://pixabay.com/users/joker39-30858803/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=7547817](Melvyn Thevenin) from [https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=7547817"](Pixabay) , used for World Machine planetary deposits and other artworks
+- https://pixabay.com/illustrations/futuristic-architecture-wallpaper-6694976/ by  <a href="https://pixabay.com/users/tommyvideo-3092371/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=6694976">Tomislav Jakupec</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=6694976">Pixabay</a>, used for World Machine technology art
+- https://pixabay.com/illustrations/blueprint-engineering-technology-6944719/ by Image by <a href="https://pixabay.com/users/xresch-7410129/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=6944719">Reto Scheiwiller</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=6944719">Pixabay</a>, used for World Machine event art
+- https://pixabay.com/illustrations/futuristic-background-pattern-7831598/ Image by <a href="https://pixabay.com/users/placidplace-25572496/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=7831598">Peace,love,happiness</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=7831598">Pixabay</a>, used for World Machine art
+- https://pixabay.com/illustrations/fantastic-technology-futuristic-4805591/ Image by <a href="https://pixabay.com/users/gtuignatov-3540393/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=4805591">Alexander Ignatov</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=4805591">Pixabay</a>
+- https://pixabay.com/illustrations/blur-background-pattern-geometric-7281360/ Image by <a href="https://pixabay.com/users/placidplace-25572496/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=7281360">Peace,love,happiness</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=7281360">Pixabay</a>, used for World Machine event art
+- [https://www.deviantart.com/xxaries1970xx/art/Digital-Circuit-936780185](Digital Circuit, by XxAries1970xX) , used for the Source Code Reprogramming event-related banners and other artworks.
 
 # Code generation workflow (The Good Stuff)
 

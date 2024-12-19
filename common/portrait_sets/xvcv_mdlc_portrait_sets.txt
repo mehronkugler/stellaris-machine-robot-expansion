@@ -1,12 +1,6 @@
 xvcv_mdlc_robots = {
 	species_class = XVCV_MDLC_ROBOT
 
-	# conditional_portraits = {
-	# 	randomizable = { always = yes }
-	# 	playable = { always = yes }
-	# 	portraits = { "default_robot" }
-	# }
-
 	conditional_portraits = {
 		randomizable = {
 			# has_synthetic_dawn = yes
@@ -122,6 +116,21 @@ xvcv_mdlc_robots = {
 			"cyb_machine"
 		}
 	}
+	conditional_portraits = {
+		randomizable = { host_has_dlc = "Distant Stars Story Pack" }
+		playable = { host_has_dlc = "Distant Stars Story Pack" }
+		portraits = {
+			# "cpl_04"  # Caretaker but it's too big ;(
+			"cpl_03"  # Warform
+		}
+	}
+	conditional_portraits = {
+		randomizable = { host_has_dlc = "Galactic Paragons" }
+		playable = { host_has_dlc = "Galactic Paragons" }
+		portraits = {
+			"par_renown_03"  # Tactical Combat Robot
+		}
+	}
 
 	# Conditional portraits without actual conditions are used here to keep portrait list on UI in particular order
 	conditional_portraits = {
@@ -129,6 +138,7 @@ xvcv_mdlc_robots = {
 			"default_robot"
 		}
 	}
+
 }
 xvcv_mdlc_bio_robots = {
 	species_class = XVCV_MDLC_BIO_ROBOT
@@ -458,6 +468,21 @@ xvcv_mdlc_bio_robots = {
 		}
 	}
 	conditional_portraits = {
+		randomizable = { host_has_dlc = "Distant Stars Story Pack" }
+		playable = { host_has_dlc = "Distant Stars Story Pack" }
+		portraits = {
+			# "cpl_04"  # Caretaker but it's too big ;(
+			"cpl_03"  # Warform
+		}
+	}
+	conditional_portraits = {
+		randomizable = { host_has_dlc = "Galactic Paragons" }
+		playable = { host_has_dlc = "Galactic Paragons" }
+		portraits = {
+			"par_renown_03"  # Tactical Combat Robot
+		}
+	}
+	conditional_portraits = {
 		randomizable = {
 			OR = {
 				has_synthetic_dawn = yes
@@ -491,6 +516,15 @@ oxr_mdlc_mamp_cat1_species = {
 		portraits = {
 			"sd_hum_robot" "sd_mam_robot" "sd_rep_robot" "sd_avi_robot"
 			"sd_art_robot" "sd_mol_robot" "sd_fun_robot" "sd_pla_robot"
+		}
+	}
+	
+	conditional_portraits = {
+		randomizable = { host_has_dlc = "Distant Stars Story Pack" }
+		playable = { host_has_dlc = "Distant Stars Story Pack" }
+		portraits = {
+			"cpl_04"  # Caretaker
+			"cpl_03"  # Warform
 		}
 	}
 }

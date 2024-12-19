@@ -1,0 +1,27 @@
+concept_oxr_mdlc_world_machine_district_defense_army = {
+	icon = "gfx/interface/icons/text_icons/text_icon_defense_army.dds"
+}
+concept_oxr_mdlc_world_machine_district_defense_army_plural = {
+	icon = "gfx/interface/icons/text_icons/text_icon_defense_army.dds"
+}
+concept_oxr_mdlc_world_machine_core_resource = {
+	icon = "gfx/interface/icons/resources/oxr_mdlc_world_machine_core.dds"
+}
+concept_oxr_mdlc_world_machine_core_planetary_deposit = {
+
+}
+concept_oxr_mdlc_world_machine_fractal_tech = { }
+
+concept_oxr_mdlc_auto_machine_world = { }
+
+concept_oxr_mdlc_tech_geophysics = {
+	icon = "gfx/interface/icons/concepts/concept_oxr_mdlc_tech_geophysics.dds"
+}
+concept_oxr_mdlc_automaton_species = { }
+concept_oxr_mdlc_organoid = { }
+concept_oxr_mdlc_brain_organoid = {
+	icon = "gfx/interface/icons/concepts/concept_oxr_mdlc_brain_organoid.dds"
+}
+concept_oxr_mdlc_brain_organoid_plural = {
+	icon = "gfx/interface/icons/concepts/concept_oxr_mdlc_brain_organoid.dds"
+}

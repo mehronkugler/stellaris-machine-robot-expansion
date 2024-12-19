@@ -1,0 +1,6 @@
+triggered_desc = {
+	trigger = {
+		has_active_building = oxr_mdlc_world_machines_biofuel_refit_1
+	}
+	text = oxr_mdlc_world_machines_biofuel_refit_1.active_effect
+}

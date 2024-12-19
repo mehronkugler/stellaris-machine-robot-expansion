@@ -1,0 +1,62 @@
+
+#You can create new modifiers here. There are various settings available which will affect how it displays in tooltips.
+#Note that any modifier created here will do nothing by default. You need to manually give it effects.
+#And example would be by putting "mult = modifier:my_modifier" in certain triggered modifiers or resource tables.
+
+#Settings:
+	# icon: name of file in gfx\interface\icons\modifiers (without the .dds). Default is "mod_" + key
+	# percentage: show as a % or not (default: no)
+	# min_mult: sets the minimum this modifier can be when used as a multiplier in the source code (so probably not relevant since this modifier will not be applied in the source code - but you could theoretically overwrite a code-generated modifier here). Default 0
+	# max_decimals: default 2
+	# good: sets if it registers as "good" (i.e. a positive number is green, a negative red). Default no.
+	# neutral: sets if no value is either good or bad (all is yellow). Default no.
+	# hidden: probably hides it in tooltips? Needs testing. Default no.
+	# no_diff: not sure what this does either. Default no
+	# cap_zero_to_one: ditto. Default no
+	# localize_with_value_key: ditto. Default no
+	# category: sets the modifier category, which is sometimes used to determine whether it is applied to a certain object (so make sure this is set to what you want)
+	# 	It should be set to the lowest possible place in the hierarchy, where country is the top, then planet would be in the middle, and pop would be at the bottom.
+	# 	Possible values: all, pop, ship, station, fleet, country, army, leader, planet, component, pop_faction, deposit,
+	# 		megastructure, habitability, starbase, economic_unit, system, trade, federation, espionage
+
+# These need to be used in triggered planet modifiers in order to correctly determine the scopes. See 01_ruler_jobs.txt/head_researcher and 04_species_traits.txt/trait_charismatic for examples.
+
+rikk_mdlc_world_machine_districts_mineral_cost_add = {
+	icon = mod_rikk_mdlc_planet_districts_cost_mult
+	percentage = yes
+	good = no
+	category = planet
+}
+
+rikk_mdlc_world_machine_cooling_district_effectiveness = {
+	icon = mod_rikk_mdlc_world_machine_cooling_district_effectiveness
+	percentage = yes
+	good = yes
+	category = planet
+}
+
+rikk_mdlc_world_machine_districts_base_production = {
+	icon = mod_rikk_mdlc_world_machine_districts_base_production
+	percentage = yes
+	good = yes
+	category = planet
+}
+
+rikk_mdlc_world_machine_districts_rare_resource_base_production = {
+	icon = mod_rikk_mdlc_world_machine_districts_base_production
+	percentage = yes
+	good = yes
+	category = planet
+}
+
+rikk_mdlc_world_machine_cooling_district_gases_upkeep = {
+	icon = mod_exotic_gases_upkeep_add
+	good = no
+	category = planet
+}
+
+rikk_mdlc_world_machine_dyson_sphere_receiver_max = {
+	icon = mod_rikk_mdlc_world_machine_dyson_receiver_max
+	good = yes
+	category = station
+}

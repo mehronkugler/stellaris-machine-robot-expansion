@@ -1,0 +1,24 @@
+triggered_planet_modifier = {
+	potential = {
+		is_planet_class = xvcv_mdlc_pc_machine_ecu
+	}
+	xvcv_mdlc_world_machines_factory_districts_consumer_goods_produces_mult = $PRODUCES_MULT$
+	xvcv_mdlc_world_machines_factory_districts_upkeep_mult = $PRODUCES_MULT$
+}
+
+triggered_planet_modifier = {
+	potential = {
+		exists = owner
+		is_planet_class = xvcv_mdlc_pc_machine_auto
+		NOT = {
+			oxr_mdlc_col_is_foundry = yes
+		}
+	}
+	xvcv_mdlc_world_machines_vanilla_industrial_districts_consumer_goods_produces_mult = $PRODUCES_MULT$
+	xvcv_mdlc_world_machines_vanilla_industrial_districts_upkeep_mult = $PRODUCES_MULT$
+}
+
+planet_modifier = {
+	oxr_mdlc_world_machines_factory_buildings_consumer_goods_produces_mult = $PRODUCES_MULT$
+	oxr_mdlc_world_machines_factory_buildings_upkeep_mult = $PRODUCES_MULT$
+}

@@ -1,0 +1,3 @@
+﻿l_english:
+ artifact_artifact_relays_machine_desc:0 "The $decision_artifact_relays_machine$ decision improves the communication abilities of our $job_coordinator_plural$ on one of our planets.[IsUsefulOnWorldMachines]"
+ decision_artifact_relays_machine_effect:0 "£job_coordinator£ §Y$job_coordinator_plural$§! on the planet each provide §G+1%§! Menial Drone Output and §G+2§! Stability.[IsUsefulOnWorldMachines]"

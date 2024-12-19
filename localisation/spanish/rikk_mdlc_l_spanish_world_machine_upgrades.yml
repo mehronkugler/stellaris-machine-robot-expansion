@@ -147,9 +147,9 @@
  rikk_mdlc_decision_world_machine_inner_core_tap: "World Machine Inner Core Tap"
  rikk_mdlc_decision_world_machine_inner_core_tap_desc: "§YMutually Exclusive with the World Machine Core\nAn implanted core will replace this deposit if you build it.§!\nThe center of this world should be tapped. It would be an unspeakably large boon to any industrial planet, allowing us to directly extract or supplement the input of industry with the material. It could be used on any world however, as it would give us straight minerals instead."
  
- rikk_mdlc_d_world_machine_core_tap: "World Machine Inner Core Tap"
- rikk_mdlc_d_world_machine_core_tap_desc: "§YMutually Exclusive with the World Machine Core\nAn implanted core will replace this deposit if you build it.§!\nThe center of this world has been tapped, giving us untold access to the rich materials that permeate the core of this planet."
- #rikk_mdlc_d_world_machine_core_tap_tooltip: "World Machine Industrial Districts Production: §G+50%§!\nAuto-Processor/Server Worlds:\n  Produces: £minerals£200\n  Upkeep: £energy£50"
+ rikk_mdlc_d_world_machine_inner_core_tap: "World Machine Inner Core Tap"
+ rikk_mdlc_d_world_machine_inner_core_tap_desc: "§YMutually Exclusive with the World Machine Core\nAn implanted core will replace this deposit if you build it.§!\nThe center of this world has been tapped, giving us untold access to the rich materials that permeate the core of this planet."
+ #rikk_mdlc_d_world_machine_inner_core_tap_tooltip: "World Machine Industrial Districts Production: §G+50%§!\nAuto-Processor/Server Worlds:\n  Produces: £minerals£200\n  Upkeep: £energy£50"
  
  #core core decision, situation, deposit, events
  rikk_mdlc_decision_world_machine_core_core: "World Machine: Implant A New Core"

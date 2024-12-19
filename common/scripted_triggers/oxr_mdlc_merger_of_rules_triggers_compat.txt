@@ -1,6 +1,11 @@
 # Placeholder trigger to check if this mod has been loaded
 has_machines_robots_expac_continued = { always = yes }
 
+# Set this country flag to see work in progress
+oxr_mdlc_debug_mode_on = {
+	owner = { has_country_flag = oxr_mdlc_debug_mode_on }
+}
+
 # GAME RULES
 oxr_mdlc_can_release_vassal_from_species = {
 	has_trait = trait_machine_unit
@@ -84,12 +89,97 @@ oxr_mdlc_can_remove_beneficial_genetic_traits = {
 	}
 }
 
+oxr_mdlc_is_machine_empire = {
+	OR = {
+		owner_species = { has_trait = trait_machine_unit }
+		is_virtual_empire = $IS_VIRTUAL|yes$
+	}
+	oxr_mdlc_machine_is_gestalt = $IS_GESTALT|no$
+}
+
+oxr_mdlc_machine_is_gestalt = {
+	# has_authority = auth_machine_intelligence
+	has_ethic = ethic_gestalt_consciousness
+}
+
+# Is the empire ANY kind of robot / machine / synth (but not cyborg or virtual)
+oxr_mdlc_is_robot_empire = {
+	optimize_memory
+	OR = {
+		owner_species = { is_archetype = ROBOT }
+		owner_species = { is_archetype = MACHINE }
+		# mechanical
+		oxr_mldc_is_mechanical_empire = yes
+	}
+}
+
+oxr_mldc_is_mechanical_empire = {
+	optimize_memory
+	OR = {
+		owner_species = { has_trait = trait_mechanical }
+		owner_species = { has_trait = trait_machine_unit }
+		owner_species = { is_archetype = XVCV_MDLC_BIO_ROBOT }
+	}
+}
+
+# Scopes: country, leader, pop, army, (colony) ship
+is_mechanical_species = {
+	species = {
+		OR = {
+			has_trait = trait_machine_unit # Machine Intelligence
+			has_trait = trait_mechanical # Robots & Synthetically-ascended Pops
+		}
+	}
+}
+
+oxr_mdlc_show_debug_logs = {
+	has_country_flag = oxr_mdlc_show_debug_logs
+}
+
+oxr_mdlc_has_upgraded_capital = {
+	custom_tooltip = {
+		fail_text = "oxr_mdlc_has_upgraded_capital.fail"
+		owner = { has_origin = oxr_mdlc_origin_world_machine_awakened }
+		OR = {
+			has_building = oxr_mdlc_world_machines_building_auto_capital_upgraded
+			has_building = oxr_mdlc_world_machines_building_auto_capital_major_upgraded
+			has_building = oxr_mdlc_world_machines_building_auto_capital_fully_upgraded
+		}
+	}
+}
+
+oxr_mdlc_has_major_upgraded_capital = {
+	custom_tooltip = {
+		fail_text = "oxr_mdlc_has_major_upgraded_capital.fail"
+		owner = { has_origin = oxr_mdlc_origin_world_machine_awakened }
+		OR = {
+			has_building = oxr_mdlc_world_machines_building_auto_capital_major_upgraded
+			has_building = oxr_mdlc_world_machines_building_auto_capital_fully_upgraded
+		}
+	}
+}
+
+oxr_mdlc_has_fully_upgraded_capital = {
+	custom_tooltip = {
+		fail_text = "oxr_mdlc_has_fully_upgraded_capital.fail"
+		owner = { has_origin = oxr_mdlc_origin_world_machine_awakened }
+		has_building = oxr_mdlc_world_machines_building_auto_capital_fully_upgraded
+	}
+}
+
 xvcv_mdlc_is_non_gate_mega = {
 	OR = {
 		is_megastructure_type = xvcv_mdlc_planet_cracker_incomplete
 		is_megastructure_type = xvcv_mdlc_planet_cracker
 	}
 }
+
+oxr_mdlc_pop_can_migrate = {
+	NOT = {
+		has_trait = oxr_mdlc_trait_world_machine_automaton
+	}
+}
+
 # oxr_mdlc_can_be_leader = {
 # 	# Block leaders made from MAMP species
 # 	# Return 'yes' if the species doesn't have the mamp base trait
@@ -99,6 +189,21 @@ xvcv_mdlc_is_non_gate_mega = {
 # Whether a habitat is being dismantled by custom decision
 oxr_mdlc_planet_decision_dismantle_habitat_active = {
 	has_modifier = oxr_mdlc_habitat_dismantle_effect
+}
+
+# ORIGINS
+has_oxr_mdlc_origin_world_machine_awakened = {
+	optimize_memory
+	has_origin = oxr_mdlc_origin_world_machine_awakened
+}
+has_xvcv_mdlc_origin_synth_ascend = {
+	has_origin = xvcv_mdlc_origin_synth_ascend
+}
+has_xvcv_mdlc_origin_mechanical_heritage = {
+	has_origin = xvcv_mdlc_origin_mechanical_heritage
+}
+has_xvcv_mdlc_origin_start_with_colony = {
+	has_origin = xvcv_mdlc_origin_start_with_colony
 }
 
 # TRAITS
@@ -313,3 +418,219 @@ has_rikk_mdlc_origin_encrypted_protocol = { has_origin = rikk_mdlc_origin_encryp
 has_xvcv_mdlc_origin_synth_ascend = { has_origin = xvcv_mdlc_origin_synth_ascend }
 has_xvcv_mdlc_origin_mechanical_heritage = { has_origin = xvcv_mdlc_origin_mechanical_heritage }
 has_xvcv_mdlc_origin_start_with_colony = { has_origin = xvcv_mdlc_origin_start_with_colony }
+
+# TECHNOLOGY
+has_xvcv_mdlc_tech_automated_goods_manufacturing_1 = {
+	has_technology = xvcv_mdlc_tech_automated_goods_manufacturing_1
+}
+has_xvcv_mdlc_tech_automated_goods_manufacturing_2 = {
+	has_technology = xvcv_mdlc_tech_automated_goods_manufacturing_2
+}
+has_xvcv_mdlc_tech_mutual_cooperation = {
+	has_technology = xvcv_mdlc_tech_mutual_cooperation
+}
+has_xvcv_mdlc_tech_negotiation_algorithms = {
+	has_technology = xvcv_mdlc_tech_negotiation_algorithms
+}
+has_xvcv_mdlc_tech_orbital_cracker_upgrade_1 = {
+	has_technology = xvcv_mdlc_tech_orbital_cracker_upgrade_1
+}
+has_xvcv_mdlc_tech_orbital_cracker_upgrade_2 = {
+	has_technology = xvcv_mdlc_tech_orbital_cracker_upgrade_2
+}
+has_xvcv_mdlc_tech_customized_design = {
+	has_technology = xvcv_mdlc_tech_customized_design
+}
+has_xvcv_mdlc_tech_production_algorithms_optimization = {
+	has_technology = xvcv_mdlc_tech_production_algorithms_optimization
+}
+has_xvcv_mdlc_tech_spirit_energy_theory = {
+	has_technology = xvcv_mdlc_tech_spirit_energy_theory
+}
+has_xvcv_mdlc_tech_build_design_opt = {
+	has_technology = xvcv_mdlc_tech_build_design_opt
+}
+has_xvcv_mdlc_tech_assembly_standardization = {
+	has_technology = xvcv_mdlc_tech_assembly_standardization
+}
+has_xvcv_mdlc_tech_micro_replicators = {
+	has_technology = xvcv_mdlc_tech_micro_replicators
+}
+has_xvcv_mdlc_tech_self_assembling_components = {
+	has_technology = xvcv_mdlc_tech_self_assembling_components
+}
+has_xvcv_mdlc_tech_self_assembling_robots = {
+	has_technology = xvcv_mdlc_tech_self_assembling_robots
+}
+has_xvcv_mdlc_tech_organic_base_code_study = {
+	has_technology = xvcv_mdlc_tech_organic_base_code_study
+}
+has_xvcv_mdlc_tech_machine_identity_matrix = {
+	has_technology = xvcv_mdlc_tech_machine_identity_matrix
+}
+has_xvcv_mdlc_tech_genetic_resequencing = {
+	has_technology = xvcv_mdlc_tech_genetic_resequencing
+}
+has_xvcv_mdlc_tech_bio_unique_case_analysis = {
+	has_technology = xvcv_mdlc_tech_bio_unique_case_analysis
+}
+has_xvcv_mdlc_tech_psionic_shield = {
+	has_technology = xvcv_mdlc_tech_psionic_shield
+}
+has_xvcv_mdlc_tech_psionic_barrier = {
+	has_technology = xvcv_mdlc_tech_psionic_barrier
+}
+has_xvcv_mdlc_tech_precognition_interface = {
+	has_technology = xvcv_mdlc_tech_precognition_interface
+}
+has_xvcv_mdlc_tech_psi_jump_drive_1 = {
+	has_technology = xvcv_mdlc_tech_psi_jump_drive_1
+}
+has_xvcv_mdlc_tech_cloaking_psi = {
+	has_technology = xvcv_mdlc_tech_cloaking_psi
+}
+has_xvcv_mdlc_tech_abyss_patron_whisperers = {
+	has_technology = xvcv_mdlc_tech_abyss_patron_whisperers
+}
+has_xvcv_mdlc_tech_abyss_patron_composer = {
+	has_technology = xvcv_mdlc_tech_abyss_patron_composer
+}
+has_xvcv_mdlc_tech_abyss_patron_instrument = {
+	has_technology = xvcv_mdlc_tech_abyss_patron_instrument
+}
+has_xvcv_mdlc_tech_abyss_patron_eater = {
+	has_technology = xvcv_mdlc_tech_abyss_patron_eater
+}
+has_xvcv_mdlc_tech_world_machines_districts_produces = {
+	has_technology = xvcv_mdlc_tech_world_machines_districts_produces
+}
+has_xvcv_mdlc_tech_world_machines_districts_produces_repeat = {
+	has_technology = xvcv_mdlc_tech_world_machines_districts_produces_repeat
+}
+has_xvcv_mdlc_tech_bio_robot_trait_points = {
+	has_technology = xvcv_mdlc_tech_bio_robot_trait_points
+}
+has_xvcv_mdlc_tech_bio_robot_resource_produces = {
+	has_technology = xvcv_mdlc_tech_bio_robot_resource_produces
+}
+has_xvcv_mdlc_tech_military_synth_army_upgrade = {
+	has_technology = xvcv_mdlc_tech_military_synth_army_upgrade
+}
+has_xvcv_mdlc_tech_biology_xenostudies_1 = {
+	has_technology = xvcv_mdlc_tech_biology_xenostudies_1
+}
+has_xvcv_mdlc_tech_biology_xenostudies_2 = {
+	has_technology = xvcv_mdlc_tech_biology_xenostudies_2
+}
+has_xvcv_mdlc_tech_leader_making = {
+	has_technology = xvcv_mdlc_tech_leader_making
+}
+has_xvcv_mdlc_tech_leader_making_improvement = {
+	has_technology = xvcv_mdlc_tech_leader_making_improvement
+}
+has_xvcv_mdlc_tech_leader_making_improvement_2 = {
+	has_technology = xvcv_mdlc_tech_leader_making_improvement_2
+}
+has_xvcv_mdlc_tech_core_modifying = {
+	has_technology = xvcv_mdlc_tech_core_modifying
+}
+has_xvcv_mdlc_tech_core_modifying_improvement = {
+	has_technology = xvcv_mdlc_tech_core_modifying_improvement
+}
+has_xvcv_mdlc_tech_core_modifying_improvement_2 = {
+	has_technology = xvcv_mdlc_tech_core_modifying_improvement_2
+}
+
+# Retro's World Machines Tech
+has_oxr_mdlc_tech_world_machines_unlocked = {
+	has_technology = oxr_mdlc_tech_world_machines_unlocked
+}
+has_oxr_mdlc_tech_world_machine_planetary_proficiency = {
+	has_technology = oxr_mdlc_tech_world_machine_planetary_proficiency
+}
+has_oxr_mdlc_tech_world_machine_planetary_mastery = {
+	has_technology = oxr_mdlc_tech_world_machine_planetary_mastery
+}
+has_oxr_mdlc_tech_world_machine_wmc_core = {
+	has_technology = oxr_mdlc_tech_world_machine_wmc_core
+}
+has_oxr_mdlc_tech_fractal_basics = {
+	has_technology = oxr_mdlc_tech_fractal_basics
+}
+has_oxr_mdlc_tech_world_machine_district_infrastructure = {
+	has_technology = oxr_mdlc_tech_world_machine_district_infrastructure
+}
+has_oxr_mdlc_tech_geologic_world_expansion_theory = {
+	has_technology = oxr_mdlc_tech_geologic_world_expansion_theory
+}
+has_oxr_mdlc_tech_geologic_heat_shielding_1 = {
+	has_technology = oxr_mdlc_tech_geologic_heat_shielding_1
+}
+has_oxr_mdlc_tech_geologic_heat_shielding_2 = {
+	has_technology = oxr_mdlc_tech_geologic_heat_shielding_2
+}
+has_oxr_mdlc_tech_geologic_heat_shielding_3 = {
+	has_technology = oxr_mdlc_tech_geologic_heat_shielding_3
+}
+has_oxr_mdlc_tech_geologic_scaling_thermoelectrics = {
+	has_technology = oxr_mdlc_tech_geologic_scaling_thermoelectrics
+}
+has_oxr_mdlc_tech_geologic_pressurized_construction_1 = {
+	has_technology = oxr_mdlc_tech_geologic_pressurized_construction_1
+}
+has_oxr_mdlc_tech_geologic_pressurized_construction_2 = {
+	has_technology = oxr_mdlc_tech_geologic_pressurized_construction_2
+}
+has_oxr_mdlc_tech_geologic_elastic_materials_1 = {
+	has_technology = oxr_mdlc_tech_geologic_elastic_materials_1
+}
+has_oxr_mdlc_tech_geologic_elastic_materials_2 = {
+	has_technology = oxr_mdlc_tech_geologic_elastic_materials_2
+}
+has_oxr_mdlc_tech_geologic_seismic_wave_harvesting_1 = {
+	has_technology = oxr_mdlc_tech_geologic_seismic_wave_harvesting_1
+}
+has_oxr_mdlc_tech_geologic_geodynamo_theory = {
+	has_technology = oxr_mdlc_tech_geologic_geodynamo_theory
+}
+has_oxr_mdlc_tech_world_machine_t3_worlds = {
+	has_technology = oxr_mdlc_tech_world_machine_t3_worlds
+}
+has_oxr_mdlc_tech_world_machine_cpu = {
+	has_technology = oxr_mdlc_tech_world_machine_cpu
+}
+has_oxr_mdlc_tech_world_machine_ecu = {
+	has_technology = oxr_mdlc_tech_world_machine_ecu
+}
+has_oxr_mdlc_tech_world_machine_ser = {
+	has_technology = oxr_mdlc_tech_world_machine_ser
+}
+
+# Overclocked Origin Tech
+has_rikk_mdlc_tech_glitchless_processing = {
+	has_technology = rikk_mdlc_tech_glitchless_processing
+}
+has_rikk_mdlc_tech_retroactive_framework_repairs = {
+	has_technology = rikk_mdlc_tech_retroactive_framework_repairs
+}
+has_rikk_mdlc_tech_repair_response = {
+	has_technology = rikk_mdlc_tech_repair_response
+}
+
+
+# Legit-Rikk's World Machines Tech
+has_rikk_mdlc_tech_world_machine_crust_upgrade = {
+	has_technology = rikk_mdlc_tech_world_machine_crust_upgrade
+}
+has_rikk_mdlc_tech_world_machine_mantle_upgrade = {
+	has_technology = rikk_mdlc_tech_world_machine_mantle_upgrade
+}
+has_rikk_mdlc_tech_world_machine_outer_core_upgrade = {
+	has_technology = rikk_mdlc_tech_world_machine_outer_core_upgrade
+}
+has_rikk_mdlc_tech_world_machine_inner_core_upgrade = {
+	has_technology = rikk_mdlc_tech_world_machine_inner_core_upgrade
+}
+has_rikk_mdlc_tech_world_machine_dyson = {
+	has_technology = rikk_mdlc_tech_world_machine_dyson
+}

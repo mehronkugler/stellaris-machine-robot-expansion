@@ -43,6 +43,17 @@ oxr_mdlc_mamp_planet_has_minimum_machine_units_count = {
 	}
 }
 
+oxr_mdlc_mamp_planet_has_any_frame_species_present = {
+	count_owned_pop = {
+		limit = {
+			species = {
+				is_archetype = OXR_MDLC_MAMP
+			}
+		}
+		count > 0
+	}
+}
+
 oxr_mdlc_mamp_planet_has_minimum_machine_units = {
 	optimize_memory
 	custom_tooltip_fail = {

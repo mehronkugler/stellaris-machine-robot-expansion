@@ -16,22 +16,22 @@ automate_xvcv_mdlc_world_machine_ecu_standard = {
 
 	buildings = {
 		1 = {
+			building = oxr_mdlc_world_machines_building_auto_capital
+			available = {
+				owner = { has_origin = oxr_mdlc_origin_world_machine_awakened }
+			}
+		}
+		1 = {
 			building = building_capital
+			available = {
+				owner = { has_ascension_perk = xvcv_mdlc_ap_world_machines }
+			}
 		}
 		2 = {
-			building = building_foundry_1
+			building = oxr_mdlc_world_machines_building_auto_forge_1
 		}
-
 		3 = {
-			building = building_production_center
-		}
-
-		4 = {
-			building = building_factory_1
-		}
-
-		5 = {
-			building = building_ministry_production
+			building = oxr_mdlc_world_machines_building_auto_factory_1
 		}
 
 	}

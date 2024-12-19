@@ -13,3 +13,9 @@ on_post_government_changed = {
 		oxr_mdlc.100  # check for AP plus swarm civic
 	}
 }
+
+on_planet_transfer = {
+	events = {
+		oxr_mdlc_origin_wm_main.5000  # filter/handler to fire on_world_machine_planet_gained
+	}
+}

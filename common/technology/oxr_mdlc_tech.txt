@@ -45,6 +45,21 @@ oxr_mdlc_tech_mamp_1 = {
 		has_ascension_perk = oxr_mdlc_ap_mamp
 	}
 	is_reverse_engineerable = no
+
+	prereqfor_desc = {
+		# custom = {
+		# 	title = "oxr_mdlc_mamp_frame_factory_1_unlock"
+		# 	desc = "oxr_mdlc_mamp_frame_factory_1_desc"
+		# }
+		custom = {
+			title = "oxr_mdlc_mamp_trait_cat_1_unlock_all"
+			desc = "oxr_mdlc_mamp_trait_cat_1_unlock_all_desc"
+		}
+		custom = {
+			title = "oxr_mdlc_decision_mamp_enable_auto_construction_cat_1_unlock"
+			desc = "oxr_mdlc_decision_mamp_enable_auto_construction_cat_1_unlock_desc"
+		}
+	}
 }
 # This is given via event
 oxr_mdlc_tech_mamp_2 = {
@@ -141,6 +156,62 @@ oxr_mdlc_tech_cloning_assemblers = {
 
 	ai_weight = {
 		factor = @robots_ai_tech_factor
+	}
+}
 
+oxr_mdlc_tech_organoid_1 = {
+	cost = @tier4cost1
+	area = engineering
+	tier = 4
+	category = { computing }
+	weight = @tier4weight1
+	potential = {
+		if = {
+			limit = {
+				has_origin = oxr_mdlc_origin_world_machine_awakened
+			}
+			has_technology = oxr_mdlc_tech_world_machine_planetary_mastery
+		}
+		else = {
+			always = yes
+		}
+	}
+}
+oxr_mdlc_tech_organoid_2 = {
+	cost = @tier4cost2
+	area = engineering
+	tier = 4
+	category = { computing }
+	weight = @tier4weight2
+	potential = {
+		NOT = {
+			has_origin = oxr_mdlc_origin_world_machine_awakened
+		}
+	}
+	prerequisites = {
+		"oxr_mdlc_tech_organoid_1"
+	}
+	modifier = {
+		custom_tooltip = oxr_mdlc_tech_organoid_2_tooltip
+		show_only_custom_tooltip = yes
+	}
+}
+oxr_mdlc_tech_organoid_3 = {
+	cost = @tier4cost2
+	area = engineering
+	tier = 4
+	category = { computing }
+	weight = @tier4weight2
+	potential = {
+		NOT = {
+			has_origin = oxr_mdlc_origin_world_machine_awakened
+		}
+	}
+	prerequisites = {
+		"oxr_mdlc_tech_organoid_2"
+	}
+	modifier = {
+		custom_tooltip = oxr_mdlc_tech_organoid_3_tooltip
+		show_only_custom_tooltip = yes
 	}
 }

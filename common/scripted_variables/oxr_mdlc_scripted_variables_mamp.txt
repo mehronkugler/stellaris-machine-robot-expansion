@@ -1,11 +1,14 @@
-@oxr_mdlc_mamp_cat_1_cost_energy = 500
-@oxr_mdlc_mamp_cat_1_cost_alloys = 250
+# Base energy: 50, base alloys: 10
+# Cat 1 is 2x, Cat 2 is 5x, Cat 3 is 10x
+
+@oxr_mdlc_mamp_cat_1_cost_energy = 100
+@oxr_mdlc_mamp_cat_1_cost_alloys = 20
 @oxr_mdlc_mamp_cat_1_build_time_days = 60
 
-@oxr_mdlc_mamp_cat_2_cost_energy = 2500  # 5x = 2.5k
-@oxr_mdlc_mamp_cat_2_cost_alloys = 1250  # 5x = 1250
+@oxr_mdlc_mamp_cat_2_cost_energy = 250  # 5x = 2.5k
+@oxr_mdlc_mamp_cat_2_cost_alloys = 50  # 5x = 1250
 @oxr_mdlc_mamp_cat_2_build_time_days = 180
 
-@oxr_mdlc_mamp_cat_3_cost_energy = 5000  # 10x = 50k
-@oxr_mdlc_mamp_cat_3_cost_alloys = 2500  # 10x = 25k
+@oxr_mdlc_mamp_cat_3_cost_energy = 500  # 10x = 50k
+@oxr_mdlc_mamp_cat_3_cost_alloys = 100  # 10x = 25k
 @oxr_mdlc_mamp_cat_3_build_time_days = 360

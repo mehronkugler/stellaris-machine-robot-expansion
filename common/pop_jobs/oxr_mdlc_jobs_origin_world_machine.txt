@@ -1,0 +1,22 @@
+oxr_mdlc_world_machine_hibernation_slot = {
+	category = complex_drone
+	condition_string = DRONE_JOB_TRIGGER
+
+	possible_pre_triggers = {
+		has_owner = yes
+		is_being_purged = no
+		is_being_assimilated = no
+	}
+
+	possible_precalc = can_fill_drone_job
+
+	pop_modifier = {
+		pop_housing_usage_add = -1
+		pop_amenities_usage_add = -1
+		pop_category_drones_energy_upkeep_add = -1
+	}
+
+	weight = {
+		weight = 1
+	}
+}

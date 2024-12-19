@@ -1,0 +1,31 @@
+rikk_mdlc_is_wm_planet_trigger = {
+	optimize_memory
+	OR = {
+		is_planet_class = xvcv_mdlc_pc_machine_ecu
+		is_planet_class = xvcv_mdlc_pc_machine_cpu
+        is_planet_class = xvcv_mdlc_pc_machine_ser
+		is_planet_class = xvcv_mdlc_pc_machine_auto
+	}
+}
+rikk_mdlc_is_wm_planet_can_cool_trigger = {
+	optimize_memory
+	OR = {
+		is_planet_class = xvcv_mdlc_pc_machine_ecu
+		is_planet_class = xvcv_mdlc_pc_machine_cpu
+        is_planet_class = xvcv_mdlc_pc_machine_ser
+	}
+}
+rikk_mdlc_is_wm_industrial_trigger = {
+	optimize_memory
+	OR = {
+		is_planet_class = xvcv_mdlc_pc_machine_ecu
+		is_planet_class = xvcv_mdlc_pc_machine_auto
+	}
+}
+rikk_mdlc_is_wm_computer_trigger = {
+	optimize_memory
+	OR = {
+		is_planet_class = xvcv_mdlc_pc_machine_ser
+		is_planet_class = xvcv_mdlc_pc_machine_cpu
+	}
+}

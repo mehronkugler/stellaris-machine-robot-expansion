@@ -18,6 +18,7 @@ country_event = {
 			xvcv_mdlc_synthetic_start_origin_trigger = yes
 			this.species = { has_trait = xvcv_mdlc_trait_rock_body }
 			this.species = { has_trait = xvcv_mdlc_trait_synth_skin }
+			# has_oxr_mdlc_origin_world_machine_awakened = yes
 		}
 	}
 

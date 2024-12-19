@@ -524,8 +524,6 @@
 
 #region vanilla_replacements_0x012
  ## Vanilla replacements ##
- xvcv_mdlc_world_machine_auto_farm: "Auto-Farming Module"
- xvcv_mdlc_world_machine_auto_farm_desc: "$xvcv_mdlc_pc_machine_auto_district_farming_desc$"
  xvcv_mdlc_world_machine_auto_food_processing_facility: "Automated Food Processor"
  xvcv_mdlc_world_machine_auto_food_processing_facility_desc: "This building increases auto-farm yields by further processing harvested organic matter using a completely automated process. Some filler materials are used."
  xvcv_mdlc_world_machine_auto_food_processing_facility_effect_desc: "Increases the base production of £food£ §YFood§! producing districts by §G1§!."
@@ -1329,19 +1327,19 @@
 
  policy_xvcv_mdlc_bio_robot_pop_upkeep_control_gestalt: "Bio-Mechanical Hybrid Upkeep Control"
  policy_xvcv_mdlc_bio_robot_pop_upkeep_control_gestalt_desc: "It's up to us to pick their means for living, as we granted them life."
- xvcv_mdlc_bio_robot_pop_upkeep_control_gestalt_energy_only_name: "£energy£ Only"
+ xvcv_mdlc_bio_robot_pop_upkeep_control_gestalt_energy_only_name: "Bio-Mech Upkeep: £energy£ Only"
  xvcv_mdlc_bio_robot_pop_upkeep_control_gestalt_energy_only: "$xvcv_mdlc_bio_robot_pop_upkeep_control_gestalt_energy_only_name$"
  xvcv_mdlc_bio_robot_pop_upkeep_control_gestalt_energy_only_desc: "Instead of an inefficient metabolic system, our Mechanical Hybrids will directly access the power source, reserve energies, and use them later.\n\n"
- xvcv_mdlc_bio_robot_pop_upkeep_control_gestalt_energy_focus_name: "£energy£ Focused"
+ xvcv_mdlc_bio_robot_pop_upkeep_control_gestalt_energy_focus_name: "Bio-Mech Upkeep: £energy£ Focused"
  xvcv_mdlc_bio_robot_pop_upkeep_control_gestalt_energy_focus: "$xvcv_mdlc_bio_robot_pop_upkeep_control_gestalt_energy_focus_name$"
  xvcv_mdlc_bio_robot_pop_upkeep_control_gestalt_energy_focus_desc: "Our Mechanical Hybrids will depend on the exterior power source to acquire most of the power they need.\n\n"
- xvcv_mdlc_bio_robot_pop_upkeep_control_gestalt_balance_name: "Balanced"
+ xvcv_mdlc_bio_robot_pop_upkeep_control_gestalt_balance_name: "Bio-Mech Upkeep: Balanced"
  xvcv_mdlc_bio_robot_pop_upkeep_control_gestalt_balance: "$xvcv_mdlc_bio_robot_pop_upkeep_control_gestalt_balance_name$"
  xvcv_mdlc_bio_robot_pop_upkeep_control_gestalt_balance_desc: "Our Mechanical Hybrids will choose the power source appropriate to their situation.\n\n"
- xvcv_mdlc_bio_robot_pop_upkeep_control_gestalt_food_focus_name: "£food£ Focused"
+ xvcv_mdlc_bio_robot_pop_upkeep_control_gestalt_food_focus_name: "Bio-Mech Upkeep: £food£ Focused"
  xvcv_mdlc_bio_robot_pop_upkeep_control_gestalt_food_focus: "$xvcv_mdlc_bio_robot_pop_upkeep_control_gestalt_food_focus_name$"
  xvcv_mdlc_bio_robot_pop_upkeep_control_gestalt_food_focus_desc: "Our Mechanical Hybrids will depend on the metabolic emulator module they have to acquire most of the power.\n\n"
- xvcv_mdlc_bio_robot_pop_upkeep_control_gestalt_food_only_name: "£food£ Only"
+ xvcv_mdlc_bio_robot_pop_upkeep_control_gestalt_food_only_name: "Bio-Mech Upkeep: £food£ Only"
  xvcv_mdlc_bio_robot_pop_upkeep_control_gestalt_food_only: "$xvcv_mdlc_bio_robot_pop_upkeep_control_gestalt_food_only_name$"
  xvcv_mdlc_bio_robot_pop_upkeep_control_gestalt_food_only_desc: "Our Mechanical Hybrids don't need an external energy supply, as they can directly transform organic matter into power, just like the organics.\n\n"
 

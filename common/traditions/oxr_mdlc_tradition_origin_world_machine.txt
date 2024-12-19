@@ -1,0 +1,63 @@
+oxr_mdlc_tr_defensive_directives_adopt = {
+	possible = {
+		has_origin = oxr_mdlc_origin_world_machine_awakened
+		has_tradition = tr_unyielding_finish
+	}
+	modifier = {
+		# defensive army strength
+		armies_upkeep_mult = -0.1
+		army_defense_health_mult = 0.25
+	}
+}
+
+oxr_mdlc_tr_defensive_directives_finish = {
+	modifier = {
+		ascension_perks_add = 1
+	}
+	custom_tooltip = oxr_mdlc_tr_defensive_directives_finish_tooltip
+}
+
+oxr_mdlc_tr_defensive_directives_armored_planets = {
+
+	custom_tooltip = oxr_mdlc_tr_defensive_directives_armored_planets_tooltip
+}
+
+oxr_mdlc_tr_defensive_directives_increased_garrison = {
+
+	possible = {
+		has_tradition = oxr_mdlc_tr_defensive_directives_armored_planets
+	}
+	custom_tooltip = oxr_mdlc_tr_defensive_directives_increased_garrison_tooltip
+}
+
+oxr_mdlc_tr_defensive_directives_self_destruct = {
+
+	possible = {
+		has_tradition = oxr_mdlc_tr_defensive_directives_armored_planets
+	}
+	custom_tooltip = oxr_mdlc_tr_defensive_directives_self_destruct_tooltip
+}
+
+oxr_mdlc_tr_defensive_directives_space_armor = {
+
+	modifier = {
+		shipsize_station_s_hull_add = 1000
+		shipsize_station_m_hull_add = 750
+		shipsize_station_l_hull_add = 500
+		shipsize_transport_hull_add = 500
+		# shipclass_transport_hull_add = 500
+		shipsize_science_hull_add = 800
+	}
+}
+
+oxr_mdlc_tr_defensive_directives_starbase_boost = {
+	possible = {
+		has_tradition = oxr_mdlc_tr_defensive_directives_space_armor
+	}
+	modifier = {
+		shipclass_starbase_armor_mult = 0.5
+		shipsize_military_station_small_hull_mult = 2
+		shipsize_military_station_medium_hull_mult = 1.5
+		shipsize_military_station_large_hull_mult = 1
+	}
+}

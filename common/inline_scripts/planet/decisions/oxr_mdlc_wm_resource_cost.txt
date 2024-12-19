@@ -1,0 +1,20 @@
+resources = {
+	category = decisions
+	cost = {
+		trigger = {
+			owner = { has_ascension_perk = xvcv_mdlc_ap_world_machines }
+		}
+		energy = $ENERGY$  # 2000
+		minerals = $MINERALS$  # 2000
+		influence = $INFLUENCE$
+	}
+	cost = {
+		trigger = {
+			owner = {
+				has_origin = oxr_mdlc_origin_world_machine_awakened
+			}
+		}
+		influence = $INFLUENCE$
+		oxr_mdlc_world_machine_core = $WMC$  # 1
+	}
+}

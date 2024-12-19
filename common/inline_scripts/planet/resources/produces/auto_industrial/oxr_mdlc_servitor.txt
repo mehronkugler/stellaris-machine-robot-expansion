@@ -1,0 +1,63 @@
+# This inline script addresses the following scenarios:
+# 1 - IS rogue servitor
+# 2 - is / is not catalytic
+# 3 - planet is forge / foundry
+
+# Why are these rules here?
+# Bio pops can't live on synth worlds, being a servitor doesnt affect anything
+
+produces = {
+	trigger = {
+		planet = { has_designation = col_factory }
+		exists = owner
+		owner = {
+			has_valid_civic = civic_machine_servitor
+		}
+	}
+	alloys = -5
+}
+produces = {
+	trigger = {
+		planet = { has_designation = col_factory }
+		exists = owner
+		owner = {
+			has_valid_civic = civic_machine_servitor
+		}
+	}
+	consumer_goods = 8
+	mult = value:collected_world_machine_bonuses
+}
+upkeep = {
+	trigger = {
+		planet = { has_designation = col_factory }
+		exists = owner
+		owner = {
+			has_valid_civic = civic_machine_servitor
+			is_catalytic_empire = no
+		}
+	}
+	minerals = -2
+}
+upkeep = {
+	trigger = {
+		planet = { has_designation = col_foundry }
+		exists = owner
+		owner = {
+			has_valid_civic = civic_machine_servitor
+			is_catalytic_empire = yes
+		}
+	}
+	minerals = -8
+}
+upkeep = {
+	trigger = {
+		planet = { has_designation = col_foundry }
+		exists = owner
+		owner = {
+			has_valid_civic = civic_machine_servitor
+			is_catalytic_empire = yes
+		}
+	}
+	food = 12
+	mult =  value:scripted_modifier_mult|MODIFIER|xvcv_mdlc_world_machines_industrial_districts_upkeep_mult|
+}

@@ -5,11 +5,11 @@ xvcv_mdlc_pc_machine_ecu_district_alloys = {
 
 	show_on_uncolonized = {
 		exists = from
-		from = { has_ascension_perk = xvcv_mdlc_ap_world_machines }
+		from = { oxr_mdlc_planet_owner_can_build_wm_districts = yes }
 		uses_district_set = xvcv_mdlc_pc_machine_ecu_district_set
 	}
 	potential = {
-		xvcv_mdlc_world_machines_districts_valid_trigger = yes
+		owner = { oxr_mdlc_planet_owner_can_build_wm_districts = yes }
 		uses_district_set = xvcv_mdlc_pc_machine_ecu_district_set
 	}
 	# allow = {}
@@ -28,29 +28,38 @@ xvcv_mdlc_pc_machine_ecu_district_alloys = {
 	}
 
 	resources = {
-		category = xvcv_mdlc_world_machines_districts
+		# category = xvcv_mdlc_world_machines_industrial_districts
+		category = xvcv_mdlc_world_machines_foundry_districts
 		cost = {
 			minerals = @xvcv_mdlc_district_cost_5
+			mult = value:scripted_modifier_mult|MODIFIER|rikk_mdlc_world_machine_districts_mineral_cost_add|
+		}
+		cost = {
 			volatile_motes = 100
 		}
-		produces = { alloys = 60 }
+		produces = {
+			alloys = 60
+			mult = value:scripted_modifier_mult|MODIFIER|rikk_mdlc_world_machine_districts_base_production|
+		}
 		upkeep = {
-			energy = 10
-			volatile_motes = 1
+			trigger = {
+				exists = owner
+			}
+			rare_crystals = 1
 		}
 		upkeep = {
 			trigger = {
 				exists = owner
 				owner = { is_catalytic_empire = no }
 			}
-			minerals = 60
+			minerals = 120  # was 60
 		}
 		upkeep = {
 			trigger = {
 				exists = owner
 				owner = { is_catalytic_empire = yes }
 			}
-			food = 90
+			food = 144  # was 90
 		}
 	}
 
@@ -65,11 +74,11 @@ xvcv_mdlc_pc_machine_ecu_district_goods = {
 
 	show_on_uncolonized = {
 		exists = from
-		from = { has_ascension_perk = xvcv_mdlc_ap_world_machines }
+		from = { oxr_mdlc_planet_owner_can_build_wm_districts = yes }
 		uses_district_set = xvcv_mdlc_pc_machine_ecu_district_set
 	}
 	potential = {
-		xvcv_mdlc_world_machines_districts_valid_trigger = yes
+		owner = { oxr_mdlc_planet_owner_can_build_wm_districts = yes }
 		uses_district_set = xvcv_mdlc_pc_machine_ecu_district_set
 	}
 
@@ -87,12 +96,18 @@ xvcv_mdlc_pc_machine_ecu_district_goods = {
 	}
 
 	resources = {
-		category = xvcv_mdlc_world_machines_districts
+		category = xvcv_mdlc_world_machines_factory_districts
 		cost = {
 			minerals = @xvcv_mdlc_district_cost_5
+			mult = value:scripted_modifier_mult|MODIFIER|rikk_mdlc_world_machine_districts_mineral_cost_add|
+		}
+		cost = {
 			rare_crystals = 100
 		}
-		produces = { consumer_goods = 120 }
+		produces = {
+			consumer_goods = 120
+			mult = value:scripted_modifier_mult|MODIFIER|rikk_mdlc_world_machine_districts_base_production|
+		}
 		upkeep = {
 			minerals = 60
 			energy = 10
@@ -111,11 +126,11 @@ xvcv_mdlc_pc_machine_ecu_district_rare_resources = {
 
 	show_on_uncolonized = {
 		exists = from
-		from = { has_ascension_perk = xvcv_mdlc_ap_world_machines }
+		from = { oxr_mdlc_planet_owner_can_build_wm_districts = yes }
 		uses_district_set = xvcv_mdlc_pc_machine_ecu_district_set
 	}
 	potential = {
-		xvcv_mdlc_world_machines_districts_valid_trigger = yes
+		owner = { oxr_mdlc_planet_owner_can_build_wm_districts = yes }
 		uses_district_set = xvcv_mdlc_pc_machine_ecu_district_set
 	}
 
@@ -133,12 +148,22 @@ xvcv_mdlc_pc_machine_ecu_district_rare_resources = {
 	}
 
 	resources = {
-		category = xvcv_mdlc_world_machines_districts
-		cost = { minerals = @xvcv_mdlc_district_cost_5 }
+		category = xvcv_mdlc_world_machines_industrial_districts
+		cost = {
+			minerals = @xvcv_mdlc_district_cost_5
+			mult = value:scripted_modifier_mult|MODIFIER|rikk_mdlc_world_machine_districts_mineral_cost_add|
+		}
 		produces = {
 			volatile_motes = 8
 			exotic_gases = 8
 			rare_crystals = 8
+			mult = value:scripted_modifier_mult|MODIFIER|rikk_mdlc_world_machine_districts_base_production|
+		}
+		produces = {
+			volatile_motes = 8
+			exotic_gases = 8
+			rare_crystals = 8
+			mult = value:scripted_modifier_mult|MODIFIER|rikk_mdlc_world_machine_districts_rare_resource_base_production|
 		}
 		upkeep = {
 			minerals = 80
@@ -165,11 +190,11 @@ xvcv_mdlc_pc_machine_ecu_district_naval_cap = {
 
 	show_on_uncolonized = {
 		exists = from
-		from = { has_ascension_perk = xvcv_mdlc_ap_world_machines }
+		from = { oxr_mdlc_planet_owner_can_build_wm_districts = yes }
 		uses_district_set = xvcv_mdlc_pc_machine_ecu_district_set
 	}
 	potential = {
-		xvcv_mdlc_world_machines_districts_valid_trigger = yes
+		owner = { oxr_mdlc_planet_owner_can_build_wm_districts = yes }
 		uses_district_set = xvcv_mdlc_pc_machine_ecu_district_set
 	}
 
@@ -192,11 +217,12 @@ xvcv_mdlc_pc_machine_ecu_district_naval_cap = {
 	}
 
 	resources = {
-		category = xvcv_mdlc_world_machines_districts
+		category = xvcv_mdlc_world_machines_industrial_districts
 		cost = {
 			minerals = @xvcv_mdlc_district_cost_5
-			volatile_motes = 100
+			mult = value:scripted_modifier_mult|MODIFIER|rikk_mdlc_world_machine_districts_mineral_cost_add|
 		}
+		cost = { volatile_motes = 100 }
 		upkeep = {
 			energy = 15
 			volatile_motes = 1

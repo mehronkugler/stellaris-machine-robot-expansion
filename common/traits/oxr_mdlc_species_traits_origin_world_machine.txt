@@ -1,0 +1,64 @@
+# for World Machine Awakened origin
+oxr_mdlc_trait_world_machine_automaton = {
+	cost = 0
+	allowed_archetypes = { MACHINE }
+	inline_script = trait/sorting/oxr_mdlc_robotic
+
+	initial = no
+	randomized = no
+
+	# allowed_planet_classes = {
+	# 	xvcv_mdlc_pc_machine_auto
+	# 	xvcv_mdlc_pc_machine_cpu
+	# 	xvcv_mdlc_pc_machine_ecu
+	# 	xvcv_mdlc_pc_machine_ser
+	# }
+
+	species_potential_add = {
+		exists = from
+		from = { has_origin = oxr_mdlc_origin_world_machine_awakened }
+	}
+
+	# infertile = yes
+	opposites = {
+		"trait_robot_mass_produced"
+		"trait_robot_custom_made"
+	}
+	modifier = {
+		planet_pop_assembly_mult = -5
+	}
+	# Penalties if not on world-machine or machine world
+	triggered_pop_modifier = {
+		potential = {
+			# exists = owner
+			# is_same_species_class = owner
+			planet = {
+				NOR = {
+					is_planet_world_machine = yes
+					is_planet_class = pc_machine
+				}
+			}
+		}
+		# pop_housing_usage_mult = 1
+		# pop_amenities_usage_mult = 1
+		pop_environment_tolerance = -2
+		habitability_floor_add = -1.5  # inverse of trait_machine_unit
+		pop_amenities_usage_add = 2
+		# pop_housing_usage_add = 1
+		pop_category_drones_energy_upkeep_add = 2
+		pop_category_complex_drones_energy_upkeep_add = 2
+		habitability_ceil_add = -2
+		# empire_size_add = 1
+		planet_jobs_produces_mult = -0.75
+	}
+
+	# species_potential_add = {
+	# 	always = no
+	# }
+	species_possible_remove = {
+		always = no
+	}
+	species_possible_merge_add = {
+		always = no
+	}
+}

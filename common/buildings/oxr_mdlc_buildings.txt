@@ -203,3 +203,48 @@ oxr_mdlc_mamp_frame_factory_3 = {
 	}
 	prerequisites = { "oxr_mdlc_tech_mamp_3" }
 }
+oxr_mdlc_building_organoid_research_center = {
+	base_buildtime = @b1_time
+	base_cap_amount = 1
+	category = research
+	potential = {
+		exists = owner
+		owner = {
+			has_technology = oxr_mdlc_tech_organoid_1
+			NOT = { has_origin = oxr_mdlc_origin_world_machine_awakened }
+		}
+	}
+	show_tech_unlock_if = {
+		NOT = {
+			has_origin = oxr_mdlc_origin_world_machine_awakened
+		}
+	}
+	prerequisites = {
+		"oxr_mdlc_tech_organoid_1"
+	}
+	allow = {
+
+	}
+	planet_modifier = {
+		planet_researchers_energy_upkeep_add = -0.5
+		planet_researchers_food_upkeep_add = 0.10
+	}
+	triggered_planet_modifier = {
+		potential = {
+			space_owner = {
+				has_technology = oxr_mdlc_tech_organoid_2
+			}
+		}
+		planet_researchers_energy_upkeep_add = -0.5
+		planet_researchers_food_upkeep_add = 0.10
+	}
+	triggered_planet_modifier = {
+		potential = {
+			space_owner = {
+				has_technology = oxr_mdlc_tech_organoid_3
+			}
+		}
+		planet_researchers_energy_upkeep_add = -1
+		planet_researchers_food_upkeep_add = 0.20
+	}
+}

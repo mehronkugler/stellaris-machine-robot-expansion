@@ -1,0 +1,5 @@
+﻿l_english:
+
+ civic_machine_catalytic_processing_desc: "The Machine Intelligence reprocesses a variety of organic materials into advanced resources suitable for space-age civilizations."
+ civic_tooltip_machine_catalytic_processing_effects: "Replaces £job_fabricator£ §Y$job_fabricator_plural$§! with £job_catalytic_drone£ §Y$job_catalytic_drone_plural$§!. $job_catalytic_drone_effect_desc$.$catalytic_gestalt_additional_effects$[ShowCatalyticBiofuelBuildingForOrigin]"
+ oxr_mdlc_civic_tooltip_machine_catalytic_bio_building.wm: "\n\n- The §Y$oxr_mdlc_world_machines_biofuel_refit_1$§! building (after researching appropriate Bio-Reactor technologies) reprograms energy production structures on any ['concept_oxr_mdlc_auto_machine_world'] to use £food£ as a power source instead of £minerals£."

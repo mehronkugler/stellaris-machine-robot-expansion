@@ -1,0 +1,15 @@
+# oxr_mdlc_cb_stolen_tech = {
+#     show_in_diplomacy = yes
+# 	show_notification = no
+# 	potential = {
+# 		has_origin = oxr_mdlc_origin_world_machine_awakened
+# 	}
+#     is_valid = {
+#         from = {
+#             has_relation_flag = {
+#                 who = root
+#                 flag = oxr_mdlc_relation_stolen_world_machine_tech
+#             }
+#         }
+#     }
+# }

@@ -1,0 +1,103 @@
+oxr_mdlc_origin_world_machine_start_modifier_1 = {
+	# hide_from_country_list = no
+	icon = "gfx/interface/icons/modifiers/mod_country_resource_max_oxr_mdlc_world_machine_core_add.dds"
+	country_resource_max_oxr_mdlc_world_machine_core_add = 10
+}
+
+# Core analysis -- does it need replacement or not
+oxr_mdlc_origin_world_machine_world_rebooting_stage_1 = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_rejuvenation.dds"
+	icon_frame = 1
+}
+# Power-On Self Test
+oxr_mdlc_origin_world_machine_world_rebooting_stage_2 = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_rejuvenation.dds"
+	icon_frame = 1
+}
+# Bootloader
+oxr_mdlc_origin_world_machine_world_rebooting_stage_3 = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_rejuvenation.dds"
+	icon_frame = 1
+}
+# Boot process
+oxr_mdlc_origin_world_machine_world_rebooting_stage_4 = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_rejuvenation.dds"
+	icon_frame = 1
+}
+# Resume installation
+oxr_mdlc_origin_world_machine_world_rebooting_stage_5 = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_rejuvenation.dds"
+	icon_frame = 1
+}
+
+# WMC Core being manufactured
+oxr_mdlc_origin_world_machine_core_manufacturing_in_progress = {
+	icon = "gfx/interface/icons/planet_modifiers/oxr_mdlc_origin_world_machine_core_manufacturing_in_progress.dds"
+	icon_frame = 1
+	planet_building_build_speed_mult = -0.25
+}
+# oxr_mdlc_origin_world_machine_core_manufacturing_on_standby = {
+# 	icon = "gfx/interface/icons/planet_modifiers/pm_rejuvenation.dds"
+# 	icon_frame = 1
+# }
+# oxr_mdlc_origin_world_machine_core_manufacturing_shutting_down = {
+# 	icon = "gfx/interface/icons/planet_modifiers/pm_rejuvenation.dds"
+# 	icon_frame = 1
+# }
+
+#info
+oxr_mdlc_planet_origin_world_machine_info = {
+	icon = "gfx/interface/icons/planet_modifiers/oxr_mdlc_planet_origin_world_machine_info.dds"
+	icon_frame = 1
+}
+
+# armies
+oxr_mdlc_world_machine_district_army_restock_in_progress = {
+	icon = "gfx/interface/icons/planet_modifiers/oxr_mdlc_world_machine_district_army_restock_in_progress.dds"
+	icon_frame = 1
+}
+oxr_mdlc_world_machine_district_army_decommissioning_in_progress = {
+	icon = "gfx/interface/icons/planet_modifiers/oxr_mdlc_world_machine_district_army_decommissioning_in_progress.dds"
+	icon_frame = 1
+}
+oxr_mdlc_planet_origin_world_machine_requisitioning_pops = {
+	icon = "gfx/interface/icons/planet_modifiers/oxr_mdlc_planet_origin_world_machine_requisitioning_pops.dds"
+	icon_frame = 1
+}
+oxr_mdlc_planet_origin_world_machine_automaton_pop_timer = {
+	icon = "gfx/interface/icons/planet_modifiers/oxr_mdlc_planet_origin_world_machine_automaton_pop_timer.dds"
+	icon_frame = 1
+}
+# For the pop
+oxr_mdlc_pop_origin_world_machine_automaton_timer = {
+
+}
+
+# FOR SLAG AND BLADE
+oxr_mdlc_empire_slag_blade_seasoned_escorts = {
+	country_resource_max_add = 70000
+}
+
+# Post-terraform world modifiers
+oxr_mdlc_origin_wm_pc_frozen_modifier_malus_1 = {
+	icon = "gfx/interface/icons/planet_modifiers/oxr_mdlc_planet_origin_world_machine_automaton_pop_timer.dds"
+	icon_frame = 1
+}
+
+# Lore / Immersion
+# oxr_mdlc_origin_wm_starting_homeworld = {
+
+# }
+
+### AGENDA FINISH
+
+agenda_oxr_mdlc_origin_world_machine_focus_on_past_finish = {
+	ship_archaeological_site_excavation_speed_mult = 0.25
+	planet_clear_blocker_speed_mult = 0.25
+}
+agenda_oxr_mdlc_origin_world_machine_deployment_protocols_finish = {
+	terraform_speed_mult = 0.25
+}
+agenda_oxr_mdlc_origin_world_machine_construction_infrastructure_finish = {
+	planet_building_build_speed_mult = 0.25
+}

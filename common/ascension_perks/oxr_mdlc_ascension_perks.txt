@@ -1,0 +1,41 @@
+# Save this for later
+# oxr_mdlc_ap_origin_world_machine_singularity = {
+#     potential = {
+# 		# is_machine_empire = yes
+# 		# NOT = { has_ascension_perk = oxr_mdlc_ap_origin_world_machine_singularity }
+#         # OR = {
+#         #     has_origin = oxr_mdlc_origin_world_machine_awakened
+#         #     has_ascension_perk = xvcv_mdlc_ap_world_machines
+#         # }
+#         always = no
+# 	}
+#     possible = {
+#         has_technology = oxr_mdlc_tech_world_machines_unlocked
+#         has_technology = oxr_mdlc_tech_world_machine_planetary_proficiency
+#         has_technology = oxr_mdlc_tech_world_machine_planetary_mastery
+#         has_technology = oxr_mdlc_tech_world_machine_wmc_core
+#         has_technology = oxr_mdlc_tech_fractal_basics
+#         has_technology = tech_mega_engineering
+#         capital_scope = {
+#             is_planet_class = xvcv_mdlc_pc_machine_auto
+#             NOT = { has_planet_flag = has_megastructure }
+#         }
+#         count_planet_within_border = {
+#             count >= 20
+#             limit = {
+#                 is_planet_world_machine = yes
+#             }
+#         }
+#     }
+#     on_enabled = {
+#         custom_tooltip = oxr_mdlc_ap_origin_world_machine_singularity_tooltip
+#     }
+# }
+# oxr_mdlc_ap_fractal_production_automation = {
+# 	potential = {
+# 		oxr_mdlc_is_any_machine_empire = yes
+# 		NOT = {
+# 			has_ascension_perk = oxr_mdlc_ap_fractal_production_automation
+# 		}
+# 	}
+# }

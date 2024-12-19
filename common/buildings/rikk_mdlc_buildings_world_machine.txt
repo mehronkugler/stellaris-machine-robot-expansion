@@ -1,0 +1,53 @@
+#### MANUFACTURING ###
+
+# Forge booster
+rikk_mdlc_world_machine_SR_building = {
+	base_buildtime = @b1_time
+	base_cap_amount = 1
+	category = manufacturing
+	icon = oxr_mdlc_world_machines_building_auto_sr_boost
+	can_build = yes
+
+	potential = {
+		exists = owner
+		owner = {
+			OR = {
+				has_origin = oxr_mdlc_origin_world_machine_awakened
+				# has_ascension_perk = xvcv_mdlc_ap_world_machines
+			}
+		}
+		is_planet_world_machine = yes
+	}
+	show_tech_unlock_if = {
+		OR = {
+			has_origin = oxr_mdlc_origin_world_machine_awakened
+			# has_ascension_perk = xvcv_mdlc_ap_world_machines
+		}
+	}
+	on_built = {
+		owner = {
+			fire_on_action = { on_action = on_world_machine_popless_building_constructed }
+		}
+	}
+	inline_script = planet/buildings/auto/oxr_destroy
+
+	resources = {
+		category = oxr_mdlc_world_machines_strategic_resource_buildings
+		cost = {
+			minerals = @b1_minerals
+		}
+		upkeep = {
+			energy = @b1_upkeep
+		}
+	}
+	
+	triggered_desc = { text = rikk_mdlc_world_machine_SR_building_effect } 
+	
+	prerequisites = {
+		tech_volatile_motes
+		tech_exotic_gases
+		tech_rare_crystals
+		oxr_mdlc_tech_world_machine_wmc_core
+		oxr_mdlc_tech_geologic_world_expansion_theory
+	}
+}

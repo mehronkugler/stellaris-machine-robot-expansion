@@ -1,0 +1,7 @@
+planet_jobs_productive_upkeep_mult = $JOBS_MULT$
+planet_jobs_productive_produces_mult = $JOBS_MULT$
+
+xvcv_mdlc_world_machines_districts_produces_mult = $PRODUCES_MULT$
+xvcv_mdlc_world_machines_districts_upkeep_mult = $PRODUCES_MULT$
+oxr_mdlc_category_world_machines_buildings_produces_mult = $PRODUCES_MULT$
+oxr_mdlc_category_world_machines_buildings_upkeep_mult = $PRODUCES_MULT$

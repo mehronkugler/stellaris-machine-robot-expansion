@@ -5,7 +5,7 @@ xvcv_mdlc_starbase_building_orbital_cooling_system = {
 	potential = {
 		exists = owner
 		owner = {
-			has_ascension_perk = xvcv_mdlc_ap_world_machines
+			oxr_mdlc_planet_owner_can_build_wm_districts = yes
 			has_technology = xvcv_mdlc_tech_world_machines_districts_produces
 		}
 	}
@@ -13,23 +13,36 @@ xvcv_mdlc_starbase_building_orbital_cooling_system = {
 	possible = {
 		is_orbital_ring = yes
 	}
+	
+	custom_tooltip = sm_rikk_mdlc_starbase_building_orbital_cooling_system_effect
 
 	planet_modifier = {
-		xvcv_mdlc_world_machines_districts_upkeep_mult = -0.3
+		rikk_mdlc_world_machine_cooling_district_effectiveness = 0.05
 	}
 
 	resources = {
 		category = starbase_buildings
 		cost = { alloys = 500 }
-		upkeep = { energy = 2 }
+		upkeep = {
+			energy = 5
+			mult = planet.value:count_world_machines_districts_of_type|DISTRICT_NAME|xvcv_mdlc_common_district_cooling|
+		}
 	}
 
 	show_in_tech = "xvcv_mdlc_tech_world_machines_districts_produces"
+	
+	on_finished = {
+		planet = { planet_event = { id = xvcv_mdlc.70 days = 1 } }
+	}
+	on_destroyed = {
+		planet = { planet_event = { id = xvcv_mdlc.70 days = 1 } }
+	}
 
 	ai_build_at_chokepoint = yes
 	ai_build_outside_chokepoint = yes
 	ai_weight = { weight = 100 }
 }
+
 xvcv_mdlc_starbase_building_orbital_drone_storage = {
 	icon = "GFX_xvcv_mdlc_starbase_building_orbital_drone_storage"
 	construction_days = 360
@@ -37,8 +50,9 @@ xvcv_mdlc_starbase_building_orbital_drone_storage = {
 	potential = {
 		exists = owner
 		owner = {
-			has_ascension_perk = xvcv_mdlc_ap_world_machines
+			oxr_mdlc_planet_owner_can_build_wm_districts = yes
 			has_technology = xvcv_mdlc_tech_world_machines_districts_produces
+			NOT = { has_origin = oxr_mdlc_origin_world_machine_awakened }
 		}
 	}
 

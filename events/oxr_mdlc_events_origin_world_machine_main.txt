@@ -1,0 +1,1193 @@
+namespace = oxr_mdlc_origin_wm_main
+
+country_event = {
+	id = oxr_mdlc_origin_wm_main.1
+	title = oxr_mdlc_origin_wm_starting_overview
+	desc = oxr_mdlc_origin_wm_starting_overview_desc
+	picture = GFX_evt_ai_planet
+	is_triggered_only = yes
+
+	option = {
+		name = oxr_mdlc_origin_wm_main.1.a.name
+	}
+}
+
+country_event = {
+	id = oxr_mdlc_origin_wm_main.2
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		has_origin = oxr_mdlc_origin_world_machine_awakened
+	}
+	immediate = {
+		capital_scope = {
+			oxr_mdlc_origin_world_machine_awakened_game_start_setup = yes
+		}
+	}
+}
+
+ship_event = {
+	id = oxr_mdlc_origin_wm_main.10
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		owner = {
+			NOT = {
+				has_completed_special_project_in_log = OXR_MDLC_ORIGIN_WM_INFO_RUINED_WM_FOUND
+			}
+		}
+	}
+
+	immediate = {
+		log = "oxr_mdlc_origin_wm_main.10 was entered"
+		owner = {
+			enable_special_project = {
+				name = OXR_MDLC_ORIGIN_WM_INFO_RUINED_WM_FOUND
+			}
+			complete_special_project = {
+				type = OXR_MDLC_ORIGIN_WM_INFO_RUINED_WM_FOUND
+			}
+			country_event = {
+				id = oxr_mdlc_origin_wm_main.11
+			}
+		}
+	}
+}
+country_event = {
+	id = oxr_mdlc_origin_wm_main.11
+	picture = GFX_evt_scholarium_anomaly
+	title = oxr_mdlc_origin_wm_main.10.title
+	desc = oxr_mdlc_origin_wm_main.10.desc
+	is_triggered_only = yes
+	location = fromfrom
+
+	option = {
+		name = oxr_mdlc_origin_wm_main.10.a
+	}
+}
+
+# Trigger project to get proficiency tech
+# although I am on the fence and maybe just award it
+country_event = {
+	id = oxr_mdlc_origin_wm_main.50
+	title = oxr_mdlc_origin_wm_main.50.title
+	desc = oxr_mdlc_origin_wm_main.50.desc
+	picture = GFX_evt_engineering_research
+	is_triggered_only = yes
+
+	trigger = {
+		NOT = {
+			has_technology = oxr_mdlc_tech_world_machine_planetary_proficiency
+		}
+		NOT = {
+			has_completed_special_project_in_log = OXR_MDLC_ORIGIN_WM_TECH_PROFICIENCY
+		}
+	}
+
+	option = {
+		name = oxr_mdlc_origin_wm_main.50.a
+		owner = {
+			enable_special_project = {
+				name = OXR_MDLC_ORIGIN_WM_TECH_PROFICIENCY
+			}
+		}
+	}
+	immediate = {
+		owner = {
+			end_event_chain = oxr_mdlc_origin_wm_chain_clear_blockers
+			begin_event_chain = {
+				event_chain = oxr_mdlc_origin_wm_chain_clear_blockers_2
+			}
+			add_event_chain_counter = {
+				event_chain = "oxr_mdlc_origin_wm_chain_clear_blockers_2"
+				counter = "oxr_mdlc_origin_wm_blockers"
+				amount = 6
+			}
+		}
+	}
+}
+
+# award world machine mastery
+country_event = {
+	id = oxr_mdlc_origin_wm_main.51
+	title = oxr_mdlc_origin_wm_main.51.title
+	desc = oxr_mdlc_origin_wm_main.51.desc
+	picture = GFX_evt_engineering_research
+	is_triggered_only = yes
+
+	trigger = {
+		NOT = {
+			has_technology = oxr_mdlc_tech_world_machine_planetary_mastery
+		}
+	}
+	option = {
+		name = oxr_mdlc_origin_wm_main.51.a
+		owner = {
+			give_technology = {
+				tech = oxr_mdlc_tech_world_machine_planetary_mastery
+			}
+		}
+	}
+	immediate = {
+		owner = {
+			end_event_chain = oxr_mdlc_origin_wm_chain_clear_blockers_2
+		}
+	}
+}
+
+country_event = {
+	id = oxr_mdlc_origin_wm_main.55
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		NOT = { has_technology = oxr_mdlc_tech_world_machine_planetary_proficiency }
+	}
+
+	immediate = {
+		give_technology = {
+			tech = oxr_mdlc_tech_world_machine_planetary_proficiency
+			message = yes
+		}
+	}
+}
+
+# Finished the 'deploy world cores' event chain
+country_event = {
+	id = oxr_mdlc_origin_wm_main.60
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_event_chain = "oxr_mdlc_origin_wm_chain_deploy_world_cores"
+		NOT = { has_completed_event_chain = oxr_mdlc_origin_wm_chain_deploy_world_cores }
+	}
+	immediate = {
+		# award an insight
+		country_event = {
+			id = oxr_mdlc_on_world_machine_action.110
+		}
+		# finish this event chain
+		end_event_chain = oxr_mdlc_origin_wm_chain_deploy_world_cores
+	}
+}
+
+# Planet has been terraformed
+# on_world_machine_pc_machine_auto_terraforming_complete
+# This = Planet
+# From = Terraforming country
+planet_event = {
+	id = oxr_mdlc_origin_wm_main.500
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		space_owner = {
+			has_origin = oxr_mdlc_origin_world_machine_awakened
+		}
+		NOT = { has_deposit = oxr_mdlc_d_world_machine_core }
+		is_colony = no
+	}
+
+	immediate = {
+		oxr_mdlc_planet_create_world_machine_colony = yes
+	}
+}
+
+# transformation complete
+planet_event = {
+	id = oxr_mdlc_origin_wm_main.501
+	title = oxr_mdlc_origin_wm_main.501.title
+	desc = oxr_mdlc_origin_wm_main.501.desc
+	picture = GFX_evt_colony_settlement
+	is_triggered_only = yes
+
+	option = {
+		name = oxr_mdlc_origin_wm_main.501.a
+		space_owner = {
+			add_resource = {
+				society_research = 750
+				engineering_research = 750
+				physics_research = 750
+			}
+		}
+	}
+	option = {
+		name = oxr_mdlc_origin_wm_main.501.b
+		space_owner = {
+			add_resource = {
+				unity = 1000
+			}
+		}
+	}
+	option = {
+		name = oxr_mdlc_origin_wm_main.501.c
+		space_owner = {
+			add_resource = {
+				energy = -250
+			}
+		}
+		planet_event = {
+			id = oxr_mdlc_origin_wm_main.502
+			days = 14
+		}
+		trigger = {
+			NOT = {
+				has_planet_flag = oxr_mdlc_wm_main_501_c_picked
+			}
+		}
+		hidden_effect = {
+			set_planet_flag = oxr_mdlc_wm_main_501_c_picked
+		}
+	}
+}
+
+# unplug and plug it back in
+planet_event = {
+	id = oxr_mdlc_origin_wm_main.502
+	title = oxr_mdlc_origin_wm_main.502.title
+	desc = oxr_mdlc_origin_wm_main.502.desc
+	picture = GFX_evt_glitchy_matrix
+	is_triggered_only = yes
+
+	option = {
+		name = "oxr_mdlc_origin_wm_main.502.a"
+		space_owner = {
+			random_situation = {
+				limit = { is_situation_type = oxr_mdlc_origin_wm_situation_recover_core_tech }
+				add_situation_progress = @oxr_mdlc_situation_core_tech_fun_points
+			}
+		}
+	}
+}
+
+# count +1 world machines
+country_event = {
+	id = oxr_mdlc_origin_wm_main.503
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_origin = oxr_mdlc_origin_world_machine_awakened
+	}
+	immediate = {
+		change_variable = {
+			which = oxr_mdlc_total_world_machines
+			value = 1
+		}
+	}
+}
+# COUNTRY count -1 world machines :(
+country_event = {
+	id = oxr_mdlc_origin_wm_main.504
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_origin = oxr_mdlc_origin_world_machine_awakened
+	}
+	immediate = {
+		change_variable = {
+			which = oxr_mdlc_total_world_machines
+			value = -1
+		}
+	}
+}
+# PLANET count -1 world machines :(
+planet_event = {
+	id = oxr_mdlc_origin_wm_main.505
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		is_planet_world_machine = yes
+	}
+	immediate = {
+		owner = {
+			change_variable = {
+				which = oxr_mdlc_total_world_machines
+				value = -1
+			}
+		}
+		
+	}
+}
+# PLANET count +1 world machines :)
+# call from terraform
+planet_event = {
+	id = oxr_mdlc_origin_wm_main.506
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		is_planet_world_machine = yes
+		owner = {
+			has_ascension_perk = xvcv_mdlc_ap_virtual_worlds
+		}
+	}
+	immediate = {
+		owner = {
+			change_variable = {
+				which = oxr_mdlc_total_world_machines
+				value = -1
+			}
+		}
+		# Make it real
+		add_deposit = oxr_mdlc_d_world_machine_core
+	}
+}
+
+# on_ascension_perk_picked Initialize country vars for World Machine AP users
+# And do anything else like give tech, etc
+# xvcv_mdlc_ap_world_machines start
+country_event = {
+	id = oxr_mdlc_origin_wm_main.600
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_ascension_perk = xvcv_mdlc_ap_world_machines
+		NOT = {
+			is_variable_set = oxr_mdlc_total_world_machines
+		}
+	}
+	immediate = {
+		set_variable = {
+			which = oxr_mdlc_total_world_machines
+			value = 0
+		}
+	}
+}
+
+
+### RUINED WORLD MACHINE ###
+# Decision triggers this event, which triggers others
+
+
+# Introduction, enter stage 1
+country_event = {
+	id = oxr_mdlc_origin_wm_main.1000
+	title = "oxr_mdlc_origin_wm_main.1000.title"
+	desc = "oxr_mdlc_origin_wm_main.1000.desc"
+	picture = GFX_evt_engineering_cache
+	is_triggered_only = yes
+	location = event_target:oxr_mdlc_ruined_world_machine
+
+	trigger = {
+		root = {
+			any_situation = {
+				is_situation_type = oxr_mdlc_origin_wm_situation_restore_ruined_world_machine
+			}
+		}
+	}
+
+	option = {
+		name = oxr_mdlc_origin_wm_main.1000.a
+		hidden_effect = {
+			log = "Do nothing"
+		}
+	}
+	immediate = { log = "Do nothing" }
+}
+
+country_event = {
+	# enter stage 2, power on self test
+	id = oxr_mdlc_origin_wm_main.1005
+	title = oxr_mdlc_origin_wm_main.1005.title
+	desc = oxr_mdlc_origin_wm_main.1005.desc
+	picture = GFX_evt_engineering_cache
+	is_triggered_only = yes
+	
+
+	option = {
+		name = oxr_mdlc_origin_wm_main.1005.a
+	}
+	immediate = {}
+}
+country_event = {
+	# enter stage 3, boot loader
+	id = oxr_mdlc_origin_wm_main.1010
+	title = oxr_mdlc_origin_wm_main.1010.title
+	desc = oxr_mdlc_origin_wm_main.1010.desc
+	picture = GFX_evt_engineering_cache
+	is_triggered_only = yes
+
+	option = {
+		name = oxr_mdlc_origin_wm_main.1010.a
+	}
+	immediate = {}
+}
+country_event = {
+	# enter stage 4, booting
+	id = oxr_mdlc_origin_wm_main.1015
+	title = oxr_mdlc_origin_wm_main.1015.title
+	desc = oxr_mdlc_origin_wm_main.1015.desc
+	picture = GFX_evt_engineering_cache
+	is_triggered_only = yes
+
+	option = {
+		name = oxr_mdlc_origin_wm_main.1015.a
+	}
+	immediate = {}
+}
+country_event = {
+	# enter stage 5, continue installation
+	id = oxr_mdlc_origin_wm_main.1020
+	title = oxr_mdlc_origin_wm_main.1020.title
+	desc = oxr_mdlc_origin_wm_main.1020.desc
+	picture = GFX_evt_engineering_cache
+	is_triggered_only = yes
+
+	option = {
+		name = oxr_mdlc_origin_wm_main.1020.a
+	}
+	immediate = {}
+}
+# ALL DONE WITH RESTORATION
+country_event = {
+	id = oxr_mdlc_origin_wm_main.1025
+	title = oxr_mdlc_origin_wm_main.1025.title
+	desc = oxr_mdlc_origin_wm_main.1025.desc
+	picture = GFX_evt_colony_settlement
+	is_triggered_only = yes
+
+	immediate = {
+		event_target:oxr_mdlc_ruined_world_machine = {
+			change_pc = xvcv_mdlc_pc_machine_auto
+			fire_on_action = {
+				on_action = on_world_machine_pc_machine_auto_terraforming_complete
+			}
+		}
+	}
+
+	option = {
+		name = oxr_mdlc_origin_wm_main.1025.a
+		add_resource = {
+			physics_research = 750
+			society_research = 750
+			engineering_research = 750
+			unity = 500
+		}
+		hidden_effect = {
+			if = {
+				limit = {
+					has_event_chain = "oxr_mdlc_origin_wm_chain_deploy_world_cores"
+					NOT = { has_completed_event_chain = oxr_mdlc_origin_wm_chain_deploy_world_cores }
+				}
+				# bump up the event chain tracker
+				country_event = {
+					id = oxr_mdlc_origin_wm_main.1100
+				}
+			}
+		}
+	}
+}
+# Add progress to initial 'Expand empire' situation
+country_event = {
+	id = oxr_mdlc_origin_wm_main.1100
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_event_chain = oxr_mdlc_origin_wm_chain_deploy_world_cores
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				has_event_chain = "oxr_mdlc_origin_wm_chain_deploy_world_cores"
+				NOT = { has_completed_event_chain = oxr_mdlc_origin_wm_chain_deploy_world_cores }
+			}
+			add_event_chain_counter = {
+				event_chain = "oxr_mdlc_origin_wm_chain_deploy_world_cores"
+				counter = "oxr_mdlc_origin_wm_starting_cores_deployed"
+				amount = 1
+			}
+			# TODO: award insight points
+		}
+		# check for completion
+		if = {
+			limit = {
+				has_completed_event_chain_counter = {
+					event_chain = "oxr_mdlc_origin_wm_chain_deploy_world_cores"
+					counter = "oxr_mdlc_origin_wm_starting_cores_deployed"
+				}
+				NOT = {
+					has_technology = oxr_mdlc_tech_world_machine_planetary_proficiency
+				}
+			}
+			# Trigger completion
+			country_event = {
+				id = oxr_mdlc_origin_wm_main.60
+			}
+		}
+	}
+}
+
+# Completed gathering World Machine insights
+country_event = {
+	id = oxr_mdlc_origin_wm_main.1200
+	title = oxr_mdlc_origin_wm_main.1200.title
+	desc = oxr_mdlc_origin_wm_main.1200.desc
+	picture = GFX_evt_analyzing_artifacts
+	is_triggered_only = yes
+
+	option = {
+		name = oxr_mdlc_origin_wm_main.1200.a
+		enable_special_project = {
+			name = OXR_MDLC_ORIGIN_WM_CORE_TECH_RESEARCH_PHYSICS_1
+		}
+		enable_special_project = {
+			name = OXR_MDLC_ORIGIN_WM_CORE_TECH_RESEARCH_ENGINEERING
+		}
+		enable_special_project = {
+			name = OXR_MDLC_ORIGIN_WM_CORE_TECH_RESEARCH_SOCIETY
+		}
+		default_hide_option = yes
+	}
+	immediate = {
+		random_situation = {
+			limit = {
+				is_situation_type = oxr_mdlc_origin_wm_situation_recover_core_tech
+			}
+			destroy_situation = this
+		}
+	}
+}
+
+country_event = {
+	id = oxr_mdlc_origin_wm_main.1205
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		# has_completed_special_project_in_log = OXR_MDLC_ORIGIN_WM_CORE_TECH_RESEARCH_ENGINEERING
+		# has_completed_special_project_in_log = OXR_MDLC_ORIGIN_WM_CORE_TECH_RESEARCH_PHYSICS_1
+		# has_completed_special_project_in_log = OXR_MDLC_ORIGIN_WM_CORE_TECH_RESEARCH_SOCIETY
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				has_completed_special_project_in_log = OXR_MDLC_ORIGIN_WM_CORE_TECH_RESEARCH_ENGINEERING
+				has_completed_special_project_in_log = OXR_MDLC_ORIGIN_WM_CORE_TECH_RESEARCH_PHYSICS_1
+				has_completed_special_project_in_log = OXR_MDLC_ORIGIN_WM_CORE_TECH_RESEARCH_SOCIETY
+			}
+			country_event = {
+				id = oxr_mdlc_origin_wm_main.1210
+			}
+		}
+	}
+}
+
+# Completed special project to research World Machine Cores
+# have all been completed
+country_event = {
+	id = oxr_mdlc_origin_wm_main.1210
+	title = "oxr_mdlc_origin_wm_main.1210.title"
+	desc = "oxr_mdlc_origin_wm_main.1210.desc"
+	picture = GFX_evt_sapient_AI
+	show_sound = event_mind_over_matter
+	is_triggered_only = yes
+
+	option = {
+		name = "oxr_mdlc_origin_wm_main.1210.a"
+		set_country_flag = oxr_mdlc_world_machine_core_tech_obtained
+		owner = {
+			add_research_option = oxr_mdlc_tech_fractal_basics
+		}
+		give_technology = {
+			tech = oxr_mdlc_tech_world_machine_wmc_core
+			message = no
+		}
+		hidden_effect = {
+			enable_special_project = {
+				name = OXR_MDLC_ORIGIN_WM_INFO_CORE_TECH_FINISHED
+			}
+			complete_special_project = {
+				type = OXR_MDLC_ORIGIN_WM_INFO_CORE_TECH_FINISHED
+			}
+			end_event_chain = oxr_mdlc_origin_wm_chain_gather_insights
+			# TODO: Add info project about core tech
+		}
+	}
+}
+
+# Trigger the loop for manufacturing WMCs on a planet
+planet_event = {
+	id = oxr_mdlc_origin_wm_main.1299
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		if = {
+			limit = {
+				# has_modifier = oxr_mdlc_origin_world_machine_core_manufacturing_toggle_active
+				has_planet_flag = oxr_mdlc_origin_world_machine_core_auto_build_enabled
+			}
+			log = "oxr_mdlc_origin_world_machine_core_auto_build_enabled flag is set"
+			if = {
+				limit = {
+					NOT = { is_variable_set = oxr_mdlc_planet_world_machine_core_countdown }
+				}
+				log = "oxr_mdlc_planet_world_machine_core_countdown wasn't set.. supposedly setting it now"
+				set_variable = {
+					which = oxr_mdlc_planet_world_machine_core_countdown
+					# value = @oxr_mdlc_world_machine_core_build_time_days
+					# value = 60
+					value = @oxr_mdlc_world_machine_core_build_time_days
+				}
+				# Otherwise, RESUME wmc construction
+			}
+			else = {
+				log = "apparently the oxr_mdlc_planet_world_machine_core_countdown is set to \\[This.oxr_mdlc_planet_world_machine_core_countdown]"
+			}
+			planet_event = {
+				id = oxr_mdlc_origin_wm_main.1300
+			}
+		}
+	}
+}
+
+# Manufacturing WMC
+planet_event = {
+	id = oxr_mdlc_origin_wm_main.1300
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		add_modifier = {
+			modifier = oxr_mdlc_origin_world_machine_core_manufacturing_in_progress
+			# days = @oxr_mdlc_world_machine_core_build_time_days
+			days = -1
+		}
+		planet_event = {
+			id = oxr_mdlc_origin_wm_main.1305
+		}
+	}
+}
+
+# Every day, check that the "in_progress" modifier is still active
+# If it's not, reset
+planet_event = {
+	id = oxr_mdlc_origin_wm_main.1305
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_modifier = oxr_mdlc_origin_world_machine_core_manufacturing_in_progress
+	}
+	immediate = {
+		if = {
+			limit = {
+				NOR = {
+					has_modifier = oxr_mdlc_origin_world_machine_core_manufacturing_in_progress
+					has_building = oxr_mdlc_world_machines_building_core_fabrication_depot
+				}
+			}
+			# Player cancelled the construction, so stop
+			log = "Stopping construction of WMC, from inside the 'watcher' event"
+		}
+		else = {
+			# Continue, since the construction is still active
+			subtract_variable = {
+				which = oxr_mdlc_planet_world_machine_core_countdown
+				value = 1
+			}
+			if = {
+				limit = {
+					check_variable = {
+						which = oxr_mdlc_planet_world_machine_core_countdown
+						value = 0
+					}
+				}
+				# Manufacturing is complete!
+				clear_variable = oxr_mdlc_planet_world_machine_core_countdown
+				planet_event = {
+					id = oxr_mdlc_origin_wm_main.1310
+					days = 1
+				}
+				
+			}
+			else_if = {
+				limit = {
+					check_variable = {
+						which = oxr_mdlc_planet_world_machine_core_countdown
+						value < 0
+					}
+				}
+				log = "Something weird happen while counting down WMC construction."
+				log = "The counter was below 0"
+				# Stop and don't loop
+				clear_variable = oxr_mdlc_planet_world_machine_core_countdown
+				remove_modifier = oxr_mdlc_origin_world_machine_core_manufacturing_in_progress
+				remove_planet_flag = oxr_mdlc_origin_world_machine_core_auto_build_enabled
+			}
+			else = {
+				# Loop
+				planet_event = {
+					id = oxr_mdlc_origin_wm_main.1305
+					days = 1
+				}
+			}
+		}
+	}
+}
+
+
+# WMC Finished being fabricated
+planet_event = {
+	id = oxr_mdlc_origin_wm_main.1310
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		# Is there enough room to add this WMC? if not, refund it
+		# In case the player spammed active/inactive to try and get many cores
+		# oxr_mdlc_world_machine_cores_add = { AMOUNT = 1 }
+		space_owner = {
+			add_resource = {
+				oxr_mdlc_world_machine_core = 1
+			}
+		}
+		log = "Added $AMOUNT$ World Machine Cores"
+		hidden_effect = {
+			space_owner = {
+				change_variable = {
+					which = oxr_mdlc_origin_wm_cores_current_count
+					value = 1
+				}
+				change_variable = {
+					which = oxr_mdlc_origin_wm_cores_total_produced_count
+					value = 1
+				}
+				oxr_mdlc_country_world_machine_cores_recalc_amount = yes
+			}
+			
+		}
+		# oxr_mdlc_world_machine_cores_update_max_var = yes
+		set_variable = {
+			which = oxr_mdlc_origin_wm_cores_max
+			value = modifier:country_resource_max_oxr_mdlc_world_machine_core_add
+		}
+		# remove_modifier = oxr_mdlc_origin_world_machine_core_manufacturing_in_progress
+		# create message
+		create_message = {
+			type = OXR_MDLC_ORIGIN_WM_CORE_FABRICATION_FINISHED
+			localization = OXR_MDLC_ORIGIN_WM_CORE_FABRICATION_FINISHED_MESSAGE
+			days = 20
+			target = this
+			variable = {
+				type = name
+				localization = OXR_MDLC_ORIGIN_WM_CORE_FABRICATION_PLANET
+				scope = this
+			}
+		}
+		# If player has not turned off WMC manufacture via decision,
+		# it'll do a check here and then call the entry event again
+		planet_event = {
+			id = oxr_mdlc_origin_wm_main.1299
+		}
+	}
+}
+
+### TIER 3 WORLD EVENTS
+# Monthly check to see if requirements have been met
+country_event = {
+	id = oxr_mdlc_origin_wm_main.1500
+	is_triggered_only = yes
+	hide_window = yes
+	trigger = {
+		# Permit the event to trigger if any of the below flags are NOT set
+		# So, once all the flags are set, this event will stop calling itself
+		NAND = {
+			has_country_flag = oxr_mdlc_origin_world_machine_t3_ecu_alloys_target_met
+			has_country_flag = oxr_mdlc_origin_world_machine_t3_ecu_sr_target_met
+			has_country_flag = oxr_mdlc_origin_world_machine_t3_ecu_naval_cap_target_met
+			has_country_flag = oxr_mdlc_origin_world_machine_t3_cpu_any_research_target_met
+			has_country_flag = oxr_mdlc_origin_world_machine_t3_ser_unity_target_met
+			has_country_flag = oxr_mdlc_origin_world_machine_t3_ecu_naval_cap_target_met
+		}
+		# TODO: Add checks for country flag representing all of the above,
+		# that the player has unlocked T3 worlds
+	}
+
+	immediate = {
+		## CPU
+		# First check if the flag exists, then examine targets, to avoid unnecessary income checks
+		if = {
+			limit = {
+				NOT = { has_country_flag = oxr_mdlc_origin_world_machine_t3_cpu_any_research_target_met }
+			}
+			if = {
+				limit = { oxr_mdlc_country_origin_wm_met_t3_cpu_target = yes }
+				set_country_flag = oxr_mdlc_origin_world_machine_t3_cpu_any_research_target_met
+				# throw up an event that says "hey we have data, now let's datamine/compile it"
+				# then show project
+				enable_special_project = {
+					name = OXR_MDLC_ORIGIN_WM_T3_CPU_WORLD
+				}
+			}
+		}
+		## ECU
+		if = {
+			limit = {
+				NOT = { has_country_flag = oxr_mdlc_origin_world_machine_t3_ecu_alloys_target_met }
+			}
+			if = {
+				limit = { oxr_mdlc_country_origin_wm_met_t3_ecu_alloy_target = yes }
+				set_country_flag = oxr_mdlc_origin_world_machine_t3_ecu_alloys_target_met
+			}
+		}
+		if = {
+			limit = {
+				NOT = { has_country_flag = oxr_mdlc_origin_world_machine_t3_ecu_sr_target_met }
+			}
+			if = {
+				limit = { oxr_mdlc_country_origin_wm_met_t3_ecu_sr_target = yes }
+				set_country_flag = oxr_mdlc_origin_world_machine_t3_ecu_sr_target_met
+			}
+		}
+		if = {
+			limit = {
+				NOT = { has_country_flag = oxr_mdlc_origin_world_machine_t3_ecu_naval_cap_target_met }
+			}
+			if = {
+				limit = { oxr_mdlc_country_origin_wm_met_t3_ecu_naval_target = yes }
+				set_country_flag = oxr_mdlc_origin_world_machine_t3_ecu_naval_cap_target_met
+			}
+		}
+		### SER(ver)
+		if = {
+			limit = {
+				NOT = { has_country_flag = oxr_mdlc_origin_world_machine_t3_ser_unity_target_met }
+			}
+			if = {
+				limit = { oxr_mdlc_country_origin_wm_met_t3_ser_unity_target = yes }
+				set_country_flag = oxr_mdlc_origin_world_machine_t3_ser_unity_target_met
+				enable_special_project = {
+					name = OXR_MDLC_ORIGIN_WM_T3_SER_WORLD
+				}
+			}
+		}
+		### Check if all ECU flags are set, trigger the project
+		if = {
+			limit = {
+				has_country_flag = oxr_mdlc_origin_world_machine_t3_ecu_alloys_target_met
+				has_country_flag = oxr_mdlc_origin_world_machine_t3_ecu_sr_target_met
+				has_country_flag = oxr_mdlc_origin_world_machine_t3_ecu_naval_cap_target_met
+				NOT = { has_special_project = OXR_MDLC_ORIGIN_WM_T3_ECU_WORLD }
+			}
+			# throw up an event that says "hey we have data, now let's datamine/compile it"
+			# then show project
+			enable_special_project = {
+				name = OXR_MDLC_ORIGIN_WM_T3_ECU_WORLD
+			}
+		}
+		country_event = {
+			id = oxr_mdlc_origin_wm_main.1500
+			days = 30
+		}
+	}
+}
+
+# Award T3 CPU tech
+country_event = {
+	id = oxr_mdlc_origin_wm_main.1505
+	title = oxr_mdlc_origin_wm_main.1505.title
+	desc = oxr_mdlc_origin_wm_main.1505.desc
+	picture = GFX_evt_oxr_mdlc_wm_t3_worlds_end
+	is_triggered_only = yes
+
+	option = {
+		name = oxr_mdlc_origin_wm_main.1505.a
+		give_technology = {
+			tech = oxr_mdlc_tech_world_machine_cpu
+		}
+	}
+}
+
+# Award T3 ECU tech
+country_event = {
+	id = oxr_mdlc_origin_wm_main.1510
+	title = oxr_mdlc_origin_wm_main.1510.title
+	desc = oxr_mdlc_origin_wm_main.1510.desc
+	picture = GFX_evt_oxr_mdlc_wm_t3_worlds_end
+	is_triggered_only = yes
+
+	option = {
+		name = oxr_mdlc_origin_wm_main.1510.a
+		give_technology = {
+			tech = oxr_mdlc_tech_world_machine_ecu
+		}
+	}
+}
+# Award T3 SER tech
+country_event = {
+	id = oxr_mdlc_origin_wm_main.1515
+	title = oxr_mdlc_origin_wm_main.1515.title
+	desc = oxr_mdlc_origin_wm_main.1515.desc
+	is_triggered_only = yes
+	picture = GFX_evt_oxr_mdlc_wm_t3_worlds_end
+
+	option = {
+		name = oxr_mdlc_origin_wm_main.1515.a
+		give_technology = {
+			tech = oxr_mdlc_tech_world_machine_ser
+		}
+	}
+}
+
+planet_event = {
+	id = oxr_mdlc_origin_wm_main.2000
+	is_triggered_only = yes
+	hide_window = yes
+	trigger = {
+		space_owner = { has_origin = oxr_mdlc_origin_world_machine_awakened }
+		is_planet_world_machine = yes
+		NOT = { has_planet_flag = oxr_mdlc_world_machines_refilling_armies_active }
+	}
+	immediate = {
+		set_planet_flag = oxr_mdlc_world_machines_refilling_armies_active
+		add_modifier = {
+			modifier = oxr_mdlc_world_machine_district_army_restock_in_progress
+			days = 7
+		}
+		planet_event = {
+			id = oxr_mdlc_origin_wm_main.2001
+			days = 7
+		}
+	}
+}
+
+
+# Start the loop of refilling planetary district armies
+planet_event = {
+	id = oxr_mdlc_origin_wm_main.2001
+	is_triggered_only = yes
+	hide_window = yes
+	trigger = {
+		space_owner = { has_origin = oxr_mdlc_origin_world_machine_awakened }
+		is_planet_world_machine = yes
+		has_planet_flag = oxr_mdlc_world_machines_refilling_armies_active
+	}
+
+	pre_triggers = {
+		is_occupied_flag = no
+	}
+
+	immediate = {
+		set_planet_flag = oxr_mdlc_world_machines_refilling_armies_active
+		oxr_mdlc_origin_world_machine_calc_max_district_armies = yes
+		oxr_mdlc_origin_world_machine_calc_current_district_armies = yes
+		if = {
+			limit = {
+				check_variable = {
+					which = oxr_mdlc_world_machine_num_existing_district_armies
+					value < oxr_mdlc_world_machine_num_max_district_armies
+				}
+			}
+			oxr_mdlc_origin_world_machine_add_district_defense_army_t1 = yes
+			log = "Restocked district defense army."
+			oxr_mdlc_origin_world_machine_calc_current_district_armies = yes
+			if = {
+				limit = {
+					has_planet_flag = oxr_mdlc_world_machines_refilling_armies_active
+				}
+				add_modifier = {
+					modifier = oxr_mdlc_world_machine_district_army_restock_in_progress
+					days = 7
+				}
+				planet_event = {
+					id = oxr_mdlc_origin_wm_main.2001
+					days = 7
+				}
+			}
+			else = {
+				# Stop looping
+				remove_modifier = oxr_mdlc_world_machine_district_army_restock_in_progress
+			}
+		}
+		else = {
+			# Stop looping
+			remove_modifier = oxr_mdlc_world_machine_district_army_restock_in_progress
+			remove_planet_flag = oxr_mdlc_world_machines_refilling_armies_active
+		}
+		
+	}
+}
+
+planet_event = {
+	id = oxr_mdlc_origin_wm_main.2100
+	is_triggered_only = yes
+	hide_window = yes
+	trigger = {
+		space_owner = { has_origin = oxr_mdlc_origin_world_machine_awakened }
+		is_planet_world_machine = yes
+	}
+
+	pre_triggers = {
+		is_occupied_flag = no
+	}
+	immediate = {
+		add_modifier = {
+			modifier = oxr_mdlc_planet_origin_world_machine_automaton_pop_timer
+			days = 180
+		}
+		while = {
+			count = @oxr_mdlc_world_machine_decision_temp_automaton_amount_1
+			create_pop = {
+				species = owner.species
+			}
+			last_created_pop = {
+				add_modifier = {
+					modifier = oxr_mdlc_pop_origin_world_machine_automaton_timer
+					days = 180
+				}
+				# Self-decommission .. bye bye
+				pop_event = {
+					id = oxr_mdlc_origin_wm_main.2110
+					days = 180
+				}
+			}
+		}
+	}
+}
+
+pop_event = {
+	id = oxr_mdlc_origin_wm_main.2110
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		# owner = { has_origin = oxr_mdlc_origin_world_machine_awakened }
+		has_modifier = oxr_mdlc_pop_origin_world_machine_automaton_timer
+	}
+	immediate = {
+		kill_pop = yes
+	}
+}
+
+## TERRAFORM / CHANGE PC MENU ##
+planet_event = {
+	id = oxr_mdlc_origin_wm_main.3000
+	title = oxr_mdlc_origin_wm_main.3000.title
+	desc = oxr_mdlc_origin_wm_main.3000.desc
+	picture = GFX_evt_ai_planet
+	is_triggered_only = yes
+
+	# auto machine world
+	option = {
+		name = oxr_mdlc_origin_wm_main.3000.a
+		custom_tooltip = oxr_mdlc_origin_wm_main.3000.a.desc
+		trigger = { NOT = { is_planet_class = xvcv_mdlc_pc_machine_auto } }
+		allow = {
+			is_planet_world_machine = yes
+			owner = { has_resource = { type = energy amount > 2500 } }
+			custom_tooltip_fail = {
+				text = xvcv_mdlc_world_machines_decisions_tooltip.fail
+				num_districts = { type = any value < 1 }
+			}
+			num_uncleared_blockers < 1
+		}
+		owner = { add_resource = { energy = -2500 } }
+		hidden_effect = {
+			start_terraform_process = xvcv_mdlc_pc_machine_auto
+		}
+	}
+	# ecu
+	option = {
+		name = oxr_mdlc_origin_wm_main.3000.b
+		custom_tooltip = oxr_mdlc_origin_wm_main.3000.b.desc
+		trigger = {
+			NOT = { is_planet_class = xvcv_mdlc_pc_machine_ecu }
+			owner = {
+				# has_technology = oxr_mdlc_tech_world_machine_ecu
+			}
+		}
+		allow = {
+			is_planet_world_machine = yes
+			owner = { has_resource = { type = energy amount > 2500 } }
+			custom_tooltip_fail = {
+				text = xvcv_mdlc_world_machines_decisions_tooltip.fail
+				num_districts = { type = any value < 1 }
+			}
+			num_uncleared_blockers < 1
+		}
+		owner = { add_resource = { energy = -2500 } }
+		hidden_effect = {
+			start_terraform_process = xvcv_mdlc_pc_machine_ecu
+		}
+	}
+	# cpu
+	option = {
+		name = oxr_mdlc_origin_wm_main.3000.c
+		custom_tooltip = oxr_mdlc_origin_wm_main.3000.c.desc
+		trigger = {
+			NOT = { is_planet_class = xvcv_mdlc_pc_machine_cpu }
+			owner = {
+				# has_technology = oxr_mdlc_tech_world_machine_cpu
+			}
+		}
+		allow = {
+			is_planet_world_machine = yes
+			owner = { has_resource = { type = energy amount > 2500 } }
+			custom_tooltip_fail = {
+				text = xvcv_mdlc_world_machines_decisions_tooltip.fail
+				num_districts = { type = any value < 1 }
+			}
+			num_uncleared_blockers < 1
+		}
+		owner = { add_resource = { energy = -2500 } }
+		hidden_effect = {
+			start_terraform_process = xvcv_mdlc_pc_machine_cpu
+		}
+	}
+	# ser
+	option = {
+		name = oxr_mdlc_origin_wm_main.3000.d
+		custom_tooltip = oxr_mdlc_origin_wm_main.3000.d.desc
+		trigger = {
+			NOT = { is_planet_class = xvcv_mdlc_pc_machine_ser }
+			owner = {
+				# has_technology = oxr_mdlc_tech_world_machine_ser
+			}
+		}
+		allow = {
+			is_planet_world_machine = yes
+			owner = { has_resource = { type = energy amount > 2500 } }
+			custom_tooltip_fail = {
+				text = xvcv_mdlc_world_machines_decisions_tooltip.fail
+				num_districts = { type = any value < 1 }
+			}
+			num_uncleared_blockers < 1
+		}
+		owner = { add_resource = { energy = -2500 } }
+		hidden_effect = {
+			start_terraform_process = xvcv_mdlc_pc_machine_ser
+		}
+	}
+}
+
+## CUSTOM HANDLERS FOR ON_ACTIONS
+# on_planet_transfer WM origin country gets WM back
+planet_event = {
+	id = oxr_mdlc_origin_wm_main.5000
+	hide_window = yes
+	is_triggered_only = yes
+	pre_triggers = {
+		has_owner = yes
+	}
+	trigger = {
+		is_planet_world_machine = yes
+		space_owner = {
+			has_origin = oxr_mdlc_origin_world_machine_awakened
+		}
+	}
+	immediate = {
+		fire_on_action = {
+			on_action = on_world_machine_planet_gained
+		}
+	}
+}

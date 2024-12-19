@@ -1,0 +1,166 @@
+special_project = {
+	key = "OXR_MDLC_ORIGIN_WM_TECH_PROFICIENCY"
+	cost = 500
+	picture = GFX_evt_society_cache
+	tech_department = society_technology
+	icon = "gfx/interface/icons/situation_log/situation_log_society.dds"
+	event_scope = country_event
+
+	on_success = {
+		country_event = {
+			id = oxr_mdlc_origin_wm_main.55
+			days = 1
+		}
+	}
+}
+special_project = {
+	key = "OXR_MDLC_ORIGIN_WM_CORE_TECH_RESEARCH_ENGINEERING"
+	cost = 7500
+	picture = GFX_evt_analyzing_artifacts
+	tech_department = engineering_technology
+	event_scope = country_event
+	icon = "gfx/interface/icons/situation_log/situation_log_engineering.dds"
+	event_chain = oxr_mdlc_origin_wm_chain_gather_insights
+	on_success = {
+		country_event = {
+			id = oxr_mdlc_origin_wm_main.1205
+			days = 1
+		}
+	}
+}
+special_project = {
+	key = "OXR_MDLC_ORIGIN_WM_CORE_TECH_RESEARCH_PHYSICS_1"
+	cost = 10000  # Mimic T3 tech
+	picture = GFX_evt_analyzing_artifacts
+	tech_department = physics_technology
+	event_scope = country_event
+	icon = "gfx/interface/icons/situation_log/situation_log_physics.dds"
+	event_chain = oxr_mdlc_origin_wm_chain_gather_insights
+	on_success = {
+		country_event = {
+			id = oxr_mdlc_origin_wm_main.1205
+			days = 1
+		}
+	}
+}
+special_project = {
+	key = "OXR_MDLC_ORIGIN_WM_CORE_TECH_RESEARCH_SOCIETY"
+	cost = 7500  # Mimic T2 tech
+	picture = GFX_evt_analyzing_artifacts
+	tech_department = society_technology
+	event_scope = country_event
+	icon = "gfx/interface/icons/situation_log/situation_log_society.dds"
+	event_chain = oxr_mdlc_origin_wm_chain_gather_insights
+	on_success = {
+		country_event = {
+			id = oxr_mdlc_origin_wm_main.1205
+			days = 1
+		}
+	}
+}
+
+## INFO-ONLY PROJECTS
+special_project = {
+	key = "OXR_MDLC_ORIGIN_WM_WHO_WE_ARE_1"
+	cost = 0
+	picture = GFX_evt_fleet_from_surface
+	event_chain = oxr_mdlc_origin_wm_lore_databank
+	tech_department = society_technology
+	event_scope = country_event
+	icon = "gfx/interface/icons/situation_log/situation_log_society.dds"
+	on_success = { }
+}
+special_project = {
+	key = "OXR_MDLC_ORIGIN_WM_WHAT_WE_KNOW_1"
+	cost = 0
+	picture = GFX_evt_fleet_from_surface
+	event_chain = oxr_mdlc_origin_wm_lore_databank
+	tech_department = society_technology
+	event_scope = country_event
+	icon = "gfx/interface/icons/situation_log/situation_log_society.dds"
+	on_success = {}
+}
+special_project = {
+	key = "OXR_MDLC_ORIGIN_WM_INFO_META_GAMEPLAY_GUIDE"
+	cost = 0
+	picture = GFX_evt_communication_event
+	event_chain = oxr_mdlc_origin_wm_lore_databank
+	tech_department = society_technology
+	event_scope = country_event
+	icon = "gfx/interface/icons/situation_log/situation_log_society.dds"
+	on_success = {}
+}
+special_project = {
+	key = "OXR_MDLC_ORIGIN_WM_INFO_META_GAMEPLAY_GUIDE_2"
+	cost = 0
+	picture = GFX_evt_communication_event
+	event_chain = oxr_mdlc_origin_wm_lore_databank
+	tech_department = society_technology
+	event_scope = country_event
+	icon = "gfx/interface/icons/situation_log/situation_log_society.dds"
+	on_success = {}
+}
+special_project = {
+	key = "OXR_MDLC_ORIGIN_WM_INFO_CORE_TECH_FINISHED"
+	cost = 0
+	picture = GFX_evt_sapient_AI
+	event_chain = oxr_mdlc_origin_wm_lore_databank
+	tech_department = society_technology
+	event_scope = country_event
+	on_success = { }
+}
+special_project = {
+	key = "OXR_MDLC_ORIGIN_WM_INFO_RUINED_WM_FOUND"
+	cost = 0
+	picture = GFX_evt_communication_event
+	event_chain = oxr_mdlc_origin_wm_lore_databank
+	tech_department = society_technology
+	event_scope = country_event
+	icon = "gfx/interface/icons/situation_log/situation_log_scanning_beam.dds"
+	on_success = { }
+}
+
+
+## T3 WORLDS PROJECTS
+special_project = {
+	key = "OXR_MDLC_ORIGIN_WM_T3_CPU_WORLD"
+	cost = 16000
+	picture = GFX_evt_oxr_mdlc_wm_t3_worlds_mid
+	event_chain = oxr_mdlc_origin_wm_t3_worlds_chain
+	tech_department = physics_technology
+	event_scope = country_event
+	icon = "gfx/interface/icons/situation_log/situation_log_society.dds"
+	on_success = {
+		country_event = {
+			id = oxr_mdlc_origin_wm_main.1505
+		}
+	}  # Award cpu world tech
+}
+special_project = {
+	key = "OXR_MDLC_ORIGIN_WM_T3_ECU_WORLD"
+	cost = 16000
+	picture = GFX_evt_oxr_mdlc_wm_t3_worlds_mid
+	event_chain = oxr_mdlc_origin_wm_t3_worlds_chain
+	tech_department = engineering_technology
+	event_scope = country_event
+	icon = "gfx/interface/icons/situation_log/situation_log_society.dds"
+	on_success = {
+		country_event = {
+			id = oxr_mdlc_origin_wm_main.1510
+		}
+	}  # Award ECU world tech
+}
+special_project = {
+	key = "OXR_MDLC_ORIGIN_WM_T3_SER_WORLD"
+	cost = 16000
+	picture = GFX_evt_oxr_mdlc_wm_t3_worlds_mid
+	event_chain = oxr_mdlc_origin_wm_t3_worlds_chain
+	tech_department = society_technology
+	event_scope = country_event
+	icon = "gfx/interface/icons/situation_log/situation_log_society.dds"
+	on_success = {
+		country_event = {
+			id = oxr_mdlc_origin_wm_main.1515
+		}
+	}  # award server world tech
+}

@@ -1,0 +1,382 @@
+# clear digsite +1 @
+# clear blocker +1 @
+# clear arc stage +1
+# Each Arc Site: total 4
+# 6-8 arc sites: 24-32 pts
+# discover world machine planet +5
+# build wm district +1
+# build wm building +1
+# 1 year: +3 pts
+
+
+oxr_mdlc_origin_wm_situation_recover_core_tech = {
+	picture = GFX_evt_rare_tech_cache
+	complete_icon_frame = GFX_situation_outcome_frame_green
+	complete_icon = GFX_situation_outcome_positive
+	stages = {
+		oxr_mdlc_origin_world_machine_recover_core_tech_stage_1 = {
+			icon = GFX_xvcv_mdlc_situation_stage_1
+			icon_background = GFX_situation_stage_frame_green
+			end = 50
+			on_first_enter = {
+				# situation_event = { id = situation.165 }
+				owner = {
+					country_event = {
+						id = oxr_mdlc_on_world_machine_action.110
+					}
+				}
+			}
+		}
+		oxr_mdlc_origin_world_machine_recover_core_tech_stage_2 = {
+			icon = GFX_xvcv_mdlc_situation_stage_2
+			icon_background = GFX_situation_stage_frame_green
+			end = 80
+			on_first_enter = {
+				# situation_event = { id = situation.165 }
+				owner = {
+					country_event = {
+						id = oxr_mdlc_on_world_machine_action.110
+					}
+				}
+			}
+		}
+		oxr_mdlc_origin_world_machine_recover_core_tech_stage_3 = {
+			icon = GFX_xvcv_mdlc_situation_stage_3
+			icon_background = GFX_situation_stage_frame_blue
+			end = 100
+			on_first_enter = {
+				# situation_event = { id = situation.165 }
+				owner = {
+					country_event = {
+						id = oxr_mdlc_on_world_machine_action.110
+					}
+				}
+			}
+		}
+		oxr_mdlc_origin_world_machine_recover_core_tech_stage_4 = {
+			icon = GFX_xvcv_mdlc_situation_stage_4
+			icon_background = GFX_situation_stage_frame_teal
+			end = 120
+			on_first_enter = {
+				# situation_event = { id = situation.165 }
+				owner = {
+					country_event = {
+						id = oxr_mdlc_on_world_machine_action.110
+					}
+				}
+			}
+		}
+		oxr_mdlc_origin_world_machine_recover_core_tech_stage_5 = {
+			icon = GFX_xvcv_mdlc_situation_stage_5
+			icon_background = GFX_situation_stage_frame_purple
+			end = 130
+			on_first_enter = {
+				# situation_event = { id = situation.165 }
+				owner = {
+					country_event = {
+						id = oxr_mdlc_on_world_machine_action.110
+					}
+				}
+			}
+		}
+	}
+	monthly_progress = {
+		base = 0
+	}
+	approach = {
+		name = oxr_mdlc_origin_wm_situation_recover_core_tech_approach
+		icon = GFX_situation_approach_balance_sheet
+		icon_background = GFX_situation_approach_bg_green
+		on_select = { custom_tooltip = oxr_mdlc_origin_wm_situation_recover_core_tech_approach_tooltip }
+	}
+	on_progress_complete = {
+		owner = {
+			country_event = {
+				id = oxr_mdlc_origin_wm_main.1200
+			}
+		}
+		destroy_situation = this
+	}
+}
+
+oxr_mdlc_origin_wm_situation_restore_ruined_world_machine = {
+	picture = GFX_evt_physics_cache
+	complete_icon_frame = GFX_situation_outcome_frame_green
+	complete_icon = GFX_situation_outcome_positive
+
+	stages = {
+		oxr_mdlc_origin_wm_situation_restore_ruined_world_machine_stage_1 = {
+			# Core Analysis
+			icon = GFX_xvcv_mdlc_situation_stage_1
+			icon_background = GFX_situation_stage_frame_red
+			end = 30
+			on_first_enter = {
+				event_target:oxr_mdlc_ruined_world_machine = {
+					add_modifier = {
+						modifier = oxr_mdlc_origin_world_machine_world_rebooting_stage_1
+						days = -1
+					}
+				}
+			}
+			triggered_modifier = {
+				potential = {
+					current_situation_approach = oxr_mdlc_origin_wm_situation_restore_ruined_world_machine_approach_nominal
+				}
+				modifier = {
+					country_situations_physics_research_produces_add = -6
+					country_situations_society_research_produces_add = -6
+					country_situations_engineering_research_produces_add = -6
+				}
+			}
+			triggered_modifier = {
+				potential = {
+					current_situation_approach = oxr_mdlc_origin_wm_situation_restore_ruined_world_machine_approach_dedicated
+				}
+				modifier = {
+					country_situations_physics_research_produces_add = -12
+					country_situations_society_research_produces_add = -12
+					country_situations_engineering_research_produces_add = -12
+				}
+			}
+			
+		}
+		oxr_mdlc_origin_wm_situation_restore_ruined_world_machine_stage_2 = {
+			# Power-On Self Test
+			icon = GFX_xvcv_mdlc_situation_stage_2
+			icon_background = GFX_situation_stage_frame_red
+			end = 45
+			triggered_modifier = {
+				potential = {
+					current_situation_approach = oxr_mdlc_origin_wm_situation_restore_ruined_world_machine_approach_nominal
+				}
+				modifier = {
+					country_situations_physics_research_produces_add = -3
+					country_situations_society_research_produces_add = -3
+					country_situations_engineering_research_produces_add = -3
+				}
+			}
+			triggered_modifier = {
+				potential = {
+					current_situation_approach = oxr_mdlc_origin_wm_situation_restore_ruined_world_machine_approach_dedicated
+				}
+				modifier = {
+					country_situations_physics_research_produces_add = -6
+					country_situations_society_research_produces_add = -6
+					country_situations_engineering_research_produces_add = -6
+				}
+			}
+			on_first_enter = {
+				owner = {
+					country_event = {
+						id = oxr_mdlc_origin_wm_main.1005
+					}
+					fire_on_action = {
+						on_action = on_world_machine_restoration_stage_complete
+					}
+				}
+				event_target:oxr_mdlc_ruined_world_machine = {
+					remove_modifier = oxr_mdlc_origin_world_machine_world_rebooting_stage_1
+					add_modifier = {
+						modifier = oxr_mdlc_origin_world_machine_world_rebooting_stage_2
+						days = -1
+					}
+				}
+			}
+		}
+		oxr_mdlc_origin_wm_situation_restore_ruined_world_machine_stage_3 = {
+			# Bootloader
+			icon = GFX_xvcv_mdlc_situation_stage_3
+			icon_background = GFX_situation_stage_frame_yellow
+			end = 75
+			modifier = {
+				country_situations_physics_research_produces_add = 0
+				country_situations_society_research_produces_add = 0
+				country_situations_engineering_research_produces_add = 0
+			}
+			on_first_enter = {
+				owner = {
+					country_event = {
+						id = oxr_mdlc_origin_wm_main.1010
+					}
+					fire_on_action = {
+						on_action = on_world_machine_restoration_stage_complete
+					}
+				}
+				event_target:oxr_mdlc_ruined_world_machine = {
+					remove_modifier = oxr_mdlc_origin_world_machine_world_rebooting_stage_2
+					add_modifier = {
+						modifier = oxr_mdlc_origin_world_machine_world_rebooting_stage_3
+						days = -1
+					}
+				}
+			}
+		}
+		oxr_mdlc_origin_wm_situation_restore_ruined_world_machine_stage_4 = {
+			# boot process
+			icon = GFX_xvcv_mdlc_situation_stage_4
+			icon_background = GFX_situation_stage_frame_orange
+			end = 90
+			triggered_modifier = {
+				potential = {
+					current_situation_approach = oxr_mdlc_origin_wm_situation_restore_ruined_world_machine_approach_nominal
+				}
+				modifier = {
+					country_situations_physics_research_produces_add = 3
+					country_situations_society_research_produces_add = 3
+					country_situations_engineering_research_produces_add = 3
+				}
+			}
+			triggered_modifier = {
+				potential = {
+					current_situation_approach = oxr_mdlc_origin_wm_situation_restore_ruined_world_machine_approach_dedicated
+				}
+				modifier = {
+					country_situations_physics_research_produces_add = 6
+					country_situations_society_research_produces_add = 6
+					country_situations_engineering_research_produces_add = 6
+				}
+			}
+			on_first_enter = {
+				owner = {
+					country_event = {
+						id = oxr_mdlc_origin_wm_main.1015
+					}
+					fire_on_action = {
+						on_action = on_world_machine_restoration_stage_complete
+					}
+				}
+				event_target:oxr_mdlc_ruined_world_machine = {
+					remove_modifier = oxr_mdlc_origin_world_machine_world_rebooting_stage_3
+					add_modifier = {
+						modifier = oxr_mdlc_origin_world_machine_world_rebooting_stage_4
+						days = -1
+					}
+				}
+			}
+		}
+		oxr_mdlc_origin_wm_situation_restore_ruined_world_machine_stage_5 = {
+			# Continue Installation
+			icon = GFX_xvcv_mdlc_situation_stage_5
+			icon_background = GFX_situation_stage_frame_green
+			end = 150
+			triggered_modifier = {
+				potential = {
+					current_situation_approach = oxr_mdlc_origin_wm_situation_restore_ruined_world_machine_approach_nominal
+				}
+				modifier = {
+					country_situations_physics_research_produces_add = 6
+					country_situations_society_research_produces_add = 6
+					country_situations_engineering_research_produces_add = 6
+				}
+			}
+			triggered_modifier = {
+				potential = {
+					current_situation_approach = oxr_mdlc_origin_wm_situation_restore_ruined_world_machine_approach_dedicated
+				}
+				modifier = {
+					country_situations_physics_research_produces_add = 12
+					country_situations_society_research_produces_add = 12
+					country_situations_engineering_research_produces_add = 12
+				}
+			}
+			on_first_enter = {
+				owner = {
+					country_event = {
+						id = oxr_mdlc_origin_wm_main.1020
+					}
+					fire_on_action = {
+						on_action = on_world_machine_restoration_stage_complete
+					}
+				}
+				event_target:oxr_mdlc_ruined_world_machine = {
+					remove_modifier = oxr_mdlc_origin_world_machine_world_rebooting_stage_4
+					add_modifier = {
+						modifier = oxr_mdlc_origin_world_machine_world_rebooting_stage_5
+						days = -1
+					}
+				}
+			}
+		}
+	}
+	approach = {
+		name = oxr_mdlc_origin_wm_situation_restore_ruined_world_machine_approach_pause
+		icon = GFX_situation_approach_suspicious
+		icon_background = GFX_situation_approach_bg_yellow
+		on_select = {
+			custom_tooltip = oxr_mdlc_origin_wm_situation_restore_ruined_world_machine_approach_pause_tooltip
+		}
+	}
+	# Standard
+	approach = {
+		name = oxr_mdlc_origin_wm_situation_restore_ruined_world_machine_approach_nominal
+		icon = GFX_situation_approach_research
+		icon_background = GFX_situation_approach_bg_green
+		on_select = {
+			custom_tooltip = oxr_mdlc_origin_wm_situation_restore_ruined_world_machine_approach_nominal_tooltip
+		}
+		resources = {
+			category = situations
+			upkeep = {
+				energy = 20
+				unity = 10
+			}
+		}
+	}
+	# Aggressive
+	approach = {
+		name = oxr_mdlc_origin_wm_situation_restore_ruined_world_machine_approach_dedicated
+		icon = GFX_situation_approach_energy_credits
+		icon_background = GFX_situation_approach_bg_green
+		on_select = {
+			custom_tooltip = oxr_mdlc_origin_wm_situation_restore_ruined_world_machine_approach_dedicated_tooltip
+		}
+		resources = {
+			category = situations
+			# stage 1 = -12
+			# stage 2 = -6
+			# stage 3 = 0
+			# stage 4 = 6
+			# stage 5 = 12
+			# produces = {
+			# 	society_research = 12
+			# 	physics_research = 12
+			# 	engineering_research = 12
+			# }
+			upkeep = {
+				energy = 35
+				unity = 15
+			}
+		}
+	}
+	monthly_progress = {
+		base = 0
+		modifier = {
+			add = 5
+			desc = oxr_mdlc_origin_wm_situation_restore_ruined_world_machine_approach_nominal
+			current_situation_approach = oxr_mdlc_origin_wm_situation_restore_ruined_world_machine_approach_nominal
+		}
+		modifier = {
+			add = 7.5
+			desc = oxr_mdlc_origin_wm_situation_restore_ruined_world_machine_approach_dedicated
+			current_situation_approach = oxr_mdlc_origin_wm_situation_restore_ruined_world_machine_approach_dedicated
+		}
+	}
+	on_progress_complete = {
+		# Fire finisher event, convert to world machine, add blockers and digsite
+		owner = {
+			country_event = {
+				id = oxr_mdlc_origin_wm_main.1025
+			}
+			fire_on_action = {
+				on_action = on_world_machine_restoration_stage_complete
+			}
+			fire_on_action = {
+				on_action = on_world_machine_restoration_finished
+			}
+		}
+		event_target:oxr_mdlc_ruined_world_machine = {
+			remove_modifier = oxr_mdlc_origin_world_machine_world_rebooting_stage_5
+		}
+		destroy_situation = this
+	}
+}

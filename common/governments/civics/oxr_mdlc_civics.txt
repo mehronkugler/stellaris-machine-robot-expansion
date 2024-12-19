@@ -1,0 +1,80 @@
+# oxr_mdlc_civic_machine_reanimator = {
+# 	playable = { host_has_dlc = "Necroids Species Pack" }
+# 	ai_playable = { host_has_dlc = "Necroids Species Pack" }
+# 	potential = {
+# 		# ethics = { NOT = { value = ethic_gestalt_consciousness } }
+# 		authority = { NOT = { value = auth_corporate } }
+# 	}
+# 	possible = {
+# 		ethics = {
+# 			NOR = {
+# 				value = ethic_pacifist
+# 				value = ethic_fanatic_pacifist
+# 			}
+# 		}
+# 		civics = {
+# 			NOR = {
+# 				value = civic_citizen_service
+# 			}
+# 			NOR = {
+# 				text = civic_tooltip_not_guardian
+# 				value = civic_sovereign_guardianship
+# 				value = civic_corporate_sovereign_guardianship
+# 				value = civic_hive_sovereign_guardianship
+# 				value = civic_machine_sovereign_guardianship
+# 				value = civic_reanimated_armies
+# 			}
+# 		}
+# 		# origin = {
+# 		# 	NOT = {
+# 		# 		value = origin_synthetic_fertility
+# 		# 	}
+# 		# }
+# 		species_archetype = {
+# 			NOR = {
+# 				# text = disabled_by_synthetic_ascension
+# 				value = BIOLOGICAL
+# 				value = LITHOID
+# 			}
+# 		}
+# 		species_archetype = {
+# 			OR = {
+# 				value = MACHINE
+# 				value = ROBOT
+# 			}
+# 		}
+# 	}
+# 	random_weight = {
+# 		base = @civic_uncommon_random_weight
+# 	}
+# 	ai_weight = {
+# 		base = @ai_civic_uncommon_base_weight
+# 		modifier = {
+# 			factor = @ai_civic_personality_match_factor
+# 			OR = {
+# 				has_ai_personality = evangelising_zealots
+# 				has_ai_personality = hegemonic_imperialists
+# 				has_ai_personality = slaving_despots
+# 				has_ai_personality = decadent_hierarchy
+# 			}
+# 		}
+# 		modifier = {
+# 			factor = @ai_civic_personality_mismatch_factor
+# 			OR = {
+# 				has_ai_personality = honorbound_warriors
+# 				has_ai_personality = erudite_explorers
+# 				has_ai_personality = democratic_crusaders
+# 				has_ai_personality = harmonious_hierarchy
+# 			}
+# 		}
+# 		modifier = {
+# 			factor = @ai_civic_personality_forbid_factor
+# 			OR = {
+# 				has_ai_personality = peaceful_traders
+# 				has_ai_personality = federation_builders
+# 				has_ai_personality = fanatic_befrienders
+# 			}
+# 		}
+# 	}
+# 	description = "civic_tooltip_reanimated_armies_effects"
+# }

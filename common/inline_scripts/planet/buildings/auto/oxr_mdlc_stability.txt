@@ -1,0 +1,37 @@
+resources = {
+	category = oxr_mdlc_category_world_machines_buildings
+	cost = {
+		minerals = $BUILD_COST$
+		volatile_motes = $RARE_COST$
+	}
+	upkeep = {
+		energy = $UPKEEP_ENERGY$
+		volatile_motes = $RARE_UPKEEP$
+	}
+	produces = {
+		trigger = {
+			exists = owner
+			owner = { has_active_tradition = tr_domination_judgment_corps }
+		}
+		unity = $PRODUCES_UNITY$
+	}
+	upkeep = {
+		trigger = {
+			has_modifier = anticrime_campaign
+		}
+		energy = $UPKEEP_ENERGY$
+	}
+}
+planet_modifier = {
+	planet_crime_add = $REDUCE_CRIME$
+	planet_stability_add = $STABILITY_ADD$
+}
+triggered_planet_modifier = {
+	potential = {
+		exists = planet
+		planet = { has_modifier = anticrime_campaign }
+	}
+	modifier = {
+		planet_crime_add = $REDUCE_CRIME_CAMPAIGN$
+	}
+}

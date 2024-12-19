@@ -1,0 +1,43 @@
+message_type = {
+	key = "OXR_MDLC_ORIGIN_WORLD_MACHINES_PLANET_FINISHED_IMPERFECT_TYPE"
+	icon = "GFX_xvcv_mdlc_message_world_machines_completion"
+	icon_frame = 1
+
+	name = "OXR_MDLC_ORIGIN_WORLD_MACHINES_PLANET_FINISHED_IMPERFECT"
+	sound = "advisor_notification_construction_complete"
+
+	sound_is_advisor = yes
+	ping = "ping_notification_green"
+}
+
+message_type = {
+	key = "OXR_MDLC_SITUATION_CORE_INSIGHTS_PROGRESS_TYPE"
+	icon = "GFX_xvcv_mdlc_message_situation_progress_add"
+	icon_frame = 1
+
+	name = "OXR_MDLC_SITUATION_CORE_INSIGHTS_PROGRESS_MESSAGE_TITLE"
+
+	ping = "mixed_notification_green"
+}
+
+# Insight count increased
+message_type = {
+	key = "OXR_MDLC_ORIGIN_WM_CHAIN_GATHER_INSIGHTS_TYPE"
+	icon = "GFX_message_pending_insight_tech"
+	icon_frame = 1
+
+	name = "OXR_MDLC_ORIGIN_WM_CHAIN_GATHER_INSIGHTS_MESSAGE_TITLE"
+
+	ping = "mixed_notification_green"
+}
+
+# WMC finished construction
+message_type = {
+	key = "OXR_MDLC_ORIGIN_WM_CORE_FABRICATION_FINISHED"
+	icon = "GFX_world_machine_core_fabricated"
+	icon_frame = 1
+
+	name = "OXR_MDLC_ORIGIN_WM_CORE_FABRICATION_FINISHED_MESSAGE_TITLE"
+
+	ping = "mixed_notification_green"
+}

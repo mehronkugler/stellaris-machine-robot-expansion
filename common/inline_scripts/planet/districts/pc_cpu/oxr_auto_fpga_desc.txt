@@ -1,0 +1,21 @@
+triggered_desc = {
+	trigger = {
+		has_designation = xvcv_mdlc_col_machine_cpu_engineering
+		has_active_building = oxr_mdlc_world_machines_building_fractal_fpga
+	}
+	text = oxr_mdlc_world_machines_building_fractal_fpga.district_engineering
+}
+triggered_desc = {
+	trigger = {
+		has_designation = xvcv_mdlc_col_machine_cpu_society
+		has_active_building = oxr_mdlc_world_machines_building_fractal_fpga
+	}
+	text = oxr_mdlc_world_machines_building_fractal_fpga.district_society
+}
+triggered_desc = {
+	trigger = {
+		has_designation = xvcv_mdlc_col_machine_cpu_physics
+		has_active_building = oxr_mdlc_world_machines_building_fractal_fpga
+	}
+	text = oxr_mdlc_world_machines_building_fractal_fpga.district_physics
+}

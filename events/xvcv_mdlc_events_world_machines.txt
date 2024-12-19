@@ -1,2 +1,0 @@
-namespace = xvcv_mdlc_wm
-

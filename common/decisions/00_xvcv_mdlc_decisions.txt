@@ -222,90 +222,30 @@ xvcv_mdlc_decision_machine_world_automation = {
 	owned_planets_only = yes
 	enactment_time = 720
 
-	resources = {
-		category = decisions
-		cost = {
-			energy = 2000
-			minerals = 2000
-		}
+	inline_script = {
+		script = planet/decisions/oxr_mdlc_wm_resource_cost
+		ENERGY = 2000
+		MINERALS = 2000
+		INFLUENCE = 0
+		WMC = 1
 	}
 
 	potential = {
 		exists = owner
-		owner = { has_ascension_perk = xvcv_mdlc_ap_world_machines }
-		is_planet_class = pc_machine
+		# owner = { has_ascension_perk = xvcv_mdlc_ap_world_machines }
+		# is_planet_class = pc_machine
+		oxr_mdlc_planet_can_become_t2_world_machine = yes
 	}
 
 	effect = {
+		xvcv_mdlc_decision_machine_world_automation_effect = yes
+		# Re-use this trigger to replace the capital with auto-capital
 		if = {
-			limit = { owner = { has_authority = auth_machine_intelligence } }
-			custom_tooltip = xvcv_mdlc_decision_machine_world_automation_tooltip
-			else = { custom_tooltip = xvcv_mdlc_decision_machine_world_automation_tooltip_alt }
+			limit = {
+				owner = { has_origin = oxr_mdlc_origin_world_machine_awakened }
+			}
+			oxr_mdlc_planet_fix_things_after_restoring_ownership = yes
 		}
-		custom_tooltip = xvcv_mdlc_decision_machine_world_automation_tooltip_2
-		hidden_effect = {
-			while = {
-				limit = { has_district = district_city }
-				remove_district = district_city
-				change_variable = { which = xvcv_mdlc_pc_machine_auto_district_city_var value = 1 }
-			}
-			while = {
-				limit = { has_district = district_nexus }
-				remove_district = district_nexus
-				change_variable = { which = xvcv_mdlc_pc_machine_auto_district_city_var value = 1 }
-			}
-			while = {
-				limit = { has_district = district_industrial }
-				remove_district = district_industrial
-				change_variable = { which = xvcv_mdlc_pc_machine_auto_district_industrial_var value = 1 }
-			}
-			while = {
-				limit = { has_district = district_generator_uncapped }
-				remove_district = district_generator_uncapped
-				change_variable = { which = xvcv_mdlc_pc_machine_auto_district_generator_var value = 1 }
-			}
-			while = {
-				limit = { has_district = district_mining_uncapped }
-				remove_district = district_mining_uncapped
-				change_variable = { which = xvcv_mdlc_pc_machine_auto_district_mining_var value = 1 }
-			}
-			change_pc = xvcv_mdlc_pc_machine_auto
-			if = {
-				limit = { NOT = { has_modifier = planet_population_control_gestalt } }
-				add_modifier = { modifier = planet_population_control_gestalt days = -1 }
-			}
-			if = {
-				limit = { owner = { has_authority = auth_machine_intelligence } }
-				while = {
-					limit = { check_variable = { which = xvcv_mdlc_pc_machine_auto_district_city_var value > 0 } }
-					subtract_variable = { which = xvcv_mdlc_pc_machine_auto_district_city_var value = 1 }
-					add_district = xvcv_mdlc_pc_machine_auto_district_nexus
-				}
-				else = {
-					while = {
-						limit = { check_variable = { which = xvcv_mdlc_pc_machine_auto_district_city_var value > 0 } }
-						subtract_variable = { which = xvcv_mdlc_pc_machine_auto_district_city_var value = 1 }
-						add_district = xvcv_mdlc_pc_machine_auto_district_city
-					}
-				}
-			}
-			while = {
-				limit = { check_variable = { which = xvcv_mdlc_pc_machine_auto_district_industrial_var value > 0 } }
-				subtract_variable = { which = xvcv_mdlc_pc_machine_auto_district_industrial_var value = 1 }
-				add_district = xvcv_mdlc_pc_machine_auto_district_industrial
-			}
-			while = {
-				limit = { check_variable = { which = xvcv_mdlc_pc_machine_auto_district_generator_var value > 0 } }
-				subtract_variable = { which = xvcv_mdlc_pc_machine_auto_district_generator_var value = 1 }
-				add_district = xvcv_mdlc_pc_machine_auto_district_generator
-			}
-			while = {
-				limit = { check_variable = { which = xvcv_mdlc_pc_machine_auto_district_mining_var value > 0 } }
-				subtract_variable = { which = xvcv_mdlc_pc_machine_auto_district_mining_var value = 1 }
-				add_district = xvcv_mdlc_pc_machine_auto_district_mining
-			}
-		}
-		xvcv_mdlc_planet_terraforming_resolution_breached_effect = yes
 	}
 
 	ai_weight = {
@@ -320,19 +260,21 @@ xvcv_mdlc_decision_machine_ecu_project = {
 	owned_planets_only = yes
 	enactment_time = 3600
 
-	resources = {
-		category = decisions
-		cost = {
-			influence = 200
-			minerals = 20000
-		}
+	inline_script = {
+		script = planet/decisions/oxr_mdlc_wm_resource_cost
+		ENERGY = 0
+		MINERALS = 20000
+		INFLUENCE = 200
+		WMC = 1
 	}
 
 	potential = {
 		exists = owner
-		owner = { has_ascension_perk = xvcv_mdlc_ap_world_machines }
+		# Planet is not a T3 world-machine already, but Auto-Machine World is OK
 		xvcv_mdlc_world_machines_planet_classes_trigger = no
+		# Not allowed for habitats/ringworlds
 		habitable_structure = no
+		owner = { oxr_mdlc_country_can_make_t3_ecu = yes }
 	}
 
 	allow = {
@@ -346,8 +288,11 @@ xvcv_mdlc_decision_machine_ecu_project = {
 	effect = {
 		custom_tooltip = xvcv_mdlc_decision_machine_ecu_project_tooltip
 		hidden_effect = {
+			oxr_mdlc_planet_create_deposit_upgrade_flags = yes
 			clear_deposits = yes
 			change_pc = xvcv_mdlc_pc_machine_ecu
+			oxr_mdlc_planet_restore_deposit_upgrades = yes
+			oxr_mdlc_planet_add_wmc_core_deposit_if_missing = yes
 			owner = {
 				if = {
 					limit = { has_country_flag = xvcv_mdlc_decision_machine_ecu_project_message_on }
@@ -370,6 +315,13 @@ xvcv_mdlc_decision_machine_ecu_project = {
 			}
 			add_modifier = { modifier = xvcv_mdlc_world_machines_districts_heat_indicator_neutral days = -1 }
 			xvcv_mdlc_planet_terraforming_resolution_breached_effect = yes
+			# Re-use this trigger to replace the capital with auto-capital
+			if = {
+				limit = {
+					owner = { has_origin = oxr_mdlc_origin_world_machine_awakened }
+				}
+				oxr_mdlc_planet_fix_things_after_restoring_ownership = yes
+			}
 		}
 		owner = {
 			if = {
@@ -397,19 +349,19 @@ xvcv_mdlc_decision_machine_cpu_project = {
 	owned_planets_only = yes
 	enactment_time = 3600
 
-	resources = {
-		category = decisions
-		cost = {
-			influence = 200
-			minerals = 20000
-		}
+	inline_script = {
+		script = planet/decisions/oxr_mdlc_wm_resource_cost
+		ENERGY = 0
+		MINERALS = 20000
+		INFLUENCE = 200
+		WMC = 1
 	}
 
 	potential = {
 		exists = owner
-		owner = { has_ascension_perk = xvcv_mdlc_ap_world_machines }
 		xvcv_mdlc_world_machines_planet_classes_trigger = no
 		habitable_structure = no
+		owner = { oxr_mdlc_country_can_make_t3_cpu = yes }
 	}
 
 	allow = {
@@ -423,8 +375,11 @@ xvcv_mdlc_decision_machine_cpu_project = {
 	effect = {
 		custom_tooltip = xvcv_mdlc_decision_machine_cpu_project_tooltip
 		hidden_effect = {
+			oxr_mdlc_planet_create_deposit_upgrade_flags = yes
 			clear_deposits = yes
 			change_pc = xvcv_mdlc_pc_machine_cpu
+			oxr_mdlc_planet_restore_deposit_upgrades = yes
+			oxr_mdlc_planet_add_wmc_core_deposit_if_missing = yes
 			owner = {
 				if = {
 					limit = { has_country_flag = xvcv_mdlc_decision_machine_cpu_project_message_on }
@@ -447,6 +402,13 @@ xvcv_mdlc_decision_machine_cpu_project = {
 			}
 			add_modifier = { modifier = xvcv_mdlc_world_machines_districts_heat_indicator_neutral days = -1 }
 			xvcv_mdlc_planet_terraforming_resolution_breached_effect = yes
+			# Re-use this trigger to replace the capital with auto-capital
+			if = {
+				limit = {
+					owner = { has_origin = oxr_mdlc_origin_world_machine_awakened }
+				}
+				oxr_mdlc_planet_fix_things_after_restoring_ownership = yes
+			}
 		}
 		owner = {
 			if = {
@@ -473,19 +435,19 @@ xvcv_mdlc_decision_machine_ser_project = {
 	owned_planets_only = yes
 	enactment_time = 3600
 
-	resources = {
-		category = decisions
-		cost = {
-			influence = 200
-			minerals = 20000
-		}
+	inline_script = {
+		script = planet/decisions/oxr_mdlc_wm_resource_cost
+		ENERGY = 0
+		MINERALS = 20000
+		INFLUENCE = 200
+		WMC = 1
 	}
 
 	potential = {
 		exists = owner
-		owner = { has_ascension_perk = xvcv_mdlc_ap_world_machines }
 		xvcv_mdlc_world_machines_planet_classes_trigger = no
 		habitable_structure = no
+		owner = { oxr_mdlc_country_can_make_t3_ser = yes }
 	}
 
 	allow = {
@@ -499,8 +461,11 @@ xvcv_mdlc_decision_machine_ser_project = {
 	effect = {
 		custom_tooltip = xvcv_mdlc_decision_machine_ser_project_tooltip
 		hidden_effect = {
+			oxr_mdlc_planet_create_deposit_upgrade_flags = yes
 			clear_deposits = yes
 			change_pc = xvcv_mdlc_pc_machine_ser
+			oxr_mdlc_planet_restore_deposit_upgrades = yes
+			oxr_mdlc_planet_add_wmc_core_deposit_if_missing = yes
 			owner = {
 				if = {
 					limit = { has_country_flag = xvcv_mdlc_decision_machine_ser_project_message_on }
@@ -560,7 +525,7 @@ xvcv_mdlc_pc_ringworld_automation_project = {
 	potential = {
 		exists = owner
 		is_colony = yes
-		owner = { has_ascension_perk = xvcv_mdlc_ap_world_machines }
+		owner = { oxr_mdlc_planet_owner_can_build_wm_districts = yes }
 		xvcv_mdlc_world_machines_planet_classes_trigger = no
 		# habitable_structure = no
 		OR = {

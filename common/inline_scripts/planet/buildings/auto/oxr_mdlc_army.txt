@@ -1,0 +1,32 @@
+base_buildtime = $BUILD_TIME$
+position_priority = 100  # end of buildings
+
+resources = {
+	category = oxr_mdlc_world_machines_military_buildings
+	cost = {
+		minerals = $MINERALS_COST$
+		volatile_motes = $RARE_COST$
+	}
+	upkeep = {
+		energy = $ENERGY_UPKEEP$
+		volatile_motes = $RARE_UPKEEP$
+	}
+}
+planet_modifier = {
+	defense_armies_add = $DEFENSE_ARMIES$
+	planet_stability_add = 0.25
+}
+country_modifier = {
+	country_naval_cap_add = $NAVAL_CAP_ADD$
+}
+triggered_country_modifier = {
+	potential = {
+		planet = {
+			exists = owner
+			owner = { has_technology = "tech_ground_defense_planning" }
+		}
+	}
+	modifier = {
+		country_naval_cap_add = 2
+	}
+}

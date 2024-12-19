@@ -1,0 +1,16 @@
+# fleet scope | from = arcsite
+picture = GFX_evt_landing_ship
+stages = 2
+weight = { base = 0 }
+allow = {
+    owner = {
+        # fleet owner
+        exists = owner
+        has_technology = oxr_mdlc_tech_world_machines_unlocked
+    }
+}
+
+visible = {
+    exists = from
+    default_site_visible_trigger = yes
+}

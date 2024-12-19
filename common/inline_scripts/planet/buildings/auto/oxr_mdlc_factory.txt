@@ -1,0 +1,20 @@
+category = manufacturing
+
+resources = {
+	category = oxr_mdlc_world_machines_factory_buildings
+	cost = {
+		minerals = @b3_minerals
+		rare_crystals = @b4_rare_cost
+	}
+	upkeep = {
+		energy = $ENERGY_UPKEEP$
+		rare_crystals = $RARE_UPKEEP$
+	}
+	## PRODUCES
+	produces = {
+		consumer_goods = $PRODUCES_GOODS$
+	}
+	upkeep = {
+		minerals = $UPKEEP_MINERALS$
+	}
+}

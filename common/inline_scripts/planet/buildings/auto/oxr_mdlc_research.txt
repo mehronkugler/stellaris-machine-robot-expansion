@@ -1,0 +1,26 @@
+resources = {
+	# category = oxr_mdlc_category_world_machines_buildings
+	category = oxr_mdlc_world_machines_science_buildings
+	cost = {
+		minerals = $COST$
+	}
+	upkeep = {
+		energy = $UPKEEP$  # base 2 + 2 researcher jobs @ 4 each #@b1_upkeep
+		exotic_gases = $RARE$
+	}
+	produces = {
+		engineering_research = $OUTPUT$ # base 4 jobs at 3 each = 12
+		physics_research = $OUTPUT$
+		society_research = $OUTPUT$
+	}
+	inline_script = {
+		script = planet/buildings/auto/oxr_organoid_upkeep
+		TIER = $TIER$
+	}
+}
+triggered_desc = {
+	trigger = {
+		has_active_building = oxr_mdlc_building_auto_organoid_research_center
+	}
+	text = oxr_mdlc_building_auto_research_organoid_active
+}

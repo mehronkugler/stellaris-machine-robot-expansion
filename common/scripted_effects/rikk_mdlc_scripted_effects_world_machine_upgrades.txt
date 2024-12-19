@@ -1,0 +1,133 @@
+
+#called in oxr_mdlc_planet_create_world_machine_colony
+rikk_mdlc_origin_world_machine_add_random_blockers = {
+	set_variable_to_random_value = {
+		which = rikk_mdlc_world_machine_random_blockers
+		min = 2 max = 6
+	}
+	while = {
+		limit = {
+			check_variable = {
+				which = rikk_mdlc_world_machine_random_blockers
+				value > 0
+			}
+		}
+		subtract_variable = {
+			which = rikk_mdlc_world_machine_random_blockers
+			value = 1
+		}
+		switch = {
+			trigger = has_modifier
+			rikk_mdlc_world_machine_molten_mod = {
+				# hard / insight blockers
+				random_list = {
+					20 = { 
+						add_blocker = { type = rikk_mdlc_d_world_machine_silica_eruptions }
+						modifier = {
+							NOT = { has_deposit = rikk_mdlc_d_world_machine_silica_eruptions }
+							factor = 3
+						}
+					}
+					20 = { 
+						add_blocker = { type = rikk_mdlc_d_world_machine_lightning_delta } 
+						modifier = {
+							NOT = { has_deposit = rikk_mdlc_d_world_machine_lightning_delta }
+							factor = 3
+						}
+					}
+					20 = { 
+						add_blocker = { type = rikk_mdlc_d_world_machine_pyroclastic_surges } 
+						modifier = {
+							NOT = { has_deposit = rikk_mdlc_d_world_machine_pyroclastic_surges }
+							factor = 3
+						}
+					}
+					20 = {
+						modifier = {
+							owner = { has_technology = oxr_mdlc_tech_world_machine_planetary_mastery }
+							factor = 0
+						}
+						random_list = {
+							10 = { add_blocker = { type = d_active_volcano } }
+							10 = { add_blocker = { type = d_mountain_range } }
+						}
+					}
+				}
+			}
+			rikk_mdlc_world_machine_frozen_mod = {
+				# hard / insight blockers
+				random_list = {
+					20 = { 
+						add_blocker = { type = rikk_mdlc_d_world_machine_chemical_glacier } 
+						modifier = {
+							NOT = { has_deposit = rikk_mdlc_d_world_machine_chemical_glacier }
+							factor = 3
+						}
+					}
+					20 = { 
+						add_blocker = { type = rikk_mdlc_d_world_machine_subsurface_sea } 
+						modifier = {
+							NOT = { has_deposit = rikk_mdlc_d_world_machine_subsurface_sea }
+							factor = 3
+						}
+					}
+					20 = { 
+						add_blocker = { type = rikk_mdlc_d_world_machine_natural_super_geyser } 
+						modifier = {
+							NOT = { has_deposit = rikk_mdlc_d_world_machine_natural_super_geyser }
+							factor = 3
+						}
+					}
+					20 = {
+						modifier = {
+							owner = { has_technology = oxr_mdlc_tech_world_machine_planetary_mastery }
+							factor = 0
+						}
+						random_list = {
+							15 = { add_blocker = { type = d_massive_glacier } }
+							5 = { add_blocker = { type = d_mountain_range } }
+						}
+					}
+				}
+			}
+			rikk_mdlc_world_machine_toxic_mod = {
+				random_list = {
+					20 = { 
+						add_blocker = { type = rikk_mdlc_d_world_machine_sulfur_geysers } 
+						modifier = {
+							NOT = { has_deposit = rikk_mdlc_d_world_machine_sulfur_geysers }
+							factor = 3
+						}
+					}
+					20 = { 
+						add_blocker = { type = rikk_mdlc_d_world_machine_carbonic_sea } 
+						modifier = {
+							NOT = { has_deposit = rikk_mdlc_d_world_machine_carbonic_sea }
+							factor = 3
+						}
+					}
+					20 = { 
+						add_blocker = { type = rikk_mdlc_d_world_machine_acidic_basin } 
+						modifier = {
+							NOT = { has_deposit = rikk_mdlc_d_world_machine_acidic_basin }
+							factor = 3
+						}
+					}
+					20 = {
+						modifier = {
+							owner = { has_technology = oxr_mdlc_tech_world_machine_planetary_mastery }
+							factor = 0
+						}
+						random_list = {
+							5 = { add_blocker = { type = d_radioactive_wasteland } }
+							5 = { add_blocker = { type = d_mountain_range } }
+							5 = { add_blocker = { type = d_tainted_snowcaps } }
+							5 = { add_blocker = { type = d_rotten_soil } }
+						}
+					}
+				}
+			}
+		}
+	}
+	clear_variable = rikk_mdlc_world_machine_random_blockers
+}

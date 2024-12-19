@@ -3,7 +3,9 @@
 __pycache__/
 *.py[cod]
 *$py.class
-
+build_3_10/
+run_pipeline.bat
+*.tmp
 # C extensions
 *.so
 

@@ -1,0 +1,38 @@
+@base_agenda_cost = 7000
+
+oxr_mdlc_origin_world_machine_focus_on_past = {
+	agenda_cost = @base_agenda_cost
+	potential = {
+		has_origin = oxr_mdlc_origin_world_machine_awakened
+	}
+	allow = {
+		always = yes
+	}
+	modifier = {
+		ship_archaeological_site_excavation_speed_mult = 0.15
+		planet_clear_blocker_speed_mult = 0.15
+	}
+	finish_modifier = agenda_oxr_mdlc_origin_world_machine_focus_on_past_finish
+}
+oxr_mdlc_origin_world_machine_deployment_protocols = {
+	agenda_cost = @base_agenda_cost
+	potential = {
+		has_origin = oxr_mdlc_origin_world_machine_awakened
+	}
+	allow = { always = yes }
+	modifier = {
+		terraform_speed_mult = 0.10
+	}
+	finish_modifier = agenda_oxr_mdlc_origin_world_machine_deployment_protocols_finish
+}
+oxr_mdlc_origin_world_machine_construction_infrastructure = {
+	agenda_cost = @base_agenda_cost
+	potential = {
+		has_origin = oxr_mdlc_origin_world_machine_awakened
+	}
+	allow = { always = yes }
+	modifier = {
+		planet_building_build_speed_mult = 0.15
+	}
+	finish_modifier = agenda_oxr_mdlc_origin_world_machine_construction_infrastructure_finish
+}

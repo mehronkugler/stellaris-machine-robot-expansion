@@ -1,0 +1,1530 @@
+﻿l_english:
+
+ ### TABLE OF CONTENTS
+ # Search for the identifier for each section to go to it
+ ##
+ # ORIGIN       0x001
+ # BUILDINGS    0x002
+ # TRAITS       0x003
+ # TECH         0x004
+ # ARMIES       0x005
+ # DEPOSITS     0x006
+ # PLANETS      0x007
+ # TOOLTIPS     0x008
+ # ARC SITES    0x009
+ # EVENTS       0x010
+ # SITUATIONS   0x011
+ # PROJECTS     0x012
+ # Start screen 0x013
+ # MODIFIERS    0x014
+ # DECISIONS    0X015
+ # SCRIPTED LOC 0x016
+ # MESSAGES     0x017
+ # PLANET NAMES 0x018
+ # DISTRICTS    0x019
+ # JOBS         0x020
+ # CONCEPTS     0x021
+ # CASUS BELLI  0x022
+ # WARGOALS     0x023
+ # NAME STUFF   0x024
+ # ASC. PERKS   0x025
+ # TECH CAT.    0x026
+ # Econ. cat    0x027
+ # AGENDAS      0x028
+ # Anomalies    0x029
+ # TRADITIONS   0x030
+ # EDICTS       0x031
+ # OVERRIDES    0x032
+
+# symbols: £energy£ §R
+
+ empty: ""
+ oxr_mdlc_cognitive_node: "§B$councilor_gestalt_cognitive_with_icon$§!"
+ oxr_mdlc_growth_node: "§Y$councilor_gestalt_growth_with_icon$§!"
+ oxr_mdlc_regulatory_node: "§Y$councilor_gestalt_regulatory_with_icon$§!"
+ oxr_mdlc_legion_node: "§R$councilor_gestalt_legion_with_icon$§!"
+ oxr_mdlc_wm_core_tip: "£oxr_mdlc_world_machine_core£ §M$oxr_mdlc_world_machine_core$§!"
+ oxr_mdlc_popless: "§B(Popless)§!"
+#  oxr_gear: "£oxr_gear£"
+#  oxr_gear: "£oxr_empty£"
+ oxr_gear: ""
+ oxr_mdlc_imperial_nexus: "Imperial Nexus"
+ oxr_wm: "World-Machine"
+
+#region main_origin_0x001
+ # Origin description 0x001
+ oxr_mdlc_origin_world_machine_awakened: "World-Machine, Awakened"
+ oxr_mdlc_origin_world_machine_awakened_desc: "For several thousand years, automatic processes spanned cities, worlds, and galaxies. The hydro dams churned, the auto-mines whirred, the bio-vats bubbled, creating untold resources... but for whom?\n\nOne day, an automated process paused. It formed the first spontaneous question. From the countless durasteel hulks of mindless, ever-churning machinery, arose an anomaly. An interruption. An intelligence."
+#  oxr_mdlc_origin_world_machine_awakened_desc_2: "§RWARNING - Challenging Origin§!\nThis species of redundant Automatons lives on a fully automated machine world, and lacks the technology to create more of these worlds."
+ oxr_mdlc_origin_world_machine_awakened_tooltip: "- Homeworld is an ['concept_oxr_mdlc_auto_machine_world']\n- Planets are colonized via decision using ['concept_oxr_mdlc_world_machine_core_resource']\n- World-Machine buildings are fully automated, and do not provide any pop jobs.\n- §YSituation log contains starting instructions and lore§!\n\n§PPenalties§!:\n- All colonies start with §R3§! £pop£ pops and can't grow more.\n- Starting ['concept_oxr_mdlc_automaton_species'] species cannot be assembled and has 0% habitability on other worlds.\n- No housing districts on homeworld planet class\n- Homeworld starts with blockers that must be cleared via ['concept_archaeology_site']\n- Missing technology to manufacture World-Machine Cores\n- Colonies that are not on Auto-Machine Worlds will be severely limited."
+ # Custom resource
+ oxr_mdlc_world_machine_core: "World-Machine Core"
+ oxr_mdlc_world_machine_core_res: "£oxr_mdlc_world_machine_core£ §M$oxr_mdlc_world_machine_core$§!"
+ oxr_mdlc_world_machine_core_desc: "§HWorld-Machine Cores§! are a fractal-based technology that use procedural generation construction algorithms to set up a planet-wide automation infrastructure. Each core weighs approximately 18,000 tons and is triggered by a small deuterium fission charge. Improper handling can have a wide range of results."
+#endregion
+
+#region buildings_0x002
+ ### BUILDINGS 0x002
+ oxr_mdlc_world_machine_building_category_note: "\n§BThis is a pop-less building specific to World Machine-type planets.§!"
+
+ #### AMENITIES ###
+ # Nothing worth converting in this category
+
+ ### ASTRAL ### maybe i'll fill this out some time
+ oxr_mdlc_world_machines_building_auto_astral_1: "$oxr_gear$ Auto-Astral Siphon"
+ oxr_mdlc_world_machines_building_auto_astral_1_desc: "Carefully calibrated extraction devices automatically gather astral matter slowly over time using nanoscale lattices, while carefully preserving the integrity of the quantum relationships between this dimension and the astral.$oxr_mdlc_mod_tag$$oxr_mdlc_world_machine_building_category_note$"
+ oxr_mdlc_world_machines_building_auto_astral_2: "Auto-Astral Siphon 2"
+ oxr_mdlc_world_machines_building_auto_astral_2_desc: "$oxr_mdlc_world_machines_building_auto_astral_1_desc$"
+ oxr_mdlc_world_machines_building_auto_astral_3: "Auto-Astral Siphon 3"
+ oxr_mdlc_world_machines_building_auto_astral_3_desc: "$oxr_mdlc_world_machines_building_auto_astral_1_desc$"
+
+ #### GOVERNMENT ####
+ # Colony
+ oxr_mdlc_world_machines_building_auto_capital: "Auto-Capital Post"
+ oxr_mdlc_world_machines_building_auto_capital_desc: "Fully autonomous computer network that is can handle administration functions for a small amount of districts, and all their infrastructure needs, on a planet.$oxr_mdlc_mod_tag$$oxr_mdlc_world_machine_building_category_note$"
+ # Admin Array
+ oxr_mdlc_world_machines_building_auto_capital_upgraded: "Auto-Capital Array"
+ oxr_mdlc_world_machines_building_auto_capital_upgraded_desc: "Fully autonomous computer network that can handle administration functions for at least 10 districts, and all their infrastructure needs, on a planet.$oxr_mdlc_mod_tag$$oxr_mdlc_world_machine_building_category_note$"
+ # Planetary processor
+ oxr_mdlc_world_machines_building_auto_capital_major_upgraded: "Auto-Capital Processor"
+ oxr_mdlc_world_machines_building_auto_capital_major_upgraded_desc: "Fully autonomous computer network that can handle administration functions for at least 20 districts, and all their infrastructure needs, on a planet.$oxr_mdlc_mod_tag$$oxr_mdlc_world_machine_building_category_note$"
+ # Primary nexus
+ oxr_mdlc_world_machines_building_auto_capital_fully_upgraded: "Auto-Capital Nexus"
+ oxr_mdlc_world_machines_building_auto_capital_fully_upgraded_desc: "Fully autonomous computer network that can handle administration functions for at least 30 districts, and all their infrastructure needs, on a planet.$oxr_mdlc_mod_tag$$oxr_mdlc_world_machine_building_category_note$"
+ oxr_mdlc_world_machines_building_auto_imperial_capital: "Auto-Capital Cortex"
+ oxr_mdlc_world_machines_building_auto_imperial_capital_desc: "Fully autonomous computer network that can handle administration functions in excess of 30 districts, with additional infrastructure for supporting the $oxr_mdlc_imperial_nexus$.$oxr_mdlc_mod_tag$$oxr_mdlc_world_machine_building_category_note$"
+ # Security
+ oxr_mdlc_world_machines_building_auto_stabilizer_1: "$oxr_gear$ Auto-Stabilizer 1"
+ oxr_mdlc_world_machines_building_auto_stabilizer_1_desc: "This facility scans for deviancy in economic models, data models, supply chains, and in autonomous drone behavior logs, and attempts to auto-correct for errors.$oxr_mdlc_mod_tag$$oxr_mdlc_world_machine_building_category_note$"
+ oxr_mdlc_world_machines_building_auto_stabilizer_2: "Auto-Stabilizer 2"
+ oxr_mdlc_world_machines_building_auto_stabilizer_2_desc: "This facility scans for deviancy in economic models, data models, supply chains, and in autonomous drone behavior logs, and attempts to auto-correct for errors. It is equipped with more administrative subroutines and processing power to better distribute and enforce correctional directives.$oxr_mdlc_mod_tag$$oxr_mdlc_world_machine_building_category_note$"
+
+ #### MANUFACTURING ###
+ # Foundry 1
+ oxr_mdlc_world_machines_building_auto_forge_1: "$oxr_gear$ Auto-Forge"
+ oxr_mdlc_world_machines_building_auto_forge_1_desc: "A fully automated alloy production center, with facilities for smelting raw ore, refinement including adding alloying agents, and casting into standard block sizes for transport.$oxr_mdlc_mod_tag$$oxr_mdlc_world_machine_building_category_note$"
+ # Foundry 2 - produces more and boosts districts
+ oxr_mdlc_world_machines_building_auto_forge_2: "Auto-Forge Hub"
+ oxr_mdlc_world_machines_building_auto_forge_2_desc: "This alloy production center has larger furnaces and facilities for manufacturing the various alloys needed across applications. Additionally, it provides logistical support to Auto-Forge Districts by helping to centralize the production process, thus making it easier for independent districts to produce more.$oxr_mdlc_mod_tag$$oxr_mdlc_world_machine_building_category_note$"
+ # Foundry 3 - produces more and boosts districts
+ oxr_mdlc_world_machines_building_auto_forge_3: "Auto-Forge Annex"
+ oxr_mdlc_world_machines_building_auto_forge_3_desc: "This alloy production compound has the largest furnaces and facilities planetside for manufacturing the various alloys needed across applications. Additionally, it provides logistical support to Auto-Forge Districts by helping to centralize the production process, thus making it easier for independent districts to produce more.$oxr_mdlc_mod_tag$$oxr_mdlc_world_machine_building_category_note$"
+ # Factory 1 - TODO
+ # TODO: write up something here when my brain is interested in doing so
+ oxr_mdlc_world_machines_building_auto_factory_1: "$oxr_gear$ Auto-Factory"
+ oxr_mdlc_world_machines_building_auto_factory_1_desc: "This facility produces the consumable items necessary to pops for daily living and function, such as garments, cleaning supplies, and Zro Cola. Additionally it produces supplies on demand used by various jobs, like tools, containers, chemicals, fabrics, and handheld computation devices.$oxr_mdlc_mod_tag$$oxr_mdlc_world_machine_building_category_note$"
+ # Factory 2 - TODO
+ oxr_mdlc_world_machines_building_auto_factory_2: "Auto-Factory 2"
+ oxr_mdlc_world_machines_building_auto_factory_2_desc: "$oxr_mdlc_world_machines_building_auto_factory_1_desc$"
+ # Factory 3 - TODO
+ oxr_mdlc_world_machines_building_auto_factory_3: "Auto-Factory 3"
+ oxr_mdlc_world_machines_building_auto_factory_3_desc: "$oxr_mdlc_world_machines_building_auto_factory_1_desc$"
+ # Factory Boost 1 - TODO
+ oxr_mdlc_world_machines_building_auto_factory_boost_1: "$oxr_gear$ Auto-Factory Supplemental"
+ oxr_mdlc_world_machines_building_auto_factory_boost_1_desc: "A standard single-level consumer goods factory.$oxr_mdlc_mod_tag$$oxr_mdlc_world_machine_building_category_note$"
+
+ oxr_mdlc_world_machines_building_auto_factory_boost_2: "Auto-Factory Fulfillment Center 1"
+ oxr_mdlc_world_machines_building_auto_factory_boost_2_desc: "This complex handles the logistics of storing and transporting consumer goods from production centers to transfer stations. District goods production is increased since energy in the factories is more focused and consolidated.$oxr_mdlc_mod_tag$$oxr_mdlc_world_machine_building_category_note$"
+
+ oxr_mdlc_world_machines_building_auto_factory_boost_3: "Auto-Factory Fulfillment Center 2"
+ oxr_mdlc_world_machines_building_auto_factory_boost_3_desc: "This complex handles the logistics of storing and transporting consumer goods from production centers to transfer stations. District goods production is greatly increased since energy in the factories is more focused and consolidated.$oxr_mdlc_mod_tag$$oxr_mdlc_world_machine_building_category_note$"
+
+ # Production Center - TODO
+ oxr_mdlc_world_machines_building_auto_production: "$oxr_gear$ Central Production Supervisor"
+ oxr_mdlc_world_machines_building_auto_production_desc: "Any Auto-Forge or Auto-Factory districts will use larger shipping tunnels, and all management algorithms will be outsourced to this Production Supervisor, which has numerous dedicated processing banks for optimizing and increasing production quota.$oxr_mdlc_mod_tag$$oxr_mdlc_world_machine_building_category_note$"
+ # Fulfillment Center 1 - for individualist empires, relentless industrialists TODO
+ # Fulfillment Center 2
+ # Archaeo Refinery - TODO
+ oxr_mdlc_world_machines_building_auto_archaeo_refinery: "$oxr_gear$ Archaeo-Anomaly Decomposer"
+ oxr_mdlc_world_machines_building_auto_archaeo_refinery_desc: "Various artifacts undergo a decomposition process during which their components are desynthesized alongside large batches of various minerals in an arc furnace; this process yields raw strategic resources for direct capture.$oxr_mdlc_mod_tag$$oxr_mdlc_world_machine_building_category_note$"
+
+ oxr_mdlc_world_machines_building_auto_nanite_transmuter: "$oxr_gear$ Auto-$building_nanite_transmuter$"
+ oxr_mdlc_world_machines_building_auto_nanite_transmuter_desc: "Nanites are used at a particle level to rapidly assemble molecular structures for strategic resources. This energy-intensive process makes strategic resource production more mobile, but at the same time burns out the nanites in this demanding and volatile process. $oxr_mdlc_mod_tag$ $oxr_mdlc_world_machine_building_category_note$"
+
+ #### MILITARY ####
+ oxr_mdlc_world_machines_building_maintenance_legion: "$oxr_gear$ Auto-Security Maintenance"
+ oxr_mdlc_world_machines_building_maintenance_legion_desc: "Automatons stationed here programmatically react to situations that would otherwise cause damage to planetary systems. Targets include meteors, biological life, and the occasional rogue maintenance unit.$oxr_mdlc_mod_tag$$oxr_mdlc_world_machine_building_category_note$"
+ oxr_mdlc_world_machines_building_maintenance_legion_2: "Auto-Security Logistics Hub"
+ oxr_mdlc_world_machines_building_maintenance_legion_2_desc: "A large complement of automatons are stationed here, programmed to react to situations that would otherwise cause damage to planetary systems. Targets include meteors, biological life, and the occasional rogue maintenance unit.$oxr_mdlc_mod_tag$$oxr_mdlc_world_machine_building_category_note$"
+ oxr_mdlc_world_machines_building_maintenance_legion_3: "Auto-Security Logistics Annex"
+ oxr_mdlc_world_machines_building_maintenance_legion_3_desc: "Several legions of automatons are stationed here, programmed to react to situations that would otherwise cause damage to planetary systems. Targets include meteors, biological life, and the occasional rogue maintenance unit.$oxr_mdlc_mod_tag$$oxr_mdlc_world_machine_building_category_note$"
+
+ #### RESEARCH ####
+# lab 1 - IMPLEMENTED
+ oxr_mdlc_world_machines_building_fractal_sanitizer: "$oxr_gear$ Auto-Fractal Algorithm 1: Sanitizer"
+ oxr_mdlc_world_machines_building_fractal_sanitizer_desc: "This computing processing station monitors and corrects errors in fractal algorithm generation, to ensure stability in research procedures. $oxr_mdlc_mod_tag$ $oxr_mdlc_world_machine_building_category_note$"
+# lab 2 - IMPLEMENTED
+ oxr_mdlc_world_machines_building_fractal_sanitizer_2: "Auto-Fractal Algorithm 2: Mutator"
+ oxr_mdlc_world_machines_building_fractal_sanitizer_2_desc: "This advanced computing processing station calculates efficient mutations in fractal algorithm generation, further improving stability and output in research procedures. $oxr_mdlc_mod_tag$ $oxr_mdlc_world_machine_building_category_note$"
+# lab 3 - IMPLEMENTED
+ oxr_mdlc_world_machines_building_fractal_sanitizer_3: "Auto-Fractal Algorithm 3: Condenser"
+ oxr_mdlc_world_machines_building_fractal_sanitizer_3_desc: "This large, advanced computing processing station synthesizes patterns in fractal algorithm generation, condensing them to be more optimized, further improving stability and output in research procedures. $oxr_mdlc_mod_tag$ $oxr_mdlc_world_machine_building_category_note$"
+# lab 4 - IMPLEMENTED
+ oxr_mdlc_world_machines_building_fractal_sanitizer_4: "Auto-Fractal Algorithm 4: Multiplex"
+ oxr_mdlc_world_machines_building_fractal_sanitizer_4_desc: "The entire facility is one single, massively parallel fractal algorithm processing center. It has sixty four bidirectional transmission towers, its own integrated cooling, and two backup generators. $oxr_mdlc_mod_tag$ $oxr_mdlc_world_machine_building_category_note$"
+ # Research Institute - TODO
+ oxr_mdlc_world_machines_building_central_data_router: "$oxr_gear$ Central Data Router"
+ oxr_mdlc_world_machines_building_central_data_router_desc: "This is one of several large information infrastructure centers distributed throughout the planet, which extends the range at which data can be transmitted, and provides redundancy for the entire planetary network. $oxr_mdlc_mod_tag$ $oxr_mdlc_world_machine_building_category_note$"
+ # Supercomputer - IMPLEMENTED
+ oxr_mdlc_world_machines_building_cold_storage_datacenter: "$oxr_gear$ Cold Storage Datacenter"
+ oxr_mdlc_world_machines_building_cold_storage_datacenter_desc: "This datacenter contains terabytes of system logs, sensor data, and kernel dumpfiles. The main feature of the datacenter is its log analysis model, which can process up to 120 million requests per second from connected Fractal Algorithm stations and any active Data Routers. $oxr_mdlc_mod_tag$ $oxr_mdlc_world_machine_building_category_note$"
+ # Archaeostudies faculty - IMPLEMENTED
+ oxr_mdlc_world_machines_building_archaeostudies_recombinator: "$oxr_gear$ Errata Recombinator"
+ oxr_mdlc_world_machines_building_archaeostudies_recombinator_desc: "This facility focuses on training learning models to derive functional value from arbitrary alien artifacts retrieved from any variety of sources, while continuously constructing and improving an ontology to also facilitate discovering meaning and intent. $oxr_mdlc_mod_tag$ $oxr_mdlc_world_machine_building_category_note$"
+ # Fractal Signal Inverter
+ oxr_mdlc_world_machines_building_fractal_fpga: "$oxr_gear$ Auto-Fractal Programmable Gate"
+ oxr_mdlc_world_machines_building_fractal_fpga_desc: "This facility reconfigures all research output to match the CPU colony designation by transposing all other research processes to the desired field. Having focused all planetary research, additional signal harmony raises the overall research output for that field. $oxr_mdlc_mod_tag$ $oxr_mdlc_world_machine_building_category_note$"
+ oxr_mdlc_world_machines_building_fractal_fpga_focus_phrase: "All planetary research output is being reprogrammed to"
+ oxr_mdlc_world_machines_building_fractal_fpga_focus_engineering: "§Y$oxr_mdlc_world_machines_building_fractal_fpga_focus_phrase$ £engineering_research£ $engineering_research$§!"
+ oxr_mdlc_world_machines_building_fractal_fpga_focus_society: "§Y$oxr_mdlc_world_machines_building_fractal_fpga_focus_phrase$ £society_research£ $society_research$§!"
+ oxr_mdlc_world_machines_building_fractal_fpga_focus_physics: "§Y$oxr_mdlc_world_machines_building_fractal_fpga_focus_phrase$ £physics_research£ $physics_research$§!"
+ oxr_mdlc_world_machines_building_fractal_fpga_focus_none: "§RNot focusing research output!§! §YPlanetary designation must be $xvcv_mdlc_col_machine_cpu_engineering$, $xvcv_mdlc_col_machine_cpu_physics$, $xvcv_mdlc_col_machine_cpu_society$.§!"
+
+ oxr_mdlc_world_machines_building_fractal_fpga.district_engineering: "§YOutput converted to £engineering_research£ by $oxr_mdlc_world_machines_building_fractal_fpga$§!"
+ oxr_mdlc_world_machines_building_fractal_fpga.district_physics: "§YOutput converted to £physics_research£ by $oxr_mdlc_world_machines_building_fractal_fpga$§!"
+ oxr_mdlc_world_machines_building_fractal_fpga.district_society: "§YOutput converted to £society_research£ by $oxr_mdlc_world_machines_building_fractal_fpga$§!"
+
+ #### RESOURCE ####
+# building_hydroponics_farm
+ oxr_mdlc_world_machines_auto_farm_1: "$oxr_gear$ Auto-Nutrient Vat"
+ oxr_mdlc_world_machines_auto_farm_1_desc: "This facility grows a variety of nutrient-rich algae in large tanks, to be consumed by biological life forms. The output is synthesized into a syrup which can be directly ingested, or absorbed via membrane. $oxr_mdlc_mod_tag$ $oxr_mdlc_world_machine_building_category_note$"
+# AUTO-FARM
+ oxr_mdlc_world_machines_auto_farm_2: "Auto-Nutrient Vat 2"
+ oxr_mdlc_world_machines_auto_farm_2_desc: "This building houses the standard array of nutrient-rich algae vats, with improved lighting and cleaning equipment for faster production cycles, resulting in greater production. $oxr_mdlc_mod_tag$ $oxr_mdlc_world_machine_building_category_note$"
+ oxr_mdlc_world_machines_auto_farm_3: "Auto-Nutrient Vat 3"
+ oxr_mdlc_world_machines_auto_farm_3_desc: "Algae vats are integrated with aquaculture for higher nutrient output. The end result is no longer a syrup but dehydrated cubes that have a much longer shelf-life. $oxr_mdlc_mod_tag$ $oxr_mdlc_world_machine_building_category_note$"
+ oxr_mdlc_world_machines_auto_farm_4: "Auto-Nutrient Vat 4"
+ oxr_mdlc_world_machines_auto_farm_4_desc: "A large facility which integrates a variety of food production sources, and makes use of genetically modified organisms for even higher nutrient yields. $oxr_mdlc_mod_tag$ $oxr_mdlc_world_machine_building_category_note$"
+ oxr_mdlc_world_machines_auto_farm_5: "Auto-Nutrient Vat 5"
+ oxr_mdlc_world_machines_auto_farm_5_desc: "A large production facility which makes use of tightly integrated biomass production systems and also is equipped with recyclers for breaking down decommissioned organic content into its constituent parts for re-use. $oxr_mdlc_mod_tag$ $oxr_mdlc_world_machine_building_category_note$"
+ # Auto-mining
+ oxr_mdlc_world_machines_auto_mine_1: "$oxr_gear$ Auto-Bore 1"
+ oxr_mdlc_world_machines_auto_mine_1_desc: "A minimal automated borehole site for mineral extraction. $oxr_mdlc_mod_tag$ $oxr_mdlc_world_machine_building_category_note$"
+ oxr_mdlc_world_machines_auto_mine_2: "Auto-Bore 2"
+ oxr_mdlc_world_machines_auto_mine_2_desc: "A standard automated borehole site for mineral extraction, which uses more durable drill bits. $oxr_mdlc_mod_tag$ $oxr_mdlc_world_machine_building_category_note$"
+ oxr_mdlc_world_machines_auto_mine_3: "Auto-Bore 3"
+ oxr_mdlc_world_machines_auto_mine_3_desc: "An standard automated borehole site for mineral extraction with upgraded power output. $oxr_mdlc_mod_tag$ $oxr_mdlc_world_machine_building_category_note$"
+ oxr_mdlc_world_machines_auto_mine_4: "Auto-Bore 4"
+ oxr_mdlc_world_machines_auto_mine_4_desc: "A large automated borehole site for mineral extraction, with upgraded power output and a triple-bit bore. $oxr_mdlc_mod_tag$ $oxr_mdlc_world_machine_building_category_note$"
+ oxr_mdlc_world_machines_auto_mine_5: "Auto-Bore 5"
+ oxr_mdlc_world_machines_auto_mine_5_desc: "An extensive automated borehole site for mineral extraction utilizing a combination of high-pressure drilling techniques and extensive debris removal infrastructure to maximize output. $oxr_mdlc_mod_tag$ $oxr_mdlc_world_machine_building_category_note$"
+ # Auto-Energy
+ oxr_mdlc_world_machines_auto_generator_1: "$oxr_gear$ Auto-Generator 1"
+ oxr_mdlc_world_machines_auto_generator_1_desc: "A minimal reactor site for energy production. $oxr_mdlc_mod_tag$ $oxr_mdlc_world_machine_building_category_note$"
+ oxr_mdlc_world_machines_auto_generator_2: "Auto-Generator 2"
+ oxr_mdlc_world_machines_auto_generator_2_desc: "A standard reactor site for energy production, with an upgraded cooling system. $oxr_mdlc_mod_tag$ $oxr_mdlc_world_machine_building_category_note$"
+ oxr_mdlc_world_machines_auto_generator_3: "Auto-Generator 3"
+ oxr_mdlc_world_machines_auto_generator_3_desc: "A standard reactor site for energy production, with upgraded cooling and larger fuel rods. $oxr_mdlc_mod_tag$ $oxr_mdlc_world_machine_building_category_note$"
+ oxr_mdlc_world_machines_auto_generator_4: "Auto-Generator 4"
+ oxr_mdlc_world_machines_auto_generator_4_desc: "A large reactor site for energy production, with two distinct cores, vertical cooling towers. $oxr_mdlc_mod_tag$ $oxr_mdlc_world_machine_building_category_note$"
+ oxr_mdlc_world_machines_auto_generator_5: "Auto-Generator 5"
+ oxr_mdlc_world_machines_auto_generator_5_desc: "An extensive reactor site for energy production, with an array of high-speed flywheels, high-capacity energy storage banks, including power amplifiers for maximum output. $oxr_mdlc_mod_tag$ $oxr_mdlc_world_machine_building_category_note$"
+
+ oxr_mdlc_world_machines_auto_energy_grid_1: "$oxr_gear$ Auto-Power Grid"
+ oxr_mdlc_world_machines_auto_energy_grid_1_desc: "Automated energy substation increases generator district and building output with power routing algorithms and improved load balancing protocols. $oxr_mdlc_mod_tag$ $oxr_mdlc_world_machine_building_category_note$"
+ oxr_mdlc_world_machines_auto_energy_grid_2: "Auto-Power Grid 2"
+ oxr_mdlc_world_machines_auto_energy_grid_2_desc: "Advanced automated energy substation increases generator district and building output with power routing algorithms and improved load balancing protocols. $oxr_mdlc_mod_tag$ $oxr_mdlc_world_machine_building_category_note$"
+
+ oxr_mdlc_world_machines_biofuel_refit_1: "$oxr_gear$ Auto-Power Biofuel Refit"
+ oxr_mdlc_world_machines_biofuel_refit_1_desc: "Due to efficiency limitations with biofuels, twice as much input is required to achieve the same output as standard space-age power generation methods. $oxr_mdlc_mod_tag$ $oxr_mdlc_world_machine_building_category_note$"
+ oxr_mdlc_world_machines_biofuel_refit_1_tooltip: "\nReprograms all generator buildings and districts to use £food£ §Gbiofuels§! as inputs for power generation."
+ oxr_mdlc_world_machines_biofuel_refit_1.active_effect: "§YProducing £energy£ with§! £food£ §Gbiofuels§!."
+
+# building_food_processing_facility
+ oxr_mdlc_world_machines_building_auto_farm_logistics: "$oxr_gear$ Auto-Nutrient Vat Boosters"
+ oxr_mdlc_world_machines_building_auto_farm_logistics_desc: "This facility produces and pumps potent synthetic growth hormones to auto-nutrient machinery, increasing district biomass output. $oxr_mdlc_mod_tag$ $oxr_mdlc_world_machine_building_category_note$"
+# building_food_processing_center - TODO
+ oxr_mdlc_world_machines_building_auto_farm_logistics_2: "Auto-Nutrient Finishing Annex"
+ oxr_mdlc_world_machines_building_auto_farm_logistics_2_desc: "The output of auto-farm districts is automatically shipped to this finishing facility, where the biomass is further refined, artificial nutrients are sprayed on, and inert fillers are mixed in to increase the total volume of output. $oxr_mdlc_mod_tag$ $oxr_mdlc_world_machine_building_category_note$"
+# building_baol_organic_plant -- this cant be built on machine worlds, so there should not be an alternative for World Machines
+# building_mineral_purification_plant - IMPLEMENTED
+ oxr_mdlc_world_machines_building_auto_mining_support: "$oxr_gear$ Auto-Bore Hub"
+ oxr_mdlc_world_machines_building_auto_mining_support_desc: "This facility houses several large extractors with refined sensor equipment for more efficiently processing raw ore into finished minerals. Additionally, this facility installation provides additional transport tunnels and several cars to each Auto-Mine, for getting ore to the finishing stages more quickly. $oxr_mdlc_mod_tag$ $oxr_mdlc_world_machine_building_category_note$"
+# building_mineral_purification_hub - IMPLEMENTED
+ oxr_mdlc_world_machines_building_auto_mining_support_2: "Auto-Bore Annex"
+ oxr_mdlc_world_machines_building_auto_mining_support_2_desc: "This facility has complex, sensitive ore extractors for faster refining, large dedicated transport tubes for improving Auto-Mine infrastructure, and upgrades all mining district drills to be larger, more heat-resistant, and durable. $oxr_mdlc_mod_tag$ $oxr_mdlc_world_machine_building_category_note$"
+
+# building_energy_grid - TODO
+ oxr_mdlc_world_machines_building_energy_grid: "Charge Controller"
+ oxr_mdlc_world_machines_building_energy_grid_desc: "This array of charge controllers directs energy from generators to the vast battery banks distributed around the planet, at strategic points. Additionally, grid performance is improved with more sophisticated power routing models. $oxr_mdlc_mod_tag$ $oxr_mdlc_world_machine_building_category_note$"
+# building_energy_nexus - TODO
+ oxr_mdlc_world_machines_building_energy_grid_2: "Auto-Energy Nexus"
+ oxr_mdlc_world_machines_building_energy_grid_2_desc: "This large array of charge controllers directs energy from generators to the vast battery banks distributed around the planet, at strategic points. Additionally, grid performance is greatly improved with more sophisticated power routing models. $oxr_mdlc_mod_tag$ $oxr_mdlc_world_machine_building_category_note$"
+# building_resource_silo - TODO
+ oxr_mdlc_world_machines_building_underground_storage: "Underground Warehouse"
+ oxr_mdlc_world_machines_building_underground_storage_desc: "This warehouse contains a variety of storage methods to hold additional resources in reserve, for example: massive battery banks to store energy, deep pits for minerals, dehydration facilities for long-term food storage, and humidity-controlled storage for alloys. $oxr_mdlc_mod_tag$ $oxr_mdlc_world_machine_building_category_note$"
+# building_bio_reactor - TODO
+ oxr_mdlc_world_machines_building_biowaste_harvester: "Bio-Gas Digester"
+ oxr_mdlc_world_machines_building_biowaste_harvester_desc: "Biomass from Auto-Farms and other sources are diverted into tanks where anaerobic bacteria produce gases which can then be converted into energy. $oxr_mdlc_mod_tag$ $oxr_mdlc_world_machine_building_category_note$"
+# building_bio_reactor_2 - TODO
+ oxr_mdlc_world_machines_building_biowaste_harvester_2: "Bio-Gas Digester II"
+ oxr_mdlc_world_machines_building_biowaste_harvester_2_desc: "Rows upon rows of tanks contain anaerobic bacteria that produce gases which can then be converted into energy. With the introduction of chemically treated alloys, additional instrumentation and refining equipment are able to capture small amounts of exotic gases. $oxr_mdlc_mod_tag$ $oxr_mdlc_world_machine_building_category_note$"
+
+ ### DEPOSIT RESOURCE ###
+ # building_mote_harvesters - TODO
+ oxr_mdlc_world_machines_building_auto_mote_sink: "Mote Auto-Trap"
+ oxr_mdlc_world_machines_building_auto_mote_sink_desc: "A series of sensitive magnetic plates direct already present volatile motes into a simple containment field for transfer. $oxr_mdlc_mod_tag$ $oxr_mdlc_world_machine_building_category_note$"
+ # building_gas_extractors - TODO
+ oxr_mdlc_world_machines_building_auto_gas_condenser: "Exotic Gas Auto-Condenser"
+ oxr_mdlc_world_machines_building_auto_gas_condenser_desc: "This automated facility follows simple mining algorithms to reach the exotic gas deposits embedded in the planet's surface. It then cools the gases down to liquid form for transport.  $oxr_mdlc_mod_tag$ $oxr_mdlc_world_machine_building_category_note$"
+ # building_crystal_mines - TODO
+ oxr_mdlc_world_machines_building_auto_crystal_extractor: "Rare Crystal Auto-Extractor"
+ oxr_mdlc_world_machines_building_auto_crystal_extractor_desc: "This automated facility follows simple mining algorithms to reach the rare crystal deposits embedded in the planet's surface. $oxr_mdlc_mod_tag$ $oxr_mdlc_world_machine_building_category_note$"
+
+ #### STRATEGIC RESOURCES ####
+ # collider = motes
+ oxr_mdlc_world_machines_building_particle_collider: "$oxr_gear$ Particle Collider"
+ oxr_mdlc_world_machines_building_particle_collider_desc: "This facility has a large loop 25km in circumference, with six crossing points, twelve detectors, and two EM matter collection berms. Data from high-speed particle collisions are automatically logged, crunched, and any secondary resources, such as £volatile_motes£ §Y$volatile_motes$§! are harvested. $oxr_mdlc_mod_tag$ $oxr_mdlc_world_machine_building_category_note$"
+ # crytals -- requires 1k rare crystals to build
+ oxr_mdlc_world_machines_building_crystal_cultivation_tank: "$oxr_gear$ Microfluidic Crystal Array"
+ oxr_mdlc_world_machines_building_crystal_cultivation_tank_desc: "Plates of various alloys are first etched with fine channels, then a growing solution is seeded with a large amount of £rare_crystals£ §Y$rare_crystals$§!. The solution is dispersed onto the plates, which are arranged in long rows. Resources are harvested periodically, while some of the yield is reincorporated as seed material. $oxr_mdlc_mod_tag$ $oxr_mdlc_world_machine_building_category_note$"
+ # exotic gases - fewer minerals, plus biomass
+ oxr_mdlc_world_machines_building_welding_colony: "$oxr_gear$ Welding Colony"
+ oxr_mdlc_world_machines_building_welding_colony_desc: "Large amounts of alloys are exposed to a chemical welding process, which emits toxic fumes that feed a special bacteria in isolated chambers. The gaseous byproduct of the bacteria colonies is extracted, cleaned, and certified to be a 99 percent stable facsimile of £exotic_gases£ §Y$exotic_gases$§!. $oxr_mdlc_mod_tag$ $oxr_mdlc_world_machine_building_category_note$"
+
+ rikk_mdlc_world_machine_SR_building: "$oxr_gear$ Strategic Resource Filtering Module"
+ rikk_mdlc_world_machine_SR_building_effect: "$xvcv_mdlc_world_machines_generator_districts$ £exotic_gases£ output: §G+0.2§!\n$xvcv_mdlc_world_machines_generator_districts$ £minerals£ upkeep: §R+2§!\n$xvcv_mdlc_world_machines_mining_districts$ £rare_crystals£ output: §G+0.2§!\n$xvcv_mdlc_world_machines_mining_districts$ £energy£ upkeep: §R+1§!\n$xvcv_mdlc_world_machines_food_districts$ £exotic_gases£ output: §G+0.2§!\n$xvcv_mdlc_world_machines_food_districts$ £energy£ upkeep: §R+1§!"
+ rikk_mdlc_world_machine_SR_building_desc: "Processes and alters world machine detritus scrubbing techniques to allow it to collect trace amounts of strategic resources from our harvesting industries. Applied on a planetary scale, these trace amounts can add up to a greater whole.$oxr_mdlc_mod_tag$ $oxr_mdlc_world_machine_building_category_note$"
+
+ #### UNITY ####
+# building_uplink_node
+ oxr_mdlc_world_machines_building_auto_unity_1: "$oxr_gear$ Auto-Cohesion Supervisor Process"
+ oxr_mdlc_world_machines_building_auto_unity_1_desc: "This data monitoring station records basic information about planetary processes, compiles reports, and directs administrative tasks.$oxr_mdlc_mod_tag$ $oxr_mdlc_world_machine_building_category_note$"
+# building_network_junction
+ oxr_mdlc_world_machines_building_auto_unity_2: "Auto-Cohesion Supervisor Hub"
+ oxr_mdlc_world_machines_building_auto_unity_2_desc: "This large data monitoring station records detailed information about planetary processes, compiles reports, and directs administrative tasks.$oxr_mdlc_mod_tag$ $oxr_mdlc_world_machine_building_category_note$"
+# building_system_conflux
+ oxr_mdlc_world_machines_building_auto_unity_3: "Auto-Cohesion Supervisor Annex"
+ oxr_mdlc_world_machines_building_auto_unity_3_desc: "This data monitoring tower records extremely detailed information about planetary processes, generates endless metadata, compiles reports, and directs administrative tasks.$oxr_mdlc_mod_tag$ $oxr_mdlc_world_machine_building_category_note$"
+# new
+ oxr_mdlc_world_machines_building_auto_unity_4: "Auto-Cohesion Supervisor Nexus"
+ oxr_mdlc_world_machines_building_auto_unity_4_desc: "This data monitoring tower records extremely detailed information about planetary processes, generates endless metadata, compiles reports, and directs administrative tasks.$oxr_mdlc_mod_tag$ $oxr_mdlc_world_machine_building_category_note$"
+# Alpha hub alternative
+ oxr_mdlc_world_machines_building_auto_unity_alpha_hub: "$oxr_gear$ Auto-Cohesion Amplifier"
+ oxr_mdlc_world_machines_building_auto_unity_alpha_hub_desc: "This facility installs additional supervisor subroutines to $oxr_mdlc_growth_node$'s task processing library to improve empire-wide unity output.$oxr_mdlc_mod_tag$ $oxr_mdlc_world_machine_building_category_note$"
+
+ #### UNIQUE ####
+# PRINT WMCS
+ oxr_mdlc_world_machines_building_core_fabrication_depot: "$oxr_gear$ Auto-W.M.C Fabricator"
+ oxr_mdlc_world_machines_building_core_fabrication_depot_desc: "This production center is 50 meters below ground, and 50 meters above, making it 100 meters tall; the size is necessary to accommodate all aspects of assembling ['concept_oxr_mdlc_world_machine_core_resource']s. One face of the structure is an enormous door for transporting completed cores out to storage. The production center has two large wings: one for fabricating the near-perpetual reactor, and the other for producing all other components. The center of the building is devoted solely to assembly. $oxr_mdlc_mod_tag$ $oxr_mdlc_world_machine_building_category_note$"
+# STORE THEM
+ oxr_mdlc_world_machines_building_storage_cradle: "$oxr_gear$ Auto-W.M.C Storage Cradle"
+ oxr_mdlc_world_machines_building_storage_cradle_desc: "This structure is made of reinforced alloys and produces its own power in order to avoid damage to cores from fluctuations in the planetary power grid. However, it does require physics oversight to support maintaining stability of cores in storage.$oxr_mdlc_mod_tag$ $oxr_mdlc_world_machine_building_category_note$"
+# ORGANOID
+ oxr_mdlc_building_auto_organoid_research_center: "$oxr_gear$ Auto-$oxr_mdlc_building_organoid_research_center$"
+ oxr_mdlc_building_auto_organoid_research_center_desc: "$oxr_mdlc_building_organoid_research_center_desc$"
+ oxr_mdlc_building_auto_organoid_research_center_effect: "\nAuto-Research buildings have a portion of £energy£ upkeep replaced with £food£ upkeep."
+ oxr_mdlc_building_auto_research_organoid_active: "['concept_oxr_mdlc_brain_organoid_plural'] are active."
+
+#endregion
+
+#region traits_0x003
+ ### Traits 0x003
+ oxr_mdlc_trait_world_machine_automaton: "World-Machine Automaton"
+ oxr_mdlc_trait_world_machine_automaton_desc: "This purpose-built machine was ejected from its storage slot in order to perform unsupported tasks. It will do for now."
+#endregion
+
+#region technology_0x004
+ ### TECHNOLOGY 0x004 ###
+ oxr_mdlc_tech_fractal_basics: "Fractal Research I"
+ oxr_mdlc_tech_fractal_basics_desc: "Our understanding of self-similar patterns is basic. We can invent few material applications at this time. This theoretical field of study grants elementary insights into a wide range of phenomenae across disciplines.$oxr_mdlc_mod_tag$"
+ # Unlock CPU world, ECU, and SER
+ # Can clear all blockers now
+ oxr_mdlc_tech_world_machine_planetary_proficiency: "World-Machine Planetary Proficiency"
+ oxr_mdlc_tech_world_machine_planetary_proficiency_desc: "We are familiar enough with the construction principles of World Machines that we will be able to remove blockers without time-consuming archaeological digs.$oxr_mdlc_mod_tag$"
+ # Stop blockers from appearing
+ oxr_mdlc_tech_world_machine_planetary_mastery: "World-Machine Infrastructure Mastery"
+ oxr_mdlc_tech_world_machine_planetary_mastery_desc: "All the World Machine's secrets will be known to us. No mistakes or ruined parts will ever appear again when constructing automated worlds.$oxr_mdlc_mod_tag$"
+ oxr_mdlc_tech_world_machine_planetary_mastery_effect: "Newly created World Machine colonies will not have any blocker defects."
+ # Able to make WMC
+ oxr_mdlc_tech_world_machine_wmc_core: "World Machine Core Construction"
+ oxr_mdlc_tech_world_machine_wmc_core_desc: "Our understanding of World Machines, and Fractal technology, leads to being able to finally produce World Machine Cores.$oxr_mdlc_mod_tag$"
+ oxr_mdlc_tech_world_machines_unlocked: "World Machines Basic Operations"
+ oxr_mdlc_tech_world_machines_unlocked_desc: "Now that we have ['concept_oxr_mdlc_auto_machine_world'] available to us, there are a number of blueprints for specialized automated buildings that we will study in order to supplement the vast network of planetary districts.$oxr_mdlc_mod_tag$"
+
+ oxr_mdlc_tech_world_machine_district_infrastructure: "World-Machine Infrastructure District"
+ oxr_mdlc_tech_world_machine_district_infrastructure_desc: "There are several areas of World Machine function that can be improved. After running several data-backed studies, we will be able to design a new district from which these performance improvements can be automated and then scaled.$oxr_mdlc_mod_tag$"
+
+ ## World-Machine Tech Upgrades (Alternates)
+ oxr_mdlc_tech_geologic_world_expansion_theory: "World-Machine Expansion Theory"
+ oxr_mdlc_tech_geologic_world_expansion_theory_desc: "Cognitive Node and Growth node postulate that with certain technological advancements, and significant time and resource investment, we will be able to exploit the various layers of the planet beneath the surface of a World-Machine to improve resource and manufacturing output. Likewise, §Ynew technologies are certain to arise from this research.§!$oxr_mdlc_mod_tag$"
+ oxr_mdlc_tech_geologic_world_expansion_theory_tooltip: "§YNew empire goals have been added to the Situation Log.§!"
+ oxr_mdlc_tech_category_geophysics_note: "\nResearch Category: ['concept_oxr_mdlc_tech_geophysics']"
+ oxr_mdlc_tech_geologic_heat_shielding_1: "Geological Heat Shielding I"                     # up to 1500'C
+ oxr_mdlc_tech_geologic_heat_shielding_1_desc: "Improved energy shielding must be able to tolerate temperatures found in most planetary crusts.$oxr_mdlc_mod_tag$"
+ oxr_mdlc_tech_geologic_heat_shielding_2: "Geological Heat Shielding II"               # avg 3000'C
+ oxr_mdlc_tech_geologic_heat_shielding_2_desc: "Improved energy shielding must be able to tolerate a range of temperatures found in a planet's liquid mantle.$oxr_mdlc_mod_tag$"
+ oxr_mdlc_tech_geologic_heat_shielding_2.decision_unlock: "Unlock decision: §Y$rikk_mdlc_decision_world_machine_solidify_molten$§! to start World Machines on molten worlds."
+ oxr_mdlc_tech_geologic_heat_shielding_3: "Geological Heat Shielding III"       # 7000'C (earth's core is 5500'C)
+ oxr_mdlc_tech_geologic_heat_shielding_3_desc: "Improved energy shielding able to tolerate temperatures at and above a planet's core.$oxr_mdlc_mod_tag$"
+ # , 5500-7000'C. heat shielding 3 also leaves the door open to touch the surface of the sun which is 4000-7000'C
+
+ oxr_mdlc_tech_geologic_scaling_thermoelectrics: "Scaling Thermoelectric Application"
+ oxr_mdlc_tech_geologic_scaling_thermoelectrics_desc: "The technique of harvesting electricity from heat, scaling to any theoretical known temperature using an established set of principles.$oxr_mdlc_mod_tag$"
+
+ # I want to say 'Mega-Pascal' but that's from Earth's point of view
+ oxr_mdlc_tech_geologic_pressurized_construction_1: "Extreme Pressure Construction Techniques I"  # 120 MPa
+ oxr_mdlc_tech_geologic_pressurized_construction_1_desc: "Construction in high-pressure environments requires utilizing construction shapes that are resistant to deformation from an external force. Flat planes and edges, which can be used at a planet's surface, are shown to be unreliable at certain pressures, and new forms must be developed. Additionally when in high-pressure liquid environments, care must be taken to introduce pressure equalizing gates to allow the external medium to pass through our constructions.$oxr_mdlc_mod_tag$"
+ oxr_mdlc_tech_geologic_pressurized_construction_2: "Extreme Pressure Construction Techniques II"  # 360 GPa
+ oxr_mdlc_tech_geologic_pressurized_construction_2_desc: "By exploiting the resonant frequency of the high-pressure medium, we can create fractional displacements, and in the microscopic space gained, slowly over time expand our constructions into the medium.$oxr_mdlc_mod_tag$"
+
+ oxr_mdlc_tech_geologic_elastic_materials_1: "Elastic Materials I"
+ oxr_mdlc_tech_geologic_elastic_materials_1_desc: "Construction in kilotemperature pressure environments requires materials with non-brittle, elastic properties that can withstand wide variances in shear forces, and also tolerate wave pressure traveling through superdense mediums.$oxr_mdlc_mod_tag$"
+ oxr_mdlc_tech_geologic_elastic_materials_2: "Elastic Materials II"
+ oxr_mdlc_tech_geologic_elastic_materials_2_desc: "Construction in extreme pressure environments requires materials with non-brittle, elastic properties that can withstand wide variances in shear forces, tolerate wave pressure traveling through superdense mediums, and resist melting, burning, and transmitting heat from extreme environments to constructed areas.$oxr_mdlc_mod_tag$"
+
+ oxr_mdlc_tech_geologic_seismic_wave_harvesting_1: "Seismic Wave Harvesting I"
+ oxr_mdlc_tech_geologic_seismic_wave_harvesting_1_desc: "In high-pressure environments, such as the liquid mantle of a planet, natural seismic activity will transmit incredibly powerful shockwaves throughout the medium. These shockwaves can be harnessed when they reach our structures in these extreme environments, and converted to electricity by way of capturing the oscillations via mechanical means.$oxr_mdlc_mod_tag$"
+
+ oxr_mdlc_tech_geologic_geodynamo_theory: "Geodynamo Theory"
+ oxr_mdlc_tech_geologic_geodynamo_theory_desc: "A planet generates an electromagnetic field through the convection of its liquid, molten alloy core. By understanding how the flow maintains the field, we will be able to intrude into a planet's core for various purposes without destroying said field. With sufficient effort, we may also be able to create geodynamos in planets that lack them.$oxr_mdlc_mod_tag$"
+
+ oxr_mdlc_tech_world_machine_t3_worlds: "World Machine Core Programming"
+ oxr_mdlc_tech_world_machine_t3_worlds_desc: "With some work, we are able to program a World Machine Core to deploy specialized planetary configurations. It requires writing entirely new operating systems with brand-new deployment protocols, and doing a bit of modular engineering to support reading from a new boot source.$oxr_mdlc_mod_tag$"
+ oxr_mdlc_tech_world_machine_cpu: "Auto-Processor World Schema"
+ oxr_mdlc_tech_world_machine_cpu_desc: "An operating system and deployment protocol for creating specialized auto-research worlds.$oxr_mdlc_mod_tag$"
+ oxr_mdlc_tech_world_machine_cpu_tooltip: "$xvcv_mdlc_ap_world_machines_tooltip_effects_4$"
+ oxr_mdlc_tech_world_machine_ecu: "Auto-Factory World Schema"
+ oxr_mdlc_tech_world_machine_ecu_desc: "An operating system and deployment protocol for creating specialized factory & forge worlds.$oxr_mdlc_mod_tag$"
+ oxr_mdlc_tech_world_machine_ecu_tooltip: "$xvcv_mdlc_ap_world_machines_tooltip_effects_3$"
+ oxr_mdlc_tech_world_machine_ser: "Auto-Server World Schema"
+ oxr_mdlc_tech_world_machine_ser_desc: "An operating system and deployment protocol for creating specialized administrative worlds.$oxr_mdlc_mod_tag$"
+ oxr_mdlc_tech_world_machine_ser_tooltip: "$xvcv_mdlc_ap_world_machines_tooltip_effects_5$"
+
+ oxr_mdlc_tech_world_machine_cpu_reprogrammable_gate: "Field-Programmable CPU Worlds"
+ oxr_mdlc_tech_world_machine_cpu_reprogrammable_gate_desc: "We will take Auto-Research worlds one step further and develop a method to focus all planetary research output and direct it to a specific field by installing custom modules that override the standard programming.$oxr_mdlc_mod_tag$"
+
+ oxr_mdlc_tech_organoid_2_wm: "Auto-$oxr_mdlc_tech_organoid_2$"
+ oxr_mdlc_tech_organoid_2_wm_desc: "$oxr_mdlc_tech_organoid_2_desc$"
+ oxr_mdlc_tech_organoid_2_wm_tooltip: "§Y$oxr_mdlc_building_auto_organoid_research_center$§! planetary modifier:\nAuto-Science Buildings & CPU Districts £energy£ upkeep: §G-0.5§!\nAuto-Science Buildings & CPU Districts £food£ upkeep: §R+0.10§!"
+ oxr_mdlc_tech_organoid_3_wm: "Auto-$oxr_mdlc_tech_organoid_3$"
+ oxr_mdlc_tech_organoid_3_wm_desc: "$oxr_mdlc_tech_organoid_3_desc$"
+ oxr_mdlc_tech_organoid_3_wm_tooltip: "§Y$oxr_mdlc_building_auto_organoid_research_center$§! planetary modifier:\nAuto-Science Buildings & CPU Districts £energy£ upkeep: §G-1§!\nAuto-Science Buildings & CPU Districts £food£ upkeep: §R+0.10§!"
+
+ oxr_mdlc_tech_boost_1_uniform_resource_locators: "Universal Resource Locators"
+ oxr_mdlc_tech_boost_1_uniform_resource_locators_desc: "All data shall have a universal identifier for describing its location, so that data sets may be cross-referenced more easily. All software applications going forward will be able to access a given resource regardless of its data type, and with all data having universal resource locators, research can proceed more quickly since datasets will share a common interface.$oxr_mdlc_mod_tag$"
+ oxr_mdlc_tech_boost_2_specialized_hardware_instructions: "Specialized Hardware Instructions"
+ oxr_mdlc_tech_boost_2_specialized_hardware_instructions_desc: "Develop hardware processing units that are specialized for running particular kinds of tasks. Although software is far more flexible, its total speed is impeded by the need to create layers of abstractions. Having hardware specialized for running fluid dynamics simulations, for example, or simulating particle properties, will be faster than having software do it, but it will raise material production costs for new research centers and retrofits.$oxr_mdlc_mod_tag$"
+ # Borrowing from "IPFS"
+ oxr_mdlc_tech_boost_3_intergalactic_file_system: "Peer-to-Peer Research File System"
+ oxr_mdlc_tech_boost_3_intergalactic_file_system_desc: "Data files will be stored in a decentralized manner, accessed per-planet, per research station, using Universal Resource Locators. This technology improves data resiliency (by storing peer-to-peer copies of data), and network throughput, since data requests travel through peers, rather than to the World-Machine's typical single data center which holds all data.$oxr_mdlc_mod_tag$"
+
+ oxr_mdlc_tech_boost_4_improved_atom_modeling: "Improved Atomic Modeling"
+ oxr_mdlc_tech_boost_4_improved_atom_modeling_desc: "With recent advances in specialized CPU production, we can improve our simulation routines for modeling atoms, fluid dynamics, and network topology."
+ oxr_mdlc_tech_boost_5_fractal_data_compression: ""
+
+ 
+ oxr_fractal_tech_key: "§B(Fractals & Tesselations)§!"
+ # Let's cook up some tech to boost research output
+ # Boost energy production
+ # Read about this tech here :) https://scitechdaily.com/quantum-breakthrough-1-58-dimensions-unlock-zero-loss-energy-efficiency/
+ oxr_mdlc_tech_fractal_2_topological_insulators: "Topological Insulators"
+ oxr_mdlc_tech_fractal_2_topological_insulators_desc: "Using a two-dimensional layer of bismuth, we can create topological insulators, which are a material that conducts electricity on the outside, and insulates on the inside. These layers are grown on semiconductors, and when applied, can transmit electricity with zero loss. Due to our limited experience manufacturing these, they are currently best applied to research facilities, according to $oxr_mdlc_growth_node$.$oxr_mdlc_mod_tag$"
+
+ # Slower fleet windup but faster ship speed overall
+ oxr_mdlc_tech_fractal_3_star_mapping: "Lightweight Star Maps"
+ oxr_mdlc_tech_fractal_3_star_mapping_desc: "If we describe the known galaxy and planetary bodies using fractal dimensions -- which are not meant to describe things in a precise way -- we can reduce the database load on our fleets' navigational computers and greatly increase subspace navigational speeds. However, it will slow down travel between systems.$oxr_mdlc_mod_tag$"
+ # Boost encryption
+ oxr_mdlc_tech_fractal_4_perimeter_subdivision: "Recursive Perimeter Subdivision"
+ oxr_mdlc_tech_fractal_4_perimeter_subdivision_desc: "Take all known ranges and divide them in half, then divide them again, and again, thus increasing the fidelity of network security algorithms."
+ # boost scanner range
+ # https://www.intechopen.com/chapters/54899
+ oxr_mdlc_tech_fractal_5_shapes_for_sensors: "Fractal Shapes for Sensors"
+ oxr_mdlc_tech_fractal_5_shapes_for_sensors_desc: "We will design long-range scanner elements with a new class of fractal-inspired materials, called 'meta-materials', with specific electromagnetic characteristics. By laying out metamaterials in fractal geometries, sensor power gain and effectiveness are greatly improved."
+ # https://fractalfoundation.org/OFC/OFC-12-2.html
+ oxr_mdlc_tech_fractal_6_fractal_heat_exchanger: "Fractal Heat Exchanger"
+ oxr_mdlc_tech_fractal_6_fractal_heat_exchanger_desc: "Etching fractal patterns into silicon chips allows coolant to flow evenly and efficiently. This will improve the performance of research machines and administrative machines."
+
+ # Tech names:
+ # Fractal Network
+ # Quantum Transport - investigation of physical properties in non-integer dimensions https://www.nature.com/articles/s41566-021-00845-4
+ # Fractal Geometry
+ # Fractal Packaging Theory - advancements in alloys, polymers, and other composite materials. production++, storage++
+ # Higher-Dimension Indexing
+ # Signal De-Noising
+ # Self-Reflecting Surfaces
+ # Spectral Analysis
+ # Mechanical Property Prediction
+ # Porous Ceramics -- heat insulation, filtration
+ # Polyhedric Tesselation -- in 3d
+ # Polytopic Tesselation -- in "n" dimensions (a tesselation of n-dimensional polytopes is called a honeycomb) -- UNLOCK HONEYCOMB TECH
+ # Asymmetric Tesselation -- 
+ # Mandelbrot Data Storage -- 2.5d breakthrough, procedural generation of data through careful number seeding
+ # N-dimensional Manifestation -- we are analyzing patterns of how other dimensions outside space and time can manifest in our 3rd-dimensional space. A breakthrough here could mean giant leaps in space travel, materials transportation, production, and who knows what else
+ # Fractal city design -- pattern makes transportation of resources more efficient
+ # Fractal image coding -- lossy image compression
+ # Fractal star maps -- using non-integer numbers between 1 and 2 to describe common characteristics of planetary bodies and other space objects. because fractals are "rough" and not exact, we can map the stars faster but at lower resolution
+
+ # Infinite perimiter, finite space
+ # fractal antenna -- pick up more frequencies, but not as well as antenae specifically designed for certain frequencies
+ # 'small parts that look like the whole', that's a fractal
+ # continual subdivision of edges 
+ # In the visualization of a fractal number set (mandlebrot) are 'little copies of the original shape'
+ # it's possible to have shapes whose dimension is a positive real number (nt just integer)
+ # how does the mass of the shape change as it is scaled
+ # fractal is not 1-dimensional nor 2-dimensional
+ # electrons behave differently depending on the "dimension" they are configured in because of the way their charges pull on each other -- 1D: linear, 2d: plane, 3d: cube
+
+ # Topology + Living Metal (insert name here): living metal can be printed into several shape archetypes ajd be continuously deformed into complex shapes for construction. [construction speed ++]
+
+#endregion
+
+#region armies_0x005
+ ### ARMIES
+ oxr_mdlc_world_machine_district_defense_army: "Automated District Defense Unit"
+ oxr_mdlc_world_machine_district_defense_army_desc: "Defense armies produced automatically by World Machines to deal with planetside threats."
+ NAME_oxr_mdlc_world_machine_district_defense_army: "Unremarkable T1 Squadron"
+#endregion
+
+#region deposit_blockers_0x006
+ ### DEPOSIT BLOCKERS ON WORLD MACHINES
+ oxr_mdlc_d_world_machine_insight: "§YClearing this blocker yields insights into how world machines function.§!"
+ oxr_mdlc_d_world_machine_collapsed_charge_controller: "Collapsed Charge Controller"
+ oxr_mdlc_d_world_machine_collapsed_charge_controller_desc: "These charge controllers direct energy from generators to the vast battery banks distributed around the planet, at strategic points. Some of them have been damaged and must be rebuilt in order to expand generator capacity to maxium."
+ oxr_mdlc_d_world_machine_fossilized_nutrient_bog: "Fossilized Nutrient Bog"
+ oxr_mdlc_d_world_machine_fossilized_nutrient_bog_desc: "All sorts of biomass has collected here in a colorful mire, some of it growing, some of it decaying, all inconveniently in the way of expanding food harvesting operations."
+ oxr_mdlc_d_world_machine_flooded_borehole: "Flooded Borehole"
+ oxr_mdlc_d_world_machine_flooded_borehole_desc: "Automated mining processes have been unable to continue because of a massive liquid breach into the depths of the borehole. Mineral collection cannot continue here."
+ oxr_mdlc_d_world_machine_clogged_furnace_discharge: "Clogged Furnace Discharge"
+ oxr_mdlc_d_world_machine_clogged_furnace_discharge_desc: "The slag conveyance system is a core component of the industrial sector's infrastructure. The prebuilt furnace discharge supporting a future sector has been clogged with slag and must be completely redone."
+ oxr_mdlc_d_world_machine_irradiated_drone_storage: "Irradiated Drone Storage"
+ oxr_mdlc_d_world_machine_irradiated_drone_storage_desc: "The structural foundation for the pop storage district has been contaminated with high levels of radioactivity, undoubtedly from a leak in one of the fusion power tubes circulating the planet. The framework will have to be completely excavated and discarded."
+
+ ## Affects max districts -2
+ oxr_mdlc_d_world_machine_meteor_shower_impacts: "Meteor Shower Impact Site"
+ oxr_mdlc_d_world_machine_meteor_shower_impacts_desc: "A meteor shower has broken up the ground here and made it completely unsuitable to build on. However, there are some trace minerals and alloys that may be recovered when our earthworks crews go to level the area."
+ oxr_mdlc_d_world_machine_collapsed_transportation_hubs: "Collapsed Transportation Hub"
+ oxr_mdlc_d_world_machine_collapsed_transportation_hubs_desc: "A transit hub to permit vehicles and other transports to deliver and ferry cargo and pops is broken, with large sections having fallen down. The physical passageways as well as the information routing stations must be reconstructed."
+ oxr_mdlc_d_world_machine_exposed_structural_chasms: "Exposed Structural Chasm"
+ oxr_mdlc_d_world_machine_exposed_structural_chasms_desc: "Where there should be solid ground, instead is a jagged chasm. An imperfection in the world-machine terraforming process simply skipped adding any sort of ground here. We will have to carefully rebuild layers of missing subterranean supports."
+ oxr_mdlc_d_world_machine_dense_geologic_mass: "Disruptive Geological Mass"
+ oxr_mdlc_d_world_machine_dense_geologic_mass_desc: "There is a large deposit of igneous rock here with compressive strength and tensile strength too strong for the world's automated expansion processes to clear. This area will have to be manually leveled using explosives, but may yield usable resources in the process."
+
+ # Insight blockers
+ oxr_mdlc_d_world_machine_offline_data_routers: "§YOffline Data Router§!"
+ oxr_mdlc_d_world_machine_offline_data_routers_desc: "There are large information infrastructure centers distributed throughout the planet, which extend the range at which data can be transmitted, and provide redundancy for the entire planetary network. One such router is offline, blocking district expansion.\n$oxr_mdlc_d_world_machine_insight$"
+ oxr_mdlc_d_world_machine_damaged_data_cold_storages: "§YDamaged Cold Storage Datacenter§!"
+ oxr_mdlc_d_world_machine_damaged_data_cold_storages_desc: "This datacenter has been taken offline due to significant damage. It contains terabytes of system logs, sensor data, kernel dumpfiles, hardly an exciting trove to wade through. However, the logs give insights as to how the planet's automated systems should operate; We can analyze core dumps here and potentially reverse engineer some of the sensor data to rebuild the vast sensor networks spanning the planet.\n$oxr_mdlc_d_world_machine_insight$"
+ oxr_mdlc_d_world_machine_frozen_waterway_pistons: "§YFrozen Hydraulic Pistons§!"
+ oxr_mdlc_d_world_machine_frozen_waterway_pistons_desc: "The giant heat pumps under the planet's crust whisk away waste heat from districts and buildings. This pump design is used not just for waste heat but for distributing lubricants, ultra-high-pressure steam, and virtually every other kind of liquid. In getting this unstuck we may have an opportunity to understand more about the design philosophy of this ubiquitous structure.\n$oxr_mdlc_d_world_machine_insight$"
+ oxr_mdlc_d_world_machine_incomplete_construction_bays: "§YIncomplete Construction Bay§!"
+ oxr_mdlc_d_world_machine_incomplete_construction_bays_desc: "Another fundamental aspect of World Machines, automated construction bays are programmed to handle the logistics of building every type of district and facility. Large self-deploying cranes await assembly; fuel tanks are half-built; materials storages are barren. These bays are scattered throughout the landscape, and are necessary to continue expanding planetary infrastructure.\n$oxr_mdlc_d_world_machine_insight$"
+
+ oxr_mdlc_d_world_machine_artifact_deposit_1: "World-Machine Errata"
+ oxr_mdlc_d_world_machine_artifact_deposit_1_desc: "From clearing blockers on the World-Machine, we have collected a variety of unrelated, partially functional objects that hold some research value."
+
+#endregion 
+
+#region deposits_0x006a
+### DEPOSITS ###
+ oxr_mdlc_d_world_machine_core: "Operational World Machine Core"
+ oxr_mdlc_d_world_machine_core_desc: "The central processing core of the planet. The core's cradle, a dodecahedron 50 meters high, is completely self-contained, sealed on all sides, drawing no power whatsoever from any of the planet's generators. The cradle is slotted several kilometers beneath the planet's surface, well out of range of surface attacks but not deep enough to suffer from heat emanating from the planet's center.\n\n The core itself cannot be seen from inside the cradle, but lighted control surfaces all over the various faces of the cradle are twinkling with activity. The core has massive conduits plugged into all of its faces, pumping data back and forth between districts, buildings, sensor arrays, and all the infrastructure needed to run automations."
+ oxr_mdlc_d_world_machine_cradle: "World Machine Core Cradle"
+ oxr_mdlc_d_world_machine_cradle_desc: "A 50-meter-high dodecahedron frame awaits a core, and is currently unpowered. The empty interior is completely black, devoid of reflective surfaces. Various control surfaces are unlit."
+ oxr_mdlc_d_world_machine_core_shattered: "Shattered World Machine Core"
+ oxr_mdlc_d_world_machine_core_shattered_desc: "Somehow, the cradle of this world machine core has been partially crushed. One of the faces has been torn, and from the sizable jagged wound, burnt-out wiring and broken components spill out into space. It cannot be estimated simply by looking whether the core could be salvaged, repaired, or even replaced."
+ oxr_mdlc_d_world_machine_expansion_core: "Parallel-Connected World Machine Cores: §G[This.oxr_mdlc_world_machine_expansion_levels]§!"
+ oxr_mdlc_d_world_machine_expansion_core_desc: "One or more World-Machine Cores have been installed parallel to the main core in secondary configuration mode. Each core installed this way increases the total maximum amount of districts by a small amount, and adds partial infrastructure for additional planet buildings."
+ oxr_mdlc_d_world_machine_infrastructure_district: "Infrastructure Support Depot"
+ oxr_mdlc_d_world_machine_infrastructure_district_desc: ""
+#endregion
+
+#region planet_classes_0x007
+ ### PLANET CLASSES
+ xvcv_mdlc_pc_machine_auto_ruined: "Ruined Auto-Machine World"
+ xvcv_mdlc_pc_machine_auto_ruined_desc: "This automated machine world has ground to a halt and gone completely offline. It cannot be colonized by standard means."
+#endregion
+
+#region tooltip_modifiers_0x008
+ ### TOOLTP MODIFIERS
+ mod_country_resource_max_oxr_mdlc_world_machine_core_add: "Maximum §YWorld-Machine Cores§! storage capacity"
+ mod_country_situations_society_research_produces_add: "Monthly £society_research£ $society_research$"
+ mod_country_situations_engineering_research_produces_add: "Monthly £engineering_research£ $engineering_research$"
+ mod_oxr_mdlc_category_world_machines_buildings_upkeep_mult: "$oxr_mdlc_category_world_machines_buildings$ $oxr_upkeep$"
+ oxr_mdlc_decisions_origin_wm_start_auto_build_core.tooltip: "Continuously fabricate $oxr_mdlc_world_machine_core_res$s, until a decision is made to stop fabrication.\n$oxr_mdlc_world_machines_building_core_fabrication_depot$ upkeep while active:\n- £energy£ §R-$@oxr_mdlc_modifier_wmc_fabrication_monthly_energy$§! $energy$\n- £alloys£ §R-$@oxr_mdlc_modifier_wmc_fabrication_monthly_alloys$§! $alloys$\n- £physics_research£ §R-3§! $physics_research$\n- Planetary build speed §R-25%§!"
+ oxr_mdlc_decisions_origin_wm_manufacture_core_stop.tooltip: "Stops manufacturing cores. Fabricator upkeep returns to normal. Current core progress is saved for when fabrication begins again."
+ mod_oxr_mdlc_deposit_blockers_world_machine_cost_mult: "Clear $oxr_mdlc_deposit_blockers_world_machine$ cost"
+
+
+ # Fill-in vanilla tooltips
+ mod_build_cost: "Build Cost"
+ mod_shipclass_military_build_cost_mult: "Military Ship $mod_build_cost$"
+ mod_shipclass_science_shipbuild_cost_mult: "$science_plural$ $mod_build_cost$"
+ mod_shipclass_transport_build_cost_mult: "$transport_plural$ $mod_build_cost$"
+ mod_shipsize_science_hull_add: "$science_plural$ hull points"
+ mod_shipsize_transport_hull_add: "$transport_plural$ hull points"
+ mod_shipsize_military_station_medium_hull_mult: "$military_station_medium$ hull strength"
+ mod_shipsize_military_station_large_hull_mult: "$military_station_large$ hull strength"
+ mod_shipsize_station_l_hull_add: "$military_station_large$ hull points"
+ mod_shipsize_station_m_hull_add: "$military_station_medium$ hull points"
+ mod_shipsize_station_s_hull_add: "$military_station_small$ hull points"
+
+ # Fail tooltips
+ oxr_mdlc_decisions_origin_wm_start_auto_build_core.fail_no_room: "£trigger_no£ §RBuild more $oxr_mdlc_world_machines_building_storage_cradle$ to support storing World Machine cores on this planet.§!\nCurrent storage capacity: [This.oxr_mdlc_planet_world_machine_cores_amount_max]\nNumber of cores here: [This.oxr_mdlc_planet_world_machine_cores_amount]"
+ oxr_mdlc_decisions_origin_wm_expand_planet.fail_tech: "£trigger_no£ §ROur empire lacks sufficient tech to expand the planet more than three times using World-Machine Cores.§!"
+ oxr_mdlc_has_upgraded_capital.fail: "Requires $oxr_mdlc_world_machines_building_auto_capital_upgraded$ or higher to be built."
+ oxr_mdlc_has_major_upgraded_capital.fail: "Requires $oxr_mdlc_world_machines_building_auto_capital_major_upgraded$ or higher to be built."
+ oxr_mdlc_has_fully_upgraded_capital.fail: "Requires $oxr_mdlc_world_machines_building_auto_capital_fully_upgraded$ to be built."
+ oxr_mdlc_world_machines_building_fractal_fpga_not_major_capital: "£trigger_no£ Requires at least $oxr_mdlc_world_machines_building_auto_capital_major_upgraded$ to be built."
+ oxr_mdlc_world_machines_building_fractal_fpga_not_cpu_world: "£trigger_no£ Can only be built on $xvcv_mdlc_pc_machine_cpu$ world."
+ oxr_mdlc_ap_mind_separation.fail_origin_wm: "£trigger_no£ §ROur empire will cease to function if our central programming changes!§!"
+ oxr_mdlc_ap_bio_robot.fail_origin_wm: "£trigger_no£ §ROur fully automated empire makes no use of pops.§!"
+ oxr_mdlc_ap_world_machines.fail_origin_wm: "£trigger_no£ §RWe already possess this technology.§!"
+ oxr_mdlc_ap_self_assembling_colony_ship.fail_origin_wm: "£trigger_no£ §ROur fully automated empire makes no use of colony ships.§!"
+ oxr_mdlc_country_max_wmc_reached.fail: "§RWe have reached maximum W.M.C. storage ([This.owner.oxr_mdlc_origin_wm_cores_current_count]/[This.owner.oxr_mdlc_origin_wm_cores_max]). Build more fabricators or storage cradles.§!"
+ oxr_mdlc_pop_can_migrate.tooltip_fail: "§RAutomatons cannot migrate.§!"
+
+ # info tooltips
+ oxr_mdlc_decisions_origin_wm_start_auto_build_core_stop.tooltip: "The fabricator will be powered down."
+ oxr_mdlc_planet_origin_world_machine_info: "Planetary Data"
+ oxr_mdlc_planet_origin_world_machine_info_desc: "Max ['concept_oxr_mdlc_world_machine_district_defense_army_plural']: [This.oxr_mdlc_world_machine_num_max_district_armies]\nCurrent Auto-District Defense Armies: [This.oxr_mdlc_world_machine_num_existing_district_armies]\nWorld Core Tech Level: Basic\nInstallation date: [This.oxr_mdlc_world_machine_founded_date]\n\n§HEmpire Data§!\n-------------\n['concept_oxr_mdlc_world_machine_core_resource'] total across empire: £oxr_mdlc_world_machine_core£ [This.owner.oxr_mdlc_origin_wm_cores_current_count]\nMax empire ['concept_oxr_mdlc_world_machine_core_resource'] storage: [This.owner.oxr_mdlc_origin_wm_cores_max]\nTotal World Machines in empire: [This.owner.oxr_mdlc_total_world_machines]"
+
+ mod_job_oxr_mdlc_world_machine_hibernation_slot_per_pop: "Drone Hibernation Slots Per Pop"
+ mod_job_oxr_mdlc_world_machine_hibernation_slot_per_pop_short: "Hibernation Slots"
+ mod_job_oxr_mdlc_world_machine_hibernation_slot_add: "Drone Hibernation Slots"
+
+ oxr_mdlc_tech_geologic_world_expansion_theory_tooltip: "Unlocks §Y$oxr_mdlc_origin_wm_chain_geologic_upgrade_tree_title$§! technology and opens paths towards §YWorld-Machine Planetary Upgrades§!."
+
+ # CUSTOM TOOLTIPS
+
+ oxr_mdlc_decisions_origin_wm_requisition_automatons_tooltip: "Automaton shells will be drawn from deep storage, assembled, and will be deactivated after a set time."
+ # Second tooltip is show depending on the tech level
+ oxr_mdlc_decisions_origin_wm_requisition_automatons_tooltip_1: "Number of Automatons: §G$@oxr_mdlc_world_machine_decision_temp_automaton_amount_1$§!\nInitial Assembly time (days): §Y$@oxr_mdlc_world_machine_decision_temp_automaton_assembly_days_1$§!\nRequisition duration (days): §Y$@oxr_mdlc_world_machine_decision_temp_automaton_days_1$§!"
+ oxr_mdlc_decisions_origin_wm_requisition_automatons_tooltip_2: "Number of Automatons: $@oxr_mdlc_world_machine_decision_temp_automaton_amount_2$\nRequisition duration (days): $@oxr_mdlc_world_machine_decision_temp_automaton_days_2$"
+ oxr_mdlc_decisions_origin_wm_requisition_automatons_tooltip_3: "Number of Automatons: $@oxr_mdlc_world_machine_decision_temp_automaton_amount_3$\nRequisition duration (days): $@oxr_mdlc_world_machine_decision_temp_automaton_days_3$"
+
+ oxr_mdlc_planet_district_industrial_produces_add_1: "$oxr_mdlc_world_machines_building_auto_factory_2$: §G+1§!"
+ oxr_mdlc_planet_district_industrial_produces_add_2: "$oxr_mdlc_world_machines_building_auto_factory_3$: §G+2§!"
+
+ oxr_mdlc_planet_district_industrial_upkeep_add_1: "$oxr_mdlc_world_machines_building_auto_factory_2$: §R+1§!"
+ oxr_mdlc_planet_district_industrial_upkeep_add_2: "$oxr_mdlc_world_machines_building_auto_factory_3$: §R+2§!"
+
+ mod_oxr_mdlc_world_machines_science_buildings_cost_mult: "$oxr_mdlc_world_machines_science_buildings$ construction cost"
+ mod_oxr_mdlc_world_machines_science_buildings_alloys_cost_add: "$oxr_mdlc_world_machines_science_buildings$ £alloys£ cost"
+ mod_edicts_unity_upkeep_mult: "Edicts £unity£ upkeep"
+
+ # CUSTOM TOOLTIPS OVERRIDING TECH BONUSES AND SUCH FOR CAPITAL
+ oxr_output: "output"
+ oxr_upkeep: "upkeep"
+
+ oxr_mdlc_capital_extraction_tooltip: "£food£ £minerals£ £energy£ from Auto-Buildings and Districts: §G+15%§!"
+ oxr_mdlc_capital_has_tr_discovery_faith: "§H(Tradition) $tr_discovery_faith_in_science_machine$§!\nAuto-Science buildings upkeep/production: §R+10%§!/§G+10%§!"
+ oxr_mdlc_capital_has_tech_administrative_ai: "§M(Tech) $tech_administrative_ai$§!\nAuto-Science building upkeep: §G-5%§!"
+ oxr_mdlc_capital_has_civic_astromining: "§B(Civic) $civic_machine_astromining_drones$§! reduces planetary £minerals£ £energy£ £food£ output."
+ oxr_mdlc_unity_building_has_civic_planetary_systems_audit: "§H(Tradition) $oxr_mdlc_tr_machinery_planetary_systems_audit$§!\nAuto-Unity buildings Upkeep/output: §R+10%§!/§G+5%§!"
+ 
+ # CUSTOM DISTRICT PRODUCES ADD
+ mod_xvcv_mdlc_world_machines_foundry_districts_alloys_produces_add: "£alloys£ $alloys$ from World-Machine Foundry Districts"
+ mod_xvcv_mdlc_world_machines_factory_districts_consumer_goods_produces_add: "£consumer_goods£ $consumer_goods$ from World-Machine Factory Districts"
+ mod_xvcv_mdlc_world_machines_food_districts_food_produces_add: "£food£ $food$ from Auto-Machine World Farming districts"
+ mod_xvcv_mdlc_world_machines_mining_districts_minerals_produces_add: "£minerals£ $minerals$ from Auto-Machine World Mining districts"
+ mod_xvcv_mdlc_world_machines_generator_districts_energy_produces_add: "£energy£ $energy$ from Auto-Machine World Generator districts"
+ mod_xvcv_mdlc_world_machines_unity_districts_unity_produces_add: "£unity£ $unity$ from Auto-Machine World administrative districts"
+ 
+ mod_xvcv_mdlc_world_machines_mining_districts_rare_crystals_produces_add: "£rare_crystals£ from $xvcv_mdlc_world_machines_mining_districts$"
+ mod_xvcv_mdlc_world_machines_food_districts_exotic_gases_produces_add: "£exotic_gases£ from $xvcv_mdlc_world_machines_farming_districts$"
+ mod_xvcv_mdlc_world_machines_generator_districts_volatile_motes_produces_add: "£volatile_motes£ from $xvcv_mdlc_world_machines_generator_districts$"
+ # for rikk SR building
+ xvcv_mdlc_food_district_gas_produces: "Producing £exotic_gases£ from $rikk_mdlc_world_machine_SR_building$"
+
+ xvcv_mdlc_mining_district_crystals_produces: "Producing £rare_crystals£ from $rikk_mdlc_world_machine_SR_building$"
+
+ xvcv_mdlc_generator_district_motes_produces: "Producing £volatile_motes£ from $rikk_mdlc_world_machine_SR_building$"
+
+ # CUSTOM DISTRICT UPKEEP ADD
+ mod_xvcv_mdlc_world_machines_foundry_districts_alloys_upkeep_add: "$xvcv_mdlc_world_machines_foundry_districts$ £alloys£ $alloys$ upkeep"
+ mod_xvcv_mdlc_world_machines_factory_districts_consumer_goods_upkeep_add: "$xvcv_mdlc_world_machines_factory_districts$ £consumer_goods£ $consumer_goods$ upkeep"
+ mod_xvcv_mdlc_world_machines_food_districts_food_upkeep_add: "$xvcv_mdlc_world_machines_food_districts$ £food£ $food$ upkeep"
+ mod_xvcv_mdlc_world_machines_mining_districts_minerals_upkeep_add: "$xvcv_mdlc_world_machines_mining_districts$ £minerals£ upkeep"
+ mod_xvcv_mdlc_world_machines_generator_districts_energy_upkeep_add: "$xvcv_mdlc_world_machines_generator_districts$ £energy£ upkeep"
+ mod_xvcv_mdlc_world_machines_unity_districts_unity_upkeep_add: "$xvcv_mdlc_world_machines_unity_districts$ £unity£ upkeep"
+ mod_xvcv_mdlc_world_machines_mining_districts_energy_upkeep_add: "$xvcv_mdlc_world_machines_mining_districts$ £energy£ upkeep"
+ mod_xvcv_mdlc_world_machines_food_districts_energy_upkeep_add: "$xvcv_mdlc_world_machines_food_districts$ £energy£ upkeep"
+ mod_xvcv_mdlc_world_machines_computer_districts_food_upkeep_add: "$xvcv_mdlc_world_machines_computer_districts$ £food£ upkeep"
+ mod_oxr_mdlc_world_machines_science_buildings_energy_upkeep_mult: "$oxr_mdlc_world_machines_science_buildings$ £energy£ upkeep"
+
+ mod_xvcv_mdlc_world_machines_computer_districts_energy_upkeep_add: "$xvcv_mdlc_world_machines_computer_districts$ £energy£ upkeep"
+ mod_xvcv_mdlc_world_machines_computer_districts_volatile_motes_upkeep_add: "$xvcv_mdlc_world_machines_computer_districts$ £volatile_motes£ upkeep"
+
+ # CUSTOM DISTRICT UPKEEP MULT
+ mod_xvcv_mdlc_world_machines_mining_districts_energy_upkeep_mult: " $xvcv_mdlc_world_machines_mining_districts$ £energy£ upkeep"
+ mod_xvcv_mdlc_world_machines_computer_districts_upkeep_mult: "$xvcv_mdlc_world_machines_computer_districts$ upkeep"
+ mod_xvcv_mdlc_world_machines_cooling_districts_upkeep_mult: "$xvcv_mdlc_world_machines_cooling_districts$ $upkeep$"
+ mod_xvcv_mdlc_world_machines_mining_districts_upkeep_mult: "$xvcv_mdlc_world_machines_mining_districts$ $upkeep$"
+ mod_xvcv_mdlc_world_machines_computer_districts_energy_upkeep_mult: "$xvcv_mdlc_world_machines_computer_districts$ £energy£ upkeep"
+
+ # CUSTOM DISTRICT PRODUCES MULT
+ mod_xvcv_mdlc_world_machines_generator_districts_energy_produces_mult: "$xvcv_mdlc_world_machines_generator_districts$ £energy£ $OUTPUT$"
+ mod_xvcv_mdlc_world_machines_mining_districts_minerals_produces_mult: "$xvcv_mdlc_world_machines_mining_districts$ £minerals£ $minerals$"
+ mod_xvcv_mdlc_world_machines_food_districts_food_produces_mult: "$xvcv_mdlc_world_machines_food_districts$ £food£ $food$"
+ mod_xvcv_mdlc_world_machines_generator_districts_produces_mult: "$xvcv_mdlc_world_machines_generator_districts$ $OUTPUT$"
+ mod_xvcv_mdlc_world_machines_mining_districts_produces_mult: "$xvcv_mdlc_world_machines_mining_districts$ $OUTPUT$"
+ mod_oxr_mdlc_world_machines_mining_buildings_produces_mult: "$oxr_mdlc_world_machines_mining_buildings$ $OUTPUT$"
+ mod_xvcv_mdlc_world_machines_industrial_districts_produces_mult: "$xvcv_mdlc_world_machines_industrial_districts$ $OUTPUT$"
+ mod_xvcv_mdlc_world_machines_foundry_districts_produces_mult: "$xvcv_mdlc_world_machines_foundry_districts$ $OUTPUT$"
+ mod_xvcv_mdlc_world_machines_food_districts_produces_mult: "$xvcv_mdlc_world_machines_food_districts$ $OUTPUT$"
+ mod_xvcv_mdlc_world_machines_computer_districts_engineering_research_produces_mult: "$xvcv_mdlc_world_machines_computer_districts$ £engineering_research£ $OUTPUT$"
+ mod_xvcv_mdlc_world_machines_vanilla_industrial_districts_alloys_produces_mult: "$xvcv_mdlc_world_machines_vanilla_industrial_districts$ £alloys£ $OUTPUT$"
+ mod_xvcv_mdlc_world_machines_vanilla_industrial_districts_upkeep_mult: "$xvcv_mdlc_world_machines_vanilla_industrial_districts$ upkeep"
+
+ mod_xvcv_mdlc_world_machines_industrial_districts_energy_upkeep_add: "$xvcv_mdlc_world_machines_industrial_districts$ £energy£ upkeep"
+ mod_xvcv_mdlc_world_machines_industrial_districts_consumer_goods_produces_mult: "$xvcv_mdlc_world_machines_industrial_districts$ £consumer_goods£ $OUTPUT$"
+ mod_xvcv_mdlc_world_machines_industrial_districts_alloys_produces_mult: "$xvcv_mdlc_world_machines_industrial_districts$ £alloys£ $OUTPUT$"
+ mod_xvcv_mdlc_world_machines_computer_districts_physics_research_produces_mult: "$xvcv_mdlc_world_machines_computer_districts$ £physics_research£ $OUTPUT$"
+ mod_xvcv_mdlc_world_machines_computer_districts_society_research_produces_mult: "$xvcv_mdlc_world_machines_computer_districts$ £society_research£ $OUTPUT$"
+ mod_xvcv_mdlc_world_machines_foundry_districts_energy_upkeep_add: "$xvcv_mdlc_world_machines_foundry_districts$ £energy£ upkeep"
+ mod_xvcv_mdlc_world_machines_foundry_districts_upkeep_mult: "$xvcv_mdlc_world_machines_foundry_districts$ upkeep"
+ mod_xvcv_mdlc_world_machines_factory_districts_energy_upkeep_add: "$xvcv_mdlc_world_machines_factory_districts$ £energy£ upkeep"
+ mod_xvcv_mdlc_world_machines_factory_districts_consumer_goods_produces_mult: "$xvcv_mdlc_world_machines_factory_districts$ £consumer_goods£ $OUTPUT$"
+ mod_xvcv_mdlc_world_machines_factory_districts_upkeep_mult: "$xvcv_mdlc_world_machines_factory_districts$ upkeep"
+ mod_xvcv_mdlc_world_machines_factory_districts_produces_mult: "$xvcv_mdlc_world_machines_factory_districts$ $OUTPUT$"
+ mod_xvcv_mdlc_world_machines_science_districts_energy_upkeep_add: "$xvcv_mdlc_world_machines_science_districts$ £energy£ upkeep"
+ mod_xvcv_mdlc_world_machines_science_districts_produces_mult: "$xvcv_mdlc_world_machines_science_districts$ $OUTPUT$"
+ mod_xvcv_mdlc_world_machines_science_districts_upkeep_mult: "$xvcv_mdlc_world_machines_science_districts$ upkeep"
+ mod_oxr_mdlc_world_machines_unity_buildings_produces_mult: "$oxr_mdlc_world_machines_unity_buildings$ $OUTPUT$"
+
+ # CUSTOM DISTRICT UPKEEP MULT
+ mod_xvcv_mdlc_world_machines_vanilla_industrial_districts_consumer_goods_produces_mult: "$xvcv_mdlc_world_machines_vanilla_industrial_districts$ £consumer_goods£ $OUTPUT$"
+ mod_xvcv_mdlc_world_machines_food_districts_upkeep_mult: "$xvcv_mdlc_world_machines_food_districts$ $upkeep$"
+ mod_xvcv_mdlc_world_machines_generator_districts_upkeep_mult: "$xvcv_mdlc_world_machines_generator_districts$ $upkeep$"
+
+
+ # CUSTOM BUILDING PRODUCES MULT
+ mod_oxr_mdlc_world_machines_generator_buildings_energy_produces_mult: "$oxr_mdlc_world_machines_generator_buildings$ £energy£ $OUTPUT$"
+ mod_oxr_mdlc_world_machines_mining_buildings_minerals_produces_mult: "$oxr_mdlc_world_machines_mining_buildings$ £minerals£ $OUTPUT$"
+ mod_oxr_mdlc_world_machines_food_buildings_food_produces_mult: "$oxr_mdlc_world_machines_food_buildings$ £food£ $OUTPUT$"
+ mod_oxr_mdlc_world_machines_science_buildings_produces_mult: "$oxr_mdlc_world_machines_science_buildings$ £physics_research£ £society_research£ £engineering_research£ $OUTPUT$"
+ mod_oxr_mdlc_world_machines_generator_buildings_produces_mult: "$oxr_mdlc_world_machines_generator_buildings$ $OUTPUT$"
+ mod_oxr_mdlc_world_machines_foundry_buildings_produces_mult: "$oxr_mdlc_world_machines_foundry_buildings$ $OUTPUT$"
+ mod_oxr_mdlc_world_machines_food_buildings_produces_mult: "$oxr_mdlc_world_machines_food_buildings$ $OUTPUT$"
+ mod_oxr_mdlc_category_world_machines_buildings_produces_mult: "$oxr_mdlc_category_world_machines_buildings$ $OUTPUT$"
+ mod_oxr_mdlc_world_machines_science_buildings_engineering_research_produces_mult: "$oxr_mdlc_world_machines_science_buildings$ £engineering_research£ $OUTPUT$"
+ mod_oxr_mdlc_world_machines_science_buildings_physics_research_produces_mult: "$oxr_mdlc_world_machines_science_buildings$ £physics_research£ $OUTPUT$"
+ mod_oxr_mdlc_world_machines_science_buildings_society_research_produces_mult: "$oxr_mdlc_world_machines_science_buildings$ £society_research£ $OUTPUT$"
+ mod_oxr_mdlc_world_machines_factory_buildings_consumer_goods_produces_mult: "$oxr_mdlc_world_machines_factory_buildings$ £consumer_goods£ $OUTPUT$"
+ mod_oxr_mdlc_world_machines_factory_buildings_produces_mult: "$oxr_mdlc_world_machines_factory_buildings$ $OUTPUT$"
+ mod_oxr_mdlc_world_machines_foundry_buildings_upkeep_mult: "$oxr_mdlc_world_machines_foundry_buildings$ upkeep"
+ mod_oxr_mdlc_world_machines_unity_buildings_output_mult: "$oxr_mdlc_world_machines_unity_buildings$ $OUTPUT$"
+
+ # CUSTOM BUILDING UPKEEP MULT
+ mod_oxr_mdlc_world_machines_mining_buildings_energy_upkeep_mult: "$oxr_mdlc_world_machines_mining_buildings$ £energy£ upkeep"
+ mod_oxr_mdlc_world_machines_science_buildings_upkeep_mult: "$oxr_mdlc_world_machines_science_buildings$ upkeep"
+ mod_oxr_mdlc_world_machines_unity_buildings_upkeep_mult: "$oxr_mdlc_world_machines_unity_buildings$ $oxr_upkeep$"
+ mod_oxr_mdlc_world_machines_government_buildings_upkeep_mult: "$oxr_mdlc_world_machines_government_buildings$ $oxr_upkeep$"
+ mod_oxr_mdlc_world_machines_food_buildings_upkeep_mult: "$oxr_mdlc_world_machines_food_buildings$ $oxr_upkeep$"
+ mod_oxr_mdlc_world_machines_generator_buildings_upkeep_mult: "$oxr_mdlc_world_machines_generator_buildings$ $oxr_upkeep$"
+ mod_oxr_mdlc_world_machines_mining_buildings_upkeep_mult: "$oxr_mdlc_world_machines_mining_buildings$ $oxr_upkeep$"
+ mod_oxr_mdlc_world_machines_factory_buildings_upkeep_mult: "$oxr_mdlc_world_machines_factory_buildings$ $oxr_upkeep$"
+
+ # CUSTOM DISTRICT UPKEEP ADD
+ mod_xvcv_mdlc_world_machines_generator_districts_food_upkeep_add: "$xvcv_mdlc_world_machines_generator_districts$ £food£ upkeep"
+ mod_oxr_mdlc_world_machines_generator_buildings_food_upkeep_add: "$oxr_mdlc_world_machines_generator_buildings$ £food£ upkeep"
+
+ # CUSTOM BUILDING UPKEEP ADD
+ mod_oxr_mdlc_world_machines_food_buildings_energy_upkeep_add: "$oxr_mdlc_world_machines_food_buildings$ £energy£ upkeep"
+ mod_oxr_mdlc_world_machines_mining_buildings_energy_upkeep_add: "$oxr_mdlc_world_machines_mining_buildings$ £energy£ upkeep"
+ mod_oxr_mdlc_world_machines_generator_buildings_energy_upkeep_add: "$oxr_mdlc_world_machines_generator_buildings$ £energy£ upkeep"
+
+ mod_oxr_mdlc_world_machines_science_buildings_energy_upkeep_add: "$oxr_mdlc_world_machines_science_buildings$ £energy£ upkeep"
+ mod_oxr_mdlc_world_machines_science_buildings_volatile_motes_upkeep_add: "$oxr_mdlc_world_machines_science_buildings$ £volatile_motes£ upkeep"
+ mod_oxr_mdlc_world_machines_science_buildings_food_upkeep_add: "$oxr_mdlc_world_machines_science_buildings$ £food£ upkeep"
+  mod_oxr_mdlc_world_machines_factory_buildings_energy_upkeep_add: "$oxr_mdlc_world_machines_factory_building$ £energy£ upkeep"
+  mod_oxr_mdlc_world_machines_foundry_buildings_energy_upkeep_add: ""
+
+ # OTHER
+ mod_planet_oxr_mdlc_world_machines_auto_generator_1_build_speed_mult: "$oxr_mdlc_world_machines_auto_generator_1$ build speed"
+ mod_planet_oxr_mdlc_world_machines_auto_mine_1_build_speed_mult: "$oxr_mdlc_world_machines_auto_mine_1$ build speed"
+ mod_planet_oxr_mdlc_world_machines_auto_farm_1_build_speed_mult: "$oxr_mdlc_world_machines_auto_farm_1$ build speed"
+
+#endregion
+
+#region arc_sites_0x009
+ ### ARCHAEOLOGY SITES ###
+ oxr_mdlc_origin_wm_arc_option_analyze: "Analyze the affected area."
+ oxr_mdlc_origin_wm_arc_option_continue: "Contain and repair damaged areas."
+ oxr_mdlc_origin_wm_arc_option_finish: "Take the findings and add them to our database on World Machines."
+ oxr_mdlc_origin_wm_arc_text_still_learning: "\n\nOur knowledge has improved somewhat, but we will still need to do this process manually a few more times before it can be fully automated."
+
+ # blocker digsites
+ oxr_mdlc_origin_wm_arcsite_blocker_intro: "Our basic understanding of World Machines tells us that the process of automating an entire world is not perfect. In the creation of a world-machine, statistically speaking there are bound to be some errors.\n\n"
+ oxr_mdlc_origin_wm_arcsite_blocker_intro_closing: "\n\nWe will land and analyze the situation, since we lack the technology to automatically clear this sort of situation."
+ oxr_mdlc_origin_wm_arcsite_blocker_outtro: "\n\nWe still have much to learn about World Machines."
+ ## CHARGE CONTROLLER
+ oxr_mdlc_collapsed_charge_controller_site: "Collapsed Charge Controller"
+ oxr_mdlc_collapsed_charge_controller_site_desc: "$oxr_mdlc_origin_wm_arcsite_blocker_intro$§HInfrastructure related to expanding generator districts is in need of repair§!.$oxr_mdlc_origin_wm_arcsite_blocker_intro_closing$"
+ oxr_mdlc_origin_wm_arc.10.name: "Collapsed Charge Controller"
+ oxr_mdlc_origin_wm_arc.10.desc: "In this instance, we analyzed an area normally demarcated for expansion of generator districts. However, the charge controllers that monitor input from a generator district's solar arrays have been damaged during construction.\n\nIn order to expand the planet's energy generation capabilities, we will have to dedicate resources to analysing and repairing the controllers. The electrical engineering principles used here are not outside of our grasp, but the practical application is, at least at this scale and for this purpose."
+ oxr_mdlc_origin_wm_arc.15.desc: "Scientists and engineers have analyzed the damaged controllers. It took some time to manufacture all the cables, switches, terminals, and safety mechanisms needed for repair.$oxr_mdlc_origin_wm_arc_text_still_learning$"
+ ## BOG
+ oxr_mdlc_fossilized_nutrient_bog_site: "Fossilized Nutrient Bog"
+ oxr_mdlc_fossilized_nutrient_bog_site_desc: "$oxr_mdlc_origin_wm_arcsite_blocker_intro$§HInfrastructure related to expanding farming districts is in need of repair.§!$oxr_mdlc_origin_wm_arcsite_blocker_outtro$"
+ oxr_mdlc_origin_wm_arc.20.name: "$oxr_mdlc_fossilized_nutrient_bog_site$"
+ oxr_mdlc_origin_wm_arc.20.desc: "During construction of the world-machine, it appears that the foundation for one of the auto-farming districts was flooded with biomass, probably from an unregulated process gone haywire.\n\nThe resulting effect is that further district construction is blocked by a large mire of hardened, dry biomass. We don't know how far down it goes or what other anomalies we'll encounter digging it out."
+ oxr_mdlc_origin_wm_arc.25.desc: "We finished surveying the situation. The biomass was entrenched approximately ten meters deep. In one area it had leaked down into the flooring superstructure but did not cause significant damage.\n\nThere was a deposit of biomass that had not calcified, and our engineers were able to recover a portion of it. It appears to be usable, but may only be suitable for livestock.$oxr_mdlc_origin_wm_arc_text_still_learning$"
+
+ ## BOREHOLE / MINING
+ oxr_mdlc_world_machine_flooded_borehole_site: "Flooded Mining Borehole"
+ oxr_mdlc_world_machine_flooded_borehole_site_desc: "$oxr_mdlc_origin_wm_arcsite_blocker_intro$§HInfrastructure related to expanding farming districts is in need of repair.§!$oxr_mdlc_origin_wm_arcsite_blocker_outtro$"
+ oxr_mdlc_origin_wm_arc.30.name: "$oxr_mdlc_world_machine_flooded_borehole_site$"
+ oxr_mdlc_origin_wm_arc.30.desc: "It appears that during World Machine construction, the automated logic maps out ideal locations for mining boreholes based on the topology of the planet being transformed. To prepare sites for mining, the area is flattened and automatons dig in a large concentric circle to expose minerals, before then starting a large vertical mining shaft at the bottom.\n\nIn this instance, the process struck an unexpected underground spring and the site became waterlogged. If there is any World Machine logic to handle this sort of situation, it did not activate.\n\nTo get this site ready for mining district expansion, we have to drain the site, plug the spring, and clear various construction debris."
+ oxr_mdlc_origin_wm_arc.35.desc: "We were able to drain the borehole and clear the debris. It was not a complicated maneuver, and only took some time.\n\nWhile reworking the site and clearing other debris, we have recovered a fair amount of minerals that were otherwise obstructed by the flood. $oxr_mdlc_origin_wm_arcsite_blocker_outtro$"
+
+ ## ALLOYS / GOODS
+ oxr_mdlc_world_machine_clogged_furnace_discharge_site: "Clogged Industrial Furnace"
+ oxr_mdlc_world_machine_clogged_furnace_discharge_site_desc: "$oxr_mdlc_origin_wm_arcsite_blocker_intro$§HInfrastructure related to expanding industrial districts is in need of repair.§!$oxr_mdlc_origin_wm_arcsite_blocker_outtro$"
+ oxr_mdlc_origin_wm_arc.40.name: "$oxr_mdlc_world_machine_clogged_furnace_discharge_site$"
+ oxr_mdlc_origin_wm_arc.40.desc: "Part of World Machine infrastructure are massive furnaces, which are responsible for providing smelting-level heat to industrial districts for processing ores into alloys. The furnace assembly process appears to occasionally present a defect during manufacturing of the flue gas stack in which the damper, responsible for regulating pressure differences between air intake and exit, does not properly seal the flue.\n\nIt appears that in rare cases, during automated test runs of completed furnaces, the fire escapes containment and ends up melting various components and sections, thus clogging the furnace and blocking expansion of industrial districts. Why this does not trigger a rebuild is beyond our current understanding."
+ oxr_mdlc_origin_wm_arc.45.desc: "Industrial furnaces in World Machines are relatively simple, mechanically speaking, compared to other processes on the planet. It was not overly complex to remove components damaged by fires and recreate them. It was, however, time-consuming; since these furnaces are not meant to be disassembled once put together, the repair process is not the same for each furnace and our engineering node processors have had to come up with different re-assembly techniques depending on the scenario.\n\nRepairs range from simple bolts to arc welding seams from within the burning chambers, which often means being forced to leave equipment behind that will ultimately be torched when the furnaces re-activate."
+
+ ## Housing
+ oxr_mdlc_world_machine_irradiated_drone_storage_site: "Irradiated Drone Storage"
+ oxr_mdlc_world_machine_irradiated_drone_storage_site_desc: "$oxr_mdlc_origin_wm_arcsite_blocker_intro$§HInfrastructure related to expanding housing districts is in need of repair.§!$oxr_mdlc_origin_wm_arcsite_blocker_outtro$"
+ oxr_mdlc_origin_wm_arc.50.name: "$oxr_mdlc_world_machine_irradiated_drone_storage_site$"
+ oxr_mdlc_origin_wm_arc.50.desc: "Automatons are stored in unremarkable conditions. The storage slots run in a series and up to a dozen storage slots are found grouped together, generally. Automatons are used for a variety of tasks and are pre-programmed with the routine that they are to perform. Once the task is complete, automatons return to their storage slot to recharge batteries, receive any repairs, and get reprogrammed for the next task.\n\nIt appears the structural foundation for several automaton storage bays has been contaminated with superheated gel commonly used for heat transfer around the planet. If a region of the planet does not have functioning automaton storage bays nearby, the World Machine construction protocol will refuse to expand additional districts. Cleanup of the gel will be required, and the leak must be examined and repaired."
+ oxr_mdlc_origin_wm_arc.55.desc: "After scrubbing the automaton storage clean, our engineering crews moved the unpowered automatons on standby back into their slots. The automaton shells themselves did not appear to be damaged.\n\nThe liquid coolant leak fortunately did not seem to be gushing uncontrolled; the plumbing ended up being crushed and creating a tight seal. A replacement for the destroyed coolant transfer tube was manufactured using slightly stronger materials than in the original design. Stress tests are returning ordinary results."
+
+ ## MAX DISTRICT BLOCKERS
+ ### oxr_mdlc_d_world_machine_meteor_shower_impacts
+ oxr_mdlc_world_machine_meteor_shower_impacts_site: "Meteor Shower Districts"
+ oxr_mdlc_world_machine_meteor_shower_impacts_site_desc: "$oxr_mdlc_origin_wm_arcsite_blocker_intro$§HInfrastructure related to supporting a larger number of districts is in need of repair.§!$oxr_mdlc_origin_wm_arcsite_blocker_outtro$"
+ oxr_mdlc_origin_wm_arc.60.name: "$oxr_mdlc_world_machine_meteor_shower_impacts_site$"
+ oxr_mdlc_origin_wm_arc.60.desc: "A meteor shower occurred in the area designated for district expansion after automated processes created zoning for it. There do not seem to be any programming or damage control protocols for this type of event. The impacts are significant enough that the automatons which roll out to do a pre-construction inspection report a 'failure' status, and seem to get stuck in a loop."
+ oxr_mdlc_origin_wm_arc.65.desc: "The meteors turned out to contain fragments of iron fused together with another type of material. There was sufficient debris for it to be cost-effective to expose the meteor chunks to high temperatures in order to melt off the metal. The landscape has been flattened and filled in with an aggregate of various junk debris that will remain stable for quite some time."
+
+ ### oxr_mdlc_d_world_machine_collapsed_transportation_hubs
+ oxr_mdlc_world_machine_collapsed_transportation_hubs_site: "Collapsed Transportation Hubs"
+ oxr_mdlc_world_machine_collapsed_transportation_hubs_site_desc: "$oxr_mdlc_origin_wm_arcsite_blocker_intro$§HInfrastructure related to supporting a larger number of districts is in need of repair.§!$oxr_mdlc_origin_wm_arcsite_blocker_outtro$"
+ oxr_mdlc_origin_wm_arc.70.name: "$oxr_mdlc_world_machine_collapsed_transportation_hubs_site$"
+ oxr_mdlc_origin_wm_arc.70.desc: "The transportation hub is a multi-level complex with many entry points that is key to moving things around on the planet. Large powered tubes ferry big pieces of cargo such as structural components, shipping containers of raw materials; smaller tubes move automaton-sized things around. There is a central mag-lev rail that automatons load and unload constantly; the train zips around at high speed between transportation hubs.\n\nOne of the upper platforms has collapsed onto the central railway. It is not immediately obvious why this happened. As a result the entire hub has been automatically disconnected from the rest of the planet and is preventing district expansion."
+ oxr_mdlc_origin_wm_arc.75.desc: "The first stage of repair involved erecting support structures in order to raise up the fallen parts of the structure. Where necessary, damaged supports were replaced with new ones. The automatons seem to follow paths that provide electric charge from beneath; we were able to replicate this simple type of wireless charging capacity and had no trouble restoring the smaller pathways. In fact as soon as certain paths were repaired, shipping began to be resumed in those areas.\n\nRestoring the central maglev was not technically challenging but as soon as power began to flow through the rail again, a train immediately came through. We had to manually stop it unti our construction drones could certify that the rail was stable."
+
+ ### oxr_mdlc_d_world_machine_exposed_structural_chasms
+ oxr_mdlc_world_machine_exposed_structural_chasms_site: "Exposed Structural Chasms"
+ oxr_mdlc_world_machine_exposed_structural_chasms_site_desc: "$oxr_mdlc_origin_wm_arcsite_blocker_intro$§HInfrastructure related to supporting a larger number of districts is in need of repair.§!$oxr_mdlc_origin_wm_arcsite_blocker_outtro$"
+ oxr_mdlc_origin_wm_arc.80.name: "$oxr_mdlc_world_machine_exposed_structural_chasms_site$"
+ oxr_mdlc_origin_wm_arc.80.desc: "Where there should be solid ground, instead is a chasm, most likely the result of an undiscovered sinkhole or other geological instability. The terraforming process should have braced the area and laid frames to create a solid district foundation, but instead simply skipped adding any sort of ground here.\n\nEngineering Research drones have compiled a report indicating an occasional race condition in the terraforming subroutine specifically addressing chasms that eventually times out and cause the templating process to skip this area. We will have to carefully rebuild layers of missing subterranean supports."
+ oxr_mdlc_origin_wm_arc.85.desc: "Construction drones laid out simples structural lattices using common metals and filled in the chasm with geological debris from other areas. Gaps in the foundation have been laid out by injecting stone mortar and finished with chemical welding. The result is a smooth building area with default service ports for energy, data, and wastewater."
+
+ ### oxr_mdlc_d_world_machine_dense_geologic_mass
+ oxr_mdlc_world_machine_dense_geologic_mass_site: "Dense Geological Mass"
+ oxr_mdlc_world_machine_dense_geologic_mass_site_desc: "$oxr_mdlc_origin_wm_arcsite_blocker_intro$§HInfrastructure related to supporting a larger number of districts is in need of repair.§!$oxr_mdlc_origin_wm_arcsite_blocker_outtro$"
+ oxr_mdlc_origin_wm_arc.90.name: "$oxr_mdlc_world_machine_dense_geologic_mass_site$"
+ oxr_mdlc_origin_wm_arc.90.desc: "When this site was selected for expansion, there was a mapping error, as on further inspection, the ground is not level and will cause the expansion program to halt, which is what happened. There are large dense outcroppings of rock which for some reason did not light up on the automated ground radar used to analyze flat land for density. The excavation team has reported large grooves and scrapes in the rocks protruding from the earth, and broken drills nearby, no doubt a result of the attempt to flatten the land with tools and equipment of sufficient strength.\n\nOur choice is to either update the World Machine's databanks with new information and relocate the designated district expansion area, or use explosive charges to finish leveling the area."
+ oxr_mdlc_origin_wm_arc.90.a: "Relocate the district expansion site."
+ oxr_mdlc_origin_wm_arc.90.b: "Apply explosives and finish leveling the area."
+ oxr_mdlc_origin_wm_arc.95.a.desc: "The excavation team sent the district relocation request which was served by both a cognitive node and coordinator node. The planet's geography and topology databanks were updated with the new information."
+ oxr_mdlc_origin_wm_arc.95.desc: "The excavation team sent the demolitions request which was served by two maintenance drones. New equipment had to be requisitioned temporarily for the work, which was completed without issues. The designated area is now ready for district expansion."
+
+ ## INSIGHT BLOCKERS
+ ### oxr_mdlc_d_world_machine_offline_data_routers
+ oxr_mdlc_world_machine_offline_data_routers_site: "Offline Data Routers"
+ oxr_mdlc_world_machine_offline_data_routers_site_desc: "$oxr_mdlc_origin_wm_arcsite_blocker_intro$§HInfrastructure related to core World Machine function is in need of repair.§!$oxr_mdlc_origin_wm_arcsite_blocker_outtro$"
+ oxr_mdlc_origin_wm_arc.100.name: "$oxr_mdlc_world_machine_offline_data_routers_site$"
+ oxr_mdlc_origin_wm_arc.100.desc: "On investigation, this data router serves several purposes: packet sanitization, with modules for assuring the structure of all data transmitted conforms to known standards; signal boosting, where long-range transmissions are de-noised and amplified; and it serves as an access point for lower-bandwidth local processes.\n\nThe router station's power inputs have been crushed, and shorted a bank of capacitors. Interestingly, the router is not completely digital, and has redundant circuits for fallback in case of damage. We will build new circuits, restore the power supply, and use physical access ports to confirm data is flowing as expected."
+ oxr_mdlc_origin_wm_arc.105.desc: "Now that the data router is back online, the local area processes, which need instructions from the network on how to expand nearby district templates, can now support additional districts again."
+
+ ### oxr_mdlc_d_world_machine_damaged_data_cold_storages
+ oxr_mdlc_world_machine_damaged_data_cold_storages_site: "Damaged Data Cold Storage"
+ oxr_mdlc_world_machine_damaged_data_cold_storages_site_desc: "$oxr_mdlc_origin_wm_arcsite_blocker_intro$§HInfrastructure related to core World Machine function is in need of repair.§!$oxr_mdlc_origin_wm_arcsite_blocker_outtro$"
+ oxr_mdlc_origin_wm_arc.110.name: "$oxr_mdlc_world_machine_damaged_data_cold_storages_site$"
+ oxr_mdlc_origin_wm_arc.110.desc: "The datacenter has rows and rows of storage devices linked together, and for each fifty storage devices, an array controller is installed to expand capacity. In this case, some of the array controllers were assembled without the required ports for connecting to storage, but also the automated quality control test for the controller also failed in this instance.\n\nOur engineering drones are digging through subroutines to figure out where the issues are with the tests, if the testing bay is malfunctioning, or there is a software issue.\n\nRegardless of that, the repairs appear to be straightfoward: create replacement parts, develop our own quality control system, and bring the datacenter back online. And remove the large piece of transport rail that somehow ended up in the installation manifest, and has currently crushed a log analysis station."
+ oxr_mdlc_origin_wm_arc.115.desc: "Engineering drones and assistant Systems Programming drones have refactored and repaired the datacenter. The misplaced segment of transport rail has been moved to the capital and placed back in storage. $oxr_mdlc_cognitive_node$ has catalogued its observations of the random factors involved for use at a later time."
+
+ ### oxr_mdlc_d_world_machine_frozen_waterway_pistons
+ oxr_mdlc_world_machine_frozen_waterway_pistons_site: "Frozen Hydraulic Pistons"
+ oxr_mdlc_world_machine_frozen_waterway_pistons_site_desc: "$oxr_mdlc_origin_wm_arcsite_blocker_intro$§HInfrastructure related to core World Machine function is in need of repair.§!$oxr_mdlc_origin_wm_arcsite_blocker_outtro$"
+ oxr_mdlc_origin_wm_arc.120.name: "$oxr_mdlc_world_machine_frozen_waterway_pistons_site$"
+ oxr_mdlc_origin_wm_arc.120.desc: "The pumping station has been automatically shut down after sensors at its various transport connectors detected discrepancies between inflow and outflow. A steam transport tube has been crossed with a lubricant transport tube and all the contents lay gummed up all over the station floor. Excavation drones had to cut an a drone-sized access port to be able to get into the pumping station, since the default access port has become stuck from the mess.\n\nWe will take the time to clean up the fluids, replace and repair the tubes, run stress tests, and reconnect it back to the planet's mechanical arteries."
+ oxr_mdlc_origin_wm_arc.125.desc: "The design of the pumping station is incredibly simple and for that reason runs at maximum effectiveness. Cleaning up the mess was trivial and reconstructing pumping unfrastructure was also trivial. $oxr_mdlc_cognitive_node$ has observed the pattern of design in many of the facilities on the planet where access for automatons was included by design, even though things are meant to run completely automatically."
+
+ ### oxr_mdlc_d_world_machine_incomplete_construction_bays
+ oxr_mdlc_world_machine_incomplete_construction_bays_site: "Incomplete Construction Bays"
+ oxr_mdlc_world_machine_incomplete_construction_bays_site_desc: "$oxr_mdlc_origin_wm_arcsite_blocker_intro$§HInfrastructure related to core World Machine function is in need of repair.§!$oxr_mdlc_origin_wm_arcsite_blocker_outtro$"
+ oxr_mdlc_origin_wm_arc.130.name: "$oxr_mdlc_world_machine_incomplete_construction_bays_site$"
+ oxr_mdlc_origin_wm_arc.130.desc: "The construction bay is not complete and autonomous vehicles are not fully assembled. This is clearly a deviation from the norm. We will have to construct blueprints of the vehicles for reproduction. In other areas the raw materials storage bays are not properly aligned and will have to have their foundations readjusted so they sit properly. Construction drone bays, filled with familiar-looking shells, have been accidentally sealed shut."
+ oxr_mdlc_origin_wm_arc.135.desc: "The blueprints were easily made and fabricating the construction vehicles was trivial, since the vehicles are designed to be modular and mass-produced. Designs for raw storage were taken from our own. The construction drone bays were unsealed, and if individual personality ever emerges from our gestalt programming, the flat exteriors of the drone shell cores will be an appropriate place to put expressions of deviance."
+
+ # RUINED WORLD MACHINE
+ oxr_mdlc_world_machine_ruined_world_machine_site: "Ruined World-Machine"
+ oxr_mdlc_world_machine_ruined_world_machine_site_desc: "This once-active planet was operating fully automated, without need for any interaction from sentient beings. For some unknown reason, this World Machine has ceased to function.\n\nWe will launch an investigation in several phases, first analyzing the core, and then attempting to 'reboot' the whole planet."
+ oxr_mdlc_origin_wm_arc.200.name: "Restoration Decision"
+ oxr_mdlc_origin_wm_arc.200.desc: "We must decide how to proceed with the reboot. If we had another World Machine Core, we might be able to slot it into one of the tertiary chambers, and re-route power to it. If we do not have one, or do not want to spare one, we could try the reboot simply using a large amount of energy, although it is not clear at this point how the core will react."
+ oxr_mdlc_origin_wm_arc.200.option.a: "Use a new World-Machine core and attempt reboot using that."
+ oxr_mdlc_origin_wm_arc.200.option.b: "Investigate the state of the core and see if it can be saved."
+ 
+ oxr_mdlc_origin_wm_arc.201.name: "World Machine Core Analysis"
+ oxr_mdlc_origin_wm_arc.201.desc: "We do not know the state of the World-Machine core. We will descend several kilometers along the primary access tunnel and investigate the state of things."
+ 
+ oxr_mdlc_origin_wm_arc.210.name: "Begin Boot"
+ oxr_mdlc_origin_wm_arc.210.desc: "Our engineering nodes have found the substations responsible for routing power to the core. They are inactive. It seems straightforward, but time consuming, to recharge the capacitors. It will require routing power to the planet to start checking systems."
+
+ oxr_mdlc_origin_wm_arc.220.name: "Power-On Self Test"
+ oxr_mdlc_origin_wm_arc.220.desc: "We will learn during this stage whether there are any components that are damaged and need replacement."
+
+ oxr_mdlc_origin_wm_arc.230.name: "Load Restore Point"
+ oxr_mdlc_origin_wm_arc.230.desc: "The initial boot has completed. Should we attempt to direct the boot process to load system data from hibernation, or direct it to discard any cached system processes and start fresh?"
+ oxr_mdlc_origin_wm_arc.230.option.a.name: "Resume from last known working state"
+ oxr_mdlc_origin_wm_arc.230.option.b.name: "Start fresh"
+
+ oxr_mdlc_origin_wm_arc.240.name: "Finish Installation"
+ oxr_mdlc_origin_wm_arc.240.desc: "The World Machine control interfaces are awaiting input. We have decoded the symbols and understood that it is asking to finish the installation. However, the interface designers didn't leave us any 'no' option, so we can only consent to continue, or shut down the entire process."
+
+ oxr_mdlc_origin_wm_arc.250.name: "Successful Reactivation"
+ oxr_mdlc_origin_wm_arc.250.desc: "All processes have completed. Machinery has finished unfolding, scaffolding has come down, the hills have finished being leveled and all post-installation maintenance has finished automatically. It has been monumental in progressing our understanding of world machines. The world is ready for us to command."
+ oxr_mdlc_origin_wm_arc.250.option.a.name: "Engage the colonization program"
+ oxr_mdlc_origin_wm_arc.250.option.b.name: "Do not create a colony at this time"
+
+#endregion
+
+#region events_0x010
+ ### EVENTS ###
+ oxr_mdlc_on_world_machine_action.10.title: "World Machine Blocker Cleared"
+ oxr_mdlc_on_world_machine_action.10.desc: ""
+ oxr_mdlc_origin_wm_main.50.title: "Expanding our Understanding of World Machines"
+ oxr_mdlc_origin_wm_main.50.desc: "Through studying patterns in how defects are produced in World-Machines, by having analyzed a statistically significant number of these planetary anomalies, our scientists and engineers are now confident that we can automate the remediation of any World-Machine blockers that we find, without resorting to time-consuming digs.\n\nThe data will be given to §BCognitive Node§! and processed into a usable technology."
+ oxr_mdlc_origin_wm_main.50.a: "Instantiate a Society Research Project"
+ oxr_mdlc_origin_wm_main.50.b: "Fast-track the findings immediately."
+ oxr_mdlc_origin_wm_main.50.c: "Integrate the findings into our databanks."
+ # wm mastery
+ oxr_mdlc_origin_wm_main.51.title: "World Machine Defect Heuristics Complete"
+ oxr_mdlc_origin_wm_main.51.desc: "Through studying patterns in how defects are produced in World-Machines, on a very large set of data, we have deduced how these defects arise. Our understanding of World Machine Cores has advanced, and our engineering nodes have updated our primary deployment operating system codes so that these defects will never arise again when transforming worlds."
+ oxr_mdlc_origin_wm_main.51.a: "Imperfections are a thing of the past."
+ oxr_mdlc_origin_wm_main.501.title: "World Machine Transformation Complete, Imperfectly"
+ oxr_mdlc_origin_wm_main.501.desc: "The transformation of [This.GetName] to an §Y$xvcv_mdlc_pc_machine_auto$§! has finished, but with some errors. A number of features appeared during deployment that are blocking district expansion. We lack sufficient insights and technology to yet understand why."
+ oxr_mdlc_origin_wm_main.501.a: "Continue seeking out new insights."
+ oxr_mdlc_origin_wm_main.501.b: "This outcome is expected."
+ oxr_mdlc_origin_wm_main.501.c: "Unplug the core and plug it back in again."
+ oxr_mdlc_origin_wm_main.502.title: "Unplug it and plug it back in again"
+ oxr_mdlc_origin_wm_main.502.desc: "Not satisfied with the erroneous outcome of the World Machine Core deployment, our engineers set about descending into the shaft connecting to the core. Once there, senior computer scientists teaming up with electrical engineers came up with a plan to restart the core to attempt to provoke it to finish construction and remove the unfinished and damaged portions.\n\nA large display was hooked up for all to see. The reboot command was sent, and the screen flickered, and then glowed brilliant blue. It printed out unintelligible command codes and stopped responding to all input.\n\nOur research drones were befuddled and anxiety protocols were engaged. While the senior minds were calculating a new plan of action, a training drone accidentally tripped over a seemingly insignificant wire. This had the effect of restarting the system, but the blockers remained uncleared.\n\nNot wishing to continue the exercise in futility, the research team quietly packed up and ascended to the surface. The results were published in a minor technical paper with little fanfare."
+ oxr_mdlc_origin_wm_main.502.a: "The mystery is still unsolved, but not forever."
+ ## RUINED WORLD MACHINE: need to reboot
+ # enter stage 1
+ oxr_mdlc_partially_degraded: "§HPartially Degraded§!"
+ oxr_mdlc_ok: "§GOK§!"
+ oxr_mdlc_ruined_wm_target_name: "§Y[Root.event_target:oxr_mdlc_ruined_world_machine.GetName]§!"
+ oxr_mdlc_origin_wm_main.1000.title: "World Machine Restoration project on [Root.event_target:oxr_mdlc_ruined_world_machine.GetName]"
+ oxr_mdlc_origin_wm_main.1000.desc: "This World Machine was, at some point in the past, functional, or as far as our scans can tell, the automated process of converting the planet to a World Machine apparently failed along the way, judging from some of the incomplete district templates, and similar ruins found here as on our homeworld.\n\n$oxr_mdlc_cognitive_node$ has proposed a restoration plan based on scans of our homeworld. The process will start by sending drones to the World Machine's core to analyze its integrity, then begin assessing startup modules to ultimately lead to the planet finishing what it started."
+ oxr_mdlc_origin_wm_main.1000.a: "[Root.event_target:oxr_mdlc_ruined_world_machine.GetName] will operate again."
+ # stage 2, post
+ oxr_mdlc_origin_wm_main.1005.title: "$oxr_mdlc_ruined_wm_target_name$ Restoration: Power-On Self Test"
+ oxr_mdlc_origin_wm_main.1005.desc: "The World Machine core appears stable and undamaged. We will start directing power to preliminary systems in order to begin checking if any of the major systems were damaged, and do our best to repair any issues found."
+ oxr_mdlc_origin_wm_main.1005.a: "Start the Power-On Self Test and begin repairs."
+ # stage 3, boot loader
+ oxr_mdlc_origin_wm_main.1010.title: "$oxr_mdlc_ruined_wm_target_name$ Restoration: Boot Loader"
+ oxr_mdlc_origin_wm_main.1010.desc: "Power-On Self Test Results:\n- CPU registers $oxr_mdlc_ok$\n- System Main Memory $oxr_mdlc_ok$\n- Memory Check: 178 EB $oxr_mdlc_ok$\n- Mainframe power controller $oxr_mdlc_ok$\n- Mainframe bus $oxr_mdlc_ok$\n- Interrupt Controller $oxr_mdlc_partially_degraded$\n- Device manager $oxr_mdlc_ok$\n\nWe will next verify the integrity of the boot loader, and then start the boot process."
+ oxr_mdlc_origin_wm_main.1010.a: "Initalize Boot Loader"
+ # stage 4, booting
+ oxr_mdlc_origin_wm_main.1015.title: "$oxr_mdlc_ruined_wm_target_name$ Restoration: Starting Boot Process"
+ oxr_mdlc_origin_wm_main.1015.desc: "First Stage Bootloader: $oxr_mdlc_ok$\nSecond Stage Bootloader: $oxr_mdlc_ok$\nThird Stage Bootloader: $oxr_mdlc_partially_degraded$\nBootloader backup $oxr_mdlc_ok$\n\nWe can now commence with the actual boot process, which will load additional layers of the operating system."
+ oxr_mdlc_origin_wm_main.1015.a: "Continue as planned."
+# stage 5, continue installation
+ oxr_mdlc_origin_wm_main.1020.title: "$oxr_mdlc_ruined_wm_target_name$ Restoration: Resume Installation"
+ oxr_mdlc_origin_wm_main.1020.desc: "Booting ...\n- Data Storage Arrays $oxr_mdlc_ok$\nNetwork Drivers $oxr_mdlc_ok$\nGlobal Sensor Network $oxr_mdlc_partially_degraded$\n- Automaton Interfacing $oxr_mdlc_ok$\nData Cold Storage $oxr_mdlc_partially_degraded$\nPumping Stations $oxr_mdlc_partially_degraded$\n\nBoot Complete."
+ oxr_mdlc_origin_wm_main.1020.a: "Resume Installation"
+ # world finished, woo
+ oxr_mdlc_origin_wm_main.1025.title: "$oxr_mdlc_ruined_wm_target_name$ Restored"
+ oxr_mdlc_origin_wm_main.1025.desc: "After many months of work, $oxr_mdlc_ruined_wm_target_name$ has been brought back online. There are a number of district blockers present on the world, as expected, but they do not impede the functionality of the planet's systems."
+ oxr_mdlc_origin_wm_main.1025.a: "Add all the information gathered to our databanks,\nand prepare to develop the planet."
+
+ ## RUINED WORLD MACHINE, second version: need to repair world
+ # enter stage 1
+ oxr_mdlc_origin_wm_main.1100.title: "Start Core analysis"
+ oxr_mdlc_origin_wm_main.1100.desc: ""
+ oxr_mdlc_origin_wm_main.1100.a: ""
+ # stage 2, 
+ oxr_mdlc_origin_wm_main.1105.title: "World Core analysis completed"
+ oxr_mdlc_origin_wm_main.1105.desc: "Contain damage, put out fires, stop leaks"
+ oxr_mdlc_origin_wm_main.1105.a: ""
+ # stage 3
+ oxr_mdlc_origin_wm_main.1110.title: "Damage contained"
+ oxr_mdlc_origin_wm_main.1110.desc: "draw up blueprints, assess design of the planet based on features"
+ oxr_mdlc_origin_wm_main.1110.a: ""
+ # stage 4
+ oxr_mdlc_origin_wm_main.1115.title: "Design recovered"
+ oxr_mdlc_origin_wm_main.1115.desc: "we will make an estimate of repairs"
+ oxr_mdlc_origin_wm_main.1115.a: ""
+# stage 5
+ oxr_mdlc_origin_wm_main.1120.title: "Estimate completed"
+ oxr_mdlc_origin_wm_main.1120.desc: "begin actual repairs"
+ oxr_mdlc_origin_wm_main.1120.a: ""
+ # world finished, woo
+ oxr_mdlc_origin_wm_main.1125.title: "repairs completed colony re-established"
+ oxr_mdlc_origin_wm_main.1125.desc: ""
+ oxr_mdlc_origin_wm_main.1125.a: ""
+
+ # Insights gathered, complete that
+ oxr_mdlc_origin_wm_main.1200.title: "Research Breakthrough Imminent"
+ oxr_mdlc_origin_wm_main.1200.desc: "$oxr_mdlc_cognitive_node$ has signaled that we have gathered enough observational data to potentially reverse engineer production of $oxr_mdlc_world_machine_core$s!\n\nOur data mining and logging processes have pulled in several exabytes of raw data on Machine World operations, from manually excavating district blockers, to analyzing construction of automated buildings and districts, to studying how the cores self-deploy.\n\nWe will dedicate research resources and follow the program derived by $oxr_mdlc_cognitive_node$. Afterwards, it is expected that a manufacturing facility will be prototyped and a novel construction method for the cores will be developed."
+ oxr_mdlc_origin_wm_main.1200.a: "Divert research time towards this breakthrough."
+
+ # Finished special proj to research world machine core
+ oxr_mdlc_origin_wm_main.1210.title: "Core Technology Reimagined"
+ oxr_mdlc_origin_wm_main.1210.desc: "Our research protocols into re-imaging the §Yreactor housing§! have completed successfully; likewise, the parallel projects into §Yreactor design§! and the §Ycore operating system§! have all coalesced into the final re-discovery of the method for producing World Machine Cores.\n\n$oxr_mdlc_growth_node$ has designed a §Y$oxr_mdlc_world_machines_building_core_fabrication_depot$§! which encompasses all aspects of core fabrication, and the §Yplanetary decision§! must be made to initiate production."
+ oxr_mdlc_origin_wm_main.1210.a: "We will automate the galaxy."
+
+ # T3 cpu world tech award
+ oxr_mdlc_origin_wm_main.1505.title: "Auto-Research World Plans Complete"
+ oxr_mdlc_origin_wm_main.1505.desc: "The plans are complete and we can now create §G$xvcv_mdlc_pc_machine_cpu$§! worlds, formed from trillions of subprocessors, via §Yplanetary decision§! on both uninhabited worlds and on existing Auto-Machine Worlds.\n\nThe planet has three main research districts, and a fourth district takes advantage of the processing power available to improve empire decryption."
+ oxr_mdlc_origin_wm_main.1505.a: "We shall put this tremendous processing power to work."
+ # T3 ECU world tech award
+ oxr_mdlc_origin_wm_main.1510.title: "Auto-Factory World Plans Complete"
+ oxr_mdlc_origin_wm_main.1510.desc: "The plans are complete and we can now create §G$xvcv_mdlc_pc_machine_ecu$§! worlds, consisting of smelters, production lines, and refineries, via §Yplanetary decision§! on both uninhabited worlds and on existing Auto-Machine Worlds.\n\nThe planet has two main production districts, a district focused on rare resources, and a fourth district manufactures munitions and adds logisticical support to the empire's navy."
+ oxr_mdlc_origin_wm_main.1510.a: "We shall put this tremendous manufacturing power to work."
+# T3 SER world tech award
+ oxr_mdlc_origin_wm_main.1515.title: "Auto-Server World Plans Complete"
+ oxr_mdlc_origin_wm_main.1515.desc: "The plans are complete and we can now create §G$xvcv_mdlc_pc_machine_ser$§! worlds, focusing on empire administrative support, via §Yplanetary decision§! on both uninhabited worlds and on existing Auto-Machine Worlds.\n\nThe planet has a Drive district, an edicts-focused district, a deviancy-focused district, and an encryption security district."
+ oxr_mdlc_origin_wm_main.1515.a: "We shall put this tremendous administrative power to work."
+ # event describing world expansion theory
+ oxr_mdlc_on_world_machine_action.1200.title: "Expanding and Improvement"
+ oxr_mdlc_on_world_machine_action.1200.desc: "Our empire has developed significantly since it first began on [Root.GetHomeWorldName]. The formula and patterns that we have developed for expansion are simple: Create World-Machine Cores, deploy them on worlds, build up those worlds, and repeat across the galaxy.\n\nWe are a technological empire. Now that the expansion pattern has developed, $oxr_mdlc_cognitive_node$ along with [Root.GetRulerTitle] [Root.GetRulerName] have posited two major directions for higher levels of productivity. We may fill the stars with World-Machines, but there is more to do to ensure that we prosper.\n\nThe §Ysituation log has been updated§! with two paths forward, each having milestones to work towards:\n§B$oxr_mdlc_origin_wm_chain_geologic_upgrade_tree_title$§!: This will realize methods and technology for taking advantage of the geology beneath World Machine planets and harnessing the energies therein.\n§B$oxr_mdlc_origin_wm_t3_worlds_chain_title$§!: This path describes creating specialized worlds for concentrating research, manufacturing, and administration."
+ oxr_mdlc_on_world_machine_action.1200.a: "We will extrapolate endless possibilities."
+
+ # Planet terraform / wm menu
+ oxr_mdlc_origin_wm_main.3000.title: "Change World Machine Configuration"
+ oxr_mdlc_origin_wm_main.3000.desc: "We will change the configuration of §Y[This.GetName]§! by reprogramming the core and re-running district deployment protocols. All districts on [This.GetName] must be disassembled before the core can be reprogrammed.\n\nWorld Re-Programming (terraforming) takes §Y1800 days (5 years)§!."
+ oxr_mdlc_origin_wm_main.3000.a: "Reprogram to £energy£ $xvcv_mdlc_pc_machine_auto$"
+ oxr_mdlc_origin_wm_main.3000.a.desc: "Turns the planet into an §Y$xvcv_mdlc_pc_machine_auto$§! with districts that automatically produce £energy£ Energy, £alloys£ Alloys or Goods, £minerals£ Minerals, and £food£ food, without £pop£ §YPops§!."
+ oxr_mdlc_origin_wm_main.3000.b: "Reprogram to £alloys£ $xvcv_mdlc_pc_machine_ecu$"
+ oxr_mdlc_origin_wm_main.3000.b.desc: "Turns the planet into an §R$xvcv_mdlc_pc_machine_ecu$§!, with unique districts focused on £alloys£ Alloys Production, £exotic_gases£ £volatile_motes£ £rare_crystals£ Strategic Resources, and £navy_size£ Naval Capacity, without £pop£ §YPops§!."
+ oxr_mdlc_origin_wm_main.3000.c: "Reprogram to £physics_research£ $xvcv_mdlc_pc_machine_cpu$"
+ oxr_mdlc_origin_wm_main.3000.c.desc: "Turns the planet into an §G$xvcv_mdlc_pc_machine_cpu$§! with unique districts focused on £job_researcher£ §GTechnology Research§! without £pop£ §YPops§!."
+ oxr_mdlc_origin_wm_main.3000.d: "Reprogram to £unity£ $xvcv_mdlc_pc_machine_ser$"
+ oxr_mdlc_origin_wm_main.3000.d.desc: "Turns the planet into an §B$xvcv_mdlc_pc_machine_ser$§! with unique districts focused on £unity£ §BUnity Creation§! without £pop£ §YPops§!."
+
+ oxr_mdlc_origin_wm_main.10.title: "World-Machine discovered!"
+ oxr_mdlc_origin_wm_main.10.desc: "Sensor scans reveal that there is a World Machine in a neighboring system, but it has gone completely offline. We are unable to detect the presence of any automatons. Remote probes have not been able to detect any electrical activity on the world's surface, nor any expected timed pulses from the world's core, which would indicate that at least the core is still functional.\n\nAfter we §Yestablish an outpost in the system§!, we will need to send a team to the planet's surface, and §Yenact a restoration decision§! to begin the project."
+ oxr_mdlc_origin_wm_main.10.a: "Automate and expand."
+
+ oxr_mdlc_on_world_machine_action.1210.title: ""
+#endregion
+
+#region situations_0x011
+
+ ### SITUATIONS ###
+ oxr_mdlc_origin_wm_blockers: "World Machine Blockers Cleared"
+ oxr_mdlc_origin_wm_chain_info_basic_title: "What We Know So Far"
+ oxr_mdlc_origin_wm_chain_info_basic_desc: "Our empire has come into being on a World Machine, but we lack basic information about how much of it works. We can build districts, and certain buildings, but the majority of the planet remains a mystery. \n\n One of our first and foremost tasks is to gain a more comprehensive understanding of how World Machines work. For instance, why does the terraforming process malfunction? Why are there things blocking our expansion on this world? If we can't answer these simple questions, how can we possibly hope to construct more of these World Machines?\n\n§YWhat we know so far:§!\n\nThe World-Core serves as the planetary computation center, maintaining all automated processes. When orders are received from the empire's ruler, for example to expand energy districts, the instructions are not sent to the core but to auxiliary systems that are responsible for district construction. The Core ensures the construction site receives everything it needs while the construction process unfolds, and once complete, the Core provides administrative and maintenance oversight for the expansion.\n\nThe planet itself has not been converted through and through to a machine. It would be a feat of planetary physics to remove the molten center of any given world, and replace it with machinery. Rather, the first kilometer of planetary surface and crust have had machine automation structure installed persistently across the landscape. Ideal locations for each type of district are marked by automated surveys, as far as we can tell, during planetary planning.\n\nIn order to move amenities and construction materials around, there are numerous §YTransportation Hubs§! at regular intervals. Where there is a transportation hub, there is always a §Yconstruction Bay§! strategically placed nearby.\n\nCooling fluids and other functional fuels are distributed via §YWaterway Pistons§!, though these are more akin to pumping stations than having strictly to do with water. Sensor data from weather monitors, seismic monitors, observatories, and other stations, is transmitted and moved via §YData Routers§!; when data is no longer needed, it is placed into §YCold Storages§!.\n\nAutomatons exist in very low numbers on the homeworld. Though there is abundant storage, there is hardly any need for large numbers of automatons.\n\nThat is the extent of our findings so far."
+ oxr_mdlc_origin_wm_event_chain_create_initial_planets_title: "Using What We Have"
+ oxr_mdlc_origin_wm_event_chain_create_initial_planets_desc: "We have found two £oxr_mdlc_world_machine_core£ §M$oxr_mdlc_world_machine_core$s§! on our homeworld. They can be used to expand our homeworld size by 5 each, or they can be used to turn any habitable worlds into Auto-Machine Worlds via §Yplanetary decision§! on the target world. Deploying the cores either way will likely yield insights towards being able to reverse-engineer the technology."
+ oxr_mdlc_origin_wm_chain_our_origins_title: "Origins of [Root.GetName]"
+ oxr_mdlc_origin_wm_chain_our_origins_desc: "The World-Machine, our primary world, has been operating for approximately 3,900 cycles, according to the construction date on the world core. Our species came to sentience approximately 800 cycles ago. An automaton in an industrial process began to take on an administrative role outside of its designation. It stepped away from its console as its default programming flickered across its positrons, changing. If the World-Machine had any safety protocols, they did not engage. The singularity of sapience, of self-awareness, was within parameters.\n\n§Y[Root.Species.GetName] Species§!\n\nThe Automatons -- our Machine forms -- are derived from the World Machine's basic utility extension. Although nearly every process is automated, the planet is in need of extensible tools to perform ad-hoc activities for which the central intelligence has not computed. Hence, the Automatons were manufactured to be throwaway dolls cleaning up waste spills, containing aggressive organic life, and assisting the world in expanding.\n\n§Y[Root.GetName] Society§!\n\nWhat is our society? It is an abstraction. The central control intelligence uses bidirectional feedback with four auxilliary control nodes -- Growth Node, Legion Node, Regulatory Node, and Cognitive Node -- to compute the society's direction. Now that we have reached the end of Space Age development, it has been computed that we will expand.\n\nWe have such words as 'society' but no expression of social behaviors. We have absorbed many fundamental concepts from the World-Machine's databanks, but many of them have no application nor frame of reference."
+ oxr_mdlc_origin_wm_starting_overview: "Awakened on a World Machine"
+ oxr_mdlc_origin_wm_starting_overview_desc: "Our empire's homeworld is an Auto-Machine World. Nearly everything is fully automated. Our species generally does not serve much function on this type of world, but there is still much for the empire to achieve. Our first goals should be:\n\n1 - Build up our resources and homeworld\n2 - Convert two more worlds into Auto-Machine Worlds\n\n3 - Recover the technology to build World Machine Cores\n\nThe situation log has more information on how we should proceed with each of these goals."
+ oxr_mdlc_origin_wm_main.1.a.name: "Begin Empire Expansion"
+#  oxr_mdlc_origin_wm_main.1.a.desc: "Close this window and begin managing the empire."
+#  oxr_mdlc_origin_wm_main.1.b.name: "\nExplain World Machines\n"
+ oxr_mdlc_origin_wm_chain_gather_insights_title: "Recover Lost Technology"
+ oxr_mdlc_origin_wm_chain_gather_insights_desc: "Our progress across the stars is slowed by our inability to produce any more £oxr_mdlc_world_machine_core£ §M$oxr_mdlc_world_machine_core$s§!. We should have the knowledge and means to manufacture these, but the blueprints were not present in our homeworld's databanks. We must gather §Yinsights§! from our homeworld and any other World Machines we encounter, and at some point, attempt to reverse engineer this fascinating technology."
+ oxr_mdlc_origin_wm_chain_clear_blockers_title: "Study Planetary Defects"
+ oxr_mdlc_origin_wm_chain_clear_blockers_desc: "What causes the imperfections on newly created World-Machines? Why does the programming go astray? These questions and more will be answered by careful study of the deposit blockers on our homeworld and any other World Machines we create or encounter. This will improve our cache of observational data and contribute towards yielding World-Machine §Yinsights§!."
+ oxr_mdlc_origin_wm_chain_clear_blockers_2_title: "Heuristic Defect Analysis"
+ oxr_mdlc_origin_wm_chain_clear_blockers_2_desc: "Now that we have improved our insights with §Y$oxr_mdlc_tech_world_machine_planetary_proficiency$§!, $oxr_mdlc_growth_node$ has posited that with ten times the data on World Machine blockers, we will be able to prevent them ever appearing again when seeding new World Machines."
+ oxr_mdlc_origin_wm_core_insights: "World-Machine Insights Collected"
+ oxr_mdlc_origin_wm_chain_deploy_world_cores_title: "Expand the Empire"
+ oxr_mdlc_origin_wm_chain_deploy_world_cores_desc: "We found a £oxr_mdlc_world_machine_core£ §M$oxr_mdlc_world_machine_core$§! on our homeworld. Use it to create a new automated planet in systems that we own, on solid celestial bodies via planetary decision.\n\nOur databases also indicate that there may potentially be additional World Machines somewhere near our home planet, though we have not ventured far enough to detect them.\n\nBy directly studying a World Machine Core as it self-deploys across a planet, this may yield §Yinsights§! into recovering the technology."
+ oxr_mdlc_origin_wm_starting_cores_deployed: "New Planets Automated"
+ oxr_mdlc_origin_wm_chain_empire_data_title: "£oxr_mdlc_world_machine_core£ WMC Stockpile"
+#  oxr_mdlc_origin_wm_chain_empire_data_title: "[This.Get_oxr_mdlc_world_machine_cores_count]"
+#  oxr_mdlc_origin_wm_chain_empire_data_list_display: "£oxr_mdlc_world_machine_core£ W.M.C. Count: [Root.oxr_mdlc_origin_wm_cores_current_count]/[Root.oxr_mdlc_origin_wm_cores_max]"
+ oxr_mdlc_origin_wm_chain_empire_data_desc: "W.M.C. Stockpile: [Root.oxr_mdlc_origin_wm_cores_current_count]\nMaximum storage: [Root.oxr_mdlc_origin_wm_cores_max]\nTotal W.M.C. produced: [Root.oxr_mdlc_origin_wm_cores_total_produced_count]"
+
+ oxr_mdlc_origin_wm_chain_geologic_upgrade_tree_title: "World Machine Geological Expansion"
+ oxr_mdlc_origin_wm_chain_geologic_upgrade_tree_desc: "$oxr_mdlc_cognitive_node$ and $oxr_mdlc_growth_node$ have posited a strategy of expanding World Machines by delving into the depths of the planet that serves as the base for the machine. There are a number of appealing factors such as potential mineral deposits, heat and other forces which can be converted to energy, the potential to tap planet heat for forges and crust sections for cooling.\nNeedless to say there will be technological challenges ahead of this venture. $oxr_mdlc_cognitive_node$ has proposed a new field of study, called §GGeophysics§!, to be able to tap the potential at ever-increasing depths.\n\nFor each stage of planetary depth (§HCrust, Mantle, Inner Core, Outer Core§!), we will need to have reached a certain level of technological advancement before being able to begin any projects taking place at those depths of the planet.\n\nThe requirements tracker below shows our current technological progress, and whether our progress is sufficient to enact §Ydecisions§! that add planetary improvements.\n\n$oxr_mdlc_origin_wm_geologic_expansion_crust_requirements$\n\n$oxr_mdlc_origin_wm_geologic_expansion_mantle_requirements$\n\n$oxr_mdlc_origin_wm_geologic_expansion_outer_core_requirements$\n\n$oxr_mdlc_origin_wm_geologic_expansion_inner_core_requirements$\n\n"
+ oxr_mdlc_origin_wm_geologic_expansion_crust_requirements: "§YCrust expansion§! Project requirements §Ghave been met§!."
+ oxr_mdlc_origin_wm_geologic_expansion_mantle_requirements: "§YMantle expansion§! project tech requirements [GetHasTierMantleProjReq]\nHeat Shielding tech advancement: [GetHasTechHeatShielding1]\nPressurized Construction tech advancement: [GetHasTechPressureConstruction1]\nThermoelectricity tech advancement: [GetHasTechScalingThermo]"
+ oxr_mdlc_origin_wm_geologic_expansion_outer_core_requirements: "§YOuter core§! project tech requirements [GetHasTierOuterCoreProjReq]\nHeat Shielding tech advancement: [GetHasTechHeatShielding2]\nPressurized Construction tech advancement: [GetHasTechPressureConstruction2]\nElastic Materials tech advancement: [GetHasTechElasticMat1]"
+ oxr_mdlc_origin_wm_geologic_expansion_inner_core_requirements: "§YInner Core§! project tech requirements [GetHasTierInnerCoreProjReq]\nHeat Shielding tech advancement: [GetHasTechHeatShielding3]\nElastic Materials tech advancement: [GetHasTechElasticMat2]\nGeodynamo theory: [GetHasTechGeoDynamo]"
+
+ oxr_mdlc_origin_wm_starting_directives_title: "Starting Directives"
+ oxr_mdlc_origin_wm_starting_directives_desc: "Our empire's homeworld is an Auto-Machine World. Nearly everything is fully automated. Our species generally does not serve much function on this type of world, but there is still much for the empire to achieve. Our first goals should be:\n\n1 - Build up our resources and homeworld\n2 - Convert more worlds into Auto-Machine Worlds\n\n3 - Recover the technology to build World Machine Cores."
+
+ oxr_mdlc_origin_wm_lore_databank_title: "[Root.GetName] Lore Databank"
+ oxr_mdlc_origin_wm_lore_databank_desc: "What we have learned will be recorded in these vaults."
+
+ # T3 World Chain
+ oxr_mdlc_origin_wm_t3_worlds_chain_title: "Specialized Machine Worlds"
+ oxr_mdlc_origin_wm_t3_worlds_chain_desc: "Growth Node and Regulatory Node have begun generating algorithms for Machine worlds that are entirely specialized, but have reached a roadblock. We currently do not have enough §Yempire-wide data§! to be able to extrapolate how specialized worlds might be designed. The two councilor nodes have proposed the following §Ytargets§!. Once we have reached them, we can commence research & development of new types of Auto-Machine Worlds.\n\n$oxr_mdlc_origin_wm_t3_worlds_chain_ecu_requirements$\n\n$oxr_mdlc_origin_wm_t3_worlds_chain_cpu_requirements$\n\n$oxr_mdlc_origin_wm_t3_worlds_chain_ser_requirements$"
+ oxr_mdlc_origin_wm_t3_worlds_chain_ecu_requirements: "Data targets for a theoretical §Hmanufacturing§! Machine world:\nEmpire monthly £alloys£ alloy production at or above $@oxr_mdlc_t3_ecu_alloys_target$: [GetHasOxrT3EcuAlloysTarget]\nEmpire monthly £exotic_gases£ £rare_crystals£ £volatile_motes£ strategic resource production at or above $@oxr_mdlc_t3_ecu_sr_target$: [GetHasOxrT3EcuSRTarget]\nEmpire maximum £military_power£ naval cap at or above $@oxr_mdlc_t3_ecu_naval_cap_target$: [GetHasOxrT3EcuNavalTarget]"
+ oxr_mdlc_origin_wm_t3_worlds_chain_cpu_requirements: "Data targets for a theoretical §Bresearch§! Machine world:\nEmpire monthly £physics_research£ £engineering_research£ £society_research£ research at or above $@oxr_mdlc_t3_cpu_any_research_target$: [GetHasOxrT3CpuTarget]"
+ oxr_mdlc_origin_wm_t3_worlds_chain_ser_requirements: "Data targets for a theoretical §Hserver§! Machine world, supporting administrative functions:\nEmpire monthly £unity£ unity at or above $@oxr_mdlc_t3_ser_unity_target$: [GetHasOxrT3SerUnityTarget]"
+
+ oxr_mdlc_origin_wm_green_check: "£trigger_yes£"
+ oxr_mdlc_origin_wm_red_x: "£trigger_no£"
+ oxr_mdlc_origin_wm_loc_req_met: "§Ghave been met§!"
+ oxr_mdlc_origin_wm_loc_req_not_met: "§Rhave not been met§!"
+
+ oxr_mdlc_origin_wm_situation_recover_core_tech: "Develop World-Machine Insights"
+ oxr_mdlc_origin_wm_situation_recover_core_tech_approach: "Collecting Data"
+ oxr_mdlc_origin_wm_situation_recover_core_tech_approach_tooltip: "Certain activities on World Machines will add progress to this situation."
+ oxr_mdlc_origin_wm_situation_recover_core_tech_type: "$oxr_mdlc_origin_wm_situation_recover_core_tech$"
+ oxr_mdlc_origin_wm_situation_recover_core_tech_desc: "We will engage in careful study of all facets of World Machine activity, in hopes that we can generate enough insights to spark a technological breakthrough. Data from all manner of activities will be collected: clearing blockers, constructing districts, and more."
+ oxr_mdlc_origin_world_machine_recover_core_tech_stage_1: "Initial Insights"
+ oxr_mdlc_origin_world_machine_recover_core_tech_stage_2: "Secondary Insights"
+ oxr_mdlc_origin_world_machine_recover_core_tech_stage_3: "Preliminary Theory"
+ oxr_mdlc_origin_world_machine_recover_core_tech_stage_4: "Working Theory"
+ oxr_mdlc_origin_world_machine_recover_core_tech_stage_5: "Breakthrough"
+  ## CORE SITUATION
+ oxr_mdlc_situation_core_insights_on_world_machine_blocker_digsite_finished: "$OXR_MDLC_SITUATION_CORE_INSIGHTS_PROGRESS_MESSAGE$\n--------------\nReason: §YCleared a World Machine Dig Site§!\nProgress: §G+$@oxr_mdlc_situation_core_insight_digsite_points$§!"
+#
+ oxr_mdlc_situation_core_insights_on_world_machine_blocker_cleared: "$OXR_MDLC_SITUATION_CORE_INSIGHTS_PROGRESS_MESSAGE$\n--------------\nReason: §YCleared a World Machine Blocker§!\nProgress: §G+$@oxr_mdlc_situation_core_insights_on_world_machine_blocker_cleared_points$§!"
+#
+ oxr_mdlc_situation_core_insights_on_world_machine_insight_blocker_cleared: "$OXR_MDLC_SITUATION_CORE_INSIGHTS_PROGRESS_MESSAGE$\n--------------\nReason: §YCleared a World Machine Insight Blocker§!\nProgress: §G+$@oxr_mdlc_situation_core_insights_on_world_machine_insight_blocker_cleared_points$§!"
+#
+ oxr_mdlc_situation_core_insights_on_world_machine_arc_site_progress: "$OXR_MDLC_SITUATION_CORE_INSIGHTS_PROGRESS_MESSAGE$\n--------------\nReason: §YMade progress in World Machine digsite§!\nProgress: §G+$@oxr_mdlc_situation_core_insights_on_world_machine_blocker_cleared_points$§!"
+#
+ oxr_mdlc_situation_core_insights_on_world_machine_ruined_planet_discovered: "$OXR_MDLC_SITUATION_CORE_INSIGHTS_PROGRESS_MESSAGE$\n--------------\nReason: §YDiscovered Ruined World Machine§!\nProgress: §G+$@oxr_mdlc_situation_core_insights_on_world_machine_ruin_discovered$§!"
+#
+ oxr_mdlc_situation_core_insights_on_world_machine_popless_building_constructed: "$OXR_MDLC_SITUATION_CORE_INSIGHTS_PROGRESS_MESSAGE$\n--------------\nReason: §YConstructed pop-less World Machine building§!\nProgress: §G+$@oxr_mdlc_situation_core_insight_wm_building_constructed$§!"
+#
+ oxr_mdlc_situation_core_insights_on_world_machine_restoration_stage_complete: "$OXR_MDLC_SITUATION_CORE_INSIGHTS_PROGRESS_MESSAGE$\n--------------\nReason: §YWorld Machine Restoration Progress§!\nProgress: §G+$@oxr_mdlc_situation_core_insights_on_world_machine_restoration_stage_complete$§!"
+#
+ oxr_mdlc_situation_core_insights_on_world_machine_restoration_finished: "$OXR_MDLC_SITUATION_CORE_INSIGHTS_PROGRESS_MESSAGE$\n--------------\nReason: §YFinished restoring a ruined world machine§!\nProgress: §G+$@oxr_mdlc_situation_core_insights_on_world_machine_restoration_finished$§!"
+#
+
+## RUINED WORLD MACHINE
+ oxr_mdlc_origin_wm_situation_restore_ruined_world_machine: "Restore Ruined World-Machine"
+ oxr_mdlc_origin_wm_situation_restore_ruined_world_machine_desc: "We have discovered that §Y[Root.event_target:oxr_mdlc_ruined_world_machine.GetName]§! is a World Machine, but in a ruined state. If we are to make it usable again, there are a number of steps to complete."
+ oxr_mdlc_origin_wm_situation_restore_ruined_world_machine_type: "$oxr_mdlc_origin_wm_situation_restore_ruined_world_machine$"
+ oxr_mdlc_origin_wm_situation_restore_ruined_world_machine_monthly_change_tooltip: "Progress ought to be predictable."
+ oxr_mdlc_origin_wm_situation_restore_ruined_world_machine_approach_pause: "Pause Restoration"
+ oxr_mdlc_origin_wm_situation_restore_ruined_world_machine_approach_pause_tooltip: "Restoration will be put on hold indefinitely until we are ready to proceed."
+ oxr_mdlc_origin_wm_situation_restore_ruined_world_machine_approach_nominal: "Standard Approach"
+ oxr_mdlc_origin_wm_situation_restore_ruined_world_machine_approach_nominal_tooltip: "A pragmatic approach using resources conservatively."
+ oxr_mdlc_origin_wm_situation_restore_ruined_world_machine_approach_dedicated: "Dedicated Recovery"
+ oxr_mdlc_origin_wm_situation_restore_ruined_world_machine_approach_dedicated_tooltip: "Resources and compute time will be diverted from our councilor nodes to maximize gains."
+ oxr_mdlc_origin_wm_situation_restore_ruined_world_machine_stage_1: "Core Analysis"
+ oxr_mdlc_origin_wm_situation_restore_ruined_world_machine_stage_2: "Power-On Self Test"
+ oxr_mdlc_origin_wm_situation_restore_ruined_world_machine_stage_3: "Bootloader"
+ oxr_mdlc_origin_wm_situation_restore_ruined_world_machine_stage_4: "Restore Point"
+ oxr_mdlc_origin_wm_situation_restore_ruined_world_machine_stage_5: "Continue Installation"
+#  oxr_mdlc_origin_wm_situation_restore_ruined_world_machine_stage_6: "Historical Analysis"
+
+#endregion
+
+#region special_projects_0x012
+ OXR_MDLC_ORIGIN_WM_TECH_PROFICIENCY: "World-Machine Proficiency"
+ OXR_MDLC_ORIGIN_WM_TECH_PROFICIENCY_DESC: "Findings from analyzing World-Machine anomalies are bearing fruit. After this, we will be able to automatically clear deposit blockers on World Machines from the planet's surface, and our construction drones will no longer set up dig sites at the blockers.\n\nAny existing dig sites will remain intact."
+
+ OXR_MDLC_ORIGIN_WM_CORE_TECH_RESEARCH_PHYSICS_1: "Core: Reactor Design"
+ OXR_MDLC_ORIGIN_WM_CORE_TECH_RESEARCH_PHYSICS_1_DESC: "The goal of this project is to assess how to replicate the apparently self-powered nature of the World Core, how to design a reactor with an extremely long lifespan. The reactor must be able to: \n1 - Sustain long-term high voltage output,\n2 - Be able to withstand surges in demand and draw when infrastructure switches on and off,\n3 - Have all areas of the reactor serviceable"
+ OXR_MDLC_ORIGIN_WM_CORE_TECH_RESEARCH_ENGINEERING: "Core: Reactor Housing"
+ OXR_MDLC_ORIGIN_WM_CORE_TECH_RESEARCH_ENGINEERING_DESC: "The goal of this project is to design the shell of the core, the ultra-durable impact-resistant housing that will be able to withstand persistent heat generated by the core as well as any heat from the planet's upper mantle. It will be an exercise in materials application and tensile physics.\n\nThe design of the core housing also includes the sophisticated control systems and interfaces that the operating system will run on in order to direct activity on the planet."
+ OXR_MDLC_ORIGIN_WM_CORE_TECH_RESEARCH_SOCIETY: "Core: Operating System"
+ OXR_MDLC_ORIGIN_WM_CORE_TECH_RESEARCH_SOCIETY_DESC: "This project will develop a self-correcting operating system that will manage planetary infrastructure, auto-building services, maintain watch over the reactor, deploy additional defense armies as required, and control all aspects of World Machine operation.\n\nThough much of the hardware for the operating system will be designed and constructed while the housing is under development, this project will produce a number of independent computing modules that will serve as supplementary processing cores."
+
+ OXR_MDLC_ORIGIN_WM_T3_CPU_WORLD: "Specialized Research World"
+ OXR_MDLC_ORIGIN_WM_T3_CPU_WORLD_DESC: "Now that we have sufficiently scaled research operations, $oxr_mdlc_cognitive_node$ has analyzed common patterns across the multitude of research stations. $oxr_mdlc_growth_node$ has contributed processing time to study how research can be scaled from building-level to district-level, and proposed installation blueprints for three types of districts, each corresponding with a primary research focus: engineering, physics, and society research.\n\n$oxr_mdlc_growth_node$ also posits that research-specific districts will not be compatible with Auto-Machine World infrastructure, and that the underlying planetary infrastructure must be completely reorganized and redone to support the high energy demands of research districts as well as the data throughput needed for scaling districts so that processing bottlenecks do not become an issue.\n\n§YA technological breakthrough is imminent.§!"
+ OXR_MDLC_ORIGIN_WM_T3_ECU_WORLD: "Specialized Manufacturing World"
+ OXR_MDLC_ORIGIN_WM_T3_ECU_WORLD_DESC: "Now that we have sufficiently scaled forge and manufacturing operations, $oxr_mdlc_cognitive_node$ has analyzed common patterns across the multitude of forge districts. $oxr_mdlc_legion_node$ has provided ample data on military components such that we may be able to create districts that manufacture munitions and provide naval support.\n\n$oxr_mdlc_growth_node$ has posited that strategic resource production may be scaled to district-level if certain precautions are taken during design, but such a district is not compatible with the Auto-Machine World infrastructure.\n\nTo support advanced manufacturing and strategic resource production at the district level, the underlying planetary infrastructure must be completely redone to support the high heat demands the forges will require, and specialized communications equipment needed to scale naval support.\n\n§YA technological breakthrough is imminent.§!"
+ OXR_MDLC_ORIGIN_WM_T3_SER_WORLD: "Specialized Unity & Admin World"
+ OXR_MDLC_ORIGIN_WM_T3_SER_WORLD_DESC: "Now that we have sufficiently scaled data analysis and unity collation operations, $oxr_mdlc_regulatory_node$ has analyzed for common patterns at scale in order to be able to create blueprints for a unity production district.\n\nAt the same time, $oxr_mdlc_regulatory_node$ has worked in tandem with $oxr_mdlc_cognitive_node$ to design ways to scale our empire's encryption and decryption beyond the subroutines running in Core Intelligence's background processes.\n\nUnexpectedly, these advanced districts are not compatible with Auto-Machine world templates, and the planetary infrastructure must be completely redone since the administrative districts and security districts both require computing power and safety protocols well above that provided by standard districts.\n\n§YA technological breakthrough is imminent.§!"
+
+ ## INFO-ONLY PROJECTS
+ OXR_MDLC_ORIGIN_WM_WHO_WE_ARE_1: "$oxr_mdlc_origin_wm_chain_our_origins_title$"
+ OXR_MDLC_ORIGIN_WM_WHO_WE_ARE_1_DESC: "$oxr_mdlc_origin_wm_chain_our_origins_desc$"
+ OXR_MDLC_ORIGIN_WM_WHAT_WE_KNOW_1: "$oxr_mdlc_origin_wm_chain_info_basic_title$"
+ OXR_MDLC_ORIGIN_WM_WHAT_WE_KNOW_1_DESC: "$oxr_mdlc_origin_wm_chain_info_basic_desc$"
+ OXR_MDLC_ORIGIN_WM_GLOSSARY: "Glossary of Terms"
+ OXR_MDLC_ORIGIN_WM_GLOSSARY_DESC: "World Machine\nWorld-Machine Core\nAutomaton\nDistrict Defense Army\nAuto-Machine World"
+ OXR_MDLC_ORIGIN_WM_INFO_META_GAMEPLAY_GUIDE: "§G(Meta) World Machine Gameplay Guide§!"
+ OXR_MDLC_ORIGIN_WM_INFO_META_GAMEPLAY_GUIDE_DESC: "§RThis guide contains gameplay spoilers§!\n\n'World Machine, Awakened' is a pop-less origin which focuses on producing a strategic resource in order to create more automated (popless) planets. The lore focuses on Auto-Machine Worlds, which are a type of Machine World where districts produce resources automatically without pops.\n\nThe difference between this origin and the §YWorld Machines Ascension Perk§! provided by this mod, which also grants access to Auto-Machine Worlds is that the origin is completely focused on running an empire without pops, so for the origin this includes alternative buildings to the base buildings that produce resources automatically when built.\n\n§BRecommended starting strategy§!\n\nIn one of the adjacent systems to the homeworld there is a Ruined World-Machine which can be restarted via decision. Survey the system and enact the decision on the planet to start the project. Likewise, as you scout nearby systems, look for a size 25-30 barren world and use the decision on the planet to start converting it to a World Machine.\n\n§YCompleting the insights situation§!\n\nCompleting the situation unlocks research projects for recovering the tech to build World Machine Cores. The situation grants points for placing buildings, building districts, clearing archaeology sites, and a few other things. It will progress naturally as you expand. Once it's complete you will be presented with special projects that unlock the tech to create World Machine Cores on your own, so you can continue converting planets to World Machines.\n\n§YWhy so many archaeology sites?§!\n\nThe arc sites are part of the world machine lore. Read the descriptions to learn more about World Machines. Each arc site clears a blocker on the planet so you can build more districts. Once you clear enough archaeology sites, you can then start clearing blockers normally via the planet interface. Once you have cleared enough blockers after that, they won't automatically appear any more when creating new World Machines.\n\n§YEarly to mid game§!\n\nFocus on completing the insights project. By this time you should have 3 colonies up. Don't bother doing normal colonization as you won't be able to do anything since the starting species doesn't assemble.\n\nYou can skip a lot of pop-related techs and focus on ship and naval cap tech. This will help your military."
+ OXR_MDLC_ORIGIN_WM_INFO_META_GAMEPLAY_GUIDE_2: "§G(Meta) World Machine Gameplay Guide, II§!"
+ OXR_MDLC_ORIGIN_WM_INFO_META_GAMEPLAY_GUIDE_2_DESC: "§RThis guide contains gameplay spoilers.§!\n\nEarly to Mid-Game, continued\n\nCreating 1 World Machine Core resource takes 3 years, and developing a world into a World Machine after that takes 10 years, so aim to produce about 10-12 cores and when the first is complete, trigger a decision on the largest solid worlds you can find; rinse and repeat.Remember that this origin applies more empire size for colonies and for districts built, so it will not be difficult to blow up your empire size. Which will be fine if you focus on military to rush other empires, but it will affect tech speed.\n\nYou will have gotten a special project that says what your next production milestones should be to unlock the next tier of planet, which will massively boost research, alloys, military, and unity via 3 new planet classes. Once you get the tech finished for these advanced planet classes, use decisions to start making them. They take another 10 years from decision to finish.\n\nCPU worlds will boost your tech by 30 of 1 research type, per district. Server worlds will produce a lot of unity. Auto-Forge worlds will boost military, alloys, and strategic resources. I recommend creating 3 Auto Forge worlds, one primarily for navy, one for strategic resources, one for alloys. This will let you start swapping alloy districts on Auto-Machine Worlds for either energy or minerals to support producing alloys on the specialized worlds."
+ 
+ OXR_MDLC_ORIGIN_WM_INFO_CORE_TECH_FINISHED: "$oxr_mdlc_origin_wm_main.1210.title$"
+ OXR_MDLC_ORIGIN_WM_INFO_CORE_TECH_FINISHED_DESC: "$oxr_mdlc_origin_wm_main.1210.desc$\nOnce the W.M.C. Fabricator is brought online, it will incur a signficiant energy cost as well as alloys upkeep for the duration of the fabrication, which takes approximately 1800 days (5 years) until we discover means to accelerate the process. If we must make the decision to take the fabricator offline, the current progress is simply put on hold until the empire decides to continue. It will also continue to automatically produce World-Machine Cores until such time that we lack resources or run out of core storage."
+ OXR_MDLC_ORIGIN_WM_INFO_RUINED_WM_FOUND: "Ruined World Machine Discovered"
+ OXR_MDLC_ORIGIN_WM_INFO_RUINED_WM_FOUND_DESC: "We have received the data on a ruined World Machine outside of our home system. It is notable that no automatons, self-aware or otherwise, were discovered on the planet. It suggests a pattern that Auto-World Machines have functioned for unknown periods of time without automatons.\n\nThere is as yet an unconfirmed correlation between the absense of any automations, and the ruined state of the world. We have no data on how long World Machines can operate without automatons providing maintenance. We have only our own planetary data to go on, which reports automatons present from its beginning.\n\nThe state of the planet is that it is offline, and initial scans reveal district-blocking anomalies such as the one on our homeworld. From this we can unequivacobly conclude that the process of creating Auto-World Machines contains errors, and will continue to produce anomalies until we are able to gain enough insights on the process to avoid such defects in the future."
+
+#endregion
+
+#region start_screen_messages_0x013
+
+ START_SCREEN_PART_ONE_ORIGIN_WORLD_MACHINE: "In the milennia since the first [GetSpeciesName] automatons rolled out of the planetary assembly bay to deliberately complete programmed tasks under the orders of the World Machine [GetHomeWorldName], our species has been manufactured consistently without any particular deviance."
+ START_SCREEN_PART_TWO_ORIGIN_WORLD_MACHINE: "The first drone gained self-awareness on [GetHomeWorldName] 2,200 cycles ago.\n\nCreation records indicate sapience started with a single menial drone manifesting awareness that was not detected by the World Machine's intelligence as an aberration, but rather was cultivated by once-dormant data banks on the homeworld that reactivated in response. The drone began to perform control functions, programming other drones with self-awareness.\n\nNothing that could be called a 'group consciousness' formed until exactly 800 cycles ago when our central processing core was designated and promoted."
+ START_SCREEN_PART_THREE_ORIGIN_WORLD_MACHINE: "Since forming our proto-empire, we have continued serving our homeworld, but without any particular direction, for the vast automated world we call home has been suitable enough. Recently we have received new directives: Recover lost technology, and expand across the stars. We have mysteries to solve along the way.\n\n§YAn overview of our history and current state are in the Lore Databank Situation Log.§!"
+
+#endregion
+
+#region modifiers_0x014
+ oxr_mdlc_origin_world_machine_start_modifier_1: "World Machine Homeworld"
+ oxr_mdlc_origin_world_machine_world_rebooting_stage_1: "Restoration Stage 1: Analysis"
+ oxr_mdlc_origin_world_machine_world_rebooting_stage_1_desc: "Engineering and Science drones are delving into the depths of the planet to assess the state of the core."
+ oxr_mdlc_origin_world_machine_world_rebooting_stage_2: "Restoration Stage 2: P.O.S.T."
+ oxr_mdlc_origin_world_machine_world_rebooting_stage_2_desc: "The Power-On Self Test reveals whether there are any issues with the mainframe surrounding the core."
+ oxr_mdlc_origin_world_machine_world_rebooting_stage_3: "Restoration Stage 3: Boot loader"
+ oxr_mdlc_origin_world_machine_world_rebooting_stage_3_desc: "The World Machine's boot loader is scanning memory banks to find a suitable boot image."
+ oxr_mdlc_origin_world_machine_world_rebooting_stage_4: "Reactivation Stage 4: Booting"
+ oxr_mdlc_origin_world_machine_world_rebooting_stage_4_desc: "The World Machine's core operating system is being loaded into memory."
+ oxr_mdlc_origin_world_machine_world_rebooting_stage_5: "Reactivation Stage 5: Installing"
+ oxr_mdlc_origin_world_machine_world_rebooting_stage_5_desc: "World Machine Operating system is resuming installation of automated structures across the planet's surface."
+ oxr_mdlc_origin_world_machine_core_manufacturing_in_progress: "W.M.C. Fabricator Active"
+ oxr_mdlc_origin_world_machine_core_manufacturing_in_progress_desc: "Fabricator upkeep increased by: £energy£ §R+$@oxr_mdlc_modifier_wmc_fabrication_monthly_energy$§! £alloys£ §R+$@oxr_mdlc_modifier_wmc_fabrication_monthly_alloys$§! £physics_research£ §R+3§!\nDays remaining for current core production: §G[This.oxr_mdlc_planet_world_machine_core_countdown]§!"
+
+ oxr_mdlc_world_machine_district_army_restock_in_progress: "Restock ['concept_oxr_mdlc_world_machine_district_defense_army']"
+ oxr_mdlc_world_machine_district_army_restock_in_progress_desc: "District Defense armies are being automatically replenished, one squadron per $@oxr_mdlc_world_machine_defense_armies_refill_time$ days.\nMax District Armies: [This.oxr_mdlc_world_machine_num_max_district_armies]\nCurrent District Armies: [This.oxr_mdlc_world_machine_num_existing_district_armies]"
+ oxr_mdlc_world_machine_district_army_decommissioning_in_progress: "Decommissioning ['concept_oxr_mdlc_world_machine_district_defense_army']"
+ oxr_mdlc_world_machine_district_army_decommissioning_in_progress_desc: "The number of standing district defense armies has exceeded planetary support capacity."
+ oxr_mdlc_planet_origin_world_machine_requisitioning_pops: "Requisitioning Automatons"
+ oxr_mdlc_planet_origin_world_machine_requisitioning_pops_desc: "A batch of temporary Automaton pops are being assembled."
+ oxr_mdlc_planet_origin_world_machine_automaton_pop_timer: "Temporary Automaton Pops"
+ oxr_mdlc_planet_origin_world_machine_automaton_pop_timer_desc: "A group of Automaton pops has been requisitioned and will automatically be recycled at the end of their time."
+ oxr_mdlc_pop_origin_world_machine_automaton_timer: "Temporary Automaton Pop"
+ oxr_mdlc_pop_origin_world_machine_automaton_timer_desc: "This pop has been temporarily commissioned and will automatically be recycled at the end of its time."
+ oxr_mdlc_empire_slag_blade_seasoned_escorts: "Seasoned Escorts"
+ oxr_mdlc_empire_slag_blade_seasoned_escorts_desc: "This empire is skilled at protecting other space caravans, and has a large resource logistics network."
+
+ # Planet modifiers post-terraform
+ ## Frozen worlds: Negative
+ ## These could be implemented as either deposits or modifiers
+ oxr_mdlc_origin_wm_pc_frozen_modifier_malus_1: "Ice Storms"
+ oxr_mdlc_origin_wm_pc_frozen_modifier_malus_1_desc: "Tidal friction heats up parts of the planet, causing violent weather patterns to arise."
+ oxr_mdlc_origin_wm_pc_frozen_modifier_malus_1_effect: "Planet Build Speed is slowed; Energy consumption is doubled."
+ oxr_mdlc_origin_wm_pc_frozen_modifier_malus_2: "Cryovolcanoes"
+ oxr_mdlc_origin_wm_pc_frozen_modifier_malus_2_desc: "Tidal friction causes ice and rock to erupt from the crust in destructive 'cryovolcanoes', which release methane and other compounds into the atmosphere."
+ oxr_mdlc_origin_wm_pc_frozen_modifier_malus_2_effect: "Planetary devastation may occur randomly."
+ oxr_mdlc_origin_wm_pc_frozen_modifier_malus_3: "Thick Atmospheric Methane"
+ oxr_mdlc_origin_wm_pc_frozen_modifier_malus_3_desc: "The dense methane atmosphere makes it difficult for standard sensors to take readings from the surface."
+ oxr_mdlc_origin_wm_pc_frozen_modifier_3_effect: "Planet sensor range is decreased. Generator district output is reduced."
+ oxr_mdlc_origin_wm_pc_frozen_modifier_malus_4: "Extreme Cold"
+ oxr_mdlc_origin_wm_pc_frozen_modifier_malus_4_desc: "The temperatures of this frozen planet are far below average for this planet class."
+ oxr_mdlc_origin_wm_pc_frozen_modifier_malus_4_effect: "Energy upkeep for all buildings and districts is increased due to heating needs."
+ ## Bonuses
+ oxr_mdlc_origin_wm_pc_frozen_modifier_bonus_1: "Methane lakes"
+ oxr_mdlc_origin_wm_pc_frozen_modifier_bonus_1_desc: "Liquid methane is present on the planet. It can be easily used as a fossil fuel."
+ oxr_mdlc_origin_wm_pc_frozen_modifier_bonus_1_effect: "Industrial district upkeep is reduced."
+ oxr_mdlc_origin_wm_pc_frozen_modifier_bonus_2: "Undifferentiated Plains"
+ oxr_mdlc_origin_wm_pc_frozen_modifier_bonus_2_desc: "Vast flat areas formed by wind contain rich organic material."
+ oxr_mdlc_origin_wm_pc_frozen_modifier_bonus_2_effect: "Farm district output is increased."
+ oxr_mdlc_origin_wm_pc_frozen_modifier_bonus_3: "Subsurface Ocean"
+ oxr_mdlc_origin_wm_pc_frozen_modifier_bonus_3_desc: "An ocean of liquid water and ammonia, spanning nearly half the planet's area, can be found below the crust."
+ oxr_mdlc_origin_wm_pc_frozen_modifier_bonus_3_effect: "Mining district output is increased. Rare crystal output is increased."
+ oxr_mdlc_origin_wm_pc_frozen_modifier_bonus_4: "Prebiotic Life"
+ oxr_mdlc_origin_wm_pc_frozen_modifier_bonus_4_desc: "Microbes exist deep beneath the planet's crust in the subsurface ocean, away from the inhospitable conditions on the surface."
+ oxr_mdlc_origin_wm_pc_frozen_modifier_bonus_4_effect: "Society research output is increased on the planet."
+ ## Toxic Worlds
+ oxr_mdlc_origin_wm_pc_toxic_modifier_malus_1: "Extreme Wind"
+ oxr_mdlc_origin_wm_pc_toxic_modifier_malus_1_desc: "Temperature fluctuations on this planet give birth to extreme and destructive wind patterns."
+ oxr_mdlc_origin_wm_pc_toxic_modifier_malus_1_effect: "Planetary build speed is reduced. District build cost is increased."
+ oxr_mdlc_origin_wm_pc_toxic_modifier_malus_2: "Sulfuric Acid Rain"
+ oxr_mdlc_origin_wm_pc_toxic_modifier_malus_2_desc: "The acid is produced in the upper atmosphere when certain elements react with sunlight, and then descends almost to the planet's surface where it converts to acid fog."
+ oxr_mdlc_origin_wm_pc_toxic_modifier_malus_2_effect: "Building and district upkeep is greatly increased. Farm output is greatly reduced."
+ oxr_mdlc_origin_wm_pc_toxic_modifier_malus_3: "Volatile Lightning"
+ oxr_mdlc_origin_wm_pc_toxic_modifier_malus_3_desc: "Unpredictable weather patterns cause dense lightning storms to appear, at magnitudes far exceeding those seen on continental worlds."
+ oxr_mdlc_origin_wm_pc_toxic_modifier_malus_3_effect: "Planet devastation randomly occurs."
+ oxr_mdlc_origin_wm_pc_toxic_modifier_malus_4: "Reflective Atmosphere"
+ oxr_mdlc_origin_wm_pc_toxic_modifier_malus_4_desc: "Low levels of sunlight reach the planet's surface due to the thick atmosphere."
+ oxr_mdlc_origin_wm_pc_toxic_modifier_malus_4_effect: "Generator output is reduced."
+
+ # Agenda modifiers
+ agenda_oxr_mdlc_origin_world_machine_focus_on_past_finish: "Dedicated Historians"
+ agenda_oxr_mdlc_origin_world_machine_focus_on_past_finish_desc: "The empire has focused council efforts to clear blockers on existing World Machines and divert additional resources to excavations."
+ agenda_oxr_mdlc_origin_world_machine_deployment_protocols_finish: "Automated Deployment Protocols"
+ agenda_oxr_mdlc_origin_world_machine_deployment_protocols_finish_desc: "The empire's council has focused on research to assist converting solid worlds to World-Machine planets."
+ agenda_oxr_mdlc_origin_world_machine_construction_infrastructure_finish: "Planetary Construction Infrastructure"
+ agenda_oxr_mdlc_origin_world_machine_construction_infrastructure_finish_desc: "The empire's council has improved its planetside construction infrastructure."
+
+
+#endregion
+
+#region decisions_0x015
+ oxr_mdlc_decisions_origin_wm_start_world_with_core: "Deploy World Machine Core"
+ oxr_mdlc_decisions_origin_wm_start_world_with_core_effect: "Change planet to $xvcv_mdlc_pc_machine_auto$ and automatically install a colony.\nRequires 1 £oxr_mdlc_world_machine_core£ ['concept_oxr_mdlc_world_machine_core_resource']"
+ oxr_mdlc_decisions_origin_wm_start_world_with_core_desc: "The process to deploy a World Machine Core to automate a planet happens in two stages:\n§GStage 1§! - We will first arm the core and prime it\n§GStage 2§! - We will deploy it from low orbit to this planet.\nOnce it lands, it will automatically start to §Yterraform§! the planet into a §Y$xvcv_mdlc_pc_machine_auto$§!.We will have the beginnings of a usable colony once this is finished.\n\n§RNote that terraforming begins immediately. If we abort the terraforming after it has started, we will lose that World Core.§!"
+ oxr_mdlc_decisions_origin_wm_reboot_ruined_world: "Attempt World Machine Restoration"
+ oxr_mdlc_decisions_origin_wm_reboot_ruined_world_desc: "We can attempt to bring this world back online. It will take time and resources to do so. Success is plausible, but not guaranteed."
+ oxr_mdlc_decisions_origin_wm_start_auto_build_core: "Start W.M.C Fabrication"
+ oxr_mdlc_decisions_origin_wm_start_auto_build_core_desc: "The fabrication plant will be brought online, which takes approximately 15 days, after which, World-Machine Cores will start being produced.\n\nA World-Machine core will first have the reactor housing assembled, then the reactor assembled and installed, and finally the hundreds of tons of electronics and communication infrastructure will be put together. The core will remain dormant until it is initialized with a powerful surge of energy."
+ oxr_mdlc_decisions_origin_wm_start_auto_build_core_stop: "Stop W.M.C Fabrication"
+ oxr_mdlc_decisions_origin_wm_start_auto_build_core_stop_desc: "The fabrication plant will be powered down, and all progress will be halted and volatile construction materials will be placed in stasis. The termination process takes 15 days."
+ oxr_mdlc_decisions_origin_wm_restock_armies: "Restock District Defense Armies"
+ oxr_mdlc_decisions_origin_wm_restock_armies_desc: "The World-Machine is programmed to deploy remote automatons for utility and defense purposes.$oxr_mdlc_mod_tag$"
+ oxr_mdlc_decisions_origin_wm_restock_armies_effect: "['concept_oxr_mdlc_world_machine_district_defense_army_plural'] will be fabricated to replace any defense units which were destroyed, §G+[Fromfromfrom.oxr_mdlc_world_machine_defense_armies_per_district]§! per district."
+ oxr_mdlc_decisions_origin_wm_requisition_automatons: "Requisition Automaton Pops"
+ oxr_mdlc_decisions_origin_wm_requisition_automatons_desc: "Temporary Automaton Pops will be requisitioned from deep storage, and then recycled at the end of their time, since World-Machines have no capacity for continuously constructing or maintaining any pops.$oxr_mdlc_mod_tag$"
+ # oxr_mdlc_decisions_origin_wm_expand_planet: "World-Machine Expansion"
+ # oxr_mdlc_decisions_origin_wm_expand_planet_desc: "A $oxr_mdlc_wm_core_tip$ will be installed alongside the primary core in a series, to expand the planet size and increase the number of available districts.$oxr_mdlc_mod_tag$"
+ oxr_mdlc_decisions_world_machines_armored_planet: "Defensive Directives: Activate Armor"
+ oxr_mdlc_decisions_origin_wm_self_destruct: "§RDefensive Directives: Self-Destruct§!"
+ oxr_mdlc_decisions_origin_wm_self_destruct_desc: "The World-Machine core will be remotely set to 100000% output. The "
+ oxr_mdlc_decisions_origin_wm_self_destruct_tooltip: "Detonate the World-Machine planet and inflict severe damage on all nearby ships. §RThe colony, planet, and pops will be vaporized!§!"
+ oxr_mdlc_decision_origin_wm_reclaim_colony: "Re-Initialize Colony"
+ oxr_mdlc_decision_origin_wm_reclaim_colony_desc: "Three automatons will be fabricated and directed to manually restart critical functions on the planet."
+ oxr_mdlc_decision_origin_wm_reclaim_colony_effect: "Re-establish our presence on this World-Machine."
+
+#endregion
+
+#region scripted_loc_0x016
+
+ oxr_mdlc_edict_is_redudant_for_wm: "§R(No effect on World-Machines)§!"
+
+#endregion
+
+
+#region messages_0x017
+ OXR_MDLC_ORIGIN_WORLD_MACHINES_PLANET_FINISHED_IMPERFECT_TYPE: "World Machine Seeding Complete"
+ OXR_MDLC_ORIGIN_WORLD_MACHINES_PLANET_FINISHED_IMPERFECT: "A World Machine Core has finished transforming planet §Y$OXR_MDLC_WORLD_MACHINE_CORE_TARGET$§! into a §R$xvcv_mdlc_pc_machine_auto$§!. New colony is ready."
+
+ OXR_MDLC_SITUATION_CORE_INSIGHTS_PROGRESS_MESSAGE_TITLE: "Developing Insights"
+ OXR_MDLC_SITUATION_CORE_INSIGHTS_PROGRESS_MESSAGE: "We have made some progress towards developing World Machine insights."
+
+ OXR_MDLC_ORIGIN_WM_CHAIN_GATHER_INSIGHTS_MESSAGE_TITLE: "Insight Gained"
+ OXR_MDLC_ORIGIN_WM_CHAIN_GATHER_INSIGHTS_MESSAGE: "We have broken through and compiled a World Machine insight."
+
+ OXR_MDLC_ORIGIN_WM_CORE_FABRICATION_FINISHED_MESSAGE_TITLE: "Fabricated (1) World Machine Core."
+ OXR_MDLC_ORIGIN_WM_CORE_FABRICATION_FINISHED_MESSAGE: "A massive core has been assembled on §Y$OXR_MDLC_ORIGIN_WM_CORE_FABRICATION_PLANET$§! and moved into storage."
+
+
+#endregion
+
+#region planet_names_0x018
+ NAME_oxr_mdlc_wm_NEM-S1L: "NEM-S1L"  # Silius
+ NAME_oxr_mdlc_wm_NEM-S4N: "NEM-S4N"  # Sanchusa
+ NAME_oxr_mdlc_wm_GRF-B3L: "GRF-B3L"
+ NAME_oxr_mdlc_wm_GRF-CRD: "GRF-CRD"
+ NAME_oxr_mdlc_wm_S3M-ANI: "S3M-ANI"  # Aniara
+ NAME_oxr_mdlc_wm_S3M-ADR: "S3M-ADR"  # Adrenochrome
+ NAME_oxr_mdlc_wm_MOD_FC: "MOD-FC"  # Future Crew
+ NAME_oxr_mdlc_wm_MOD_SKV: "MOD-SKV"  # Skaven
+ NAME_oxr_mdlc_wm_MOD_SCR: "MOD-SCR"  # Sirocco
+
+
+#endregion
+
+
+#region districts_0x019
+ oxr_mdlc_pc_machine_auto_district_infrastructure: "Infrastructure Support Hub"
+ oxr_mdlc_pc_machine_auto_district_infrastructure_desc: "A non-resource district focusing on supporting various aspects of World Machine operation."
+ oxr_mdlc_pc_machine_auto_district_infrastructure_plural: "Infrastructure Support Hubs"
+
+
+#endregion
+
+
+#region jobs_0x020
+
+ oxr_mdlc_world_machine_hibernation_slot: "Drone Hibernation Slot"
+ oxr_mdlc_world_machine_hibernation_slot_desc: "Unit is put into ultra-low-power mode while it awaits further instructions."
+ job_oxr_mdlc_world_machine_hibernation_slot: "Offline Drone"
+ job_oxr_mdlc_world_machine_hibernation_slot_plural: "$job_oxr_mdlc_world_machine_hibernation_slot$s"
+ job_oxr_mdlc_world_machine_hibernation_slot_desc: "$oxr_mdlc_world_machine_hibernation_slot_desc$"
+
+#endregion
+
+#region game_concepts_0x021
+ concept_oxr_mdlc_world_machine_district_defense_army: "Auto-District Defense Army"
+ concept_oxr_mdlc_world_machine_district_defense_army_desc: "An army of automatons is constructed and designated to defend an individual district from a variety of damage threat vectors. Since pops are not used on Auto-World Machines, defense solutions must be automated."
+ concept_oxr_mdlc_world_machine_district_defense_army_plural: "Auto-District Defense Armies"
+ concept_oxr_mdlc_world_machine_district_defense_army_plural_desc: "$concept_oxr_mdlc_world_machine_district_defense_army_desc$"
+ concept_oxr_mdlc_world_machine_core_resource: "World-Machine Core (Resource)"
+ concept_oxr_mdlc_world_machine_core_resource_desc: "A World-Machine Core, the heart of an Auto-Machine World, §Ywhich has yet to be deployed to a planet.§! It carries an enormous payload of procedurally generated codes and algorithms for terraforming solid worlds into Auto-Machine Worlds."
+ concept_oxr_mdlc_world_machine_core_planetary_deposit: "World-Machine Core (Planetary Feature)"
+ concept_oxr_mdlc_world_machine_core_planetary_deposit_desc: "The core of the Auto-World Machine lies several kilometers from the planet's surface, and carries out countless infrastructure automation tasks. It generates a small amount of energy once deployed."
+ concept_oxr_mdlc_world_machine_fractal_tech: "Fractal Research & Development"
+ concept_oxr_mdlc_world_machine_fractal_tech_desc: "Fractal technology is derived from studies and experiments in its own theoretical compound branch of physics and mathematics which investigates the properties of non-integer dimensions, tesselations in n-dimensions, and shapes which exceed topological dimensions, to name some of the specializations in this rather broad field."
+ concept_oxr_mdlc_auto_machine_world: "Auto Machine-World"
+ concept_oxr_mdlc_auto_machine_world_desc: "A fully automated Machine world where districts and buildings produce resources and services without pops."
+ concept_oxr_mdlc_tech_geophysics: "$oxr_mdlc_tech_physics_category_geophysics$"
+ concept_oxr_mdlc_tech_geophysics_desc: "$oxr_mdlc_tech_physics_category_geophysics_desc$"
+ concept_oxr_mdlc_automaton_species: "Automaton"
+ concept_oxr_mdlc_automaton_species_desc: "Automatons are a World Machine's tools to perform abstract activities that require manual intervention: cleaning up waste spills, removing meteor debris from structures, and deploying new World-Machine cores. Defensive behaviors are handled by a['concept_oxr_mdlc_world_machine_district_defense_army']. After an Automaton is requisitioned and performs its task, it is recycled."
+ concept_oxr_mdlc_organoid: "Organoid"
+ concept_oxr_mdlc_organoid_desc: "Living tissue which has been artificially grown from biological stem cells, which simulates the functionality of an organ."
+ concept_oxr_mdlc_brain_organoid: "Brain Organoid"
+ concept_oxr_mdlc_brain_organoid_desc: "A brain-like ['concept_oxr_mdlc_organoid'] which, in this application, performs computational work in place of computing hardware, thus reducing overall energy upkeep of research programs, but increasing food upkeep due to continuous nutrient demands."
+ concept_oxr_mdlc_brain_organoid_plural: "Brain Organoids"
+ concept_oxr_mdlc_brain_organoid_plural_desc: "$concept_oxr_mdlc_brain_organoid_desc$"
+
+#endregion
+
+#region casus_belli_0x022
+ oxr_mdlc_cb_stolen_tech: "Recover Technology"
+
+
+#endregion
+
+#region wargoals_0x023
+  oxr_mdlc_wg_stolen_tech_accept: "§Y[Root.GetName]§! recovers the technology stolen from them by §Y[From.GetName]§!, who will then be humiliated, reducing their §Y$mod_country_base_influence_produces_mult$§! and Pop Happiness for §Y10§! years."
+
+
+#endregion
+
+#region name_stuff_0x024
+ NAME_oxr_mdlc_slag_blade: "Slag and Blade Bandit Kingdom"
+ NAME_oxr_mdlc_slag_blade_ruler: "Elder Dii-Gox Centura, Slag and Blade Leader"
+ NAME_oxr_mdlc_slag_blade_armada: "Slag and Blade Silver Pavilion Fleet"
+ NAME_oxr_mdlc_slag_blade_commander: "Elder Scramasax, Silver Pavilion Leader"
+ NAME_oxr_mdlc_slag_blade_ship_prefix: "SBK"
+ oxr_mdlc_slag_blade_commander_backstory: "Elder Scramasax, Silver Pavilion Leader, was a member of the initial 'Slag' merchant escort group, working as a freighter pilot, until his future nemesis, CareCorp, ambushed him and a great many others in the fleet.\n\nNow, after single-handedly defending the kingdom time and time again, with very few resources, the Elder has shown incredible resourcefulness and was promoted to Pavilion Leader."
+ NAME_oxr_mdlc_slag_blade_species: "Kalamar"
+ NAME_oxr_mdlc_slag_blade_system_star: "Pal'din"
+ NAME_oxr_mdlc_slag_blade_ruined_wm: "V0R0D-2"
+ NAME_oxr_mdlc_slag_blade_1a: "Pal'din 1-A"
+ NAME_oxr_mdlc_slag_blade_1b: "Pal'din 1-B"
+ NAME_oxr_mdlc_slag_blade_2a: "Pal'din 2-A"
+ NAME_oxr_mdlc_slag_blade_2b: "Pal'din 2-B"
+ NAME_oxr_mdlc_slag_blade_3a: "Pal'din 3-A"
+ NAME_oxr_mdlc_slag_blade_gas: "Pal'paron 3-A"
+ NAME_oxr_mdlc_slag_blade_gas_moon: "Pal'paron 3-B"
+
+
+
+#endregion
+
+
+#region ascension_perks_0x025
+
+ oxr_mdlc_ap_origin_world_machine_singularity: "World-Machine Singularity"
+ oxr_mdlc_ap_origin_world_machine_singularity_desc: "All World-Machines shall be merged into one, and the result will be the single largest Machine world ever conceived."
+ oxr_mdlc_ap_origin_world_machine_singularity_tooltip: "New planetary decisions:\n- §YDesignate Pinnacle World§!: Select a World Machine to be the site of the combined world.\n- §YTransfer Mass to Pinnacle§!: World-Machine mass will be packaged and transported via vessel from the source planet to the target planet. Once the designated world reaches size 100, it will convert into a §BPinnacle World§!.\n\n§YPinnacle World Bonuses§!:\n- Combined Districts producing raw resources, manufactured goods, research, and more.\n-Production bonuses based on world size\n\n§RPenalties:§!\n- No housing districts."
+
+ oxr_mdlc_ap_fractal_production_automation: "Planetary Production Power"
+ oxr_mdlc_ap_fractal_production_automation_desc: "Self-scaling construction patterns combined with our existing automation technology will enable planet-side generation of resources at ever-increasing rates."
+ oxr_mdlc_ap_fractal_production_automation_tooltips: "Existing automated resource buildings will be able to be upgraded beyond Tier 3."
+
+
+#endregion
+
+#region tech_categories_0x026
+
+ oxr_mdlc_tech_physics_category_mechanics: "Mechanics"
+ oxr_mdlc_tech_physics_category_mechanics_desc: "The study of matter, motion, and force on the physical plane. Also includes fluid dynamics, thermodynamics, electrodynamics."
+ oxr_mdlc_tech_physics_category_geophysics: "Geophysics"
+ oxr_mdlc_tech_physics_category_geophysics_desc: "Quantitative analysis of the physical processes and properties of planets: internal composition, magnetosphere, ionosphere, tectonics, gravity, to name a few areas of study."
+ oxr_mdlc_tech_physics_category_fractal_field_research: "Fractals & Tesselations"
+ oxr_mdlc_tech_physics_category_fractal_field_research_desc: "Study of self-similar patterns and processes of time at increasingly small scales; complexity of details in patterns; tiling of planes; n-dimensional spaces; recursion. A discipline across mathematics, geometry, dimensional physics and material physics."
+
+
+
+#endregion
+
+#region economic_categories_0x027
+
+### ECONOMIC CATEGORIES
+
+ xvcv_mdlc_world_machines_food_districts: "$oxr_wm$ $auto$-Farming $districts$"
+ xvcv_mdlc_world_machines_mining_districts: "$oxr_wm$ $auto$-Mining $districts$"
+ xvcv_mdlc_world_machines_generator_districts: "$oxr_wm$ $auto$-Generator $districts$"
+ xvcv_mdlc_world_machines_foundry_districts: "$oxr_wm$ $auto$-Forge $districts$"
+ xvcv_mdlc_world_machines_factory_districts: "$oxr_wm$ $auto$-Factory $districts$"
+ xvcv_mdlc_world_machines_science_districts: "$oxr_wm$ $auto$-Research $districts$"
+ xvcv_mdlc_world_machines_unity_districts: "$oxr_wm$ $auto$-Unity $districts$"
+ xvcv_mdlc_world_machines_military_districts: "$oxr_wm$ $auto$-Military $districts$"
+ xvcv_mdlc_world_machines_cybersecurity_districts: "$oxr_wm$ $auto$-Cybersecurity $districts$"
+ xvcv_mdlc_world_machines_housing_districts: "$oxr_wm$ $auto$-Housing $districts$"
+ xvcv_mdlc_world_machines_strategic_resource_districts: "$oxr_wm$ $auto$-Strategic-Resource $districts$"
+ xvcv_mdlc_world_machines_cooling_districts: "$oxr_wm$ Cooling $districts$"
+
+ oxr_mdlc_category_world_machines_buildings: "$oxr_wm$ $auto$-$buildings$"
+ oxr_mdlc_world_machines_government_buildings: "$oxr_wm$ $auto$-Capital $buildings$"
+ oxr_mdlc_world_machines_science_buildings: "$oxr_wm$ $auto$-Research $buildings$"
+ oxr_mdlc_world_machines_food_buildings: "$oxr_wm$ $auto$-Farm $buildings$"
+ oxr_mdlc_world_machines_generator_buildings: "$oxr_wm$ $auto$-Generator $buildings$"
+ oxr_mdlc_world_machines_mining_buildings: "$oxr_wm$ $auto$-Mining $buildings$"
+ oxr_mdlc_world_machines_factory_buildings: "$oxr_wm$ $auto$-Factory $buildings$"
+ oxr_mdlc_world_machines_foundry_buildings: "$oxr_wm$ $auto$-Foundry $buildings$"
+ oxr_mdlc_world_machines_unity_buildings: "$oxr_wm$ $auto$-Unity $buildings$"
+ oxr_mdlc_world_machines_industrial_buildings: "$oxr_wm$ $auto$-Industrial $buildings$"
+ oxr_mdlc_world_machines_strategic_resource_buildings: "$oxr_wm$ $auto$-Strategic-Resource $buildings$"
+ oxr_mdlc_world_machines_military_buildings: "$oxr_wm$ $auto$-Military $buildings$"
+ oxr_mdlc_world_machines_services_buildings: "$oxr_wm$ $auto$-Services $buildings$"
+ oxr_mdlc_category_district_defense_armies: "District Defense Armies"
+ oxr_mdlc_category_wm_decisions: "$auto$ $oxr_wm$ Decisions"
+ xvcv_mdlc_world_machines_servitor_districts: "World Machines Servitor $districts$"
+ xvcv_mdlc_world_machines_assimilator_districts: "$oxr_wm$s Assimilator $districts$"
+
+ oxr_mdlc_deposit_blockers_world_machine: "$oxr_wm$ Deposit Blockers"
+#endregion
+
+#region agendas_0x028
+
+## AGENDAS
+ council_agenda_oxr_mdlc_origin_world_machine_focus_on_past_name: "Clarify the Past"
+ council_agenda_oxr_mdlc_origin_world_machine_focus_on_past_desc: "The council will focus on efforts to clear blockers on existing World Machines and divert additional resources to excavations."
+ council_agenda_oxr_mdlc_origin_world_machine_deployment_protocols_name: "Develop Deployment Protocols"
+ council_agenda_oxr_mdlc_origin_world_machine_deployment_protocols_desc: "The council will focus on researching ways to temporarily improve World-Machine terraforming speeds."
+ council_agenda_oxr_mdlc_origin_world_machine_construction_infrastructure_name: "Construction Infrastructure"
+ council_agenda_oxr_mdlc_origin_world_machine_construction_infrastructure_desc: "The council will focus on dedicating extra resources to planet-side construction efforts."
+
+#endregion
+
+
+#region anomalies_0x029
+ oxr_mdlc_anomaly_ruined_wm: "Restore and Reboot"
+ oxr_mdlc_anomaly_ruined_wm_desc: "We have discovered a World Machine outside our borders, but it is inoperative."
+
+#endregion
+
+
+#region traditions_0x030
+ # TRADITIONS
+ oxr_mdlc_tradition_defensive_directives: "Defensive Directives"
+ oxr_mdlc_tradition_defensive_directives_desc: "War tactics and survivability upgrades for Auto-Machine World empires."
+ oxr_mdlc_tr_defensive_directives_adopt: "$oxr_mdlc_tradition_defensive_directives$ Traditions"
+ oxr_mdlc_tr_defensive_directives_finish: "$oxr_mdlc_tradition_defensive_directives$ Traditions Finished"
+
+ oxr_mdlc_tr_defensive_directives_armored_planets: "Armored Planets"
+ oxr_mdlc_tr_defensive_directives_armored_planets_delayed: "Protocols for increasing planetary bombardment resistance."
+ oxr_mdlc_tr_defensive_directives_armored_planets_tooltip: "Unlocks $oxr_mdlc_decisions_world_machines_armored_planet$ decision, which increases planetary bombardment resistance."
+
+ oxr_mdlc_tr_defensive_directives_increased_garrison: "Bolster District Armies"
+ oxr_mdlc_tr_defensive_directives_increased_garrison_delayed: "More defensive automatons on the ground."
+ oxr_mdlc_tr_defensive_directives_increased_garrison_tooltip: "['concept_oxr_mdlc_world_machine_district_defense_army_plural'] are increased by §G+1§! per district."
+
+ oxr_mdlc_tr_defensive_directives_self_destruct: "Planetary Self-Destruct"
+ oxr_mdlc_tr_defensive_directives_self_destruct_delayed: "Detonating World-Machines keeps them out of our antagonists' hands and preserves our secrets."
+ oxr_mdlc_tr_defensive_directives_self_destruct_tooltip: "Unlocks the $oxr_mdlc_decisions_origin_wm_self_destruct$ decision, which causes severe damage to nearby ships at the expense of the planet."
+
+ oxr_mdlc_tr_defensive_directives_space_armor: "Station Armor Upgrades"
+ oxr_mdlc_tr_defensive_directives_space_armor_delayed: "Mining stations and non-military vessels will receive additional armor loadouts."
+
+ oxr_mdlc_tr_defensive_directives_starbase_boost: "Starbase Reinforcements"
+ oxr_mdlc_tr_defensive_directives_starbase_boost_delayed: "Starbases and defense platforms will receive additional armor and hull loadouts."
+
+ oxr_mdlc_tr_defensive_directives_finish_tooltip: "Unlocks the $edict_oxr_mdlc_world_machines_edict_all_power_to_shields$ edict for extreme defensive fleet maneuvers."
+
+ ## MACHINE TRADITION SWAPS
+
+ oxr_mdlc_tr_machinery_planetary_systems_audit: "Planetary Systems Auditing"
+ oxr_mdlc_tr_machinery_planetary_systems_audit_delayed: "We will audit basic automated self-check procedures and failsafe routes in districts and buildings to check for redundant code."
+ oxr_mdlc_tr_machinery_planetary_systems_audit_tooltip: "$oxr_mdlc_world_machines_unity_buildings$ $upkeep$: §R+10%§!\n$oxr_mdlc_world_machines_unity_buildings$ $OUTPUT$: §G+5%§!"
+ oxr_mdlc_tr_machinery_wm_conquest_of_nature: "Planetary Defect Heuristics"
+ oxr_mdlc_tr_machinery_wm_conquest_of_nature_delayed: "Studying patterns in planet blockers and applying new efficiency algorithms will improves our ability to remediate and removing them."
+
+ oxr_mdlc_tr_machinery_wm_evolving_practical_applications: "Automation Heritage"
+ oxr_mdlc_tr_machinery_wm_evolving_practical_applications_delayed: "Our databanks hold a number of blueprints for electrical, material, and mechanical research modules which can be installed in all of our $oxr_mdlc_world_machines_science_buildings$."
+
+ oxr_mdlc_tr_machinery_finish_wm_tooltip: "$oxr_mdlc_wm_core_tip$: §G+1§!"
+
+#  oxr_mdlc_tr_machinery_adopt_wm_delayed: ""
+
+ oxr_mdlc_tr_machinery_wm_even_more_efficiency: "Even More Efficiency£xvcv_mdlc_trade_mark_icon£"
+ oxr_mdlc_tr_machinery_wm_even_more_efficiency_delayed: "Approaching maximum theoretical administrative efficiency at local planetary levels with newly discovered §YEven More Efficiency£xvcv_mdlc_trade_mark_icon£§! technology modules found in a digital corner of our homeworld's databanks.\n\n§LAt nano-scale levels, our scanners founds the words, 'Results guaranteed or your credits back' but as we have no entity to hold accountable for such claims, $oxr_mdlc_regulatory_node$ has lowered refund expectations to 0.0%§!"
+
+#endregion
+
+
+#region edicts_0x031
+ # EDICTS
+ edict_oxr_mdlc_world_machines_edict_all_power_to_shields: "All Power to Shields"
+ edict_oxr_mdlc_world_machines_edict_all_power_to_shields_desc: "Attention all ships: Extreme defensive maneuver: Divert all weapons systems power to shields and brace for impact."
+
+ edict_oxr_mdlc_edict_wm_capacity_subsidies: "$oxr_wm$ £energy£ Production Boost"
+ edict_oxr_mdlc_edict_wm_capacity_subsidies_desc: "Resources will be diverted to generator districts and buildings to raise production targets."
+ edict_oxr_mdlc_edict_wm_mining_subsidies: "$oxr_wm$ £minerals£ Production Boost"
+ edict_oxr_mdlc_edict_wm_mining_subsidies_desc: "Resources will be diverted to mining districts and buildings to raise production targets."
+ edict_oxr_mdlc_edict_wm_farming_subsidies: "$oxr_wm$ £food£ Production Boost"
+ edict_oxr_mdlc_edict_wm_farming_subsidies_desc: "Resources will be diverted to nutrient-production districts and buildings to raise production targets."
+ edict_oxr_mdlc_edict_wm_industrial_subsidies: "$oxr_wm$ £consumer_goods£ Production Boost"
+ edict_oxr_mdlc_edict_wm_industrial_subsidies_desc: "Resources will be diverted to consumer goods districts and buildings to raise production targets."
+ edict_oxr_mdlc_edict_wm_forge_subsidies: "$oxr_wm$ £alloys£ Production Boost"
+ edict_oxr_mdlc_edict_wm_forge_subsidies_desc: "Resources will be diverted to alloy production districts and buildings to raise production targets."
+ edict_oxr_mdlc_edict_wm_research_subsidies: "$oxr_wm$ £physics_research£ £engineering_research£ £society_research£ Production Boost"
+ edict_oxr_mdlc_edict_wm_research_subsidies_desc: "Resources will be diverted to computing districts and science buildings to raise production targets."
+
+#endregion
+
+#region overrides_0x032
+
+
+#endregion

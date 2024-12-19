@@ -1,0 +1,40 @@
+base_buildtime = $BUILD_TIME$
+base_cap_amount = 1
+category = resource
+resources = {
+	category = oxr_mdlc_world_machines_generator_buildings
+	cost = {
+		minerals = $MINERALS_COST$
+		alloys = $ALLOYS_COST$
+		exotic_gases = $COST_GASES$
+	}
+	upkeep = {
+		trigger = {
+			NOT = { has_active_building = oxr_mdlc_world_machines_biofuel_refit_1 }
+		}
+		energy = $UPKEEP$
+	}
+	upkeep = {
+		trigger = {
+			has_active_building = oxr_mdlc_world_machines_biofuel_refit_1
+		}
+		food = $BIOFUEL_UPKEEP$
+	}
+	produces = {
+		energy = $PRODUCES$
+	}
+}
+planet_modifier = {
+	xvcv_mdlc_world_machines_generator_districts_energy_produces_mult = $PRODUCES_MULT$
+	# xvcv_mdlc_world_machines_generator_districts_minerals_upkeep_mult = $PRODUCES_MULT$
+	# buildings :D
+	oxr_mdlc_world_machines_generator_buildings_energy_produces_mult = $PRODUCES_MULT$
+	# oxr_mdlc_world_machines_generator_buildings_minerals_upkeep_mult = $PRODUCES_MULT$
+}
+triggered_planet_modifier = {
+	potential = {
+		has_building = oxr_mdlc_world_machines_biofuel_refit_1
+	}
+	xvcv_mdlc_world_machines_generator_districts_food_upkeep_add = $BIOFUEL_ADD$
+	oxr_mdlc_world_machines_generator_buildings_food_upkeep_add = $BIOFUEL_ADD$
+}

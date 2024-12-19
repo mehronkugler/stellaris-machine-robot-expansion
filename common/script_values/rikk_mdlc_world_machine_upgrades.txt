@@ -1,0 +1,15 @@
+# Synchronization Arrays
+rikk_mdlc_world_machine_synchronization_arrays_total = {
+	complex_trigger_modifier = {
+		trigger = count_owned_planet
+		trigger_scope = owner
+		parameters = {
+			limit = {
+				has_deposit = rikk_mdlc_d_world_machine_synchronization_arrays
+			}
+		}
+		mode = add	
+	}
+	subtract = 1
+	max = 20
+}

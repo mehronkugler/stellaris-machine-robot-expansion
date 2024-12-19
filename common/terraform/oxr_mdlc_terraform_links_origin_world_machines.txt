@@ -1,0 +1,89 @@
+# From planets to auto-world machine
+# from = planet
+# effect scope = country
+terraform_link = {
+	from = "pc_barren"
+	to = "xvcv_mdlc_pc_machine_auto"
+	inline_script = country/terraform/oxr_mdlc_to_pc_machine_auto
+}
+terraform_link = {
+	from = "pc_barren_cold"
+	to = "xvcv_mdlc_pc_machine_auto"
+	inline_script = country/terraform/oxr_mdlc_to_pc_machine_auto
+}
+terraform_link = {
+	from = "pc_nuked"
+	to = "xvcv_mdlc_pc_machine_auto"
+	inline_script = country/terraform/oxr_mdlc_to_pc_machine_auto
+}
+terraform_link = {
+	from = "pc_gaia"
+	to = "xvcv_mdlc_pc_machine_auto"
+	inline_script = country/terraform/oxr_mdlc_to_pc_machine_auto
+}
+terraform_link = {
+	from = "pc_hive"
+	to = "xvcv_mdlc_pc_machine_auto"
+	inline_script = country/terraform/oxr_mdlc_to_pc_machine_auto
+}
+terraform_link = {
+	from = "pc_desert"
+	to = "xvcv_mdlc_pc_machine_auto"
+	inline_script = country/terraform/oxr_mdlc_to_pc_machine_auto
+}
+terraform_link = {
+	from = "pc_arid"
+	to = "xvcv_mdlc_pc_machine_auto"
+	inline_script = country/terraform/oxr_mdlc_to_pc_machine_auto
+}
+terraform_link = {
+	from = "pc_savannah"
+	to = "xvcv_mdlc_pc_machine_auto"
+	inline_script = country/terraform/oxr_mdlc_to_pc_machine_auto
+}
+terraform_link = {
+	from = "pc_arctic"
+	to = "xvcv_mdlc_pc_machine_auto"
+	inline_script = country/terraform/oxr_mdlc_to_pc_machine_auto
+}
+terraform_link = {
+	from = "pc_tundra"
+	to = "xvcv_mdlc_pc_machine_auto"
+	inline_script = country/terraform/oxr_mdlc_to_pc_machine_auto
+}
+terraform_link = {
+	from = "pc_alpine"
+	to = "xvcv_mdlc_pc_machine_auto"
+	inline_script = country/terraform/oxr_mdlc_to_pc_machine_auto
+}
+terraform_link = {
+	from = "pc_continental"
+	to = "xvcv_mdlc_pc_machine_auto"
+	inline_script = country/terraform/oxr_mdlc_to_pc_machine_auto
+}
+terraform_link = {
+	from = "pc_tropical"
+	to = "xvcv_mdlc_pc_machine_auto"
+	inline_script = country/terraform/oxr_mdlc_to_pc_machine_auto
+}
+terraform_link = {
+	from = "pc_ocean"
+	to = "xvcv_mdlc_pc_machine_auto"
+	inline_script = country/terraform/oxr_mdlc_to_pc_machine_auto
+}
+terraform_link = {
+	from = "pc_machine"
+	to = "xvcv_mdlc_pc_machine_auto"
+	inline_script = country/terraform/oxr_mdlc_to_pc_machine_auto
+}
+# Variants
+terraform_link = {
+	from = "pc_frozen"
+	to = "xvcv_mdlc_pc_machine_auto"
+	inline_script = country/terraform/oxr_mdlc_to_pc_machine_auto
+}
+# terraform_link = {
+# 	from = "pc_toxic"
+# 	to = "xvcv_mdlc_pc_machine_auto"
+# 	inline_script = country/terraform/oxr_mdlc_to_pc_machine_auto
+# }

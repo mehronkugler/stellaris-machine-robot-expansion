@@ -1,0 +1,32 @@
+# This inline script addresses the following scenarios:
+# 1 - NOT rogue servitor (see oxr_mdlc_servitor)
+# 2 - planet is FACTORY designation
+
+# When in factory designation, produce 2 artisan drone output
+# 20 good production, 20 minerals upkeep
+
+# NOthing to add for catalytic empires here bc factory mode means goods
+produces = {
+	trigger = {
+		exists = owner
+		oxr_mdlc_col_is_factory = yes
+		owner = {
+			NOT = { has_valid_civic = civic_machine_servitor }
+		}
+	}
+	consumer_goods = $GOODS$
+	mult = $PRODUCES_MULT$
+}
+# When on factory designation, minerals are used
+upkeep = {
+	trigger = {
+		exists = owner
+		oxr_mdlc_col_is_factory = yes
+		owner = {
+			NOT = { has_valid_civic = civic_machine_servitor }
+		}
+	}
+	minerals = $GOODS_UPKEEP$
+	volatile_motes = $RARE$
+	mult = $UPKEEP_MULT$
+}

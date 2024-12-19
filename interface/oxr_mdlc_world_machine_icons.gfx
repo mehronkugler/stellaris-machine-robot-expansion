@@ -1,0 +1,75 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_council_agenda_icon_oxr_mdlc_origin_world_machine_focus_on_past"
+		texturefile = "gfx/interface/icons/agenda_icons/oxr_mdlc_origin_world_machine_focus_on_past.dds"
+	}
+	spriteType = {
+		name = "GFX_council_agenda_icon_oxr_mdlc_origin_world_machine_deployment_protocols"
+		texturefile = "gfx/interface/icons/agenda_icons/oxr_mdlc_origin_world_machine_deployment_protocols.dds"
+	}
+	spriteType = {
+		name = "GFX_council_agenda_icon_oxr_mdlc_origin_world_machine_construction_infrastructure"
+		texturefile = "gfx/interface/icons/agenda_icons/oxr_mdlc_origin_world_machine_construction_infrastructure.dds"
+	}
+	spriteType = {
+		name = "GFX_world_machines_auto_supercomputer"
+		textureFile = "gfx/interface/icons/buildings/oxr_mdlc_world_machines_auto_research_institute.dds"
+	}
+
+	# Traditions
+	spriteType = {
+		name = "GFX_tradition_category_icon_oxr_mdlc_tradition_defensive_directives"
+		textureFile = "gfx/interface/icons/traditions/tree_icons/oxr_mdlc_tradition_category_defensive_directives.dds"
+	}
+	spriteType = {
+		name = "GFX_tradition_category_bg_oxr_mdlc_tradition_defensive_directives"
+		textureFile = "gfx/interface/tiles/oxr_mdlc_tradition_defensive_directives_bg.dds"
+	}
+	spriteType = {
+		name = "GFX_tradition_hex_bg_oxr_mdlc_tradition_defensive_directives"
+		textureFile = "gfx/interface/traditions/tradition_hex_bg_oxr_mdlc_tradition_defensive_directives.dds"
+	}
+	spriteType = {
+		name = "GFX_oxr_mdlc_tr_defensive_directives_armored_planets"
+		textureFile = "gfx/interface/icons/traditions/oxr_mdlc_tr_defensive_directives_armored_planets.dds"
+	}
+	spriteType = {
+		name = "GFX_oxr_mdlc_tr_defensive_directives_increased_garrison"
+		textureFile = "gfx/interface/icons/traditions/oxr_mdlc_tr_defensive_directives_increased_garrison.dds"
+	}
+	spriteType = {
+		name = "GFX_oxr_mdlc_tr_defensive_directives_self_destruct"
+		textureFile = "gfx/interface/icons/traditions/oxr_mdlc_tr_defensive_directives_self_destruct.dds"
+	}
+	spriteType = {
+		name = "GFX_oxr_mdlc_tr_defensive_directives_space_armor"
+		textureFile = "gfx/interface/icons/traditions/oxr_mdlc_tr_defensive_directives_space_armor.dds"
+	}
+	spriteType = {
+		name = "GFX_oxr_mdlc_tr_defensive_directives_starbase_boost"
+		textureFile = "gfx/interface/icons/traditions/oxr_mdlc_tr_defensive_directives_starbase_boost.dds"
+	}
+	# Swaps
+	spriteType = {
+		name = "GFX_oxr_mdlc_tr_machinery_planetary_systems_audit"
+		textureFile = "gfx/interface/icons/traditions/oxr_mdlc_tr_machinery_planetary_systems_audit.dds"
+	}
+	spriteType = {
+		name = "GFX_oxr_mdlc_tr_machinery_wm_conquest_of_nature"
+		textureFile = "gfx/interface/icons/traditions/oxr_mdlc_tr_machinery_wm_conquest_of_nature.dds"
+	}
+	spriteType = {
+		name = "GFX_oxr_mdlc_tr_machinery_wm_evolving_practical_applications"
+		textureFile = "gfx/interface/icons/traditions/oxr_mdlc_tr_machinery_wm_evolving_practical_applications.dds"
+	}
+	spriteType = {
+		name = "GFX_oxr_mdlc_tr_machinery_wm_even_more_efficiency"
+		textureFile = "gfx/interface/icons/traditions/oxr_mdlc_tr_machinery_wm_even_more_efficiency.dds"
+	}
+	spriteType = {
+		name = "GFX_world_machine_core_fabricated"
+		textureFile = "gfx/interface/icons/message/wm_core_fabricate_message.dds"
+	}
+
+
+}

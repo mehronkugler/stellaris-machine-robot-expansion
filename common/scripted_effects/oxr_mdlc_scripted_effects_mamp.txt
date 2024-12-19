@@ -268,11 +268,12 @@ oxr_mdlc_mamp_pop_remove_habitability_preference = {
 oxr_mdlc_mamp_pop_change_habitability_preference = {
 	if = {
 		limit = { 
-			random_owned_pop = {
+			last_created_pop = {
 				species = { is_archetype = OXR_MDLC_MAMP }
 			}
 		}
-		random_owned_pop = {
+		oxr_mdlc_mamp_pop_remove_habitability_preference = yes
+		last_created_pop = {
 			modify_species = {
 				ideal_planet_class = root
 			}

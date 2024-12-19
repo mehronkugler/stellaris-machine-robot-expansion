@@ -88,7 +88,23 @@ xvcv_mdlc_building_maintenance_depot = {
 		}
 	}
 
-	planet_modifier = {
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_origin = oxr_mdlc_origin_world_machine_awakened
+			}
+		}
+		job_oxr_mdlc_world_machine_hibernation_slot_add = 4
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				NOT = { has_origin = oxr_mdlc_origin_world_machine_awakened }
+			}
+		}
 		job_maintenance_drone_add = @b2_jobs
 	}
 }

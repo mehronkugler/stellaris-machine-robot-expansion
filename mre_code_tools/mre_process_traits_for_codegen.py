@@ -73,7 +73,7 @@ def trait_qualifies_for_leader_making(trait_dict: dict) -> bool:
             trait_dict.get('councilor_modifier'),
             trait_dict.get('triggered_councilor_modifier'),
             "ruler" in trait_dict['trait_name'],
-            trait_dict.get('is_councilor_trait'),
+            # trait_dict.get('is_councilor_trait'),
         ]
     ):
         is_leader_making_trait = True

@@ -1,0 +1,35 @@
+# Defense Armies
+oxr_mdlc_world_machine_district_defense_army = {
+	defensive = yes
+	is_pop_spawned = no
+	health = 1.25
+	damage = 1.50
+	# morale = 1.25
+	collateral_damage = 0.0
+	war_exhaustion = 0.0 # No WE from defense armies
+	icon = GFX_army_type_defensive
+	has_species = no
+	has_morale = no
+	spawn_chance = {
+		factor = 1000
+	}
+
+	resources = {
+		category = armies
+		produces = {
+			trigger = {
+				exists = owner
+				owner = { has_active_tradition = tr_unyielding_resistance_is_frugal }
+			}
+			unity = 0.5
+		}
+	}
+
+	potential = {
+		planet = { is_planet_world_machine = yes }
+		planet.space_owner = {
+			has_origin = oxr_mdlc_origin_world_machine_awakened
+		}
+		oxr_mdlc_debug_mode_on = yes
+	}
+}

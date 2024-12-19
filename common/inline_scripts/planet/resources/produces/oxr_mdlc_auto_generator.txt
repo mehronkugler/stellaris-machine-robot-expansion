@@ -1,0 +1,9 @@
+# This inline script represents the output of one vanilla generator job
+# NUM_AUTO_JOBS represents how many jobs should the object produce
+# ex: buildings, depending on their tier: 2,4,6
+# districts: 2, on T3 worlds (6) and auto-rings (10)
+# in order to represent the auto-building/auto-district producing jobs
+produces = {
+    energy = 8
+    mult = $NUM_AUTO_JOBS$
+}

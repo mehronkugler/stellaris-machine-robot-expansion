@@ -220,3 +220,4 @@ oxr_mdlc_decision_mamp_deactivate_auto_construction_cat_2 = {
 		log = "Player deactivated MAMP auto-construction L2 on \\[This.GetName]"
 	}
 }
+

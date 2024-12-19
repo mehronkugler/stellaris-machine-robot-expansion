@@ -1,0 +1,280 @@
+@Edict1Cost = 10
+@Edict2Cost = 20
+@Edict3Cost = 30
+@EdictSpecialCost = 1
+
+@EdictPerpetual = -1
+
+oxr_mdlc_world_machines_edict_all_power_to_shields = {
+	length = -1
+	icon = "GFX_resource_physics"
+
+	resources = {
+		category = edicts
+		cost = {
+			unity = 30
+			multiplier = value:edict_size_effect
+		}
+		upkeep = {
+			unity = 30
+			energy = 50
+			physics_research = 20
+			multiplier = value:edict_size_effect
+		}
+	}
+
+	modifier = {
+		ship_fire_rate_mult = -5
+		ship_speed_mult = 0.15
+		ship_shield_mult = 5
+		ship_shield_hardening_add = 0.75
+		ship_shield_regen_add_static = 500
+		ship_shield_regen_add_perc = 0.5   # this could delete ships if bumped too high
+	}
+
+	potential = {
+		OR = {
+			has_origin = oxr_mdlc_origin_world_machine_awakened
+			has_ascension_perk = xvcv_mdlc_ap_world_machines
+		}
+		has_tradition = oxr_mdlc_tr_defensive_directives_finish
+	}
+
+	# allow = {
+	# 	NOT = {
+	# 		has_edict = oxr_mdlc_world_machines_edict_all_power_to_shields
+	# 	}
+	# }
+
+	ai_weight = {
+		weight = 500
+	}
+}
+
+## VANILLA REPLACEMENTS
+
+oxr_mdlc_edict_wm_capacity_subsidies = {
+	length = @EdictPerpetual
+	icon = "GFX_edict_type_policy"
+
+	resources = {
+		category = edicts
+		cost = {
+			unity = @Edict3Cost
+			multiplier = value:edict_size_effect
+		}
+		upkeep = {
+			unity = @Edict3Cost
+			multiplier = value:edict_size_effect
+		}
+	}
+
+	modifier = {
+		xvcv_mdlc_world_machines_generator_districts_produces_mult = 0.5
+		xvcv_mdlc_world_machines_generator_districts_upkeep_mult = 0.75
+		oxr_mdlc_world_machines_generator_buildings_produces_mult = 0.5
+		oxr_mdlc_world_machines_generator_buildings_upkeep_mult = 0.75
+		# planet_technician_produces_mult = 0.50
+		# planet_technician_energy_upkeep_add = 0.5
+	}
+
+	prerequisites = {
+		"tech_power_hub_1"
+	}
+
+	ai_weight = {
+		weight = @EdictHighPrio
+		modifier = {
+			should_ai_focus_on_trade = yes
+			factor = 0
+		}
+	}
+}
+
+oxr_mdlc_edict_wm_mining_subsidies = {
+	length = @EdictPerpetual
+	icon = "GFX_edict_type_policy"
+
+	resources = {
+		category = edicts
+		cost = {
+			unity = @Edict3Cost
+			multiplier = value:edict_size_effect
+		}
+		upkeep = {
+			unity = @Edict3Cost
+			multiplier = value:edict_size_effect
+		}
+	}
+
+	modifier = {
+		xvcv_mdlc_world_machines_mining_districts_produces_mult = 0.5
+		xvcv_mdlc_world_machines_mining_districts_upkeep_mult = 0.75
+		oxr_mdlc_world_machines_mining_buildings_produces_mult = 0.5
+		oxr_mdlc_world_machines_mining_buildings_upkeep_mult = 0.75
+
+		# planet_miners_produces_mult = 0.50 # Note: Also affects organic special resource miners!
+		# planet_miners_energy_upkeep_add = 0.5
+		# planet_sr_miners_energy_upkeep_add = 0.5 #Note: _add modifiers don't apply to children, but _mult ones do, so this is necessary here
+	}
+
+	prerequisites = {
+		"tech_mineral_purification_1"
+	}
+
+	ai_weight = {
+		weight = @EdictHighPrio
+	}
+}
+
+oxr_mdlc_edict_wm_farming_subsidies = {
+	length = @EdictPerpetual
+	icon = "GFX_edict_type_policy"
+
+	resources = {
+		category = edicts
+		cost = {
+			unity = @Edict3Cost
+			multiplier = value:edict_size_effect
+		}
+		upkeep = {
+			unity = @Edict3Cost
+			multiplier = value:edict_size_effect
+		}
+	}
+
+	modifier = {
+		# planet_farmers_produces_mult = 0.50
+		# planet_farmers_energy_upkeep_add = 0.5
+		xvcv_mdlc_world_machines_food_districts_produces_mult = 0.5
+		xvcv_mdlc_world_machines_food_districts_upkeep_mult = 0.75
+		oxr_mdlc_world_machines_food_buildings_produces_mult = 0.5
+		oxr_mdlc_world_machines_food_buildings_upkeep_mult = 0.75
+	}
+
+	prerequisites = {
+		"tech_food_processing_1"
+	}
+
+	ai_weight = {
+		weight = @EdictHighPrio
+		modifier = {
+			country_uses_food = no
+			factor = 0
+		}
+	}
+}
+
+oxr_mdlc_edict_wm_industrial_subsidies = {
+	length = @EdictPerpetual
+	icon = "GFX_edict_type_policy"
+
+	resources = {
+		category = edicts
+		cost = {
+			unity = @Edict3Cost
+			multiplier = value:edict_size_effect
+		}
+		upkeep = {
+			unity = @Edict3Cost
+			multiplier = value:edict_size_effect
+		}
+	}
+
+	modifier = {
+		# planet_artisans_produces_mult = 0.10
+		# planet_artisans_energy_upkeep_add = 1
+		xvcv_mdlc_world_machines_vanilla_industrial_districts_consumer_goods_produces_mult = 0.1
+		xvcv_mdlc_world_machines_vanilla_industrial_districts_upkeep_mult = 0.1
+		xvcv_mdlc_world_machines_factory_districts_produces_mult = 0.1
+		xvcv_mdlc_world_machines_factory_districts_upkeep_mult = 0.1
+		oxr_mdlc_world_machines_factory_buildings_produces_mult = 0.1
+		oxr_mdlc_world_machines_factory_buildings_upkeep_mult = 0.1
+	}
+
+	potential = {
+		country_uses_consumer_goods = yes
+	}
+
+	prerequisites = {
+		tech_global_production_strategy
+	}
+
+	show_tech_unlock_if = {
+		country_uses_consumer_goods = yes
+	}
+
+	ai_weight = {
+		weight = @EdictMedPrio
+	}
+}
+
+oxr_mdlc_edict_wm_forge_subsidies = {
+	length = @EdictPerpetual
+	icon = "GFX_edict_type_policy"
+
+	resources = {
+		category = edicts
+		cost = {
+			unity = @Edict3Cost
+			multiplier = value:edict_size_effect
+		}
+		upkeep = {
+			unity = @Edict3Cost
+			multiplier = value:edict_size_effect
+		}
+	}
+
+	modifier = {
+		xvcv_mdlc_world_machines_vanilla_industrial_districts_alloys_produces_mult = 0.1
+		xvcv_mdlc_world_machines_vanilla_industrial_districts_upkeep_mult = 0.1
+		xvcv_mdlc_world_machines_foundry_districts_produces_mult = 0.1
+		xvcv_mdlc_world_machines_foundry_districts_upkeep_mult = 0.1
+		oxr_mdlc_world_machines_foundry_buildings_produces_mult = 0.1
+		oxr_mdlc_world_machines_foundry_buildings_upkeep_mult = 0.1
+		# planet_metallurgists_produces_mult = 0.10
+		# planet_metallurgists_energy_upkeep_add = 1
+	}
+
+	prerequisites = {
+		tech_global_production_strategy
+	}
+
+	ai_weight = {
+		weight = @EdictLowPrio
+	}
+}
+
+oxr_mdlc_edict_wm_research_subsidies = {
+	length = @EdictPerpetual
+	icon = "GFX_edict_type_policy"
+
+	resources = {
+		category = edicts
+		cost = {
+			unity = @Edict3Cost
+			multiplier = value:edict_size_effect
+		}
+		upkeep = {
+			unity = @Edict3Cost
+			multiplier = value:edict_size_effect
+		}
+	}
+
+	modifier = {
+		xvcv_mdlc_world_machines_computer_districts_produces_mult = 0.1
+		xvcv_mdlc_world_machines_computer_districts_upkeep_mult = 0.1
+		oxr_mdlc_world_machines_science_buildings_produces_mult = 0.1
+		oxr_mdlc_world_machines_science_buildings_upkeep_mult = 0.1
+		# planet_researchers_produces_mult = 0.10
+		# planet_researchers_energy_upkeep_add = 1
+	}
+
+	potential = {
+		has_tradition = tr_discovery_databank_uplinks
+	}
+
+	ai_weight = {
+		weight = @EdictMedPrio
+	}
+}

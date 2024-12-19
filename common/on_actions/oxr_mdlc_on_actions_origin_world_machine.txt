@@ -1,0 +1,186 @@
+on_game_start_country = {
+	events = {
+		oxr_mdlc_origin_wm_main.2  # starting trigger
+	}
+}
+
+# on blocker cleared is called at the last arc site stage
+# OWNER scope
+on_world_machine_blocker_cleared = {
+	# Contribute towards progress in unlocking tech
+	events = {
+		oxr_mdlc_on_world_machine_action.100  # blocker situation increment progress
+		oxr_mdlc_on_world_machine_action.1001  # points towards insight situation
+		oxr_mdlc_on_world_machine_action.1010  # blockers count towards mastery
+	}
+}
+# PLANET scope
+on_world_machine_planet_blocker_cleared = {
+	events = {
+		oxr_mdlc_on_world_machine_action.105   # give artifact deposit
+	}
+}
+
+# OWNER scope
+on_world_machine_insight_blocker_cleared = {
+	# Contribute towards unlocking world machine core using planetary blocker-clearing interface
+	events = {
+		oxr_mdlc_on_world_machine_action.110  # increment insights counter
+	}
+}
+# PLANET scope
+on_world_machine_planet_insight_blocker_cleared = {
+	events = {
+		oxr_mdlc_on_world_machine_action.105   # give artifact deposit
+	}
+}
+
+on_world_machine_blocker_digsite_progress = { }
+
+# planet scope
+on_world_machine_blocker_digsite_finished = {
+	# Contribute towards progress in unlocking tech
+	# Create another digsite if any more blockers exist ?
+	# Does the player have the right tech? If so, don't spawn the next dig.
+	#  - Just award progress points
+	events = {
+		oxr_mdlc_on_world_machine_action.10   # Create the next digsite
+		oxr_mdlc_on_world_machine_action.1000  # points towards insights situation
+	}
+}
+on_world_machine_arc_site_progress = {
+	events = {
+		oxr_mdlc_on_world_machine_action.1002  # points towards insights situation
+	}
+}
+
+on_world_machine_popless_building_constructed = {
+	# Progress awarded for building WM-specific buildings
+	events = {
+		oxr_mdlc_on_world_machine_action.1005
+	}
+}
+on_world_machine_district_completed_planet = {
+	events = {
+		oxr_mdlc_on_world_machine_action.1905  # planet: restock district defense armies
+	}
+}
+on_world_machine_district_completed_country = {
+	events = {
+		oxr_mdlc_on_world_machine_action.1005  # country: Record situation points
+	}
+}
+on_world_machine_district_demolished = {
+	events = {
+		oxr_mdlc_on_world_machine_action.1909  # planet: Recalculate district armies, decommission
+	}
+}
+on_world_machine_ruined_planet_discovered = {
+	# Award some progress points for finding a ruined world machine
+	events = {
+		oxr_mdlc_on_world_machine_action.1004  # points towards insights situation
+	}
+}
+on_world_machine_restoration_stage_complete = {
+	events = {
+		oxr_mdlc_on_world_machine_action.1007  # points towards insight situation
+	}
+}
+on_world_machine_restoration_finished = {
+	events = {
+		oxr_mdlc_on_world_machine_action.1008  # points towards insight situation
+		oxr_mdlc_origin_wm_main.503            # increment world machine counter
+	}
+}
+# Executed when a country picks an ascension perk
+# THIS = country
+# on_ascension_perk_picked = {
+# 	events = {
+# 		oxr_mdlc_on_world_machine_action.2500
+# 	}
+# }
+
+# planets scope
+on_world_machine_pc_machine_auto_terraforming_complete = {
+	events = {
+		oxr_mdlc_origin_wm_main.500
+	}
+}
+# country scope
+on_world_machine_core_terraforming_complete = {
+	events = {
+		oxr_mdlc_origin_wm_main.1100  # increment 'deploy world core' situation counter
+		oxr_mdlc_origin_wm_main.503   # increment world machine planet total counter
+	}
+}
+on_world_machine_core_fabrication_complete = {
+	events = {
+		
+	}
+}
+# COUNTRY scope. called via self destruct
+on_world_machine_planet_lost = {
+	events = {
+		oxr_mdlc_origin_wm_main.504    # decrement world machine counter
+	}
+}
+
+### EXTENSION OF VANILLA ON_ACTIONS ###
+
+# Root = Planet
+# From = Country
+# FromFrom = Fleet of the science ship that surveyed it, if any
+on_planet_surveyed = {
+	events = {
+		oxr_mdlc_on_world_machine_action.1100  # Check if ruined wm, make arc site
+	}
+}
+# on_district_demolished = {
+# 	events = {
+# 		oxr_mdlc_on_world_machine_action.1900  # Hook for calling on_world_machine_district_demolished
+# 	}
+# }
+on_custom_diplomacy = {
+	events = {
+		oxr_mdlc_on_world_machine_action.3000
+	}
+}
+on_tech_increased = {
+	events = {
+		oxr_mdlc_on_world_machine_action.1200  # show info about world expansion theory
+	}
+}
+
+# A colony has been destroyed. Called just before owner and controller is cleared
+# Scope = Planet
+on_colony_destroyed = {
+	events = {
+		oxr_mdlc_origin_wm_main.505    # decrement world machine counter
+	}
+}
+
+# A colony has been destroyed by bombardment. Called after the planet's colony status has been cleared
+# This = Planet
+# From = Bombarder
+on_colony_destroyed_by_bombardment = {
+	events = {
+		oxr_mdlc_origin_wm_main.505    # decrement world machine counter
+	}
+}
+
+# Planet has been terraformed
+# This = Planet
+# From = Terraforming country
+on_terraforming_complete = {
+	events = {
+		oxr_mdlc_origin_wm_main.506  # increment world machine counter for AP users
+	}
+}
+
+# Executed when a country picks an ascension perk
+# THIS = country
+on_ascension_perk_picked = {
+	events = {
+		oxr_mdlc_origin_wm_main.600  # Initialize country vars for World Machine AP users
+	}
+}

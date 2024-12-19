@@ -13,4 +13,52 @@ spriteTypes = {
 		textureFile = "gfx/event_pictures/oxr_mdlc_event_cyborg_reanimation.dds"
 		masking_texture = "gfx/interface/situation_log/event_mask.dds"
 	}
+	spriteType = {
+		name = "GFX_oxr_mdlc_ap_origin_world_machine_singularity"
+		texturefile = "gfx/interface/icons/ascension_perks/oxr_mdlc_ap_origin_world_machine_singularity.dds"
+		alwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_evt_oxr_mdlc_wm_expansion"
+		texturefile = "gfx/event_pictures/oxr_mdlc_world_machine_expansion.dds"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		alwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_evt_oxr_mdlc_wm_t3_worlds_start"
+		texturefile = "gfx/event_pictures/oxr_mdlc_origin_wm_t3_worlds_chain_1.dds"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		alwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_evt_oxr_mdlc_wm_t3_worlds_mid"
+		texturefile = "gfx/event_pictures/oxr_mdlc_origin_wm_t3_worlds_chain_3.dds"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		alwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_evt_oxr_mdlc_wm_t3_worlds_end"
+		texturefile = "gfx/event_pictures/oxr_mdlc_origin_wm_t3_worlds_chain_2.dds"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		alwaystransparent = yes
+	}
+	spriteType = {
+        name = "GFX_text_oxr_gear"
+        texturefile = "gfx/interface/icons/text_icons/text_oxr_mdlc_gear.dds"
+    }
+	spriteType = {
+        name = "GFX_text_oxr_empty"
+        texturefile = "gfx/interface/icons/text_icons/text_oxr_mdlc_empty.dds"
+    }
+	spriteType = {
+		name = "GFX_oxr_mdlc_ap_fractal_production_automation"
+		texturefile = "gfx/interface/icons/ascension_perks/oxr_mdlc_ap_fractal_production_automation.dds"
+		alwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_oxr_mdlc_cyborg_reanimated_army"
+		textureFile = "gfx/interface/icons/army/oxr_mdlc_cyborg_army.dds"
+		alwaysTransparent = yes
+	}
+
 }

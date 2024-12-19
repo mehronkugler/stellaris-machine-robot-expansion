@@ -1,0 +1,20 @@
+base_buildtime = $BUILD_TIME$
+base_cap_amount = 1
+category = resource
+resources = {
+	category = oxr_mdlc_world_machines_mining_buildings
+	cost = {
+		minerals = $COST$
+		volatile_motes = $COST_MOTES$
+	}
+	upkeep = {
+		energy = $UPKEEP$
+	}
+}
+planet_modifier = {
+	xvcv_mdlc_world_machines_mining_districts_minerals_produces_mult = $PRODUCES_MULT$
+	xvcv_mdlc_world_machines_mining_districts_energy_upkeep_add = $ENERGY_UPKEEP_ADD$
+	# buildings :D
+	oxr_mdlc_world_machines_mining_buildings_minerals_produces_mult = $PRODUCES_MULT$
+	oxr_mdlc_world_machines_mining_buildings_energy_upkeep_add = $ENERGY_UPKEEP_ADD$
+}

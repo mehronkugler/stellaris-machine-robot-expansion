@@ -23,7 +23,7 @@ xvcv_mdlc_common_district_mining = {
 					uses_district_set = xvcv_mdlc_pc_machine_ser_district_set
 				}
 			}
-			from = { NOT = { has_ascension_perk = xvcv_mdlc_ap_world_machines } }
+			from = { oxr_mdlc_planet_owner_can_build_wm_districts = no }
 		}
 		else_if = {
 			limit = { uses_district_set = xvcv_mdlc_pc_virtual_district_set }
@@ -46,7 +46,7 @@ xvcv_mdlc_common_district_mining = {
 			limit = { uses_district_set = xvcv_mdlc_pc_mechanical_district_set }
 			owner = {
 				NOR = {
-					has_ascension_perk = xvcv_mdlc_ap_mechanical_worlds
+					oxr_mdlc_planet_owner_can_build_wm_districts = yes
 					has_country_flag = xvcv_mdlc_origin_mechanical_heritage_empire
 				}
 			}
@@ -61,11 +61,18 @@ xvcv_mdlc_common_district_mining = {
 					uses_district_set = xvcv_mdlc_pc_machine_ser_district_set
 				}
 			}
-			owner = { NOT = { has_ascension_perk = xvcv_mdlc_ap_world_machines } }
+			owner = {
+				oxr_mdlc_planet_owner_can_build_wm_districts = no
+			}
 		}
 		else_if = {
 			limit = { uses_district_set = xvcv_mdlc_pc_virtual_district_set }
-			owner = { NOT = { has_ascension_perk = xvcv_mdlc_ap_virtual_worlds } }
+			owner = { 
+				NOR = {
+					has_ascension_perk = xvcv_mdlc_ap_virtual_worlds
+					has_origin = oxr_mdlc_origin_world_machine_awakened
+				} 
+			}
 		}
 		OR = {
 			uses_district_set = xvcv_mdlc_pc_mechanical_district_set
@@ -138,7 +145,7 @@ xvcv_mdlc_common_district_cooling = {
 
 	show_on_uncolonized = {
 		exists = from
-		from = { has_ascension_perk = xvcv_mdlc_ap_world_machines }
+		from = { oxr_mdlc_planet_owner_can_build_wm_districts = yes }
 		OR = {
 			uses_district_set = xvcv_mdlc_pc_machine_ecu_district_set
 			uses_district_set = xvcv_mdlc_pc_machine_cpu_district_set
@@ -148,7 +155,7 @@ xvcv_mdlc_common_district_cooling = {
 	}
 	potential = {
 		exists = owner
-		owner = { has_ascension_perk = xvcv_mdlc_ap_world_machines }
+		owner = { oxr_mdlc_planet_owner_can_build_wm_districts = yes }
 		OR = {
 			uses_district_set = xvcv_mdlc_pc_machine_ecu_district_set
 			uses_district_set = xvcv_mdlc_pc_machine_cpu_district_set
@@ -168,16 +175,33 @@ xvcv_mdlc_common_district_cooling = {
 	}
 
 	resources = {
-		category = xvcv_mdlc_world_machines_districts
-		cost = { minerals = @xvcv_mdlc_district_cost_5 }
+		category = xvcv_mdlc_world_machines_cooling_districts
+		cost = { 
+			minerals = @xvcv_mdlc_district_cost_5 
+			mult = value:scripted_modifier_mult|MODIFIER|rikk_mdlc_world_machine_districts_mineral_cost_add|
+		}
+		cost = {
+			trigger = { has_deposit = rikk_mdlc_d_world_machine_cooling_towers }
+			exotic_gases = 100
+		}
 		upkeep = { energy = 10 }
+		upkeep = {
+			trigger = { has_deposit = rikk_mdlc_d_world_machine_cooling_towers }
+			exotic_gases = 2
+		}
 	}
 
 	planet_modifier = {
-		xvcv_mdlc_world_machines_districts_produces_mult = 0.3 #change 'xvcv_mdlc_world_machines_districts_output_var' variable value when these are changed
+		xvcv_mdlc_world_machines_districts_produces_mult = 0.3
 		xvcv_mdlc_world_machines_districts_upkeep_mult = -0.3
 	}
-
+	
+	triggered_planet_modifier = {
+		xvcv_mdlc_world_machines_districts_produces_mult = 1
+		xvcv_mdlc_world_machines_districts_upkeep_mult = -1
+		mult = modifier:rikk_mdlc_world_machine_cooling_district_effectiveness
+	}
+	
 	triggered_planet_modifier = {
 		potential = {
 			exists = planet.orbital_defence

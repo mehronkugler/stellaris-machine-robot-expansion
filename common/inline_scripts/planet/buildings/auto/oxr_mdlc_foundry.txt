@@ -1,0 +1,71 @@
+category = manufacturing
+
+resources = {
+	category = oxr_mdlc_world_machines_foundry_buildings
+	cost = {
+		minerals = $COST$
+		volatile_motes = $RARE_COST$
+	}
+	upkeep = {
+		energy = $UPKEEP$
+		volatile_motes = $RARE_UPKEEP$
+	}
+	# produces
+	produces = {
+		trigger = { owner = { is_catalytic_empire = no } }
+		alloys = 4
+	}
+	upkeep = {
+		trigger = { owner = { is_catalytic_empire = no } }
+		minerals = 8
+	}
+	# catalytic
+	produces = {
+		trigger = { owner = { is_catalytic_empire = yes } }
+		alloys = 5
+	}
+	upkeep = {
+		trigger = { owner = { is_catalytic_empire = yes } }
+		food = 12
+	}
+}
+
+planet_modifier = {
+	oxr_mdlc_world_machines_foundry_buildings_produces_mult = $PRODUCTION_MULT$
+	oxr_mdlc_world_machines_foundry_buildings_upkeep_mult = $PRODUCTION_MULT$
+}
+
+triggered_planet_modifier = {
+	potential = {
+		exists = owner
+		is_planet_class = xvcv_mdlc_pc_machine_auto
+		owner = {
+			has_ascension_perk = xvcv_mdlc_ap_world_machines
+		}
+	}
+	modifier = {
+		planet_metallurgists_alloys_produces_mult = $PRODUCTION_MULT$
+		planet_metallurgists_minerals_upkeep_mult = $PRODUCTION_MULT$
+	}
+}
+triggered_planet_modifier = {
+	potential = {
+		exists = owner
+		is_planet_class = xvcv_mdlc_pc_machine_auto
+		owner = {
+			has_origin = oxr_mdlc_origin_world_machine_awakened
+		}
+	}
+	modifier = {
+		xvcv_mdlc_world_machines_vanilla_industrial_districts_alloys_produces_mult = $PRODUCTION_MULT$
+		xvcv_mdlc_world_machines_vanilla_industrial_districts_upkeep_mult = $PRODUCTION_MULT$
+	}
+}
+triggered_planet_modifier = {
+	potential = {
+		exists = owner
+		oxr_mdlc_planet_is_t3_world_machine = yes
+	}
+	xvcv_mdlc_world_machines_foundry_districts_produces_mult = $PRODUCTION_MULT$
+	xvcv_mdlc_world_machines_foundry_districts_upkeep_mult = $PRODUCTION_MULT$
+}

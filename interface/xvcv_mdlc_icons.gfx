@@ -129,6 +129,11 @@ spriteTypes = {
 		textureFile = "gfx/event_pictures/xvcv_mdlc_source_code_reprogramming_red.dds"
 		masking_texture = "gfx/interface/situation_log/event_mask.dds"
 	}
+	spriteType = {
+		name = "GFX_evt_oxr_mdlc_origin_world_machine_awakened"
+		textureFile = "gfx/event_pictures/origins/oxr_mdlc_origin_world_machine_awakened.dds"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds"
+	}
 
 	### Ascension Perks ###
 	spriteType = {
@@ -681,6 +686,22 @@ spriteTypes = {
 	spriteType = {
 		name = "GFX_xvcv_mdlc_situation_stage_10"
 		texturefile = "gfx/interface/icons/situation_log/situations/stages/xvcv_mdlc_situation_stage_10.dds"
+	}
+	spriteType = {
+		name = "GFX_situation_stage_frame_yellow"
+		texturefile = "gfx/interface/icons/situation_log/situations/stages/situation_severity_level_frame_yellow.dds"
+	}
+	spriteType = {
+		name = "GFX_situation_stage_frame_orange"
+		texturefile = "gfx/interface/icons/situation_log/situations/stages/situation_severity_level_frame_orange.dds"
+	}
+	spriteType = {
+		name = "GFX_situation_stage_frame_purple"
+		texturefile = "gfx/interface/icons/situation_log/situations/stages/situation_severity_level_frame_purple.dds"
+	}
+	spriteType = {
+		name = "GFX_situation_stage_frame_teal"
+		texturefile = "gfx/interface/icons/situation_log/situations/stages/situation_severity_level_frame_teal.dds"
 	}
 
 	### Starbase Buildings ###

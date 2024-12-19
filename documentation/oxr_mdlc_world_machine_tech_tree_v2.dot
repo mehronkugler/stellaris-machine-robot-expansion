@@ -1,0 +1,163 @@
+digraph {
+    node [fixedsize=false width=2 height=2];
+    "Tech" [shape=rectangle color=blue];
+    "Decision" [shape=diamond color=orange];
+    "Deposit" [shape=invhouse color=green];
+
+    "World Machine Origin" -> "oxr_mdlc_tech_world_machines_unlocked"
+    // "World Machine AP" -> "oxr_mdlc_tech_world_machines_unlocked"
+    # WM Tech
+    oxr_mdlc_tech_world_machines_unlocked [shape=rectangle color=blue label="World Machines Basic Operations"];
+    oxr_mdlc_tech_world_machine_planetary_proficiency [shape=rectangle color=blue label="World-Machine Planetary Proficiency"];
+    oxr_mdlc_tech_world_machine_planetary_mastery [shape=rectangle color=blue label="World-Machine Infrastructure Mastery"];
+    oxr_mdlc_tech_world_machine_wmc_core [shape=rectangle color=blue label="World Machine Core Construction"];
+    oxr_mdlc_tech_fractal_basics [shape=rectangle color=blue label="Fractal Research I"];
+    oxr_mdlc_tech_world_machine_district_infrastructure [shape=rectangle color=blue label="World-Machine Infrastructure Improvements"];
+
+    "oxr_mdlc_tech_world_machines_unlocked" -> "oxr_mdlc_tech_world_machine_planetary_proficiency"
+    "oxr_mdlc_tech_world_machine_planetary_proficiency" -> "oxr_mdlc_tech_world_machine_planetary_mastery"
+    "oxr_mdlc_tech_world_machine_wmc_core" -> "oxr_mdlc_tech_fractal_basics"
+    # oxr_mdlc_tech_world_machine_district_infrastructure
+    "oxr_mdlc_tech_world_machines_unlocked" -> "oxr_mdlc_tech_world_machine_district_infrastructure"
+    "oxr_mdlc_tech_world_machine_planetary_proficiency" -> "oxr_mdlc_tech_world_machine_district_infrastructure"
+    oxr_mdlc_tech_world_machine_planetary_proficiency -> oxr_mdlc_tech_world_machine_wmc_core;
+    # RIKK upgrade tree (TECH)
+    rikk_mdlc_tech_world_machine_crust_upgrade [shape=rectangle color=blue label="World Machine Crust Projects"];
+    rikk_mdlc_tech_world_machine_mantle_upgrade [shape=rectangle color=blue label="World Machine Mantle Projects"];
+    rikk_mdlc_tech_world_machine_inner_core_upgrade [shape=rectangle color=blue label="World Machine Inner Core Projects"];
+    rikk_mdlc_tech_world_machine_outer_core_upgrade [shape=rectangle color=blue label="World Machine Outer Core Projects"];
+    tech_dyson_sphere [shape=rectangle color=blue];
+    rikk_mdlc_tech_world_machine_dyson [shape=rectangle color=blue label="Dyson Energy Deflection"];
+    // "rikk_mdlc_tech_world_machine_crust_upgrade" -> "rikk_mdlc_tech_world_machine_mantle_upgrade"
+    // "rikk_mdlc_tech_world_machine_mantle_upgrade" -> "rikk_mdlc_tech_world_machine_outer_core_upgrade"
+    // "rikk_mdlc_tech_world_machine_outer_core_upgrade" -> "rikk_mdlc_tech_world_machine_inner_core_upgrade"
+    // "tech_dyson_sphere" -> "rikk_mdlc_tech_world_machine_dyson"
+    // "rikk_mdlc_tech_world_machine_outer_core_upgrade" -> "rikk_mdlc_tech_world_machine_dyson"
+    # RIKK (Decisions)
+    node [shape=diamond color=orange];
+    rikk_mdlc_decision_world_machine_crust_roots [color=orange label="World Machine Crust Roots Project"];
+    rikk_mdlc_decision_world_machine_cooling_towers [label="World Machine Cooling Towers"];
+    rikk_mdlc_decision_world_machine_mantle_roots [label="World Machine Mantle Roots"];
+    rikk_mdlc_decision_world_machine_mantle_engine [label="Continental Stabilization Engines"];
+    rikk_mdlc_decision_world_machine_reinforced_planet [label="Reinforced Surface Constructions"];
+    rikk_mdlc_decision_world_machine_outer_core_roots [label="World Machine Outer Core Roots"];
+    rikk_mdlc_decision_world_machine_outer_core_tap [label="World Machine Outer Core Tap"];
+    rikk_mdlc_decision_world_machine_outer_core_cooling [label="World Machine Outer Core Cooling"];
+    rikk_mdlc_decision_world_machine_inner_core_roots [label="World Machine Inner Core Roots"];
+    rikk_mdlc_decision_world_machine_core_core [label="World Machine: Implant A New Core"];
+    rikk_mdlc_decision_world_machine_inner_core_tap [label="World Machine Core Tap"];
+    // "rikk_mdlc_tech_world_machine_crust_upgrade" -> "rikk_mdlc_decision_world_machine_crust_roots"
+    // rikk_mdlc_tech_world_machine_crust_upgrade -> rikk_mdlc_decision_world_machine_cooling_towers;
+    // rikk_mdlc_tech_world_machine_mantle_upgrade -> rikk_mdlc_decision_world_machine_mantle_roots;
+    // rikk_mdlc_tech_world_machine_mantle_upgrade -> rikk_mdlc_decision_world_machine_mantle_engine;
+    // rikk_mdlc_tech_world_machine_mantle_upgrade -> rikk_mdlc_decision_world_machine_reinforced_planet;
+    // rikk_mdlc_tech_world_machine_outer_core_upgrade -> rikk_mdlc_decision_world_machine_outer_core_roots;
+    // rikk_mdlc_tech_world_machine_outer_core_upgrade -> rikk_mdlc_decision_world_machine_outer_core_tap;
+    // rikk_mdlc_tech_world_machine_outer_core_upgrade -> rikk_mdlc_decision_world_machine_outer_core_cooling;
+    // rikk_mdlc_tech_world_machine_inner_core_upgrade -> rikk_mdlc_decision_world_machine_inner_core_roots;
+    // rikk_mdlc_tech_world_machine_inner_core_upgrade -> rikk_mdlc_decision_world_machine_core_core;
+    // rikk_mdlc_tech_world_machine_inner_core_upgrade -> rikk_mdlc_decision_world_machine_inner_core_tap;
+    # RIKK DEPOSITS
+    node [color=green shape=invhouse];
+    rikk_mdlc_d_world_machine_crust_roots [label="World Machine Crust Roots"];
+    rikk_mdlc_d_world_machine_cooling_towers [label="World Machine Cooling Towers"];
+    rikk_mdlc_d_world_machine_mantle_roots [label="World Machine Mantle Roots"];
+    rikk_mdlc_d_world_machine_mantle_engine [shape=invhouse label="Continental Stabilization Engines"];
+    rikk_mdlc_d_world_machine_outer_core_roots [shape=invhouse label="World Machine Outer Core Roots"];
+    rikk_mdlc_d_world_machine_outer_core_tap [shape=invhouse label="World Machine Outer Core Tap"];
+    rikk_mdlc_d_world_machine_outer_core_cooled [shape=invhouse label="World Machine Outer Core Cooled"];
+    rikk_mdlc_d_world_machine_inner_core_roots [shape=invhouse label="World Machine Inner Core Roots"];
+    // rikk_mdlc_d_world_machine_core_core [shape=invhouse label="World Machine Core"];
+    rikk_mdlc_d_world_machine_inner_core_tap [shape=invhouse label="World Machine Core Tap"];
+    // rikk_mdlc_d_world_machine_core_refuse [shape=invhouse label="World Core Dump"];
+    # Decisions to deposits
+    rikk_mdlc_decision_world_machine_crust_roots -> rikk_mdlc_d_world_machine_crust_roots;
+    rikk_mdlc_decision_world_machine_cooling_towers -> rikk_mdlc_d_world_machine_cooling_towers;
+    rikk_mdlc_decision_world_machine_mantle_roots -> rikk_mdlc_d_world_machine_mantle_roots;
+    rikk_mdlc_decision_world_machine_mantle_engine -> rikk_mdlc_d_world_machine_mantle_engine;
+    rikk_mdlc_d_world_machine_mantle_engine -> rikk_mdlc_decision_world_machine_reinforced_planet;
+    rikk_mdlc_decision_world_machine_outer_core_roots -> rikk_mdlc_d_world_machine_outer_core_roots;
+    rikk_mdlc_decision_world_machine_outer_core_tap -> rikk_mdlc_d_world_machine_outer_core_tap;
+    rikk_mdlc_decision_world_machine_outer_core_cooling -> rikk_mdlc_d_world_machine_outer_core_cooled;
+    rikk_mdlc_decision_world_machine_inner_core_roots -> rikk_mdlc_d_world_machine_inner_core_roots;
+    rikk_mdlc_decision_world_machine_core_core -> rikk_mdlc_d_world_machine_inner_core_tap;
+
+    # Deposit to deposit
+    rikk_mdlc_d_world_machine_mantle_roots -> rikk_mdlc_d_world_machine_outer_core_roots;
+    rikk_mdlc_d_world_machine_outer_core_roots -> rikk_mdlc_d_world_machine_outer_core_tap;
+    rikk_mdlc_d_world_machine_outer_core_roots -> rikk_mdlc_d_world_machine_inner_core_roots;
+    rikk_mdlc_d_world_machine_inner_core_roots -> rikk_mdlc_d_world_machine_inner_core_tap;
+
+
+    # Alt WM Upgrade tree
+    oxr_mdlc_tech_geologic_world_expansion_theory [shape=rectangle color=blue label="World-Machine Expansion Theory\n(awarded via project)"];
+    oxr_mdlc_tech_geologic_heat_shielding_1 [shape=rectangle label="Geologic High-Heat Shielding I"];
+    oxr_mdlc_tech_geologic_heat_shielding_2 [shape=rectangle label="Geologic Kilotemperature Shielding"];
+    oxr_mdlc_tech_geologic_heat_shielding_3 [shape=rectangle label="Extreme Geologic Kilotemperature Shielding"];
+    oxr_mdlc_tech_geologic_scaling_thermoelectrics [shape=rectangle label="Scaling Thermoelectric Application"];
+    oxr_mdlc_tech_geologic_pressurized_construction_1 [shape=rectangle label="Mega-Pressure Construction Techniques"];
+    oxr_mdlc_tech_geologic_pressurized_construction_2 [shape=rectangle label="Giga-Pressure Construction Techniques"];
+    oxr_mdlc_tech_geologic_elastic_materials_1 [shape=rectangle label="Elastic Alloys I"];
+    oxr_mdlc_tech_geologic_elastic_materials_2 [shape=rectangle label="Elastic Alloys II"];
+    oxr_mdlc_tech_geologic_seismic_wave_harvesting_1 [shape=rectangle label="Seismic Wave Harvesting I"];
+    oxr_mdlc_tech_geologic_geodynamo_theory [shape=rectangle label="Geodynamo Theory"];
+    #connections
+    oxr_mdlc_tech_world_machine_planetary_mastery -> oxr_mdlc_tech_geologic_world_expansion_theory;
+
+
+    oxr_mdlc_tech_geologic_world_expansion_theory -> oxr_mdlc_tech_geologic_heat_shielding_1;
+    oxr_mdlc_tech_geologic_world_expansion_theory -> oxr_mdlc_tech_geologic_scaling_thermoelectrics;
+    oxr_mdlc_tech_geologic_world_expansion_theory -> oxr_mdlc_tech_geologic_pressurized_construction_1;
+    oxr_mdlc_tech_geologic_world_expansion_theory -> oxr_mdlc_tech_geologic_elastic_materials_1;
+    oxr_mdlc_tech_geologic_world_expansion_theory -> oxr_mdlc_tech_geologic_seismic_wave_harvesting_1;
+    oxr_mdlc_tech_geologic_heat_shielding_1 -> oxr_mdlc_tech_geologic_heat_shielding_2;
+    oxr_mdlc_tech_geologic_heat_shielding_2 -> oxr_mdlc_tech_geologic_heat_shielding_3;
+    oxr_mdlc_tech_geologic_pressurized_construction_1 -> oxr_mdlc_tech_geologic_pressurized_construction_2;
+    oxr_mdlc_tech_geologic_elastic_materials_1 -> oxr_mdlc_tech_geologic_elastic_materials_2;
+    oxr_mdlc_tech_geologic_heat_shielding_2 -> oxr_mdlc_tech_geologic_geodynamo_theory;
+    oxr_mdlc_tech_geologic_pressurized_construction_2 -> oxr_mdlc_tech_geologic_geodynamo_theory;
+    oxr_mdlc_tech_geologic_elastic_materials_1 -> oxr_mdlc_tech_geologic_geodynamo_theory;
+    oxr_mdlc_tech_geologic_seismic_wave_harvesting_1 -> oxr_mdlc_tech_geologic_geodynamo_theory;
+
+    # OXR to RIKK
+    // oxr_mdlc_tech_world_machine_wmc_core -> rikk_mdlc_tech_world_machine_crust_upgrade;
+    oxr_mdlc_tech_geologic_world_expansion_theory -> rikk_mdlc_decision_world_machine_crust_roots;
+    oxr_mdlc_tech_geologic_world_expansion_theory -> rikk_mdlc_decision_world_machine_cooling_towers;
+    oxr_mdlc_tech_geologic_world_expansion_theory -> rikk_mdlc_tech_world_machine_dyson;
+    tech_dyson_sphere -> rikk_mdlc_tech_world_machine_dyson;
+    # mantle
+    oxr_mdlc_tech_geologic_heat_shielding_1 -> rikk_mdlc_decision_world_machine_mantle_roots;
+    oxr_mdlc_tech_geologic_scaling_thermoelectrics -> rikk_mdlc_decision_world_machine_mantle_roots;
+    oxr_mdlc_tech_geologic_pressurized_construction_1 -> rikk_mdlc_decision_world_machine_mantle_roots;
+    oxr_mdlc_tech_geologic_heat_shielding_1 -> rikk_mdlc_decision_world_machine_mantle_engine;
+    oxr_mdlc_tech_geologic_scaling_thermoelectrics -> rikk_mdlc_decision_world_machine_mantle_engine;
+    oxr_mdlc_tech_geologic_pressurized_construction_1 -> rikk_mdlc_decision_world_machine_mantle_engine;
+    # outer core
+    oxr_mdlc_tech_geologic_elastic_materials_1 -> rikk_mdlc_decision_world_machine_outer_core_roots;
+    oxr_mdlc_tech_geologic_heat_shielding_2 -> rikk_mdlc_decision_world_machine_outer_core_roots;
+    oxr_mdlc_tech_geologic_pressurized_construction_2 -> rikk_mdlc_decision_world_machine_outer_core_roots;
+    oxr_mdlc_tech_geologic_seismic_wave_harvesting_1 -> rikk_mdlc_decision_world_machine_outer_core_roots;
+
+    oxr_mdlc_tech_geologic_elastic_materials_1 -> rikk_mdlc_decision_world_machine_outer_core_tap;
+    oxr_mdlc_tech_geologic_heat_shielding_2 -> rikk_mdlc_decision_world_machine_outer_core_tap;
+    oxr_mdlc_tech_geologic_pressurized_construction_2 -> rikk_mdlc_decision_world_machine_outer_core_tap;
+    oxr_mdlc_tech_geologic_seismic_wave_harvesting_1 -> rikk_mdlc_decision_world_machine_outer_core_tap;
+
+
+    oxr_mdlc_tech_geologic_elastic_materials_1 -> rikk_mdlc_decision_world_machine_outer_core_cooling;
+    oxr_mdlc_tech_geologic_heat_shielding_2 -> rikk_mdlc_decision_world_machine_outer_core_cooling;
+    oxr_mdlc_tech_geologic_pressurized_construction_2 -> rikk_mdlc_decision_world_machine_outer_core_cooling;
+    oxr_mdlc_tech_geologic_seismic_wave_harvesting_1 -> rikk_mdlc_decision_world_machine_outer_core_cooling;
+
+
+    # inner core
+    oxr_mdlc_tech_geologic_heat_shielding_3 -> rikk_mdlc_decision_world_machine_inner_core_roots;
+    oxr_mdlc_tech_geologic_elastic_materials_2 -> rikk_mdlc_decision_world_machine_inner_core_roots;
+    oxr_mdlc_tech_geologic_geodynamo_theory -> rikk_mdlc_decision_world_machine_inner_core_roots;
+
+    oxr_mdlc_tech_geologic_heat_shielding_3 -> rikk_mdlc_decision_world_machine_core_core;
+    oxr_mdlc_tech_geologic_elastic_materials_2 -> rikk_mdlc_decision_world_machine_core_core;
+    oxr_mdlc_tech_geologic_geodynamo_theory -> rikk_mdlc_decision_world_machine_core_core;
+
+
+}

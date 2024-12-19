@@ -1,0 +1,9 @@
+area = physics
+category = { oxr_mdlc_tech_physics_category_fractal_field_research }
+potential = {
+	OR = {
+		has_ascension_perk = xvcv_mdlc_ap_world_machines
+		has_origin = oxr_mdlc_origin_world_machine_awakened
+	}
+}
+is_reverse_engineerable = no

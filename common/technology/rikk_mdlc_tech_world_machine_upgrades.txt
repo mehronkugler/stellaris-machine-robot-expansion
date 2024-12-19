@@ -1,0 +1,34 @@
+#unlocks Dyson Deflector, Dyson Receiver
+rikk_mdlc_tech_world_machine_dyson = {
+	area = physics
+	cost = @tier5cost3
+	tier = 5
+	category = { field_manipulation }
+	is_rare = yes
+	
+	potential = {
+		oxr_mdlc_planet_owner_can_build_wm_districts = yes
+		any_owned_planet = { xvcv_mdlc_world_machines_planet_classes_trigger = yes }
+	}
+
+	weight_modifier = {
+		factor = 0.25
+		inline_script = {
+			script = technologies/rare_technologies_weight_modifiers
+			TECHNOLOGY = tech_science_nexus
+		}
+	}
+	
+	prerequisites = {
+		"oxr_mdlc_tech_geologic_heat_shielding_3"
+		"tech_dyson_sphere"
+	}
+	
+	ai_weight = {
+		factor = 1.0
+	}
+	
+	modifier = {
+		custom_tooltip = rikk_mdlc_tech_world_machine_dyson_upgrade_tooltip
+	}
+}

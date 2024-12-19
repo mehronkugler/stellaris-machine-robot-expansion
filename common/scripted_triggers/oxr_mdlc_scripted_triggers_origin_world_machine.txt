@@ -1,0 +1,329 @@
+oxr_mdlc_origin_world_machine_feature_enabled = {
+	has_global_flag = oxr_mdlc_origin_world_machine_feature_enabled
+}
+
+oxr_mdlc_planet_owner_can_build_wm_districts = {
+	optimize_memory
+	OR = {
+		has_ascension_perk = xvcv_mdlc_ap_world_machines
+		has_origin = oxr_mdlc_origin_world_machine_awakened
+	}
+}
+
+oxr_mdlc_planet_has_any_world_machine_blockers = {
+	OR = {
+		has_deposit = oxr_mdlc_d_world_machine_collapsed_charge_controller
+		has_deposit = oxr_mdlc_d_world_machine_flooded_borehole
+		has_deposit = oxr_mdlc_d_world_machine_fossilized_nutrient_bog
+		has_deposit = oxr_mdlc_d_world_machine_clogged_furnace_discharge
+		has_deposit = oxr_mdlc_d_world_machine_irradiated_drone_storage
+		has_deposit = oxr_mdlc_d_world_machine_meteor_shower_impacts
+		has_deposit = oxr_mdlc_d_world_machine_collapsed_transportation_hubs
+		has_deposit = oxr_mdlc_d_world_machine_exposed_structural_chasms
+		has_deposit = oxr_mdlc_d_world_machine_dense_geologic_mass
+		has_deposit = oxr_mdlc_d_world_machine_offline_data_routers
+		has_deposit = oxr_mdlc_d_world_machine_damaged_data_cold_storages
+		has_deposit = oxr_mdlc_d_world_machine_frozen_waterway_pistons
+		has_deposit = oxr_mdlc_d_world_machine_incomplete_construction_bays
+	}
+}
+
+oxr_mdlc_deposit_is_world_machine_blocker = {
+	OR = {
+		is_deposit_type = oxr_mdlc_d_world_machine_collapsed_charge_controller
+		is_deposit_type = oxr_mdlc_d_world_machine_flooded_borehole
+		is_deposit_type = oxr_mdlc_d_world_machine_fossilized_nutrient_bog
+		is_deposit_type = oxr_mdlc_d_world_machine_clogged_furnace_discharge
+		is_deposit_type = oxr_mdlc_d_world_machine_irradiated_drone_storage
+		is_deposit_type = oxr_mdlc_d_world_machine_meteor_shower_impacts
+		is_deposit_type = oxr_mdlc_d_world_machine_collapsed_transportation_hubs
+		is_deposit_type = oxr_mdlc_d_world_machine_exposed_structural_chasms
+		is_deposit_type = oxr_mdlc_d_world_machine_dense_geologic_mass
+		is_deposit_type = oxr_mdlc_d_world_machine_offline_data_routers
+		is_deposit_type = oxr_mdlc_d_world_machine_damaged_data_cold_storages
+		is_deposit_type = oxr_mdlc_d_world_machine_frozen_waterway_pistons
+		is_deposit_type = oxr_mdlc_d_world_machine_incomplete_construction_bays
+	}
+}
+
+oxr_mdlc_world_machine_blocker_yields_insights = {
+	OR = {
+		is_deposit_type = oxr_mdlc_d_world_machine_offline_data_routers
+		is_deposit_type = oxr_mdlc_d_world_machine_damaged_data_cold_storages
+		is_deposit_type = oxr_mdlc_d_world_machine_frozen_waterway_pistons
+		is_deposit_type = oxr_mdlc_d_world_machine_incomplete_construction_bays
+	}
+}
+
+oxr_mdlc_planet_can_become_world_machine = {
+	OR = {
+		# is_planet_class = pc_machine  # this will require AP
+		is_planet_class = pc_barren
+		is_planet_class = pc_barren_cold
+		is_planet_class = pc_nuked
+		is_planet_class = pc_gaia
+		is_planet_class = pc_hive
+		is_planet_class = pc_desert
+		is_planet_class = pc_arid
+		is_planet_class = pc_savannah
+		is_planet_class = pc_arctic
+		is_planet_class = pc_tundra
+		is_planet_class = pc_alpine
+		is_planet_class = pc_continental
+		is_planet_class = pc_tropical
+		is_planet_class = pc_ocean
+		has_planet_flag = rikk_mdlc_world_machine_suitable
+		# is_colonizable = yes  # support other mods that add colonizable classes
+	}
+}
+
+# Can the country make an auto-machine world
+oxr_mdlc_country_can_make_t2_world_machine = {
+	if = {
+		limit = {
+			owner = {
+				has_ascension_perk = xvcv_mdlc_ap_world_machines
+			}
+			is_planet_class = pc_machine
+		}
+		always = yes
+	}
+	else_if = {
+		limit = {
+			owner = {
+				has_origin = oxr_mdlc_origin_world_machine_awakened
+			}
+			oxr_mdlc_planet_can_become_world_machine = yes
+		}
+		always = yes
+	}
+	else = {
+		always = no
+	}
+}
+
+oxr_mdlc_planet_can_become_t3_world_machine = {
+	is_colonizable = yes
+	is_artificial = no
+	xvcv_mdlc_world_machines_planet_classes_trigger = no
+}
+
+oxr_mdlc_planet_is_core_storage_full = {
+	check_variable = {
+		which = oxr_mdlc_planet_world_machine_cores_amount
+		value <= 50
+	}
+}
+oxr_mdlc_planet_has_room_for_more_cores = {
+	custom_tooltip_fail = {
+		text = "oxr_mdlc_decisions_origin_wm_manufacture_core.fail_no_room"
+		check_variable = {
+			which = oxr_mdlc_planet_world_machine_cores_amount
+			value < oxr_mdlc_planet_world_machine_cores_amount_max
+		}
+	}
+}
+
+oxr_mdlc_planet_can_refill_district_defense_armies = {
+	count_planet_army = {
+		count <= oxr_mdlc_world_machine_num_max_district_armies
+		limit = {
+			army_type = oxr_mdlc_world_machine_district_defense_army
+		}
+	}
+}
+
+### T3 Worlds
+oxr_mdlc_country_origin_wm_can_unlock_t3_ecu = {
+	has_country_flag = oxr_mdlc_origin_world_machine_t3_ecu_alloys_target_met
+	has_country_flag = oxr_mdlc_origin_world_machine_t3_ecu_sr_target_met
+	has_country_flag = oxr_mdlc_origin_world_machine_t3_ecu_naval_cap_target_met
+}
+oxr_mdlc_country_origin_wm_met_t3_ecu_alloy_target = {
+	OR = {
+		has_monthly_income = {
+			resource = alloys
+			value >= @oxr_mdlc_t3_ecu_alloys_target
+		}
+		has_country_flag = oxr_mdlc_origin_world_machine_t3_ecu_alloys_target_met
+	}
+	
+}
+oxr_mdlc_country_origin_wm_met_t3_ecu_sr_target = {
+	OR = {
+		AND = {
+			has_monthly_income = {
+				resource = volatile_motes
+				value >= @oxr_mdlc_t3_ecu_sr_target
+			}
+			has_monthly_income = {
+				resource = exotic_gases
+				value >= @oxr_mdlc_t3_ecu_sr_target
+			}
+			has_monthly_income = {
+				resource = rare_crystals
+				value >= @oxr_mdlc_t3_ecu_sr_target
+			}
+		}
+		has_country_flag = oxr_mdlc_origin_world_machine_t3_ecu_sr_target_met
+	}
+}
+
+oxr_mdlc_country_origin_wm_can_unlock_t3_cpu = {
+	has_country_flag = oxr_mdlc_origin_world_machine_t3_cpu_any_research_target_met
+}
+oxr_mdlc_country_origin_wm_met_t3_cpu_target = {
+	OR = {
+		OR = {
+			has_monthly_income = {
+				resource = society_research
+				value >= @oxr_mdlc_t3_cpu_any_research_target
+			}
+			has_monthly_income = {
+				resource = engineering_research
+				value >= @oxr_mdlc_t3_cpu_any_research_target
+			}
+			has_monthly_income = {
+				resource = physics_research
+				value >= @oxr_mdlc_t3_cpu_any_research_target
+			}
+		}
+		has_country_flag = oxr_mdlc_origin_world_machine_t3_cpu_any_research_target_met
+	}
+}
+
+
+oxr_mdlc_country_origin_wm_can_unlock_t3_ser = {
+	has_country_flag = oxr_mdlc_origin_world_machine_t3_ser_unity_target_met
+}
+oxr_mdlc_country_origin_wm_met_t3_ser_unity_target = {
+	OR = {
+		has_monthly_income = {
+			resource = unity
+			value >= @oxr_mdlc_t3_ser_unity_target
+		}
+		has_country_flag = oxr_mdlc_origin_world_machine_t3_ser_unity_target_met
+	}
+	
+}
+oxr_mdlc_country_origin_wm_met_t3_ecu_naval_target = {
+	OR = {
+		max_naval_capacity >= @oxr_mdlc_t3_ecu_naval_cap_target
+		has_country_flag = oxr_mdlc_origin_world_machine_t3_ecu_naval_cap_target_met
+	}
+}
+
+oxr_mdlc_trigger_variable_distance = {
+	distance = {
+		source = $SOURCE$
+		min_distance > $MIN_DISTANCE$
+		max_distance <= $MAX_DISTANCE$
+		same_solar_system = yes
+		type = euclidean
+	}
+}
+
+oxr_mdlc_country_can_make_t3_ecu = {
+	if = {
+		limit = {
+			has_origin = oxr_mdlc_origin_world_machine_awakened
+			has_technology = oxr_mdlc_tech_world_machine_ecu
+		}
+		always = yes
+	}
+	else_if = {
+		limit = {
+			NOT = { has_origin = oxr_mdlc_origin_world_machine_awakened }
+			has_ascension_perk = xvcv_mdlc_ap_world_machines
+		}
+		always = yes
+	}
+	else = { always = no }
+}
+
+oxr_mdlc_country_can_make_t3_cpu = {
+	if = {
+		limit = {
+			has_origin = oxr_mdlc_origin_world_machine_awakened
+			has_technology = oxr_mdlc_tech_world_machine_cpu
+		}
+		always = yes
+	}
+	else_if = {
+		limit = {
+			NOT = { has_origin = oxr_mdlc_origin_world_machine_awakened }
+			has_ascension_perk = xvcv_mdlc_ap_world_machines
+		}
+		always = yes
+	}
+	else = { always = no }
+}
+
+oxr_mdlc_country_can_make_t3_ser = {
+	if = {
+		limit = {
+			has_origin = oxr_mdlc_origin_world_machine_awakened
+			has_technology = oxr_mdlc_tech_world_machine_ser
+		}
+		always = yes
+	}
+	else_if = {
+		limit = {
+			NOT = { has_origin = oxr_mdlc_origin_world_machine_awakened }
+			has_ascension_perk = xvcv_mdlc_ap_world_machines
+		}
+		always = yes
+	}
+	else = { always = no }
+}
+
+oxr_mdlc_planet_is_t3_world_machine = {
+	OR = {
+		is_planet_class = xvcv_mdlc_pc_machine_ecu
+		is_planet_class = xvcv_mdlc_pc_machine_cpu
+		is_planet_class = xvcv_mdlc_pc_machine_ser
+	}
+}
+
+oxr_mdlc_planet_can_become_t2_world_machine = {
+	if = {
+		limit = {
+			owner = { has_ascension_perk = xvcv_mdlc_ap_world_machines }
+			is_planet_class = pc_machine
+		}
+		always = yes
+	}
+	else_if = {
+		limit = {
+			owner = { has_origin = oxr_mdlc_origin_world_machine_awakened }
+			oxr_mdlc_planet_can_become_world_machine = yes
+		}
+		always = yes
+	}
+	else = { always = no }
+}
+
+oxr_mdlc_country_has_room_for_more_wmc = {
+	resource_stockpile_compare = {
+		resource = oxr_mdlc_world_machine_core
+		value < modifier:country_resource_max_oxr_mdlc_world_machine_core_add
+	}
+}
+
+oxr_mdlc_arc_site_is_wm_blocker = {
+	OR = {
+		is_site_type = oxr_mdlc_collapsed_charge_controller_site
+		is_site_type = oxr_mdlc_fossilized_nutrient_bog_site
+		is_site_type = oxr_mdlc_world_machine_flooded_borehole_site
+		is_site_type = oxr_mdlc_world_machine_clogged_furnace_discharge_site
+		is_site_type = oxr_mdlc_world_machine_irradiated_drone_storage_site
+		is_site_type = oxr_mdlc_world_machine_meteor_shower_impacts_site
+		is_site_type = oxr_mdlc_world_machine_collapsed_transportation_hubs_site
+		is_site_type = oxr_mdlc_world_machine_exposed_structural_chasms_site
+		is_site_type = oxr_mdlc_world_machine_dense_geologic_mass_site
+		is_site_type = oxr_mdlc_world_machine_offline_data_routers_site
+		is_site_type = oxr_mdlc_world_machine_damaged_data_cold_storages_site
+		is_site_type = oxr_mdlc_world_machine_frozen_waterway_pistons_site
+		is_site_type = oxr_mdlc_world_machine_incomplete_construction_bays_site
+	}
+}

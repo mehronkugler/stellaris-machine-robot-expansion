@@ -1,0 +1,252 @@
+namespace = rikk_mdlc_wm_upgrade_events
+
+#Installing World Core Events
+situation_event = {
+	id = rikk_mdlc_wm_upgrade_events.20
+	title = rikk_mdlc_wm_upgrade_events.20.name
+	desc = rikk_mdlc_wm_upgrade_events.20.desc
+	picture = GFX_evt_sapient_AI
+	show_sound = event_scanner
+	is_triggered_only = yes
+	
+	trigger = { NOT = { owner = { has_country_flag = rikk_mdlc_core_core_shaddup } } }
+	
+	immediate = { target = { set_variable = { which = rikk_mdlc_magnetic_field_var value = 1 } } }
+	
+	option = {
+		name = rikk_mdlc_wm_upgrade_events.20.a
+		target = { 
+			add_modifier = { modifier = weak_magnetic_field mult = rikk_mdlc_magnetic_field_var }
+			if = {
+				limit = { has_deposit = rikk_mdlc_d_world_machine_inner_core_tap }
+				remove_deposit = rikk_mdlc_d_world_machine_inner_core_tap
+			}
+		}
+	}
+	
+	option = {
+		name = rikk_mdlc_wm_upgrade_events.20.b
+		hidden_effect = { owner = { set_country_flag = rikk_mdlc_core_core_shaddup } }
+		target = {
+			add_modifier = { modifier = weak_magnetic_field mult = rikk_mdlc_magnetic_field_var }
+			if = {
+				limit = { has_deposit = rikk_mdlc_d_world_machine_inner_core_tap }
+				remove_deposit = rikk_mdlc_d_world_machine_inner_core_tap
+			}
+		}
+	}
+}
+
+planet_event = {
+	id = rikk_mdlc_wm_upgrade_events.21
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			while = {
+				count = 10
+				random_owned_pop = {
+					kill_pop = yes
+				}
+			}
+			set_planet_flag = rikk_mdlc_core_core_monster
+		}
+	}
+}
+
+planet_event = {
+	id = rikk_mdlc_wm_upgrade_events.22
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			add_deposit = rikk_mdlc_d_world_machine_core_refuse
+			set_planet_flag = rikk_mdlc_core_core_monster
+		}
+	}
+}
+
+situation_event = {
+	id = rikk_mdlc_wm_upgrade_events.23
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		current_stage = stage_2 
+	}
+
+	immediate = {
+		target = {
+			change_variable = {
+				which = rikk_mdlc_magnetic_field_var
+				value = 0.4
+			}
+			add_modifier = { modifier = weak_magnetic_field mult = rikk_mdlc_magnetic_field_var }
+		}
+	}
+}
+
+situation_event = {
+	id = rikk_mdlc_wm_upgrade_events.30
+	title = rikk_mdlc_wm_upgrade_events.30.name
+	desc = rikk_mdlc_wm_upgrade_events.30.desc
+	picture = GFX_evt_sapient_AI
+	show_sound = event_scanner
+	is_triggered_only = yes
+	
+	trigger = { NOT = { owner = { has_country_flag = rikk_mdlc_core_core_shaddup } } }
+	
+	option = {
+		name = rikk_mdlc_wm_upgrade_events.30.a
+	}
+	
+	option = {
+		name = rikk_mdlc_wm_upgrade_events.30.b
+		hidden_effect = { owner = { set_country_flag = rikk_mdlc_core_core_shaddup } }
+	}
+}
+
+situation_event = {
+	id = rikk_mdlc_wm_upgrade_events.40
+	title = rikk_mdlc_wm_upgrade_events.40.name
+	desc = rikk_mdlc_wm_upgrade_events.40.desc
+	picture = GFX_evt_sapient_AI
+	show_sound = event_scanner
+	is_triggered_only = yes
+	
+	trigger = { NOT = { owner = { has_country_flag = rikk_mdlc_core_core_shaddup } } }
+	
+	option = {
+		name = rikk_mdlc_wm_upgrade_events.40.a
+		target = { remove_modifier = weak_magnetic_field }
+	}
+	
+	option = {
+		name = rikk_mdlc_wm_upgrade_events.40.b
+		target = { remove_modifier = weak_magnetic_field }
+		hidden_effect = { owner = { set_country_flag = rikk_mdlc_core_core_shaddup } }
+	}
+}
+
+#force recalculation of planet cooling value
+planet_event = {
+	id = rikk_mdlc_wm_upgrade_events.70 # it's this number because it matches up with xvcv's version of this event
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		xvcv_mdlc_world_machines_output_value_calc_effect = yes
+	}
+}
+
+#Cooling the outer core effect
+planet_event = {
+	id = rikk_mdlc_wm_upgrade_events.110
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		add_deposit = rikk_mdlc_d_world_machine_outer_core_cooled
+	}
+}
+
+#event to warn the player if their dyson pylons/receivers are unbalanced
+country_event = {
+	id = rikk_mdlc_wm_upgrade_events.120
+	title = rikk_mdlc_wm_upgrade_events.120.name
+	desc = rikk_mdlc_wm_upgrade_events.120.desc
+	picture = GFX_evt_large_explosion
+	show_sound = event_scanner
+	is_triggered_only = yes
+	
+	trigger = {
+		check_modifier_value = { modifier = rikk_mdlc_world_machine_dyson_sphere_receiver_max value < 0 }
+	}
+	
+	option = {
+		name = rikk_mdlc_wm_upgrade_events.120.a
+	}
+}
+
+#events to allow reinforcing of the planet after a bombardment shows how weak the planetary stabilization engine makes it
+#131 calls 130 because that's how I made it lol
+
+planet_event = {
+	id = rikk_mdlc_wm_upgrade_events.130
+	title = rikk_mdlc_wm_upgrade_events.130.name
+	desc = rikk_mdlc_wm_upgrade_events.130.desc
+	picture = GFX_evt_burning_city
+	show_sound = event_scanner
+	is_triggered_only = yes
+	
+	immediate = {
+		owner = { set_country_flag = wm_upgrade_reinforced_planet_allowed }
+	}
+
+	option = {
+		name = rikk_mdlc_wm_upgrade_events.130.a
+		custom_tooltip = rikk_mdlc_wm_upgrade_events.130.a.tooltip
+	}
+}
+planet_event = {
+	id = rikk_mdlc_wm_upgrade_events.131
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		rikk_mdlc_is_wm_planet_trigger = yes
+		has_deposit = rikk_mdlc_d_world_machine_mantle_engine
+		owner = { has_technology = oxr_mdlc_tech_geologic_world_expansion_theory }
+		NOT = { owner = { has_country_flag = wm_upgrade_reinforced_planet_allowed } }
+	}
+	
+	immediate = {
+		planet_event = { id = rikk_mdlc_wm_upgrade_events.130 days = 10 }
+		owner = { set_country_flag = wm_upgrade_reinforced_planet_allowed }
+	}
+}
+
+# Informs the player they can transform pc_graygoo into world machine candidates
+ship_event = {
+	id = rikk_mdlc_wm_upgrade_events.140
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		from = { has_star_flag = lcluster1 }
+	}
+	
+	immediate = {
+		if = {
+			limit = { NOT = { has_global_flag = gray_goo_empire_set } }
+			owner = { country_event = { id = rikk_mdlc_wm_upgrade_events.141 days = 100 } }
+			else = {
+				owner = { country_event = { id = rikk_mdlc_wm_upgrade_events.142 days = 200 } }
+			}
+		}
+	}
+}
+country_event = {
+	id = rikk_mdlc_wm_upgrade_events.141
+	title = rikk_mdlc_wm_upgrade_events.141.name
+	desc = rikk_mdlc_wm_upgrade_events.141.desc
+	picture = GFX_evt_ruined_system
+	show_sound = event_radio_chatter
+	is_triggered_only = yes
+
+	option = { name = rikk_mdlc_wm_upgrade_events.141.a }
+}
+country_event = {
+	id = rikk_mdlc_wm_upgrade_events.142
+	title = rikk_mdlc_wm_upgrade_events.141.name #intentional
+	desc = rikk_mdlc_wm_upgrade_events.142.desc
+	picture = GFX_evt_ruined_system
+	show_sound = event_radio_chatter
+	is_triggered_only = yes
+
+	option = {
+		name = rikk_mdlc_wm_upgrade_events.142.a
+	}
+}

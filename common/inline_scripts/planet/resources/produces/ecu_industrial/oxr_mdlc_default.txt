@@ -1,0 +1,115 @@
+# NOTHING CHANGES BASED ON DESIGNATION
+# If ECU world is similar to vanilla Ecumenopolis ..
+# vanilla ecu provides 6x jobs
+# 6 x 4 fabricator output = 24 alloys (super low)
+# XVCV set it to 60 (equivalent of 15 jobs)
+# Remember the resource types does NOT get bonuses from jobs
+# Though ... might be convenient if it did.
+
+produces = {
+	trigger = {
+		exists = owner
+		owner = {
+			has_ethic = ethic_gestalt_consciousness
+			country_uses_consumer_goods = no
+			is_catalytic_empire = no
+		}
+	}
+	alloys = @oxr_mdlc_ecu_industrial_alloys_base  # 60
+	# mult = value:collected_world_machine_bonuses
+	mult = value:scripted_modifier_mult|MODIFIER|planet_artisans_produces_mult|
+}
+upkeep = {
+	trigger = {
+		exists = owner
+		owner = {
+			has_ethic = ethic_gestalt_consciousness
+			country_uses_consumer_goods = no
+			is_catalytic_empire = no
+		}
+	}
+	minerals = @oxr_mdlc_auto_industrial_alloys_upkeep  # 16
+	# mult = value:collected_world_machine_bonuses  # careful this does not resolve to 0
+	mult = value:scripted_modifier_mult|MODIFIER|planet_artisans_upkeep_mult|
+}
+# DEFAULT DESIGNATION (NO GOODS, IS CATALYTIC)
+produces = {
+	trigger = {
+		exists = owner
+		owner = {
+			has_ethic = ethic_gestalt_consciousness
+			country_uses_consumer_goods = no
+			is_catalytic_empire = yes
+		}
+	}
+	alloys = @oxr_mdlc_auto_industrial_catalytic_base  # 8
+	# mult = value:collected_world_machine_bonuses
+	mult = value:scripted_modifier_mult|MODIFIER|planet_artisans_produces_mult|
+}
+upkeep = {
+	trigger = {
+		exists = owner
+		owner = {
+			has_ethic = ethic_gestalt_consciousness
+			country_uses_consumer_goods = no
+			is_catalytic_empire = yes
+		}
+	}
+	food = @oxr_mdlc_auto_industrial_catalytic_upkeep  # 24
+	# mult = value:collected_world_machine_bonuses  # careful this does not resolve to 0
+	mult = value:scripted_modifier_mult|MODIFIER|planet_artisans_upkeep_mult|
+}
+
+# DEFAULT DESIGNATION (COUNTRY USES GOODS, NON CATALYTIC)
+produces = {
+	trigger = {
+		exists = owner
+		owner = {
+			has_ethic = ethic_gestalt_consciousness
+			country_uses_consumer_goods = yes
+			is_catalytic_empire = no
+		}
+	}
+	alloys = @oxr_mdlc_wm_base_fabricator_output  	   #  4
+	consumer_goods = @oxr_mdlc_wm_base_artisan_output  # 10
+	# mult = value:collected_world_machine_bonuses
+}
+upkeep = {
+	trigger = {
+		exists = owner
+		owner = {
+			has_ethic = ethic_gestalt_consciousness
+			country_uses_consumer_goods = yes
+			is_catalytic_empire = no
+		}
+	}
+	minerals = 18  # 10 from artisan, 8 from fabricator
+	# mult = value:collected_world_machine_bonuses  # careful this does not resolve to 0
+}
+# DEFAULT DESIGNATION (COUNTRY USES GOODS, IS CATALYTIC)
+produces = {
+	trigger = {
+		exists = owner
+		owner = {
+			has_ethic = ethic_gestalt_consciousness
+			country_uses_consumer_goods = yes
+			is_catalytic_empire = no
+		}
+	}
+	alloys = @oxr_mdlc_wm_base_fabricator_output  	   #  4
+	consumer_goods = @oxr_mdlc_wm_base_artisan_output  # 10
+	# mult = value:collected_world_machine_bonuses
+}
+upkeep = {
+	trigger = {
+		exists = owner
+		owner = {
+			has_ethic = ethic_gestalt_consciousness
+			country_uses_consumer_goods = yes
+			is_catalytic_empire = no
+		}
+	}
+	minerals = 8    # 8 from fabricator
+	food = 10		# 10 from artisan
+	# mult = value:collected_world_machine_bonuses  # careful this does not resolve to 0
+}

@@ -524,8 +524,6 @@
 
 #region vanilla_replacements_0x012
  ## Vanilla replacements ##
- xvcv_mdlc_world_machine_auto_farm: "Auto-Farming Module"
- xvcv_mdlc_world_machine_auto_farm_desc: "$xvcv_mdlc_pc_machine_auto_district_farming_desc$"
  xvcv_mdlc_world_machine_auto_food_processing_facility: "Automated Food Processor"
  xvcv_mdlc_world_machine_auto_food_processing_facility_desc: "This building increases auto-farm yields by further processing harvested organic matter using a completely automated process. Some filler materials are used."
  xvcv_mdlc_world_machine_auto_food_processing_facility_effect_desc: "Increases the base production of £food£ §YFood§! producing districts by §G1§!."
@@ -539,6 +537,7 @@
  ### Starbase Buildings ###
  sm_xvcv_mdlc_starbase_building_orbital_cooling_system: "Orbital Cooling System"
  sm_xvcv_mdlc_starbase_building_orbital_cooling_system_desc: "A facility to collect heat energy from the surface and release it to space.$oxr_mdlc_mod_tag$"
+ sm_rikk_mdlc_starbase_building_orbital_cooling_system_effect: "Upkeep increases with number of Cooling Districts\nPlanet Modifier\n    World Machine Cooling Districts Effectiveness: §G+5%§!"
  sm_xvcv_mdlc_starbase_building_orbital_drone_storage: "Orbital Drone Storage"
  sm_xvcv_mdlc_starbase_building_orbital_drone_storage_desc: "Connected to cooling systems with orbital elevators, this gigantic facility maintains machine drones and deploys them to the surface.$oxr_mdlc_mod_tag$"
  sm_xvcv_mdlc_starbase_building_orbital_drone_storage_effect: "§Y$xvcv_mdlc_common_district_cooling$§! District:\n£housing£ $MOD_PLANET_HOUSING_ADD$: §G+5§!\n£mod_planet_amenities_add£ $MOD_PLANET_AMENITIES_NO_HAPPINESS_ADD$: §G+5§!"
@@ -561,6 +560,10 @@
  xvcv_mdlc_col_virtual_admin_desc: "This virtual reality world has been designated as a hub for national bureaucracy."
  xvcv_mdlc_col_virtual_unity: "Virtual Entertainment Server"
  xvcv_mdlc_col_virtual_unity_desc: "This virtual reality world has been designated as a hub for national unity."
+ oxr_mdlc_wm_col_capital_foundry: "Auto-$col_capital_foundry$"
+ oxr_mdlc_wm_col_capital_foundry_desc: "The World Machine is tuned to assist the production of £alloys£ $alloys$."
+ oxr_mdlc_wm_col_capital_factory: "Auto-$col_capital_factory$"
+ oxr_mdlc_wm_col_capital_factory_desc: "The World Machine is tuned to assist the production of £consumer_goods£ $consumer_goods$."
 #endregion
 
 #region automation_text_0x015
@@ -657,6 +660,10 @@
  xvcv_mdlc_col_machine_auto_standard_desc: "$xvcv_mdlc_help_waia_desc$ this Auto-Machine World will construct all districts."
  mod_planet_xvcv_mdlc_pc_machine_auto_district_city_build_speed_mult: "Auto-Machine World City $xvcv_mdlc_district_build_speed$"
  mod_planet_xvcv_mdlc_pc_machine_auto_district_nexus_build_speed_mult: "Auto-Machine World Nexus $xvcv_mdlc_district_build_speed$"
+ xvcv_mdlc_col_machine_auto_capital: "Auto-Capital (Default)"
+ xvcv_mdlc_col_machine_auto_capital_desc: "$col_capital_machine_desc$"
+ xvcv_mdlc_col_machine_auto_capital_extraction: "Auto-Capital (Extraction)"
+ xvcv_mdlc_col_machine_auto_capital_extraction_desc: "$xvcv_mdlc_help_waia_desc$, the Capital world will construct £food£  £minerals£ £energy£ districts and buildings."
 
 #endregion 
  
@@ -829,19 +836,23 @@
  xvcv_mdlc_pc_machine_auto_district_nexus_desc: "Centralized facilities from which machine drones are controlled and maintained automatically."
  xvcv_mdlc_pc_machine_auto_district_nexus_plural: "Auto-Storages"
  xvcv_mdlc_pc_machine_auto_district_generator: "Auto-Generator"
- xvcv_mdlc_pc_machine_auto_district_generator_desc: "This huge generator creates large amounts of energy which can then be used or converted into energy credits."
+#  xvcv_mdlc_pc_machine_auto_district_generator_desc: "This huge generator creates large amounts of energy which can then be used or converted into energy credits."
+ xvcv_mdlc_pc_machine_auto_district_generator_desc: "Arrays of solar panels and wind turbines create large amounts of energy, which can be stored as surplus credits or routed directly to other facilities on the planet."
  xvcv_mdlc_pc_machine_auto_district_generator_plural: "Auto-Generators"
  xvcv_mdlc_pc_machine_auto_district_mining: "Auto-Mining Machine"
- xvcv_mdlc_pc_machine_auto_district_mining_desc: "This mining machine drills deep into the mantle to access mineral deposits."
+#  xvcv_mdlc_pc_machine_auto_district_mining_desc: "This mining machine drills deep into the mantle to access mineral deposits."
+ xvcv_mdlc_pc_machine_auto_district_mining_desc: "Automated mining rigs programmatically drill into the mantle, using simple ground-penetrating radar to determine where to drill next and how to expand operations."
  xvcv_mdlc_pc_machine_auto_district_mining_plural: "Auto-Mining Machines"
  xvcv_mdlc_pc_machine_auto_district_farming: "Auto-Farming Machine"
- xvcv_mdlc_pc_machine_auto_district_farming_desc: "An automatic machine for cultivation, either through the growing of crops or animal husbandry."
+#  xvcv_mdlc_pc_machine_auto_district_farming_desc: "An automatic machine for cultivation, either through the growing of crops or animal husbandry."
+ xvcv_mdlc_pc_machine_auto_district_farming_desc: "Large fields of bioengineered plants and fungal life are automatically planted, maintained, and harvested. Each district has a variety of autonomous vehicles that perform a variety of tasks."
  xvcv_mdlc_pc_machine_auto_district_farming_plural: "Auto-Farming Machines"
  xvcv_mdlc_pc_machine_auto_district_industrial: "Auto-Industrial Machine"
  xvcv_mdlc_pc_machine_auto_district_industrial_desc: "This combined smelter and crafter makes advanced products out of raw materials."
  xvcv_mdlc_pc_machine_auto_district_industrial_plural: "Auto-Industrial Machines"
 
  xvcv_mdlc_world_machines_districts: "World-Machine Districts"
+ xvcv_mdlc_world_machines_vanilla_industrial_districts: "$xvcv_mdlc_pc_machine_auto_district_industrial$s"
 
  xvcv_mdlc_pc_machine_ecu_district_alloys: "Forge"
  xvcv_mdlc_pc_machine_ecu_district_alloys_desc: "The amount of alloys made from this single colossal forging machine surpasses that of most foundries."
@@ -1240,7 +1251,7 @@
  xvcv_mdlc_decision_pop_commoditization_desc: "Anything can be merchandise; even sapient beings-unlike our common belief-are not the exception.$oxr_mdlc_mod_tag$"
  xvcv_mdlc_decision_pop_commoditization_tooltip: "Converts a £pop£ §GPop§! into the §Y$xvcv_mdlc_d_pc_virtual_commoditized_pop$§! deposit providing §Y8§! £trade_value£ §YTrade Value§!."
  xvcv_mdlc_decision_goods_for_research_bonus: "Distribute Research Gadgets"
- xvcv_mdlc_decision_goods_for_research_bonus_desc: "Spend more consumer goods left in our stockpile. They will mostly be used for works like studying physical laws, observing social-cultural phenomenons, and designing new mechanisms."
+ xvcv_mdlc_decision_goods_for_research_bonus_desc: "Spend more consumer goods left in our stockpile. They will mostly be used for works like studying physical laws, observing social-cultural phenomenons, and designing new mechanisms.$oxr_mdlc_mod_tag$"
 
  oxr_mdlc_decision_dismantle_habitat: "Dismantle Habitat"
  oxr_mdlc_decision_dismantle_habitat_desc: "Over a period of 180 days, our engineers will get to work dismantling the habitat. Some alloys from the main structure and orbitals will be recovered, but everything else will be lost.$oxr_mdlc_mod_tag$"
@@ -1329,19 +1340,19 @@
 
  policy_xvcv_mdlc_bio_robot_pop_upkeep_control_gestalt: "Bio-Mechanical Hybrid Upkeep Control"
  policy_xvcv_mdlc_bio_robot_pop_upkeep_control_gestalt_desc: "It's up to us to pick their means for living, as we granted them life."
- xvcv_mdlc_bio_robot_pop_upkeep_control_gestalt_energy_only_name: "£energy£ Only"
+ xvcv_mdlc_bio_robot_pop_upkeep_control_gestalt_energy_only_name: "Bio-Mech Upkeep: £energy£ Only"
  xvcv_mdlc_bio_robot_pop_upkeep_control_gestalt_energy_only: "$xvcv_mdlc_bio_robot_pop_upkeep_control_gestalt_energy_only_name$"
  xvcv_mdlc_bio_robot_pop_upkeep_control_gestalt_energy_only_desc: "Instead of an inefficient metabolic system, our Mechanical Hybrids will directly access the power source, reserve energies, and use them later.\n\n"
- xvcv_mdlc_bio_robot_pop_upkeep_control_gestalt_energy_focus_name: "£energy£ Focused"
+ xvcv_mdlc_bio_robot_pop_upkeep_control_gestalt_energy_focus_name: "Bio-Mech Upkeep: £energy£ Focused"
  xvcv_mdlc_bio_robot_pop_upkeep_control_gestalt_energy_focus: "$xvcv_mdlc_bio_robot_pop_upkeep_control_gestalt_energy_focus_name$"
  xvcv_mdlc_bio_robot_pop_upkeep_control_gestalt_energy_focus_desc: "Our Mechanical Hybrids will depend on the exterior power source to acquire most of the power they need.\n\n"
- xvcv_mdlc_bio_robot_pop_upkeep_control_gestalt_balance_name: "Balanced"
+ xvcv_mdlc_bio_robot_pop_upkeep_control_gestalt_balance_name: "Bio-Mech Upkeep: Balanced"
  xvcv_mdlc_bio_robot_pop_upkeep_control_gestalt_balance: "$xvcv_mdlc_bio_robot_pop_upkeep_control_gestalt_balance_name$"
  xvcv_mdlc_bio_robot_pop_upkeep_control_gestalt_balance_desc: "Our Mechanical Hybrids will choose the power source appropriate to their situation.\n\n"
- xvcv_mdlc_bio_robot_pop_upkeep_control_gestalt_food_focus_name: "£food£ Focused"
+ xvcv_mdlc_bio_robot_pop_upkeep_control_gestalt_food_focus_name: "Bio-Mech Upkeep: £food£ Focused"
  xvcv_mdlc_bio_robot_pop_upkeep_control_gestalt_food_focus: "$xvcv_mdlc_bio_robot_pop_upkeep_control_gestalt_food_focus_name$"
  xvcv_mdlc_bio_robot_pop_upkeep_control_gestalt_food_focus_desc: "Our Mechanical Hybrids will depend on the metabolic emulator module they have to acquire most of the power.\n\n"
- xvcv_mdlc_bio_robot_pop_upkeep_control_gestalt_food_only_name: "£food£ Only"
+ xvcv_mdlc_bio_robot_pop_upkeep_control_gestalt_food_only_name: "Bio-Mech Upkeep: £food£ Only"
  xvcv_mdlc_bio_robot_pop_upkeep_control_gestalt_food_only: "$xvcv_mdlc_bio_robot_pop_upkeep_control_gestalt_food_only_name$"
  xvcv_mdlc_bio_robot_pop_upkeep_control_gestalt_food_only_desc: "Our Mechanical Hybrids don't need an external energy supply, as they can directly transform organic matter into power, just like the organics.\n\n"
 

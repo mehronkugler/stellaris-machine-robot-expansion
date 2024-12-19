@@ -1,0 +1,74 @@
+# Not currently possible for non-gestalt to have these, except via capture
+# in which case the districts then convert to normal industrial
+# produces = {
+# 	trigger = {
+# 		exists = owner
+# 		owner = { NOT = { has_ethic = ethic_gestalt_consciousness } }
+# 	}
+# 	alloys = 5 #{1 job = 3 + 2 (building_foundry_3) alloys} X 1 jobs #stellaris v3.1.1
+# 	consumer_goods = 8 #{1 job = 6 + 2 (building_factory_3) consumer goods} X 1 jobs #stellaris v3.1.1
+# 	mult = value:collected_world_machine_bonuses
+# }
+# upkeep = {
+# 	trigger = {
+# 		exists = owner
+# 		owner = {
+# 			NOT = { has_ethic = ethic_gestalt_consciousness }
+# 			is_catalytic_empire = no
+# 		}
+# 	}
+# 	minerals = 18 #{1 job = 6 + 4 (building_foundry_3) minerals} X 1 jobs #{1 job = 6 + 2 (building_factory_3) minerals} X 1 jobs #stellaris v3.1.1
+# 	mult =  value:scripted_modifier_mult|MODIFIER|xvcv_mdlc_world_machines_industrial_districts_upkeep_mult|
+# }
+# upkeep = {
+# 	trigger = {
+# 		exists = owner
+# 		owner = {
+# 			NOT = { has_ethic = ethic_gestalt_consciousness }
+# 			is_catalytic_empire = yes
+# 		}
+# 	}
+# 	minerals = 8 #{1 job = 6 + 2 (building_factory_3) minerals} X 1 jobs #stellaris v3.1.1
+# 	food = 12 #{1 job = 6 + 6 (building_foundry_3) foods} X 1 jobs #stellaris v3.1.1
+# 	mult =  value:scripted_modifier_mult|MODIFIER|xvcv_mdlc_world_machines_industrial_districts_upkeep_mult|
+# }
+# produces = {
+# 	trigger = {
+# 		planet = { has_designation = col_foundry }
+# 		exists = owner
+# 		owner = { NOT = { has_ethic = ethic_gestalt_consciousness } }
+# 	}
+# 	consumer_goods = -8
+# }
+# produces = {
+# 	trigger = {
+# 		planet = { has_designation = col_foundry }
+# 		exists = owner
+# 		owner = { NOT = { has_ethic = ethic_gestalt_consciousness } }
+# 	}
+# 	alloys = 5
+# 	mult = value:collected_world_machine_bonuses
+# }
+# upkeep = {
+# 	trigger = {
+# 		planet = { has_designation = col_foundry }
+# 		exists = owner
+# 		owner = {
+# 			NOT = { has_ethic = ethic_gestalt_consciousness }
+# 			is_catalytic_empire = no
+# 		}
+# 	}
+# 	minerals = 2
+# 	mult =  value:scripted_modifier_mult|MODIFIER|xvcv_mdlc_world_machines_industrial_districts_upkeep_mult|
+# }
+# upkeep = {
+# 	trigger = {
+# 		planet = { has_designation = col_foundry }
+# 		exists = owner
+# 		owner = {
+# 			NOT = { has_ethic = ethic_gestalt_consciousness }
+# 			is_catalytic_empire = yes
+# 		}
+# 	}
+# 	food = -12
+# }

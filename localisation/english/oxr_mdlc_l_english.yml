@@ -8,6 +8,7 @@
  # Policies       0x005
  # Events         0x006
  # modifiers      0x007
+ # Deposits       0x005
 
  mod_planet_researchers_food_upkeep_add: "£food£ $food$ Upkeep of £job_researcher£ [GetResearcherPlural]"
  mdlc_mod_author_tag_xvcv: "§B · xvcv§!"
@@ -81,6 +82,43 @@
  oxr_mdlc_trait_dry_planet_preference_desc: "$trait_dry_planet_preference_desc$"
  oxr_mdlc_trait_wet_planet_preference_desc: "$trait_wet_planet_preference_desc$"
  oxr_mdlc_trait_frozen_planet_preference_desc: "$trait_frozen_planet_preference_desc$"
+
+ oxr_mdlc_trait_all_terrain_hull: "All-terrain Hardening"
+ oxr_mdlc_trait_all_terrain_hull_desc: "These machines have been made rugged, able to inhabit a wide range of planets and environments. As a result, they are bulkier and require additional maintenance.$oxr_mdlc_mod_tag$"
+ oxr_mdlc_trait_planned_obsolescence: "Planned Obsolescence"
+ oxr_mdlc_trait_planned_obsolescence_desc: "This species is purposely designed to be cheap and quick to produce, serving their purpose briefly, though not as efficiently due to low-quality parts. With parts breaking frequently, pops require more maintenance. Likewise, leaders do not operate as effectively, but are much less expensive in the long run to operate.$oxr_mdlc_mod_tag$"
+ oxr_mdlc_leader_trait_planned_obsolescence: "$oxr_mdlc_trait_planned_obsolescence$"
+ oxr_mdlc_leader_trait_planned_obsolescence_desc: "$oxr_mdlc_trait_planned_obsolescence_desc$$oxr_mdlc_mod_tag$"
+ oxr_mdlc_trait_prefabricated_modules: "Prefabricated Assembly Templates"
+ oxr_mdlc_trait_prefabricated_modules_desc: "This species uses mainly prefabricated parts, making them much cheaper to assemble, but as a result, they require more frequent maintenance, and do not last as long.$oxr_mdlc_mod_tag$"
+ oxr_mdlc_trait_fpga: "Field-Programmable"
+ oxr_mdlc_trait_fpga_desc: "This species has several field-programmable gate arrays, making it much faster to switch between jobs or specialties. It can also be programmed to consume fewer resources when not in a job."
+#endregion
+
+#region tech_0x002
+ oxr_mdlc_tech_organoid_1: "Organoid Research"
+ oxr_mdlc_tech_organoid_1_desc: "This field of study focuses on using artificially engineered biological organs to complete various tasks, for example, using biological brain cell colonies to perform computational tasks.$oxr_mdlc_mod_tag$"
+ oxr_mdlc_tech_organoid_2: "Organoid Computational Implementation"
+ oxr_mdlc_tech_organoid_2_desc: "The size of engineered brain organoids is increased, boosting their efficiency, and growing processes, including communication protocols, are scaled to the point that they can greatly reduce research power consumption and provide comparable results.$oxr_mdlc_mod_tag$"
+ oxr_mdlc_tech_organoid_2_tooltip: "§Y$oxr_mdlc_building_organoid_research_center$§! planetary modifier:\n$mod_planet_researchers_energy_upkeep_add$: §G-0.5§!\n$mod_planet_researchers_food_upkeep_add$: §R+0.10§!"
+ oxr_mdlc_tech_organoid_3: "Organoid Computational Clusters"
+ oxr_mdlc_tech_organoid_3_desc: "Our mastery of brain organoids drastically reduces research upkeep, freeing resources for other parts of the empire, or even redirecting them to fund additional research. At this stage, brain organoids are stored in large vats in even larger facilities, trained to do parallel processing, able to do small chunks of work extremely quickly.$oxr_mdlc_mod_tag$"
+ oxr_mdlc_tech_organoid_3_tooltip: "§Y$oxr_mdlc_building_organoid_research_center$§! planetary modifier:\n$mod_planet_researchers_energy_upkeep_add$: §G-1§!\n$mod_planet_researchers_food_upkeep_add$: §R+0.10§!"
+
+
+#endregion
+
+#region buildings_0x003
+ oxr_mdlc_building_organoid_research_center: "Organoid Computation Center"
+ oxr_mdlc_building_organoid_research_center_desc: "Large colonies of artificially engineered brain organoids are developed and trained in order to reduce energy consumption of all traditional machine-based research operations. Tasks include data mining, pattern matching, and occasionally running elaborate turn-based simulations of galactic expansion.$oxr_mdlc_mod_tag$"
+ # Produces energy, small amount of food & minerals (2 tech, 1 miner, 1 farmer)
+ # TODO - Implement this
+ # Inspired by https://www.sciencedaily.com/releases/2016/04/160418095918.htm
+ oxr_mdlc_building_biowaste_harvester: "Bio-Waste Energy Facility"
+ oxr_mdlc_building_biowaste_harvester_desc: "Bio-Waste from organic lifeforms is separated into liquids and solids: the liquids are diverted to microbial fuel cells which contain reactive bacteria that generate electricity; the solids are dehydrated, decontaminated, and repacked as nutrient-rich fertilizer.$oxr_mdlc_world_machine_building_category_note$$oxr_mdlc_mod_tag$"
+
+
+#endregion
 
  oxr_mdlc_trait_all_terrain_hull: "All-terrain Hardening"
  oxr_mdlc_trait_all_terrain_hull_desc: "These machines have been made rugged, able to inhabit a wide range of planets and environments. As a result, they are bulkier and require additional maintenance.$oxr_mdlc_mod_tag$"
@@ -181,7 +219,7 @@
  EMPIRE_DESIGN_oxr_machine_i95_desc: "$oxr_mdlc_empire_design_machine_i95_name_desc$"
 
  # Mechanical world origin
-oxr_mdlc_empire_design_mechanical_sanchusa_adjective: "Sanchusan"
+ oxr_mdlc_empire_design_mechanical_sanchusa_adjective: "Sanchusan"
  EMPIRE_DESIGN_oxr_mechanical_sanchusa: "$oxr_mdlc_empire_design_mechanical_sanchusa_adjective$ Freebody Mechanism"
  EMPIRE_DESIGN_oxr_mechanical_sanchusa_desc: "The $oxr_mdlc_empire_design_mechanical_sanchusa_adjective$ Freebody Mechanism is a society of synthetic beings guided by freedom of personal choice, and freedom of government. In this society, the dominant religion is self-actualization, and government must provide affordances for personal freedoms requested by the people. Whether it is subsidized body modifications, access to clean food, universal healthcare, or free desserts every 17 days; this represents the word Freebody. 'Free for everybody'\n\nSecondly, the word 'Mechanism' represents the guiding philosophy of changing one's self and one's world according in the journey towards happiness. Not only are the citizens synthetic, but in order to create an environment that supports change and choice, the world has been remade as a synthetic world.\n\nA world that can change along with its people is truly limitless, and its future generations will be empowered."
  oxr_mdlc_empire_design_mechanical_sanchusa_species_bio: "The Chu species began as quadruped organics with a flat social hierarchy. As an organic species, their diet was primarily herbivorous. As Mechanicals, the Chu still engage in eating rituals, and sleeping rituals, and many Chuians have reported ill psychological effects from abstaining from these traditional rituals."
@@ -201,6 +239,12 @@ oxr_mdlc_empire_design_mechanical_sanchusa_adjective: "Sanchusan"
 #region modifiers_0x007
  oxr_mdlc_origin_mechanical_temp_pop_demotion: "Fluid Social Hierarchy"
  oxr_mdlc_origin_mechanical_temp_pop_demotion_desc: "Citizens can easily move through strata."
+#region deposits_0x005
+
+ oxr_mdlc_prehistoric_sinkhole_1: "Prehistoric Sinkhole Forest"
+ oxr_mdlc_prehistoric_sinkhole_1_desc: "A large sinkhole, found hidden in a mountain range, has remained relatively untouched during the evolutionary cycle of plant life and biology on this world. The sinkhole has created an isolated environment with unique microclimates where rare, ancient plant species, and other flora which have since ceased to exist on the planet's surface, have continued to thrive. There may be new genetic variations of life here."
+ oxr_mdlc_prehistoric_sinkhole_1_ruined: "Buried Prehistoric Forest"
+ oxr_mdlc_prehistoric_sinkhole_1_ruined_desc: "What was once a large, isolated sinkhole full of genetically diverse flora and fauna, protected from the ravagaes of time, has been destroyed, and no longer holds any research value. Its value now merely consists of common minerals and food."
 
 
 

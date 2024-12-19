@@ -1,0 +1,96 @@
+# possible section models:
+# SHIPYARD_STARBASE_SECTION
+# REFINERY_STARBASE_SECTION
+# SCIENCE_STARBASE_SECTION
+# HANGAR_STARBASE_SECTION
+# ASSEMBLYYARD_STARBASE_SECTION
+#Remember to update operation_sabotage_starbase if you add any new modules.
+# You will need to update the description, espionage_sabotage_starbase_module, and remove_sabotage_starbase_flag
+
+rikk_mdlc_world_machine_dyson_deflector = {
+	icon = "GFX_solar_panel_network"
+	section = "SCIENCE_STARBASE_SECTION"
+	construction_days = 180
+
+	potential = {
+		exists = owner
+		is_normal_starbase = yes
+		owner = { has_technology = "rikk_mdlc_tech_world_machine_dyson" }
+	}
+
+	possible = {
+		solar_system = {
+			custom_tooltip = {
+				fail_text = "rikk_mdlc_requires_full_dyson_sphere"
+				has_megastructure = dyson_sphere_5
+			}
+		}
+	}
+
+	show_in_tech = "rikk_mdlc_tech_world_machine_dyson"
+	
+	country_modifier = { rikk_mdlc_world_machine_dyson_sphere_receiver_max = 1 }
+	
+	resources = {
+		category = starbase_modules
+		cost = {
+			alloys = 1000
+		}
+		upkeep = {
+			energy = 500
+			mult = owner.value:scripted_modifier_mult|MODIFIER|country_energy_produces_mult|
+		}
+	}
+	
+	ai_weight = {
+		weight = 100
+	}
+	
+	on_destroyed = { 
+		owner = { country_event = { id = rikk_mdlc_wm_upgrade_events.120 days = 1 } }
+	}
+}
+
+rikk_mdlc_world_machine_dyson_receiver = {
+	icon = "GFX_solar_panel_network"
+    section = "SOLAR_PANEL_ORBITAL_RING_SECTION"
+	construction_days = 180
+
+	potential = {
+		exists = owner
+		is_orbital_ring = yes
+		owner = { has_technology = "rikk_mdlc_tech_world_machine_dyson" }
+	}
+	
+	possible = {
+		owner = {
+			custom_tooltip = {
+				fail_text = "rikk_mdlc_requires_additional_pylons"
+				check_modifier_value = { modifier = rikk_mdlc_world_machine_dyson_sphere_receiver_max value > 0 }
+			}
+		}
+	}
+
+	resources = {
+		category = starbase_modules
+		cost = {
+			alloys = 1000
+		}
+		upkeep = {
+			trigger = {
+				exists = owner
+				owner = {
+					check_modifier_value = { modifier = rikk_mdlc_world_machine_dyson_sphere_receiver_max value < 0 } 
+				}
+			}
+			energy = 2000
+		}
+	}
+	
+	planet_modifier = { rikk_mdlc_world_machine_districts_base_production = 0.05 }
+	country_modifier = { rikk_mdlc_world_machine_dyson_sphere_receiver_max = -1 }
+
+	ai_weight = {
+		weight = 1000
+	}
+}

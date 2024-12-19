@@ -81,6 +81,25 @@
  oxr_mdlc_trait_dry_planet_preference_desc: "$trait_dry_planet_preference_desc$"
  oxr_mdlc_trait_wet_planet_preference_desc: "$trait_wet_planet_preference_desc$"
  oxr_mdlc_trait_frozen_planet_preference_desc: "$trait_frozen_planet_preference_desc$"
+#endregion
+
+#region tech_0x002
+ oxr_mdlc_tech_organoid_1:0 "Organoid Research"
+ oxr_mdlc_tech_organoid_1_desc:0 "This field of study focuses on using artificially engineered biological organs to complete various tasks, for example, using biological brain cell colonies to perform computational tasks."
+ oxr_mdlc_tech_organoid_2:0 "Organoid Computational Implementation"
+ oxr_mdlc_tech_organoid_2_desc:0 "The size of engineered brain organoids is increased, boosting their efficiency, and growing processes, including communication protocols, are scaled to the point that they can greatly reduce research power consumption and provide comparable results."
+ oxr_mdlc_tech_organoid_3:0 "Organoid Computational Clusters"
+ oxr_mdlc_tech_organoid_3_desc:0 "Our mastery of brain organoids drastically reduces research upkeep, freeing resources for other parts of the empire, or even redirecting them to fund additional research. At this stage, brain organoids are stored in large vats in even larger facilities, trained to do parallel processing, able to do small chunks of work extremely quickly."
+
+
+#endregion
+
+#region buildings_0x003
+ oxr_mdlc_building_organoid_research_center:0 "Organoid Computation Center"
+ oxr_mdlc_building_organoid_research_center_desc:0 "Large colonies of artificially engineered brain organoids are developed and trained to reduce energy consumption of all research operations. Tasks include data mining, pattern matching, and occasionally running elaborate turn-based simulations of galactic expansion."
+
+
+#endregion
 
  oxr_mdlc_trait_all_terrain_hull: "All-terrain Hardening"
  oxr_mdlc_trait_all_terrain_hull_desc: "These machines have been made rugged, able to inhabit a wide range of planets and environments. As a result, they are bulkier and require additional maintenance.$oxr_mdlc_mod_tag$"

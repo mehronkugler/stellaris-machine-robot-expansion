@@ -1,0 +1,244 @@
+#blocker for after upgrading the world core on a planet, if player selects punishment option in stage 2 (?)
+rikk_mdlc_d_world_machine_world_machine_core_refuse = {
+	potential = { always = no }
+	time = 720
+	icon = d_rich_mountain
+
+	is_for_colonizable = yes
+	potential = { always = no }
+	category = oxr_mdlc_deposit_cat_rare_blockers_world_machine
+
+
+	planet_modifier = {
+		planet_max_districts_add = -5
+	}
+
+	resources = {
+		category = deposit_blockers
+		cost = {
+			energy = 5000
+		}
+		produces = {
+			minerals = 50
+		}
+		upkeep = {
+			energy = 10
+		}
+	}
+	on_cleared = { owner = { add_resource = { minerals = 1000 } } }
+}
+
+#blockers for molten/frozen/toxic worlds after auto wm terraform
+#molten
+rikk_mdlc_d_world_machine_silica_eruptions = {
+	time = 270
+
+	icon = d_gaseous_eruption
+	is_for_colonizable = yes
+	potential = { always = no }
+	category = oxr_mdlc_deposit_cat_rare_blockers_world_machine
+
+	resources = {
+		category = deposit_blockers_natural
+		cost = {
+			energy = 500
+		}
+	}
+
+	planet_modifier = {
+		planet_max_districts_add = -2
+		planet_building_build_speed_mult = 0.25
+	}
+
+	prerequisites = { "tech_volcano" }
+}
+
+rikk_mdlc_d_world_machine_lightning_delta = {
+	time = 270
+
+	icon = d_tempestous_mountain
+	is_for_colonizable = yes
+	potential = { always = no }
+	category = oxr_mdlc_deposit_cat_rare_blockers_world_machine
+
+	resources = {
+		category = deposit_blockers_natural
+		cost = {
+			energy = 500
+		}
+	}
+
+	planet_modifier = {
+		planet_max_districts_add = -1
+		xvcv_mdlc_world_machines_industrial_districts_produces_mult = 0.05
+	}
+
+	prerequisites = { "tech_mountain_range" }
+}
+
+rikk_mdlc_d_world_machine_pyroclastic_surges = {
+	time = 270
+
+	icon = d_active_volcano
+	is_for_colonizable = yes
+	potential = { always = no }
+	category = oxr_mdlc_deposit_cat_rare_blockers_world_machine
+
+	resources = {
+		category = deposit_blockers_natural
+		cost = {
+			energy = 250
+			minerals = 250
+		}
+	}
+
+	planet_modifier = {
+		planet_max_districts_add = -2
+		xvcv_mdlc_world_machines_industrial_districts_produces_mult = 0.10
+	}
+
+	prerequisites = { "tech_volcano" }
+}
+
+#frozen
+rikk_mdlc_d_world_machine_chemical_glacier = {
+	time = 270
+
+	icon = d_massive_glacier
+	is_for_colonizable = yes
+	potential = { always = no }
+	category = oxr_mdlc_deposit_cat_rare_blockers_world_machine
+
+	resources = {
+		category = deposit_blockers_natural
+		cost = {
+			energy = 500
+		}
+	}
+
+	planet_modifier = {
+		planet_max_buildings_add = -1
+		rikk_mdlc_world_machine_districts_rare_resource_base_production = 0.10
+	}
+
+	prerequisites = { "tech_massive_glacier" }
+}
+
+rikk_mdlc_d_world_machine_subsurface_sea = {
+	time = 270
+
+	icon = d_frozen_gas_lake
+	is_for_colonizable = yes
+	potential = { always = no }
+	category = oxr_mdlc_deposit_cat_rare_blockers_world_machine
+
+	resources = {
+		category = deposit_blockers_natural
+		cost = {
+			energy = 750
+			minerals = 500
+		}
+	}
+
+	planet_modifier = { #destabilizes surface and continent
+		planet_max_districts_mult = -0.10
+		rikk_mdlc_world_machine_cooling_district_effectiveness = 0.05
+	}
+
+	prerequisites = { "tech_noxious_swamp" }
+}
+
+rikk_mdlc_d_world_machine_natural_super_geyser = {
+	time = 270
+
+	icon = d_geothermal_vent
+	is_for_colonizable = yes
+	potential = { always = no }
+	category = oxr_mdlc_deposit_cat_rare_blockers_world_machine
+
+	resources = {
+		category = deposit_blockers_natural
+		cost = {
+			energy = 500
+			minerals = 250
+		}
+	}
+
+	planet_modifier = { #destabilizes surface and continent
+		planet_max_districts_add = -1
+		rikk_mdlc_world_machine_cooling_district_effectiveness = 0.025
+	}
+
+	prerequisites = { "tech_volcano" }
+}
+
+#toxic
+rikk_mdlc_d_world_machine_sulfur_geysers = {
+	time = 270
+
+	icon = d_gaseous_eruption
+	is_for_colonizable = yes
+	potential = { always = no }
+	category = oxr_mdlc_deposit_cat_rare_blockers_world_machine
+
+	resources = {
+		category = deposit_blockers_natural
+		cost = {
+			energy = 500
+		}
+	}
+
+	planet_modifier = {
+		planet_max_districts_add = -2
+		rikk_mdlc_world_machine_districts_rare_resource_base_production = 0.10
+	}
+
+	prerequisites = { "tech_volcano" }
+}
+
+rikk_mdlc_d_world_machine_carbonic_sea = {
+	time = 270
+
+	icon = d_fuming_bog
+	is_for_colonizable = yes
+	potential = { always = no }
+	category = oxr_mdlc_deposit_cat_rare_blockers_world_machine
+
+	resources = {
+		category = deposit_blockers_natural
+		cost = {
+			energy = 500
+		}
+	}
+
+	planet_modifier = {
+		planet_max_districts_add = -2
+		xvcv_mdlc_world_machines_industrial_districts_produces_mult = 0.05
+	}
+
+	prerequisites = { "tech_noxious_swamp" }
+}
+
+rikk_mdlc_d_world_machine_acidic_basin = {
+	time = 270
+
+	icon = d_rotten_soil_blocker
+	is_for_colonizable = yes
+	potential = { always = no }
+	category = oxr_mdlc_deposit_cat_rare_blockers_world_machine
+
+	resources = {
+		category = deposit_blockers_natural
+		cost = {
+			energy = 250
+			minerals = 250
+		}
+	}
+
+	planet_modifier = {
+		planet_max_districts_add = -2
+		planet_building_build_speed_mult = 0.25
+	}
+
+	prerequisites = { "tech_quicksand_basin" }
+}

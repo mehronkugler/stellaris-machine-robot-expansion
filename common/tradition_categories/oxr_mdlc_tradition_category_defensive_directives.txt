@@ -1,0 +1,43 @@
+oxr_mdlc_tradition_defensive_directives = {
+	tree_template = "tree_12_11"
+	### 1 to 2, 1 to 1 ###
+		#####		#####
+		# 1 #      	# 2 #
+		#####      	#####
+	#####   #####   #####
+	# 3 #   # 4 #   # 5 #
+	#####   #####   #####
+	adoption_bonus = "oxr_mdlc_tr_defensive_directives_adopt"
+	finish_bonus = "oxr_mdlc_tr_defensive_directives_finish"
+	traditions = {
+		"oxr_mdlc_tr_defensive_directives_armored_planets" #1
+		"oxr_mdlc_tr_defensive_directives_increased_garrison" #2
+		"oxr_mdlc_tr_defensive_directives_self_destruct" #3
+		"oxr_mdlc_tr_defensive_directives_space_armor" #4
+		"oxr_mdlc_tr_defensive_directives_starbase_boost" #5
+	}
+
+	potential = {
+		# is_robot_empire = yes
+		OR = {
+			has_origin = oxr_mdlc_origin_world_machine_awakened
+			has_ascension_perk = xvcv_mdlc_ap_world_machines
+		}
+	}
+
+	ai_weight = {
+		factor = 10
+		modifier = {
+			factor = 2
+			years_passed > 10
+		}
+		modifier = {
+			factor = 5
+			num_tradition_categories > 2
+		}
+		modifier = {
+			factor = 2
+			has_tradition = tr_synthetics_finish
+		}
+	}
+}

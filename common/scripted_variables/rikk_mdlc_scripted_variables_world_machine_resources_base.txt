@@ -1,0 +1,3 @@
+#### auto-world district SR building produces and upkeep amounts
+@rikk_mdlc_auto_SR_produces = 0.25
+@rikk_mdlc_auto_SR_upkeep = 2

@@ -1,0 +1,157 @@
+# DEFAULT DESIGNATION (NOT FACTORY, NOT FORGE) NO GOODS, NOT CATALYTIC
+produces = {
+	trigger = {
+		exists = owner
+		owner = {
+			has_ethic = ethic_gestalt_consciousness
+			country_uses_consumer_goods = no
+			is_catalytic_empire = no
+		}
+		NAND = {
+			planet = { has_designation = col_factory }
+			planet = { has_designation = col_foundry }
+		}
+	}
+	alloys = @oxr_mdlc_auto_industrial_alloys_base  # 4 x 2
+	mult = value:collected_world_machine_bonuses
+}
+upkeep = {
+	trigger = {
+		exists = owner
+		owner = {
+			has_ethic = ethic_gestalt_consciousness
+			country_uses_consumer_goods = no
+			is_catalytic_empire = no
+		}
+		NAND = {
+			planet = { has_designation = col_factory }
+			planet = { has_designation = col_foundry }
+		}
+	}
+	minerals = @oxr_mdlc_auto_industrial_alloys_upkeep  # 16
+	mult = value:collected_world_machine_bonuses  # careful this does not resolve to 0
+	
+}
+# DEFAULT DESIGNATION (NO GOODS, IS CATALYTIC)
+produces = {
+	trigger = {
+		exists = owner
+		owner = {
+			has_ethic = ethic_gestalt_consciousness
+			country_uses_consumer_goods = no
+			is_catalytic_empire = yes
+		}
+		NOT = {
+			planet = { has_designation = col_factory }
+			planet = { has_designation = col_foundry }
+		}
+	}
+	alloys = @oxr_mdlc_auto_industrial_catalytic_base  # 8
+	mult = value:collected_world_machine_bonuses
+}
+upkeep = {
+	trigger = {
+		exists = owner
+		owner = {
+			has_ethic = ethic_gestalt_consciousness
+			country_uses_consumer_goods = no
+			is_catalytic_empire = yes
+		}
+		NOT = {
+			planet = { has_designation = col_factory }
+			planet = { has_designation = col_foundry }
+		}
+	}
+	food = @oxr_mdlc_auto_industrial_catalytic_upkeep  # 24
+	mult = value:collected_world_machine_bonuses  # careful this does not resolve to 0
+}
+
+# DEFAULT DESIGNATION (COUNTRY USES GOODS, NON CATALYTIC)
+## ALLOYS
+produces = {
+	trigger = {
+		exists = owner
+		owner = {
+			has_ethic = ethic_gestalt_consciousness
+			country_uses_consumer_goods = yes
+			is_catalytic_empire = no
+		}
+		NOT = {
+			planet = { has_designation = col_factory }
+			planet = { has_designation = col_foundry }
+		}
+	}
+	alloys = @oxr_mdlc_wm_base_fabricator_output  	   #  4
+	consumer_goods = @oxr_mdlc_wm_base_artisan_output  # 10
+	mult = value:collected_world_machine_bonuses
+}
+## ARTISAN UPKEEP
+upkeep = {
+	trigger = {
+		exists = owner
+		owner = {
+			has_ethic = ethic_gestalt_consciousness
+			country_uses_consumer_goods = yes
+			is_catalytic_empire = no
+		}
+		NOT = {
+			planet = { has_designation = col_factory }
+			planet = { has_designation = col_foundry }
+		}
+	}
+	minerals = @oxr_mdlc_wm_base_artisan_upkeep
+	mult = value:collected_world_machine_bonuses  # careful this does not resolve to 0
+}
+## FABRICATOR UPKEEP
+upkeep = {
+	trigger = {
+		exists = owner
+		owner = {
+			has_ethic = ethic_gestalt_consciousness
+			country_uses_consumer_goods = yes
+			is_catalytic_empire = no
+		}
+		NOT = {
+			planet = { has_designation = col_factory }
+			planet = { has_designation = col_foundry }
+		}
+	}
+	minerals = @oxr_mdlc_wm_base_fabricator_upkeep # 10 from artisan, 8 from fabricator
+	mult = value:collected_world_machine_bonuses  # careful this does not resolve to 0
+}
+
+# DEFAULT DESIGNATION (COUNTRY USES GOODS, IS CATALYTIC)
+produces = {
+	trigger = {
+		exists = owner
+		owner = {
+			has_ethic = ethic_gestalt_consciousness
+			country_uses_consumer_goods = yes
+			is_catalytic_empire = yes
+		}
+		NAND = {
+			planet = { has_designation = col_factory }
+			planet = { has_designation = col_foundry }
+		}
+	}
+	alloys = @oxr_mdlc_wm_base_catalytic_output  	   #  5
+	consumer_goods = @oxr_mdlc_wm_base_artisan_output  # 10
+	mult = value:collected_world_machine_bonuses
+}
+upkeep = {
+	trigger = {
+		exists = owner
+		owner = {
+			has_ethic = ethic_gestalt_consciousness
+			country_uses_consumer_goods = yes
+			is_catalytic_empire = yes
+		}
+		NAND = {
+			planet = { has_designation = col_factory }
+			planet = { has_designation = col_foundry }
+		}
+	}
+	minerals = @oxr_mdlc_wm_base_artisan_upkeep
+	food = @oxr_mdlc_wm_base_catalytic_upkeep_food
+	mult = value:collected_world_machine_bonuses  # careful this does not resolve to 0
+}

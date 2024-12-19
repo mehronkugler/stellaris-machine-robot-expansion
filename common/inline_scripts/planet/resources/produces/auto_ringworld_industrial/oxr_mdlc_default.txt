@@ -1,0 +1,153 @@
+# DEFAULT DESIGNATION (NOT FACTORY, NOT FORGE) # NO GOODS, NOT CATALYTIC
+produces = {
+	trigger = {
+		exists = owner
+		owner = {
+			has_ethic = ethic_gestalt_consciousness
+			country_uses_consumer_goods = no
+			is_catalytic_empire = no
+		}
+		NOT = {
+			planet = { has_designation = col_factory }
+			planet = { has_designation = col_foundry }
+		}
+	}
+	alloys = @oxr_mdlc_auto_ringworld_foundry_output
+	mult = $PRODUCES_MULT$
+	# mult = value:collected_world_machine_bonuses
+}
+upkeep = {
+	trigger = {
+		exists = owner
+		owner = {
+			has_ethic = ethic_gestalt_consciousness
+			country_uses_consumer_goods = no
+			is_catalytic_empire = no
+		}
+		NOT = {
+			planet = { has_designation = col_factory }
+			planet = { has_designation = col_foundry }
+		}
+	}
+	minerals = @oxr_mdlc_auto_ringworld_foundry_upkeep
+	volatile_motes = 1
+	mult = $UPKEEP_MULT$
+	# mult = value:collected_world_machine_bonuses  # careful this does not resolve to 0
+}
+# DEFAULT DESIGNATION (NO GOODS, IS CATALYTIC)
+produces = {
+	trigger = {
+		exists = owner
+		owner = {
+			has_ethic = ethic_gestalt_consciousness
+			country_uses_consumer_goods = no
+			is_catalytic_empire = yes
+		}
+		NOT = {
+			planet = { has_designation = col_factory }
+			planet = { has_designation = col_foundry }
+		}
+	}
+	alloys = @oxr_mdlc_auto_ringworld_foundry_catalytic_output
+	mult = $PRODUCES_MULT$
+	# mult = value:collected_world_machine_bonuses
+}
+upkeep = {
+	trigger = {
+		exists = owner
+		owner = {
+			has_ethic = ethic_gestalt_consciousness
+			country_uses_consumer_goods = no
+			is_catalytic_empire = yes
+		}
+		NOT = {
+			planet = { has_designation = col_factory }
+			planet = { has_designation = col_foundry }
+		}
+	}
+	food = @oxr_mdlc_auto_ringworld_foundry_catalytic_upkeep
+	volatile_motes = $RARE$
+	mult = $UPKEEP_MULT$
+	# mult = value:collected_world_machine_bonuses  # careful this does not resolve to 0
+	# mult = value:scripted_modifier_mult|MODIFIER|planet_artisans_upkeep_mult|
+}
+
+# DEFAULT DESIGNATION (COUNTRY USES GOODS, NON CATALYTIC)
+## ALLOYS & GOODS
+produces = {
+	trigger = {
+		exists = owner
+		owner = {
+			has_ethic = ethic_gestalt_consciousness
+			country_uses_consumer_goods = yes
+			is_catalytic_empire = no
+		}
+		NOT = {
+			planet = { has_designation = col_factory }
+			planet = { has_designation = col_foundry }
+		}
+	}
+	alloys = @oxr_mdlc_auto_ringworld_foundry_output_half
+	consumer_goods = 50
+	mult = $PRODUCES_MULT$
+	# mult = value:collected_world_machine_bonuses
+}
+
+## UPKEEP
+upkeep = {
+	trigger = {
+		exists = owner
+		owner = {
+			has_ethic = ethic_gestalt_consciousness
+			country_uses_consumer_goods = yes
+			is_catalytic_empire = no
+		}
+		NOT = {
+			planet = { has_designation = col_factory }
+			planet = { has_designation = col_foundry }
+		}
+	}
+	minerals = 90 # 5 artisans (50), 5 fabricators (40)
+	volatile_motes = $RARE$
+	mult = $UPKEEP_MULT$
+	# mult = value:collected_world_machine_bonuses  # careful this does not resolve to 0
+}
+
+# DEFAULT DESIGNATION (COUNTRY USES GOODS, IS CATALYTIC)
+produces = {
+	trigger = {
+		exists = owner
+		owner = {
+			has_ethic = ethic_gestalt_consciousness
+			country_uses_consumer_goods = yes
+			is_catalytic_empire = yes
+		}
+		NOT = {
+			planet = { has_designation = col_factory }
+			planet = { has_designation = col_foundry }
+		}
+	}
+	alloys = @oxr_mdlc_auto_ringworld_foundry_catalytic_output_half
+	consumer_goods = 50
+	mult = $PRODUCES_MULT$
+	# mult = value:collected_world_machine_bonuses
+}
+upkeep = {
+	trigger = {
+		exists = owner
+		owner = {
+			has_ethic = ethic_gestalt_consciousness
+			country_uses_consumer_goods = yes
+			is_catalytic_empire = yes
+		}
+		NOT = {
+			planet = { has_designation = col_factory }
+			planet = { has_designation = col_foundry }
+		}
+	}
+	minerals = @oxr_mdlc_auto_ringworld_industrial_goods_upkeep_5x
+	food = @oxr_mdlc_auto_ringworld_foundry_catalytic_upkeep_half
+	volatile_motes = 1
+	mult = $UPKEEP_MULT$
+	# mult = value:collected_world_machine_bonuses  # careful this does not resolve to 0
+}

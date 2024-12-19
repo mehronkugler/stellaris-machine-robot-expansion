@@ -16,6 +16,13 @@ xvcv_mdlc_ap_self_assembling_colony_ship = {
 		NOT = { has_ascension_perk = xvcv_mdlc_ap_self_assembling_colony_ship }
 	}
 
+	possible = {
+		custom_tooltip = {
+			fail_text = oxr_mdlc_ap_self_assembling_colony_ship.fail_origin_wm
+			NOT = { has_origin = oxr_mdlc_origin_world_machine_awakened }
+		}
+	}
+
 	ai_weight = {
 		factor = 10
 	}
@@ -171,6 +178,14 @@ xvcv_mdlc_ap_mind_separation = {
 			fail_text = "xvcv_mdlc_ap_requires_tech_machine_identity_matrix"
 			has_technology = xvcv_mdlc_tech_machine_identity_matrix
 		}
+		custom_tooltip = {
+			fail_text = "oxr_mdlc_ap_mind_separation.fail_origin_wm"
+			has_origin = oxr_mdlc_origin_world_machine_awakened
+		}
+		custom_tooltip = {
+			fail_text = oxr_mdlc_ap_mind_separation.fail_origin_wm
+			NOT = { has_origin = oxr_mdlc_origin_world_machine_awakened }
+		}
 	}
 
 	ai_weight = {
@@ -220,6 +235,7 @@ xvcv_mdlc_ap_bio_robot = {
 	potential = {
 		is_robot_empire = yes
 		NOT = { has_ascension_perk = xvcv_mdlc_ap_bio_robot }
+		# NOT = { has_origin = oxr_mdlc_origin_world_machine_awakened }
 	}
 
 	possible = {
@@ -249,12 +265,10 @@ xvcv_mdlc_ap_bio_robot = {
 				has_technology = xvcv_mdlc_tech_biology_xenostudies_2
 			}
 		}
-		# custom_tooltip = {
-		# 	fail_text = xvcv_mdlc_ap_bio_robot_fail.ai_rights
-		# 	from = {
-		# 		has_policy_flag = ai_full_rights
-		# 	}
-		# }
+		custom_tooltip = {
+			fail_text = oxr_mdlc_ap_bio_robot.fail_origin_wm
+			NOT = { has_origin = oxr_mdlc_origin_world_machine_awakened }
+		}
 	}
 	modifier = {
 		# Gestalt empires get 1 machine trait pick add, do the same for Bio Mech
@@ -311,6 +325,7 @@ xvcv_mdlc_ap_world_machines = {
 	potential = {
 		has_authority = auth_machine_intelligence
 		NOT = { has_ascension_perk = xvcv_mdlc_ap_world_machines }
+		NOT = { has_origin = oxr_mdlc_origin_world_machine_awakened }
 	}
 
 	possible = {
@@ -325,6 +340,10 @@ xvcv_mdlc_ap_world_machines = {
 		custom_tooltip = {
 			fail_text = "requires_technology_housing_2"
 			has_technology = tech_housing_2
+		}
+		custom_tooltip = {
+			fail_text = oxr_mdlc_ap_world_machines.fail_origin_wm
+			NOT = { has_origin = oxr_mdlc_origin_world_machine_awakened }
 		}
 	}
 

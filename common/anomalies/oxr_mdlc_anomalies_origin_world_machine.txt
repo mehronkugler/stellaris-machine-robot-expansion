@@ -1,0 +1,10 @@
+oxr_mdlc_anomaly_ruined_wm = {
+	desc = "oxr_mdlc_anomaly_ruined_wm_desc"
+	picture = GFX_evt_scholarium_anomaly
+	level = 1
+
+	spawn_chance = { }
+
+	# fleet scope, apparently
+	on_success = oxr_mdlc_origin_wm_main.10
+}

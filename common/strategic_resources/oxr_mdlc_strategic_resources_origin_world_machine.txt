@@ -1,0 +1,15 @@
+# World Machine Core
+# Used to build new auto-machine worlds or expand existing ones
+oxr_mdlc_world_machine_core = {
+	tradable = no
+	category = rare
+	max = 100
+
+	ai_weight = {
+		weight = 1
+	}
+
+	ai_wants = {
+		base = 5
+	}
+}

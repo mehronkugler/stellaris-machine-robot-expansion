@@ -77,8 +77,8 @@
  xvcv_mdlc_tech_biology_bio_reactor_miniaturization: "Bio-Reactor Miniaturization"
  xvcv_mdlc_tech_biology_bio_reactor_miniaturization_desc: "If we can replicate the reactor on a much smaller scale, this will open up a number of possibilities with regards to potential additional species modifications.$oxr_mdlc_mod_tag$"
  xvcv_mdlc_tech_biology_xenostudies_1: "Xenostudies Fundamentals"
- xvcv_mdlc_tech_biology_xenostudies_1_desc: "We will begin developing an ontology for classification and study of biological life forms. With this step, we may open up applications in other fields of study."
- xvcv_mdlc_tech_biology_xenostudies_2: "Advanced Xenostudies$oxr_mdlc_mod_tag$"
+ xvcv_mdlc_tech_biology_xenostudies_1_desc: "We will begin developing an ontology for classification and study of biological life forms. With this step, we may open up applications in other fields of study.$oxr_mdlc_mod_tag$"
+ xvcv_mdlc_tech_biology_xenostudies_2: "Advanced Xenostudies"
  xvcv_mdlc_tech_biology_xenostudies_2_desc: "Our ontology of biological life will be complete. Analyzing new life forms will be trivial. Synthesis will become practical.$oxr_mdlc_mod_tag$"
 
   # Requires tooltips

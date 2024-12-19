@@ -1,0 +1,26 @@
+category = resource
+
+planet_modifier = {
+	xvcv_mdlc_world_machines_food_districts_food_produces_mult = $PRODUCTION_MULT$
+	xvcv_mdlc_world_machines_food_districts_energy_upkeep_add = $ENERGY_UPKEEP_ADD$
+	# buildings :D
+	oxr_mdlc_world_machines_food_buildings_food_produces_mult = $PRODUCTION_MULT$
+	oxr_mdlc_world_machines_food_buildings_energy_upkeep_add = $ENERGY_UPKEEP_ADD$
+}
+
+resources = {
+	category = oxr_mdlc_world_machines_food_buildings
+	produces = {
+		food = $PRODUCES$
+	}
+	cost = {
+		minerals = $MINERALS_COST$
+		volatile_motes = $RARE_COST$
+	}
+
+	upkeep = {
+		energy = $UPKEEP$
+		volatile_motes = $RARE_UPKEEP$
+	}
+
+}

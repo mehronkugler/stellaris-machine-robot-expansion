@@ -59,6 +59,7 @@ xvcv_mdlc_origin_start_with_colony = {
 	is_origin = yes
 	icon = "gfx/interface/icons/origins/xvcv_mdlc_origin_start_with_colony.dds"
 	picture = GFX_evt_xvcv_mdlc_origin_start_with_colony
+	starting_colony = xvcv_mdlc_pc_machine_auto
 
 	initializers = { xvcv_mdlc_origin_start_with_colony_system }
 

@@ -1,0 +1,695 @@
+namespace = oxr_mdlc_on_world_machine_action
+
+# on_world_machine_blocker_digsite_finished
+planet_event = {
+	# Create the next digsite, if requirements are met
+	id = oxr_mdlc_on_world_machine_action.10
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		oxr_mdlc_planet_has_any_world_machine_blockers = yes
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				oxr_mdlc_planet_has_any_world_machine_blockers = yes
+				NOT = {
+					space_owner = {
+						has_technology = oxr_mdlc_tech_world_machine_planetary_proficiency
+					}
+				}
+			}
+			# Create the digsite a few days later, it's weird for it to be immediately available
+			planet_event = {
+				id = oxr_mdlc_on_world_machine_action.11 days = 14
+			}
+		}
+		else_if = {
+			limit = { oxr_mdlc_planet_has_any_world_machine_blockers = no }
+			log = "No more world machine blockers on \\[This.GetName]"
+		}
+		else_if = {
+			limit = {
+				oxr_mdlc_planet_has_any_world_machine_blockers = yes
+				space_owner = {
+					has_technology = oxr_mdlc_tech_world_machine_planetary_proficiency
+				}
+			}
+			log = "Space owner has tech oxr_mdlc_tech_world_machine_planetary_proficiency. Not going to make digsites."
+		}
+	}
+}
+
+# on_world_machine_blocker_digsite_finished
+# Create the digsite a few days later
+planet_event = {
+	id = oxr_mdlc_on_world_machine_action.11
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		oxr_mdlc_planet_has_any_world_machine_blockers = yes
+	}
+	immediate = {
+		log = "Auto-creating a new world machine digsite at \\[This.GetName] ..."
+		oxr_mdlc_origin_world_machine_create_digsite_for_blocker = yes
+	}
+}
+
+# on_world_machine_blocker_cleared Increment blockers cleared
+country_event = {
+	id = oxr_mdlc_on_world_machine_action.100
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		has_event_chain = "oxr_mdlc_origin_wm_chain_clear_blockers"
+		NOT = { has_completed_event_chain = oxr_mdlc_origin_wm_chain_clear_blockers }
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				has_event_chain = "oxr_mdlc_origin_wm_chain_clear_blockers"
+				NOT = { has_completed_event_chain = oxr_mdlc_origin_wm_chain_clear_blockers }
+			}
+			add_event_chain_counter = {
+				event_chain = "oxr_mdlc_origin_wm_chain_clear_blockers"
+				counter = "oxr_mdlc_origin_wm_blockers"
+				amount = 1
+			}
+			log = "Incremented 'Clear Blocker' event chain by 1"
+			# TODO: contribute towards ongoing situation
+			if = {
+				limit = {
+					has_completed_event_chain_counter = {
+						event_chain = "oxr_mdlc_origin_wm_chain_clear_blockers"
+						counter = "oxr_mdlc_origin_wm_blockers"
+					}
+					NOT = {
+						has_technology = oxr_mdlc_tech_world_machine_planetary_proficiency
+					}
+				}
+				# Trigger completion
+				country_event = {
+					id = oxr_mdlc_origin_wm_main.50
+				}
+			}
+		}
+	}
+}
+
+planet_event = {
+	id = oxr_mdlc_on_world_machine_action.105
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		is_planet_world_machine = yes
+	}
+
+	immediate = {
+		add_deposit = oxr_mdlc_d_world_machine_artifact_deposit_1
+	}
+}
+
+# Increments WM insights gained
+country_event = {
+	id = oxr_mdlc_on_world_machine_action.110
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = { }
+
+	immediate = {
+		if = {
+			limit = {
+				has_event_chain = "oxr_mdlc_origin_wm_chain_gather_insights"
+				NOT = { has_completed_event_chain = oxr_mdlc_origin_wm_chain_gather_insights }
+			}
+			add_event_chain_counter = {
+				event_chain = "oxr_mdlc_origin_wm_chain_gather_insights"
+				counter = "oxr_mdlc_origin_wm_core_insights"
+				amount = 1
+			}
+			log = "Incremented World Machine insights by 1"
+			create_message = {
+				type = OXR_MDLC_ORIGIN_WM_CHAIN_GATHER_INSIGHTS_TYPE
+				localization = OXR_MDLC_ORIGIN_WM_CHAIN_GATHER_INSIGHTS_MESSAGE
+				target = this.capital_scope
+				days = 25
+			}
+			# Check if this was enough to trigger the finish
+			if = {
+				limit = {
+					# NOT = { has_completed_event_chain = oxr_mdlc_origin_wm_chain_gather_insights }
+					NOR = {
+						has_special_project = OXR_MDLC_ORIGIN_WM_CORE_TECH_RESEARCH_ENGINEERING
+						has_special_project = OXR_MDLC_ORIGIN_WM_CORE_TECH_RESEARCH_PHYSICS_1
+						has_special_project = OXR_MDLC_ORIGIN_WM_CORE_TECH_RESEARCH_SOCIETY
+					}
+					has_completed_event_chain_counter = {
+						event_chain = oxr_mdlc_origin_wm_chain_gather_insights
+						counter = oxr_mdlc_origin_wm_core_insights
+					}
+					# Don't fire the completion event if the core situation is finished/gone
+					any_situation = {
+						is_situation_type = oxr_mdlc_origin_wm_situation_recover_core_tech
+					}
+				}
+				# Trigger completion
+				country_event = {
+					id = oxr_mdlc_origin_wm_main.1200
+				}
+			}
+		}
+	}
+}
+
+## SITUATION ADVANCEMENT EVENTS ##
+# on_world_machine_blocker_digsite_finished 1000
+planet_event = {
+	id = oxr_mdlc_on_world_machine_action.1000
+	is_triggered_only = yes hide_window = yes
+	trigger = {
+		owner = {
+			any_situation = { is_situation_type = oxr_mdlc_origin_wm_situation_recover_core_tech }
+		}
+	}
+	immediate = {
+		owner = {
+			oxr_mdlc_situation_core_insights_add_progress = {
+				AMOUNT = @oxr_mdlc_situation_core_insight_digsite_points
+				ON_ACTION_TYPE = on_world_machine_blocker_digsite_finished
+			}
+		}
+	}
+}
+# on_world_machine_blocker_cleared 1001
+country_event = {
+	id = oxr_mdlc_on_world_machine_action.1001
+	is_triggered_only = yes hide_window = yes
+	trigger = {
+		any_situation = { is_situation_type = oxr_mdlc_origin_wm_situation_recover_core_tech }
+	}
+	immediate = {
+		oxr_mdlc_situation_core_insights_add_progress = {
+			AMOUNT = @oxr_mdlc_situation_core_insights_on_world_machine_blocker_cleared_points
+			ON_ACTION_TYPE = on_world_machine_blocker_cleared
+		}
+	}
+}
+# Arc site stage finished 1002
+country_event = {
+	id = oxr_mdlc_on_world_machine_action.1002
+	is_triggered_only = yes hide_window = yes
+	trigger = {
+		any_situation = { is_situation_type = oxr_mdlc_origin_wm_situation_recover_core_tech }
+	}
+	immediate = {
+		oxr_mdlc_situation_core_insights_add_progress = {
+			AMOUNT = @oxr_mdlc_situation_core_insights_on_world_machine_arc_site_progress_points
+			ON_ACTION_TYPE = on_world_machine_arc_site_progress
+		}
+	}
+}
+# insight blocker cleared 1003
+country_event = {
+	id = oxr_mdlc_on_world_machine_action.1003
+	is_triggered_only = yes hide_window = yes
+	trigger = {
+		any_situation = { is_situation_type = oxr_mdlc_origin_wm_situation_recover_core_tech }
+	}
+	immediate = {
+		oxr_mdlc_situation_core_insights_add_progress = {
+			AMOUNT = @oxr_mdlc_situation_core_insights_on_world_machine_insight_blocker_cleared_points
+			ON_ACTION_TYPE = on_world_machine_insight_blocker_cleared
+		}
+	}
+}
+# on_world_machine_discovered 1004
+country_event = {
+	id = oxr_mdlc_on_world_machine_action.1004
+	is_triggered_only = yes hide_window = yes
+	trigger = {
+		any_situation = { is_situation_type = oxr_mdlc_origin_wm_situation_recover_core_tech }
+	}
+	immediate = {
+		oxr_mdlc_situation_core_insights_add_progress = {
+			AMOUNT = @oxr_mdlc_situation_core_insights_on_world_machine_ruin_discovered
+			ON_ACTION_TYPE = on_world_machine_ruined_planet_discovered
+		}
+	}
+}
+# on_world_machine_popless_building_constructed 1005
+country_event = {
+	id = oxr_mdlc_on_world_machine_action.1005
+	is_triggered_only = yes hide_window = yes
+	trigger = {
+		any_situation = { is_situation_type = oxr_mdlc_origin_wm_situation_recover_core_tech }
+	}
+	immediate = {
+		oxr_mdlc_situation_core_insights_add_progress = {
+			AMOUNT = @oxr_mdlc_situation_core_insight_wm_building_constructed
+			ON_ACTION_TYPE = on_world_machine_popless_building_constructed
+		}
+	}
+}
+# on_world_machine_district_completed 1006
+country_event = {
+	id = oxr_mdlc_on_world_machine_action.1006
+	is_triggered_only = yes hide_window = yes
+	trigger = {
+		any_situation = { is_situation_type = oxr_mdlc_origin_wm_situation_recover_core_tech }
+	}
+	immediate = {
+		oxr_mdlc_situation_core_insights_add_progress = {
+			AMOUNT = @oxr_mdlc_situation_core_insight_build_district_points
+			ON_ACTION_TYPE = on_world_machine_district_completed
+		}
+	}
+}
+# on_world_machine_restoration_stage_complete
+country_event = {
+	id = oxr_mdlc_on_world_machine_action.1007
+	is_triggered_only = yes hide_window = yes
+	trigger = {
+		any_situation = { is_situation_type = oxr_mdlc_origin_wm_situation_recover_core_tech }
+	}
+	immediate = {
+		oxr_mdlc_situation_core_insights_add_progress = {
+			AMOUNT = @oxr_mdlc_situation_core_insights_on_world_machine_restoration_stage_complete
+			ON_ACTION_TYPE = on_world_machine_restoration_stage_complete
+		}
+	}
+}
+# on_world_machine_restoration_stage_complete
+country_event = {
+	id = oxr_mdlc_on_world_machine_action.1008
+	is_triggered_only = yes hide_window = yes
+	trigger = {
+		any_situation = { is_situation_type = oxr_mdlc_origin_wm_situation_recover_core_tech }
+	}
+	immediate = {
+		oxr_mdlc_situation_core_insights_add_progress = {
+			AMOUNT = @oxr_mdlc_situation_core_insights_on_world_machine_restoration_finished
+			ON_ACTION_TYPE = on_world_machine_restoration_finished
+		}
+	}
+}
+
+country_event = {
+	id = oxr_mdlc_on_world_machine_action.1010
+	is_triggered_only = yes
+	hide_window = yes
+	trigger = {
+		has_event_chain = "oxr_mdlc_origin_wm_chain_clear_blockers_2"
+		NOT = { has_completed_event_chain = oxr_mdlc_origin_wm_chain_clear_blockers_2 }
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				has_event_chain = "oxr_mdlc_origin_wm_chain_clear_blockers_2"
+				NOT = { has_completed_event_chain = oxr_mdlc_origin_wm_chain_clear_blockers_2 }
+			}
+			add_event_chain_counter = {
+				event_chain = "oxr_mdlc_origin_wm_chain_clear_blockers_2"
+				counter = "oxr_mdlc_origin_wm_blockers"
+				amount = 1
+			}
+			log = "Incremented 'Clear Blocker' event chain by 1"
+			# TODO: contribute towards ongoing situation
+			if = {
+				limit = {
+					has_completed_event_chain_counter = {
+						event_chain = "oxr_mdlc_origin_wm_chain_clear_blockers_2"
+						counter = "oxr_mdlc_origin_wm_blockers"
+					}
+					NOT = {
+						has_technology = oxr_mdlc_tech_world_machine_planetary_mastery
+					}
+				}
+				# Trigger completion
+				country_event = {
+					id = oxr_mdlc_origin_wm_main.51
+				}
+			}
+		}
+	}
+}
+
+# on_planet_surveyed, see if it's a ruined WM and trigger an arc site
+planet_event = {
+	id = oxr_mdlc_on_world_machine_action.1100
+	is_triggered_only = yes
+	hide_window = yes
+	trigger = {
+		from = { has_origin = oxr_mdlc_origin_world_machine_awakened }
+		is_planet_class = xvcv_mdlc_pc_machine_auto_ruined
+	}
+	immediate = {
+		if = {
+			limit = {
+				is_planet_class = xvcv_mdlc_pc_machine_auto_ruined
+				from = { has_origin = oxr_mdlc_origin_world_machine_awakened }
+			}
+			# Random arc site from blocker
+			oxr_mdlc_origin_world_machine_create_digsite_for_blocker = yes
+			log = "Created initial dig site on ruined WM, [This.GetName] for [This.From.GetName]"
+		}
+	}
+}
+
+country_event = {
+	id = oxr_mdlc_on_world_machine_action.1200
+	title = oxr_mdlc_on_world_machine_action.1200.title
+	desc = oxr_mdlc_on_world_machine_action.1200.desc
+	is_triggered_only = yes
+	picture = GFX_evt_oxr_mdlc_wm_expansion
+
+	trigger = {
+		last_increased_tech = oxr_mdlc_tech_geologic_world_expansion_theory
+		NOT = { has_ascension_perk = xvcv_mdlc_ap_world_machines }
+	}
+
+	option = {
+		name = oxr_mdlc_on_world_machine_action.1200.a
+		hidden_effect = {
+			begin_event_chain = {
+				event_chain = oxr_mdlc_origin_wm_chain_geologic_upgrade_tree
+			}
+			begin_event_chain = {
+				event_chain = oxr_mdlc_origin_wm_t3_worlds_chain
+			}
+			# Start event that checks monthly for reqs update
+			country_event = {
+				id = oxr_mdlc_origin_wm_main.1500
+			}
+		}
+	}
+}
+
+# country_event = {
+# 	id = oxr_mdlc_on_world_machine_action.1210
+# 	title = ""
+# 	desc = ""
+# 	picture = 
+# }
+
+planet_event = {
+	id = oxr_mdlc_on_world_machine_action.1900
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		owner = { has_origin = oxr_mdlc_origin_world_machine_awakened }
+		is_planet_world_machine = yes
+		# only implement for the below class right now
+		# is_planet_class = xvcv_mdlc_pc_machine_aut
+	}
+	immediate = {
+		log = "Firing on_world_machine_district_demolished"
+		fire_on_action = {
+			on_action = on_world_machine_district_demolished
+		}
+	}
+}
+
+# Restock armies on_world_machine_district_completed
+# incoming scope = planet (was country)
+# from = planet
+planet_event = {
+	id = oxr_mdlc_on_world_machine_action.1905
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		owner = { has_origin = oxr_mdlc_origin_world_machine_awakened }
+		is_planet_world_machine = yes
+	}
+	immediate = {
+		# Check District Defense armies count, restock them if needed
+		oxr_mdlc_origin_world_machine_calc_max_district_armies = yes
+		if = {
+			limit = {
+				check_variable = {
+					which = oxr_mdlc_world_machine_num_existing_district_armies
+					value < oxr_mdlc_world_machine_num_max_district_armies
+				}
+				NOT = {
+					has_modifier = oxr_mdlc_world_machine_district_army_restock_in_progress
+				}
+				NOT = {
+					has_planet_flag = oxr_mdlc_world_machines_refilling_armies_active
+				}
+			}
+			# oxr_mdlc_planet_start_refilling_district_defense_armies = yes
+			planet_event = {
+				id = oxr_mdlc_origin_wm_main.2000
+			}
+		}
+		else = {
+			log = "WM District built, but armies at max, not building more."
+		}
+		
+	}
+}
+
+
+# LEAD-IN: decommission district armies on_world_machine_district_demolished
+planet_event = {
+	id = oxr_mdlc_on_world_machine_action.1909
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		owner = { has_origin = oxr_mdlc_origin_world_machine_awakened }
+		is_planet_world_machine = yes
+	}
+	immediate = {
+		log = "Entered decommission event"
+		oxr_mdlc_origin_world_machine_calc_max_district_armies = yes
+		oxr_mdlc_origin_world_machine_calc_current_district_armies = yes
+		if = {
+			limit = {
+				check_variable = {
+					which = oxr_mdlc_world_machine_num_existing_district_armies
+					value > oxr_mdlc_world_machine_num_max_district_armies
+				}
+				NOT = {
+					has_modifier = oxr_mdlc_world_machine_district_army_restock_in_progress
+				}
+				NOT = {
+					has_planet_flag = oxr_mdlc_world_machines_refilling_armies_active
+				}
+				NOT = {
+					has_modifier = oxr_mdlc_world_machine_district_army_decommissioning_in_progress
+				}
+			}
+			add_modifier = {
+				modifier = oxr_mdlc_world_machine_district_army_decommissioning_in_progress
+				days = 7
+			}
+			planet_event = {
+				id = oxr_mdlc_on_world_machine_action.1910
+				days = 7
+			}
+		}
+	}
+}
+
+# decommission district armies on_world_machine_district_demolished
+planet_event = {
+	id = oxr_mdlc_on_world_machine_action.1910
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		owner = { has_origin = oxr_mdlc_origin_world_machine_awakened }
+		is_planet_world_machine = yes
+	}
+	immediate = {
+		# Check District Defense armies count, restock them if needed
+		oxr_mdlc_origin_world_machine_calc_max_district_armies = yes
+		oxr_mdlc_origin_world_machine_calc_current_district_armies = yes
+		if = {
+			limit = {
+				check_variable = {
+					which = oxr_mdlc_world_machine_num_existing_district_armies
+					value > oxr_mdlc_world_machine_num_max_district_armies
+				}
+				NOT = {
+					has_modifier = oxr_mdlc_world_machine_district_army_restock_in_progress
+				}
+				NOT = {
+					has_planet_flag = oxr_mdlc_world_machines_refilling_armies_active
+				}
+				NOT = {
+					has_modifier = oxr_mdlc_world_machine_district_army_decommissioning_in_progress
+				}
+			}
+			random_planet_army = {
+				limit = {
+					army_type = oxr_mdlc_world_machine_district_defense_army
+				}
+				remove_army = yes
+			}
+			oxr_mdlc_origin_world_machine_calc_current_district_armies = yes
+			planet_event = {
+				id = oxr_mdlc_on_world_machine_action.1909
+			}
+		}
+		else = {
+			log = "WM District destroyed, but army count OK, not building more."
+		}
+	}
+}
+
+# The 'mundane data' event
+# count free/used districts on demolished or built, so that between either of these events
+# we can refer to the defined number of them, rather than export triggers redundantly
+### CALLED ON COMPLETED 
+planet_event = {
+	id = oxr_mdlc_on_world_machine_action.1920
+	is_triggered_only = yes
+	hide_window = yes
+	immediate = {
+		set_variable = {
+			which = oxr_mdlc_planet_built_districts_amount
+			value = value:oxr_mdlc_planet_count_built_districts
+		}
+		set_variable = {
+			which = oxr_mdlc_planet_free_districts_amount
+			value = value:oxr_mdlc_planet_count_free_districts
+		}
+		planet_event = {
+			id = oxr_mdlc_on_world_machine_action.1905  # restock district defense armies
+		}
+	}
+}
+### CALLED ON DESTROYED
+# After calculating these vars, then call other events
+planet_event = {
+	id = oxr_mdlc_on_world_machine_action.1921
+	is_triggered_only = yes
+	hide_window = yes
+	immediate = {
+		set_variable = {
+			which = oxr_mdlc_planet_built_districts_amount
+			value = value:oxr_mdlc_planet_count_built_districts
+		}
+		set_variable = {
+			which = oxr_mdlc_planet_free_districts_amount
+			value = value:oxr_mdlc_planet_count_free_districts
+		}
+		planet_event = {
+			id = oxr_mdlc_on_world_machine_action.1909  # Recalculate district armies, decommission
+		}
+	}
+}
+
+# Update planet vars for tracking max district armies
+planet_event = {
+	id = oxr_mdlc_on_world_machine_action.2001
+	is_triggered_only = yes
+	hide_window = yes
+	trigger = {
+		space_owner = { has_origin = oxr_mdlc_origin_world_machine_awakened }
+		is_planet_world_machine = yes
+		# re-use trigger to check if last district changed was WM district
+		xvcv_mdlc_world_machines_districts_heat_indicators_calc_trigger = yes
+	}
+	pre_triggers = {
+		is_occupied_flag = no
+	}
+
+	immediate = {
+		oxr_mdlc_origin_world_machine_calc_max_district_armies = yes
+		oxr_mdlc_origin_world_machine_calc_current_district_armies = yes
+		if = {
+			limit = {
+				check_variable = {
+					which = oxr_mdlc_world_machine_num_existing_district_armies
+					value > oxr_mdlc_world_machine_num_max_district_armies
+				}
+			}
+			while = {
+				limit = {
+					check_variable = {
+						which = oxr_mdlc_world_machine_num_existing_district_armies
+						value > oxr_mdlc_world_machine_num_max_district_armies
+					}
+				}
+				random_planet_army = {
+					limit = {
+						army_type = oxr_mdlc_world_machine_district_defense_army
+					}
+					remove_army = yes
+				}
+				log = "Removed a district defense army after a district was demolished."
+				oxr_mdlc_origin_world_machine_calc_current_district_armies = yes
+			}
+		}
+	}
+}
+country_event = {
+	id = oxr_mdlc_on_world_machine_action.2500
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		has_ascension_perk = xvcv_mdlc_ap_world_machines
+		NOR = {
+			has_technology = oxr_mdlc_tech_world_machine_cpu
+			has_technology = oxr_mdlc_tech_world_machine_ser
+			has_technology = oxr_mdlc_tech_world_machine_ecu
+		}
+	}
+	immediate = {
+		give_technology = {
+			tech = oxr_mdlc_tech_world_machines_unlocked
+			message = no
+		}
+		give_technology = {
+			tech = oxr_mdlc_tech_world_machine_planetary_proficiency
+			message = no
+		}
+		give_technology = {
+			tech = oxr_mdlc_tech_world_machine_planetary_mastery
+			message = no
+		}
+		# give_technology = {
+		# 	tech = oxr_mdlc_tech_geologic_world_expansion_theory
+		# 	# message = no
+		# }
+		# give_technology = {
+		# 	tech = oxr_mdlc_tech_world_machine_cpu
+		# 	message = no
+		# }
+		# give_technology = {
+		# 	tech = oxr_mdlc_tech_world_machine_ecu
+		# 	message = no
+		# }
+		# give_technology = {
+		# 	tech = oxr_mdlc_tech_world_machine_ser
+		# 	message = no
+		# }
+	}
+}
+
+
+# Hook from on_custom_diplomacy
+country_event = {
+	id = oxr_mdlc_on_world_machine_action.3000
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		# target
+		from = {
+			is_country_type = nomad
+			has_country_flag = oxr_mdlc_slag_blade_country
+		}
+		# source
+		has_origin = oxr_mdlc_origin_world_machine_awakened
+	}
+}

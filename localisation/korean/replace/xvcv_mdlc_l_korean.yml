@@ -409,8 +409,8 @@
  xvcv_mdlc_building_district_slot_desc:0 "이 지역은 지구 건설에 할당되었습니다."
 
  ## Vanilla replacements ##
- xvcv_mdlc_world_machine_auto_farm:0 "자동 농업 모듈"
- xvcv_mdlc_world_machine_auto_farm_desc:0 "$xvcv_mdlc_pc_machine_auto_district_farming_desc$"
+ oxr_mdlc_world_machines_auto_farm_1:0 "자동 농업 모듈"
+ oxr_mdlc_world_machines_auto_farm_1_desc:0 "$xvcv_mdlc_pc_machine_auto_district_farming_desc$"
  xvcv_mdlc_world_machine_auto_food_processing_facility:0 "자동 식품 가공기"
  xvcv_mdlc_world_machine_auto_food_processing_facility_desc:0 "이 건물은 수확한 유기물을 완전 자동화된 공정으로 추가 처리하여 자동 농장 수확량을 늘립니다. 일부 충전재가 사용됩니다."
  xvcv_mdlc_world_machine_auto_food_processing_facility_effect_desc:0 "£food£ §YFood§! 생산 지구의 기본 생산량을 §G1§! 만큼 증가시킵니다."

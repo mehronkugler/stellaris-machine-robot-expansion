@@ -32,6 +32,7 @@ on_game_start_country = {
 		xvcv_mdlc_config_effect.1 #set country flags for mod configurations
 		xvcv_mdlc_situation.1 #start the 'xvcv_mdlc_situation_machine_learning' situation
 		xvcv_mdlc.1000 #'xvcv_mdlc_servitor_morale' empire modifiers calculations
+		xvcv_mdlc.80  # trigger xvcv_mdlc_trait_self_replicating_microbot event at start; thanks Legit-Rikk for catching this
 	}
 }
 # Called during empire initialization when starting a new game if has_secondary_species game rule is true.

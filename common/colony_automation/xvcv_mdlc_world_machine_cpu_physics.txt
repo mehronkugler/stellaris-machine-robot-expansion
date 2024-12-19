@@ -13,30 +13,19 @@ automate_xvcv_mdlc_world_machine_cpu_physics = {
 
 	buildings = {
 		1 = {
+			building = oxr_mdlc_world_machines_building_auto_capital
+			available = {
+				owner = { has_origin = oxr_mdlc_origin_world_machine_awakened }
+			}
+		}
+		1 = {
 			building = building_capital
 			available = {
-				always = yes
+				owner = { has_ascension_perk = xvcv_mdlc_ap_world_machines }
 			}
 		}
-
 		2 = {
-			building = building_institute
-			available = {
-				NOR = {
-					owner = { has_authority = auth_hive_mind }
-					owner = { has_authority = auth_machine_intelligence }
-				}
-			}
-		}
-
-		2 = {
-			building = building_supercomputer
-			available = {
-				OR = {
-					owner = { has_authority = auth_hive_mind }
-					owner = { has_authority = auth_machine_intelligence }
-				}
-			}
+			building = oxr_mdlc_world_machines_building_fractal_sanitizer
 		}
 
 	}

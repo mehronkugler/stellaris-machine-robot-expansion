@@ -1,0 +1,247 @@
+# defined_text = {
+# 	name = Get_oxr_mdlc_world_machine_cores_count
+# 	text = {
+# 		localization_key = oxr_mdlc_origin_wm_chain_empire_data_list_display
+# 		trigger = {
+# 			root = {
+# 				has_resource = {
+# 					type = oxr_mdlc_world_machine_core
+# 					amount >= 0
+# 				}
+# 			}
+# 		}
+# 		# trigger = { check_variable = { which = oxr value != 0 } }
+# 	}
+# }
+
+# defined_text = {
+# 	name = Get_num_district_defense_armies_to_make
+# 	value = value:oxr_mdlc_planet_count_missing_district_defense_armies
+# }
+# defined_text = {
+# 	name = Get_district_armies_refill_cost
+# 	value = value:oxr_mdlc_planet_calculate_army_refill_cost
+# }
+# defined_text = {
+# 	name = Get_district_armies_refill_time_days
+# 	value = value:oxr_mdlc_planet_calculate_army_refill_time
+# }
+
+# Geological expansion locs
+defined_text = {
+	name = GetHasTechHeatShielding1
+	text = {
+		trigger = { has_technology = oxr_mdlc_tech_geologic_heat_shielding_1 }
+		localization_key = oxr_mdlc_origin_wm_green_check
+	}
+	text = {
+		trigger = { NOT = { has_technology = oxr_mdlc_tech_geologic_heat_shielding_1 } }
+		localization_key = oxr_mdlc_origin_wm_red_x
+	}
+}
+defined_text = {
+	name = GetHasTechHeatShielding2
+	text = {
+		trigger = { has_technology = oxr_mdlc_tech_geologic_heat_shielding_2 }
+		localization_key = oxr_mdlc_origin_wm_green_check
+	}
+	text = {
+		trigger = { NOT = { has_technology = oxr_mdlc_tech_geologic_heat_shielding_2 } }
+		localization_key = oxr_mdlc_origin_wm_red_x
+	}
+}
+defined_text = {
+	name = GetHasTechHeatShielding3
+	text = {
+		trigger = { has_technology = oxr_mdlc_tech_geologic_heat_shielding_3 }
+		localization_key = oxr_mdlc_origin_wm_green_check
+	}
+	text = {
+		trigger = { NOT = { has_technology = oxr_mdlc_tech_geologic_heat_shielding_3 } }
+		localization_key = oxr_mdlc_origin_wm_red_x
+	}
+}
+defined_text = {
+	name = GetHasTechPressureConstruction1
+	text = {
+		trigger = { has_technology = oxr_mdlc_tech_geologic_pressurized_construction_1 }
+		localization_key = oxr_mdlc_origin_wm_green_check
+	}
+	text = {
+		trigger = { NOT = { has_technology = oxr_mdlc_tech_geologic_pressurized_construction_1 } }
+		localization_key = oxr_mdlc_origin_wm_red_x
+	}
+}
+defined_text = {
+	name = GetHasTechPressureConstruction2
+	text = {
+		trigger = { has_technology = oxr_mdlc_tech_geologic_pressurized_construction_2 }
+		localization_key = oxr_mdlc_origin_wm_green_check
+	}
+	text = {
+		trigger = { NOT = { has_technology = oxr_mdlc_tech_geologic_pressurized_construction_2 } }
+		localization_key = oxr_mdlc_origin_wm_red_x
+	}
+}
+defined_text = {
+	name = GetHasTechScalingThermo
+	text = {
+		trigger = { has_technology = oxr_mdlc_tech_geologic_scaling_thermoelectrics }
+		localization_key = oxr_mdlc_origin_wm_green_check
+	}
+	text = {
+		trigger = { NOT = { has_technology = oxr_mdlc_tech_geologic_scaling_thermoelectrics } }
+		localization_key = oxr_mdlc_origin_wm_red_x
+	}
+}
+defined_text = {
+	name = GetHasTechElasticMat1
+	text = {
+		trigger = { has_technology = oxr_mdlc_tech_geologic_elastic_materials_1 }
+		localization_key = oxr_mdlc_origin_wm_green_check
+	}
+	text = {
+		trigger = { NOT = { has_technology = oxr_mdlc_tech_geologic_elastic_materials_1 } }
+		localization_key = oxr_mdlc_origin_wm_red_x
+	}
+}
+defined_text = {
+	name = GetHasTechElasticMat2
+	text = {
+		trigger = { has_technology = oxr_mdlc_tech_geologic_elastic_materials_2 }
+		localization_key = oxr_mdlc_origin_wm_green_check
+	}
+	text = {
+		trigger = { NOT = { has_technology = oxr_mdlc_tech_geologic_elastic_materials_2 } }
+		localization_key = oxr_mdlc_origin_wm_red_x
+	}
+}
+defined_text = {
+	name = GetHasTechGeoDynamo
+	text = {
+		trigger = { has_technology = oxr_mdlc_tech_geologic_geodynamo_theory }
+		localization_key = oxr_mdlc_origin_wm_green_check
+	}
+	text = {
+		trigger = { NOT = { has_technology = oxr_mdlc_tech_geologic_geodynamo_theory } }
+		localization_key = oxr_mdlc_origin_wm_red_x
+	}
+}
+# Upgrade tier check
+defined_text = {
+	name = GetHasTierMantleProjReq
+	text = {
+		trigger = {
+			has_technology = oxr_mdlc_tech_geologic_heat_shielding_1
+			has_technology = oxr_mdlc_tech_geologic_pressurized_construction_1
+			has_technology = oxr_mdlc_tech_geologic_scaling_thermoelectrics
+		}
+		localization_key = oxr_mdlc_origin_wm_loc_req_met
+	}
+	default = oxr_mdlc_origin_wm_loc_req_not_met
+}
+defined_text = {
+	name = GetHasTierOuterCoreProjReq
+	text = {
+		trigger = {
+			has_technology = oxr_mdlc_tech_geologic_heat_shielding_2
+			has_technology = oxr_mdlc_tech_geologic_pressurized_construction_2
+			has_technology = oxr_mdlc_tech_geologic_elastic_materials_1
+		}
+		localization_key = oxr_mdlc_origin_wm_loc_req_met
+	}
+	default = oxr_mdlc_origin_wm_loc_req_not_met
+}
+defined_text = {
+	name = GetHasTierInnerCoreProjReq
+	text = {
+		trigger = {
+			has_technology = oxr_mdlc_tech_geologic_heat_shielding_3
+			has_technology = oxr_mdlc_tech_geologic_geodynamo_theory
+			has_technology = oxr_mdlc_tech_geologic_elastic_materials_2
+		}
+		localization_key = oxr_mdlc_origin_wm_loc_req_met
+	}
+	default = oxr_mdlc_origin_wm_loc_req_not_met
+}
+
+## T3 world locs
+defined_text = {
+	name = GetHasOxrT3EcuAlloysTarget
+	text = {
+		trigger = {
+			has_country_flag = oxr_mdlc_origin_world_machine_t3_ecu_alloys_target_met
+		}
+		localization_key = oxr_mdlc_origin_wm_green_check
+	}
+	default = oxr_mdlc_origin_wm_red_x
+}
+defined_text = {
+	name = GetHasOxrT3EcuSRTarget
+	text = {
+		trigger = {
+			has_country_flag = oxr_mdlc_origin_world_machine_t3_ecu_sr_target_met
+		}
+		localization_key = oxr_mdlc_origin_wm_green_check
+	}
+	default = oxr_mdlc_origin_wm_red_x
+}
+defined_text = {
+	name = GetHasOxrT3EcuNavalTarget
+	text = {
+		trigger = {
+			has_country_flag = oxr_mdlc_origin_world_machine_t3_ecu_naval_cap_target_met
+		}
+		localization_key = oxr_mdlc_origin_wm_green_check
+	}
+	default = oxr_mdlc_origin_wm_red_x
+}
+defined_text = {
+	name = GetHasOxrT3CpuTarget
+	text = {
+		trigger = {
+			has_country_flag = oxr_mdlc_origin_world_machine_t3_cpu_any_research_target_met
+		}
+		localization_key = oxr_mdlc_origin_wm_green_check
+	}
+	default = oxr_mdlc_origin_wm_red_x
+}
+defined_text = {
+	name = GetHasOxrT3SerUnityTarget
+	text = {
+		trigger = {
+			has_country_flag = oxr_mdlc_origin_world_machine_t3_ser_unity_target_met
+		}
+		localization_key = oxr_mdlc_origin_wm_green_check
+	}
+	default = oxr_mdlc_origin_wm_red_x
+}
+defined_text = {
+	name = IsUsefulOnWorldMachines
+	text = {
+		trigger = {
+			owner = { has_origin = oxr_mdlc_origin_world_machine_awakened }
+		}
+		localization_key = oxr_mdlc_unusable_wm
+	}
+}
+defined_text = {
+	name = TrDiscoveryFaithInScience
+	text = {
+		trigger = {
+			has_origin = oxr_mdlc_origin_world_machine_awakened
+		}
+		localization_key = tr_discovery_faith_in_science_machine_delayed_wm_note
+	}
+	default = empty
+}
+
+## VANILLA OVERRIDES
+defined_text = {
+	name = EdictIsRedundantForWm
+	text = {
+		trigger = { has_origin = oxr_mdlc_origin_world_machine_awakened }
+		localization_key = oxr_mdlc_edict_is_redudant_for_wm
+	}
+	default = oxr_mdlc_edict_is_redudant_for_wm
+}

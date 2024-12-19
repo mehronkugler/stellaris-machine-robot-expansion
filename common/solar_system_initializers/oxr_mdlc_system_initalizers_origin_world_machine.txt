@@ -1,0 +1,84 @@
+### Vultaum Home System
+oxr_mdlc_origin_wm_core_thieves_system = {
+	name = "NAME_oxr_mdlc_slag_blade_system_star"
+	class = "sc_b"
+	flags = { slag_blade_mercenary_system }
+
+	planet = {
+		name = "NAME_oxr_mdlc_slag_blade_system_star"
+		class = "pc_b_star"
+		orbit_distance = 0
+		orbit_angle = 1
+		size = 35
+		has_ring = no
+	}
+
+	planet = {
+		name = "NAME_oxr_mdlc_slag_blade_ruined_wm"
+		class = xvcv_mdlc_pc_machine_auto_ruined
+		orbit_distance = 80
+		orbit_angle = 76
+		size = 25
+		has_ring = no
+		flags = { slag_blade_homeworld }
+
+		init_effect = {
+			prevent_anomaly = yes
+			create_ambient_object = {
+				type = "medium_debris_01_object"
+				location = THIS
+			}
+			clear_deposits = yes
+			add_deposit = d_engineering_10
+			add_deposit = d_physics_10
+			add_deposit = d_society_10
+			add_deposit = d_alloys_5
+			add_deposit = d_minerals_10
+			add_deposit = d_energy_10
+		}
+
+		moon = {
+			name = "NAME_oxr_mdlc_slag_blade_1a"
+			class = "pc_barren_cold"
+			size = 7
+			orbit_distance = 8
+			orbit_angle = 210
+			has_ring = no
+		}
+		moon = {
+			name = "NAME_oxr_mdlc_slag_blade_1b"
+			class = "pc_barren_cold"
+			size = 5
+			orbit_distance = 8
+			orbit_angle = 95
+			has_ring = no
+		}
+	}
+
+	planet = {
+		name = "NAME_oxr_mdlc_slag_blade_gas"
+		class = "pc_toxic"
+		orbit_distance = 30
+		orbit_angle = 320
+		size = 30
+		has_ring = no
+
+		moon = {
+			name = "NAME_oxr_mdlc_slag_blade_gas_moon"
+			class = "pc_barren"
+			size = 6
+			orbit_distance = 12
+			orbit_angle = 180
+			has_ring = no
+		}
+	}
+	
+	planet = {
+		name = "NAME_oxr_mdlc_slag_blade_3a"
+		class = "pc_gas_giant"
+		orbit_distance = 45
+		orbit_angle = 185
+		size = 40
+		has_ring = yes
+	}
+}

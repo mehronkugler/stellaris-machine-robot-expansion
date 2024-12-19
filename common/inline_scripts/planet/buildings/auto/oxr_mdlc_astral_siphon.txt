@@ -1,0 +1,37 @@
+base_buildtime = $BUILD_TIME$
+category = research
+potential = {
+	owner = {
+		has_origin = oxr_mdlc_origin_world_machine_awakened
+		check_variable = {
+			which = astral_siphon_unlocked
+			value >= $BUILDING_TIER$
+		}
+	}
+	is_planet_world_machine = yes
+}
+
+resources = {
+	category = oxr_mdlc_category_world_machines_buildings
+	cost = {
+		minerals = $MINERALS_COST$
+	}
+	upkeep = {
+		energy = $ENERGY_UPKEEP$
+	}
+	upkeep = {
+		minerals = 2
+		mult = $BUILDING_TIER$
+	}
+	produces = {
+		physics_research = 5
+		engineering_research = 1
+		society_research = 1
+		astral_threads = 0.3
+		mult = $BUILDING_TIER$
+	}
+}
+
+country_modifier = {
+	country_resource_max_astral_threads_add = $MAX_THREADS_ADD$
+}

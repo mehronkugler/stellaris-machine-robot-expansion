@@ -1,0 +1,104 @@
+﻿origin:
+  name: Bio-Mech Integrators
+  summary: Machine/hive crossover with focus on controlling bio organisms with machine implants, and mastering bio-engineering
+  species:
+    archetype: XVCV_MDLC_BIO_MECH
+    traits:
+    - trait_bio_mech_integrators:
+      modifiers:
+      - pop_society_research_output: 0.2
+      - pop_food_output: 0.2
+      - pop_cloning_speed_mult: 0.15
+      - pop_cloning_cost_mult: 0.5
+    - trait_mechanical
+    preferred_planet_class: xvcv_mdlc_pc_mechanical
+    portrait: sd_pla
+    name: Coritz
+    gender: indeterminate
+  empire:
+    uses_pops: yes
+    authority: gestalt
+    ethics: gestalt
+    name: Coritz Orchestrators
+    homeworld:
+      name: Coritz Prime Garden
+      planet_class: xvcv_mdlc_pc_mechanical
+      planet_size: 20
+    policies:
+      first_contact: passive
+      bombardment_policy: selective
+      borders: open
+      slavery: never
+    civics:
+      - oxr_mdlc_bio_mech_space_fauna
+      - oxr_mdlc_bio_mech_organic_construction
+  empire_modifiers:
+    - pop_growth_speed: 1.2
+    - pop_amenities_output: 1.75
+    - consumer_goods_upkeep: 1.5
+    - alloys_output_mult: -0.5
+    - food_output_mult: 0.2
+    - pop_job_technician_energy_upkeep_add: -1
+    - pop_job_technician_food_upkeep_add: 1
+  size_modifiers:
+    - size_from_districts_mult: 1.1
+    - size_from_colonies_mult: 1.1
+    - size_from_pops: -0.5
+  custom_empire_modifiers:
+    - oxr_mdlc_modifier_1
+    - oxr_mdlc_modifier_2
+  unique:
+    can_reanimate_space_fauna: yes
+    can_assimilate_hive: yes
+    can_construct_space_fauna: yes
+    buildings_are_organic: yes
+  on_game_start:
+    home_system:
+      homeworld:
+        clear_all_buildings: yes
+        clear_all_deposits: yes
+        add_buildings:
+        - building_clone_vat
+        - building_gene_foundry
+        initial_population: 13
+        modifiers:
+        - planet_build_speed_mult:
+            days: 180
+            value: 0.25
+        deposits:
+        - d_artifacts_2
+        - d_minerals_5
+        - d_science_10
+        events:
+        - oxr_mdlc_game_start.20
+    neighbor_systems:
+    - some_event.1
+    situations:
+    - oxr_mdlc_situation_10
+    event_chains:
+    - oxr_mdlc_chain_5
+    other_systems:
+    - some_event.2
+  economy:
+    buildings:
+      all_buildings:
+        upkeep:
+          resources:
+            - food:
+              amount: 75%
+            - energy:
+              amount: 25%
+        cost:
+          resources:
+            - food:
+              amount: 75%
+            - energy:
+              amount: 15%
+            - minerals:
+              amount: 10%
+  technology:
+    - oxr_mdlc_tech_bio_mech_fauna:
+      name: Bio-Mech Fauna Integration
+      description: Genetic technology permits re-integrating defeated space fauna
+      tier: 3
+      department: society

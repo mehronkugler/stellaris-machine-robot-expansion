@@ -1,0 +1,32 @@
+base_buildtime = @[ $TIER$ * 180 + 180 ]
+category = resource
+resources = {
+	category = oxr_mdlc_world_machines_generator_buildings
+	cost = {
+		$RS_BUILD$ = @[ $TIER$ * 200 + 200 ]
+		$RS_RARE$ = @[ $TIER$ * 2 - 50 ]
+	}
+	produces = {
+		$PRODUCES$ = @[ $TIER$ * 2 * $BASE_JOB_OUTPUT$ ]
+	}
+	upkeep = {
+		$RS_RARE$ = @[ $TIER$ * 3]
+	}
+	# BIOFUEL CODE
+	upkeep = {
+		trigger = {
+			NOT = { has_active_building = oxr_mdlc_world_machines_biofuel_refit_1 }
+		}
+		# mineral tax on energy buildings is the only logical option available
+		# unless the upkeep is simply energy
+		$RS_UPKEEP$ = @[ $TIER$ * 2 ]
+	}
+	upkeep = {
+		trigger = {
+			has_active_building = oxr_mdlc_world_machines_biofuel_refit_1
+		}
+		food = @[ $TIER$ * 4 ]
+	}
+}
+# desc
+inline_script = planet/buildings/auto/oxr_auto_biofuel

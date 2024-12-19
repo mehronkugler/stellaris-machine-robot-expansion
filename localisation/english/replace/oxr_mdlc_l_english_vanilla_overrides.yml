@@ -34,3 +34,26 @@
  food_desc_machine_intelligence:3 "§E§H$food$§! (£food£) represents the various sources of biological nutrients that organics require to sustain their frail bodies.\n\n§H$civic_machine_assimilator_plural$§! produce §H$food$§! for their §HCyborg Pops§!, and §H$civic_machine_servitor_plural$§! for their §H$citizenship_organic_trophy$ Pops§!. Additionally, §HBio-Mechanical§! machines may consume food, and Machine pops with the §H$xvcv_mdlc_trait_synth_skin$§! trait. $food_desc_end$"
  
  consumer_goods_desc_machine_intelligence: "$consumer_goods_desc_start$\n\n§H$auth_machine_intelligence_plural$§! with an §H$civic_machine_obsessional_directive$§! produce §H$consumer_goods$§!, as do §H$civic_machine_servitor_plural$§! for their §H$citizenship_organic_trophy$ Pops§!, and Machine empires with the §H$xvcv_mdlc_civic_goods_distributor$§! civic. $consumer_goods_desc_end$"
+ civic_spyware_directives:0 "This Machine Intelligence places additional monitoring and surveillance subroutines in all of its applications and communications protocols. It is focused on decryption to supplement its information-gathering directives."
+
+ civic_experience_cache:0 "This Machine Intelligence operates around copious logging and archiving of event data, and deep event analysis, in order to make its own operations more efficient."
+
+ civic_diplomatic_protocols:0 "This Machine Intelligence focuses its resources towards pattern matching in communications protocols and designates additional drones for interfacing with other empires."
+
+ civic_warbots:0 "This Machine Intelligence places value in designing and maintaining powerful combat drones, and requisitions additional commander drones to field them."
+
+ civic_rockbreakers_machine:0 "This Machine Intelligence has developed specialized algorithms and equipment to improve its mining operations."
+
+ tt_some_need_machine: "In most other cases, §H$auth_machine_intelligence_plural$§! generally do not use this resource."
+
+ food_desc_machine_intelligence:3 "§E§H$food$§! (£food£) represents the various sources of biological nutrients that organics require to sustain their frail bodies.\n\n§H$civic_machine_assimilator_plural$§! produce §H$food$§! for their §HCyborg Pops§!, and §H$civic_machine_servitor_plural$§! for their §H$citizenship_organic_trophy$ Pops§!. Additionally, §HBio-Mechanical§! machines may consume food, and Machine pops with the §H$xvcv_mdlc_trait_synth_skin$§! trait. $food_desc_end$"
+ 
+ consumer_goods_desc_machine_intelligence: "$consumer_goods_desc_start$\n\n§H$auth_machine_intelligence_plural$§! with an §H$civic_machine_obsessional_directive$§! produce §H$consumer_goods$§!, as do §H$civic_machine_servitor_plural$§! for their §H$citizenship_organic_trophy$ Pops§!, and Machine empires with the §H$xvcv_mdlc_civic_goods_distributor$§! civic. $consumer_goods_desc_end$"
+
+#  edict_capacity_subsidies:0 "Capacity Subsidies [EdictIsRedundantForWm]"
+#  edict_capacity_subsidies_desc:0 "[EdictIsRedundantForWm]"
+#  edict_mining_subsidies:0 "Mining Subsidies [EdictIsRedundantForWm]"
+#  edict_industrial_subsidies:0 "Industrial Subsidies [EdictIsRedundantForWm]"
+#  edict_forge_subsidies:0 "Forge Subsidies [EdictIsRedundantForWm]"
+#  edict_research_subsidies:0 "Research Subsidies [Root.capital_scope.owner.EdictIsRedundantForWm]"
+#  edict_farming_subsidies:0 "Farming Subsidies [Root.EdictIsRedundantForWm]"

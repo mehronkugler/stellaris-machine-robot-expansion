@@ -1,0 +1,341 @@
+oxr_mdlc_decisions_origin_wm_start_world_with_core = {
+	# owned_planets_only = yes
+
+	# enactment_time = 60
+	potential = {
+		exists = space_owner
+		space_owner = {
+			has_origin = oxr_mdlc_origin_world_machine_awakened
+		}
+		is_planet_world_machine = no
+		oxr_mdlc_planet_can_become_world_machine = yes
+		is_colony = no  # use xvcv's original decision for that one
+	}
+	allow = {
+		# always = yes
+		is_terraforming = no
+		space_owner = {
+			has_resource = {
+				type = oxr_mdlc_world_machine_core
+				amount >= 1
+			}
+		}
+		has_anomaly = no
+	}
+	resources = {
+		category = decisions
+		cost = {
+			energy = 2500
+		}
+	}
+	effect = {
+		custom_tooltip = oxr_mdlc_decisions_origin_wm_start_world_with_core_effect
+		hidden_effect = {
+			start_terraform_process = xvcv_mdlc_pc_machine_auto
+			space_owner = {
+				oxr_mdlc_country_world_machine_cores_recalc_amount = yes
+			}
+		}
+	}
+}
+oxr_mdlc_decisions_origin_wm_reboot_ruined_world = {
+	owned_planets_only = no
+	potential = {
+		exists = space_owner
+		space_owner = { has_origin = oxr_mdlc_origin_world_machine_awakened }
+		is_planet_class = xvcv_mdlc_pc_machine_auto_ruined
+	}
+	allow = {
+		# always = yes
+		is_terraforming = no
+		has_anomaly = no
+		space_owner = {
+			has_resource = {
+				type = energy amount >= 5000
+			}
+			NOT = {
+				any_situation = {
+					is_situation_type = oxr_mdlc_origin_wm_situation_restore_ruined_world_machine
+				}
+			}
+		}
+	}
+	resources = {
+		category = decisions
+		cost = {
+			energy = 5000
+		}
+	}
+	effect = {
+		save_global_event_target_as = oxr_mdlc_ruined_world_machine
+		log = "Ruined WM target set to \\[event_target:oxr_mdlc_ruined_world_machine.GetName]"
+		space_owner = {
+			start_situation = {
+				type = oxr_mdlc_origin_wm_situation_restore_ruined_world_machine
+				# target = oxr_mdlc_ruined_world_machine
+				target = event_target:oxr_mdlc_ruined_world_machine
+				# target = owner
+				effect = {
+					set_situation_approach = oxr_mdlc_origin_wm_situation_restore_ruined_world_machine_approach_pause
+				}
+			}
+			# Starting event screen
+			country_event = {
+				id = oxr_mdlc_origin_wm_main.1000
+			}
+		}
+		
+	}
+}
+
+oxr_mdlc_decisions_origin_wm_start_auto_build_core = {
+	owned_planets_only = yes
+	# enactment_time = @oxr_mdlc_world_machine_core_build_time_days  # 1080
+	enactment_time = 15
+	# resources = {
+	# 	category = decisions
+	# 	cost = {
+	# 		energy = @oxr_mdlc_world_machine_core_build_cost_energy  # 5000
+	# 		alloys = @oxr_mdlc_world_machine_core_build_cost_alloys  # 1500
+	# 	}
+	# }
+	potential = {
+		exists = space_owner
+		space_owner = {
+			has_origin = oxr_mdlc_origin_world_machine_awakened
+			has_technology = oxr_mdlc_tech_world_machine_wmc_core
+			NOT = {
+				has_country_flag = oxr_mdlc_world_machine_tech_stolen
+			}
+		}
+		is_planet_world_machine = yes
+		NOT = {
+			has_modifier = oxr_mdlc_origin_world_machine_core_manufacturing_in_progress
+			has_planet_flag = oxr_mdlc_origin_world_machine_core_auto_build_enabled
+		}
+		has_building = oxr_mdlc_world_machines_building_core_fabrication_depot
+	}
+	allow = {
+		space_owner = {
+			has_resource = {
+				type = alloys
+				amount >= @oxr_mdlc_world_machine_core_build_cost_alloys
+			}
+			has_resource = {
+				type = energy
+				amount >= @oxr_mdlc_world_machine_core_build_cost_energy
+			}
+			custom_tooltip = {
+				fail_text = oxr_mdlc_country_max_wmc_reached.fail
+				oxr_mdlc_country_has_room_for_more_wmc = yes
+			}
+		}
+		NOT = {
+			has_modifier = oxr_mdlc_origin_world_machine_core_manufacturing_in_progress
+		}
+	}
+	effect = {
+		custom_tooltip = "oxr_mdlc_decisions_origin_wm_start_auto_build_core.tooltip"
+		hidden_effect = {
+			# add_modifier = {
+			# 	modifier = oxr_mdlc_origin_world_machine_core_manufacturing_in_progress
+			# }
+			set_planet_flag = oxr_mdlc_origin_world_machine_core_auto_build_enabled
+			planet_event = {
+				id = oxr_mdlc_origin_wm_main.1299
+			}
+		}
+	}
+}
+
+oxr_mdlc_decisions_origin_wm_start_auto_build_core_stop = {
+	owned_planets_only = yes
+	enactment_time = 15  # 1080
+	resources = {
+		category = decisions
+		cost = { }
+	}
+	potential = {
+		exists = space_owner
+		space_owner = {
+			has_origin = oxr_mdlc_origin_world_machine_awakened
+			has_technology = oxr_mdlc_tech_world_machine_wmc_core
+			NOT = {
+				has_country_flag = oxr_mdlc_world_machine_tech_stolen
+			}
+		}
+		is_planet_world_machine = yes
+		OR = {
+			has_modifier = oxr_mdlc_origin_world_machine_core_manufacturing_in_progress
+			has_planet_flag = oxr_mdlc_origin_world_machine_core_auto_build_enabled
+		}
+		
+	}
+	allow = {
+		# has_building = oxr_mdlc_world_machines_building_core_fabrication_depot
+		has_planet_flag = oxr_mdlc_origin_world_machine_core_auto_build_enabled
+		always = yes
+	}
+	effect = {
+		custom_tooltip = "oxr_mdlc_decisions_origin_wm_manufacture_core_stop.tooltip"
+		hidden_effect = {
+			remove_modifier = oxr_mdlc_origin_world_machine_core_manufacturing_in_progress
+			remove_planet_flag = oxr_mdlc_origin_world_machine_core_auto_build_enabled
+		}
+		
+	}
+}
+
+oxr_mdlc_decisions_origin_wm_restock_armies = {
+	owned_planets_only = yes
+	enactment_time = 7
+	resources = {
+		category = decisions
+		cost = { }
+	}
+	potential = {
+		exists = space_owner
+		space_owner = {
+			has_origin = oxr_mdlc_origin_world_machine_awakened
+		}
+		is_planet_world_machine = yes
+		NOT = { has_planet_flag = oxr_mdlc_world_machines_refilling_armies_active }
+		NOT = { has_modifier = oxr_mdlc_world_machine_district_army_decommissioning_in_progress }
+		oxr_mdlc_planet_can_refill_district_defense_armies = yes
+	}
+	allow = {
+		has_ground_combat = no
+	}
+	effect = {
+		custom_tooltip = oxr_mdlc_decisions_origin_wm_restock_armies_effect
+		hidden_effect = {
+			# set_planet_flag = oxr_mdlc_world_machines_refilling_armies_active
+			# add_modifier = {
+			# 	modifier = oxr_mdlc_world_machine_district_army_restock_in_progress
+			# 	days = 7
+			# }
+			# planet_event = {
+			# 	id = oxr_mdlc_origin_wm_main.2001
+			# }
+			# oxr_mdlc_planet_start_refilling_district_defense_armies = yes
+			planet_event = {
+				id = oxr_mdlc_origin_wm_main.2000
+			}
+		}
+	}
+}
+
+oxr_mdlc_decisions_origin_wm_requisition_automatons = {
+	owned_planets_only = yes
+	enactment_time = 7
+	resources = {
+		category = oxr_mdlc_category_wm_decisions
+		cost = {
+			energy = 1000
+			alloys = 250
+		}
+	}
+	potential = {
+		exists = space_owner
+		space_owner = {
+			has_origin = oxr_mdlc_origin_world_machine_awakened
+		}
+		is_planet_world_machine = yes
+	}
+	allow = {
+		space_owner = {
+			has_resource = {
+				type = energy amount >= 1000
+			}
+			has_resource = {
+				type = alloys amount >= 250
+			}
+		}
+		# TODO: Check max supported automatons on planet (?)
+		NOR = {
+			has_modifier = oxr_mdlc_planet_origin_world_machine_requisitioning_pops
+		}
+	}
+	effect = {
+		custom_tooltip = oxr_mdlc_decisions_origin_wm_requisition_automatons_tooltip
+		custom_tooltip = oxr_mdlc_decisions_origin_wm_requisition_automatons_tooltip_1
+		hidden_effect = {
+			add_modifier = {
+				modifier = oxr_mdlc_planet_origin_world_machine_requisitioning_pops
+				days = 60
+			}
+			planet_event = {
+				id = oxr_mdlc_origin_wm_main.2100
+				days = 60
+			}
+		}
+	}
+}
+
+oxr_mdlc_decisions_origin_wm_self_destruct = {
+	owned_planets_only = yes
+	enactment_time = 5
+	resources = {
+		category = oxr_mdlc_category_wm_decisions
+		cost = {
+			energy = 1000
+		}
+	}
+	potential = {
+		exists = space_owner
+		space_owner = {
+			# for release, dont bother restricting to AP or origin, rely on the tradition's potential/allow
+			has_tradition = oxr_mdlc_tr_defensive_directives_self_destruct
+		}
+		is_planet_world_machine = yes
+	}
+	allow = {
+		# cant think of a reason not to allow self-destruct
+		always = yes
+	}
+
+	effect = {
+		custom_tooltip = oxr_mdlc_decisions_origin_wm_self_destruct_tooltip
+		owner = {
+			fire_on_action = {
+				on_action = on_world_machine_planet_lost
+			}
+		}
+		hidden_effect = {
+			oxr_mdlc_planet_self_destruct = yes
+		}
+	}
+}
+
+oxr_mdlc_decision_origin_wm_reclaim_colony = {
+	# owned_planets_only = yes
+	enactment_time = 60
+	resources = {
+		category = oxr_mdlc_category_wm_decisions
+		cost = {
+			energy = 1000
+		}
+	}
+	potential = {
+		is_colony = no
+		exists = space_owner
+		space_owner = {
+			has_origin = oxr_mdlc_origin_world_machine_awakened
+		}
+		is_planet_world_machine = yes
+	}
+	allow = {
+		is_colony = no
+	}
+	effect = {
+		create_colony = {
+			owner = space_owner
+			species = space_owner.founder_species
+		}
+		oxr_mdlc_planet_fix_things_after_restoring_ownership = yes
+		# create_pop = {
+		# 	species = space_owner.founder_species
+		# 	count = 3
+		# }
+	}
+}

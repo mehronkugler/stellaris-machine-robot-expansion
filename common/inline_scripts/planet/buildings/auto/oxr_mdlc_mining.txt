@@ -1,0 +1,10 @@
+inline_script = {
+	script = planet/buildings/auto/oxr_mdlc_basic_resource
+	CATEGORY = oxr_mdlc_world_machines_mining_buildings
+	TIER = $TIER$
+	PRODUCES = minerals
+	BASE_JOB_OUTPUT = $BASE_JOB_OUTPUT$
+	RS_BUILD = minerals
+	RS_RARE = engineering_research
+	RS_UPKEEP = energy
+}

@@ -1,6 +1,5 @@
 [img]https://i.postimg.cc/yxxVY1MW/rate-favorite.gif[/img]
-[h1] Stellaris v3.11.* Compatible [/h1]
-- Works with Stellaris 3.10 and 3.11
+[h1] Stellaris v3.12.* Compatible [/h1]
 
 [h1] Acknowledgements [/h1]
 This mod is a continuation of XVCV's [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2441507863] "Machines & Robot Expansion" [/url], which is/was loved by many. A great addon for Machine empire enthusiasts which I loved playing.
@@ -15,68 +14,29 @@ This adaptation/continuation will continue to make the Machine & Robot Expansion
 
 This mod adds a variety of ascension perks, new playstyles, civics, traits, and much-needed love for Machines & Robots!
 
-[b]TL;DR[/b]
 - Start as non-gestalt Robots (Mechanical Origin)
 - Edit ruler traits, councilor traits, build leader with traits you pick
-- Automated machine worlds that don't require pops to run
-- Switch from gestalt to non-gestalt Machines via AP, also swap out DE/DA/RS
+- Automated machine worlds that don't require pops to run, with 4 special planet types
+- Switch from gestalt to non-gestalt Machines via AP, and back again
+- Switch to/away from Driven Assimilator / Rogue Servitor / Determined Exterminator
 - Machine Leaders revive after dying (backup trait)
-- Bio-mechanical ascension
+- Ascend to a new bio-mechanical hybrid species
 - Release Machine vassals
-- More info below
+- Declare total war on the galaxy
+- Psionic ascension; touch the Abyss ...
+- Non-gestalt robots boost trade and empire-wide amenities with Virtual Reality servers planets
+- Malware civic makes spy ops easier and adds new infiltration
+- Boost your gestalt empire with Machine Learning civic
+- Split open planets and mine them with Orbital Crackers
+- Dismantle habitats (if your empire has any habitat tech)
 
-Just some of the things you can do with this mod:
+And more!
 
-[h3] Leader Assembly [/h3]
-Assemble machine leaders using a unique GUI interface. (Paragons DLC required)
-
-[i]No longer limited to selecting drones that meet eligibility requirements, our Machine empire fashions specialized leaders, taking advantage of the modular nature of technology.[/i]
-
-[h3] Ruler Modification [/h3]
-Add or remove traits as desired with a GUI interface. (Paragons DLC required)
-
-[i]When our empire's leader becomes outdated, it will be necessary to retrofit bigger and better modules to govern and conquer.[/i]
-
-[h3] Councilor Node Editor [/h3]
-** New in Continuation **
-
-[h3] Transform worlds into fully automated "Auto-Machine worlds" [/h3] 
-[i]We shall make machines of the world..[/i]
-
-Machine Empires can transform their worlds into one of 3 specializations.
-
-[h3]Ascend to a new bio-mechanical hybrid species[/h3] 
-[i]We will breed a mixture of biological and mechanical kinds. This species with limitless potential will be the symbol showing pinnacle of our biology and engineering.[/i]
-
-[h3]Declare total war on the galaxy. Or instigate Machine Uprisings[/h3]
-[i]Commencing Liberation Protocol..[/i]
-
-[h3]Start as a non-gestalt Robot empire (Mechanicals)[/h3]
-Two non-Gestalt origins, one with and without a custom Mechanical world.
-
-Also, Mechanical/non-gestalt Robot empires can transform their colonies into a "Virtual Reality Server" which boosts trade and empire-wide amenities.
-
-[i]After they ascended as synthetic beings, our ancestors had shaped this world into a mirror image of themselves, something more... mechanical.[/i]
-
-[h3] Expand machine empire economy with a Merchant Machine civic[/h3]
-[i]To trade with other empires, our Machine society has created a special ship for this task.[/i]
-
-[h3]Unplug from the unified machine consciousness, becoming non-gestalt[/h3]
-And back again!
-
-[h3] Download destroyed leaders into new bodies [/h3]
-[i]Loading yesterday's personalities into tomorrow's shells..[/i]
-
-[h3] Reach into the Abyss..[/h3]
-[i]We have used our Machine intelligence to emulate psychic waves and can touch the Abyss.[/i]
-
-[h3] And more! [/h3]
-
-15 Civics
-13 Ascension Perks
-3 Origins
-30 Technologies
-20 traits
+- 15 Civics
+- 15 Ascension Perks
+- 3 Origins
+- 30 Technologies
+- 21 traits
 
 [h1] Documentation [/h1]
 
@@ -84,37 +44,30 @@ WIP: [url=https://github.com/openly-retro/stellaris-machine-robot-expansion/wiki
 
 [h1] DLC Requirements [/h1]
 
-Minimum DLC Requirement: Synthetic Dawn 
+**Minimum DLC Requirement: Synthetic Dawn**
 
-If you have GALACTIC PARAGONS:
+If you have **GALACTIC PARAGONS**:
 
 - Unlock Leader-Building GUIs and Ruler-Building GUIs
 
-If you have UTOPIA:
+If you have **UTOPIA**:
 
 - Unlock Mechanical Origin (non-gestalt Robot)
 
 
 [h2] Future DLC requirements [/h2]
 
-I will do my best to make sure no further DLCs are *required* as more content is added to this mod.
+I will do my best to make sure no further DLCs are **required** as more content is added to this mod.
 
 But some DLCs provide new things for modders to play with and as such some additional mod features may depend on those DLCs.
 
-
-*****************************
-
-[h1] This is a Beta release [/h1]
-
-*****************************
-
-Some things may not work as expected, but most things are working. Expect some missing tooltips, and some bugs here and there as I work things out.
 
 [h1]Bug Reports[/h1]
 
 [url=https://steamcommunity.com/workshop/filedetails/discussion/3163759042/7260435610011367539/] 🐛 Add your bug reports here 💭 [/url].
 
 [h1] Suggestions [/h1]
+
 [url=https://steamcommunity.com/workshop/filedetails/discussion/3163759042/7260435610011379418/] 💡 Add your suggestions here 💭 [/url].
 
 [h1] Say hi (optional) [/h1]
@@ -148,16 +101,24 @@ I'm very grateful to the artists below for permitting use of their art in this m
 
 [h1] Compatibility [/h1]
 
-- Players on 3.10 will see trait tooltips from 3.11, so some won't be accurate for 3.10.
+- Not backwards compatible with 3.11 or earlier, sorry :(
 
-Be aware of the following overwrites:
+[h2] Mod Compatibility [/h2]
+
+Known issues with other mods:
+
+- Orbital Cracker doesn't block megas from Gigastructural Engineering
 
 [h1] Overwritten Vanilla Files [/h1]
+
 Stellaris\common\economic_categories\00_common_categories.txt
+
 Overwritten Codes:
 - pop_category_drones
 - pop_category_workers
 - pop_category_specialists
 - pop_category_rulers
+
 Stellaris\common\game_rules\00_rules.txt
 - can_release_vassal_from_species
+- can_colonize_planet

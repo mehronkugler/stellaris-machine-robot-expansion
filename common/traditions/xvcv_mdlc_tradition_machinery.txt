@@ -2,6 +2,7 @@ xvcv_mdlc_tr_machinery_adopt = {
 	unlocks_agenda = xvcv_mdlc_agenda_assembly_engineering
 	possible = {
 		is_robot_empire = yes
+		# NOT = { has_origin = oxr_mdlc_origin_world_machine_awakened }
 	}
 	modifier = {
 		empire_size_colonies_mult = -0.5
@@ -11,6 +12,13 @@ xvcv_mdlc_tr_machinery_adopt = {
 		inherit_name = yes
 		trigger = { is_mechanical_empire = yes }
 		custom_tooltip = xvcv_mdlc_tr_machinery_adopt_robot_tooltip
+		weight = { factor = 1 }
+	}
+	tradition_swap = {
+		name = oxr_mdlc_tr_machinery_adopt_wm
+		inherit_name = yes
+		trigger = { has_origin = oxr_mdlc_origin_world_machine_awakened }
+		modifier = { empire_size_colonies_mult = -0.1 }
 		weight = { factor = 1 }
 	}
 }
@@ -29,6 +37,7 @@ xvcv_mdlc_tr_machinery_finish = {
 				is_individual_machine = yes
 			}
 			NOT = { has_ascension_perk = xvcv_mdlc_ap_bio_robot }
+			NOT = { has_origin = oxr_mdlc_origin_world_machine_awakened }
 		}
 		modifier = {
 			ascension_perks_add = 1
@@ -80,12 +89,41 @@ xvcv_mdlc_tr_machinery_finish = {
 		}
 		weight = { factor = 1 }
 	}
+	tradition_swap = {
+		name = oxr_mdlc_tr_machinery_finish_wm
+		inherit_name = yes
+		trigger = {
+			has_origin = oxr_mdlc_origin_world_machine_awakened
+		}
+		modifier = {
+			ascension_perks_add = 1
+		}
+		custom_tooltip_with_modifiers = oxr_mdlc_tr_machinery_finish_wm_tooltip
+		on_enabled = {
+			add_resource = {
+				oxr_mdlc_world_machine_core = 1
+			}
+			hidden_effect = {
+				oxr_mdlc_planet_increment_stored_wm_cores = yes
+			}
+		}
+	}
 }
 #look tradition category file to see 'tree_template'
 #1st tradition (1st tradition -> 3rd tradition or 4th tradition)
 xvcv_mdlc_tr_machinery_self_portrait = {
 	modifier = {
 		planet_jobs_engineering_research_produces_mult = 0.2
+	}
+
+	tradition_swap = {
+		name = oxr_mdlc_tr_machinery_wm_evolving_practical_applications
+		trigger = {
+			has_origin = oxr_mdlc_origin_world_machine_awakened
+		}
+		modifier = {
+			oxr_mdlc_world_machines_science_buildings_engineering_research_produces_mult = 0.2
+		}
 	}
 
 	ai_weight = {
@@ -114,6 +152,17 @@ xvcv_mdlc_tr_machinery_self_diagnosis_protocol = {
 		}
 		weight = { factor = 1 }
 	}
+	tradition_swap = {
+		name = oxr_mdlc_tr_machinery_planetary_systems_audit
+		trigger = {
+			has_origin = oxr_mdlc_origin_world_machine_awakened
+		}
+		modifier = {
+			oxr_mdlc_world_machines_unity_buildings_produces_mult = 0.05
+			country_edict_fund_mult = 0.2
+		}
+		# custom_tooltip_with_modifiers = oxr_mdlc_tr_machinery_planetary_systems_audit_tooltip
+	}
 
 	ai_weight = {
 		factor = 100
@@ -127,6 +176,16 @@ xvcv_mdlc_tr_machinery_parallelized_upgrade_solution = {
 
 	modifier = {
 		planet_pop_assemblers_upkeep_mult = -0.2
+	}
+	tradition_swap = {
+		name = oxr_mdlc_tr_machinery_wm_even_more_efficiency
+		trigger = { has_origin = oxr_mdlc_origin_world_machine_awakened }
+		modifier = {
+			# oxr_mdlc_world_machines_government_buildings_upkeep_mult = -0.15
+			oxr_mdlc_category_world_machines_buildings_upkeep_mult = -0.025
+			edicts_unity_upkeep_mult = -0.05
+		}
+		weight = { factor = 1 }
 	}
 
 	ai_weight = {
@@ -153,6 +212,15 @@ xvcv_mdlc_tr_machinery_conquest_of_nature = {
 	modifier = {
 		planet_max_buildings_add = 1
 		planet_non_artificial_max_districts_add = 1
+	}
+	tradition_swap = {
+		name = oxr_mdlc_tr_machinery_wm_conquest_of_nature
+		trigger = { has_origin = oxr_mdlc_origin_world_machine_awakened }
+		modifier = {
+			planet_clear_blocker_speed_mult = 0.1
+			oxr_mdlc_deposit_blockers_world_machine_cost_mult = -0.1
+		}
+		weight = { factor = 1 }
 	}
 
 	ai_weight = {

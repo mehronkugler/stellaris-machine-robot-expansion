@@ -1,0 +1,57 @@
+# Auto-generator has 1 mineral upkeep (job-to-minerals: 2:1)
+# ringworld generator has 10 jobs so minerals should = 5 (10/2)
+
+# Auto-Ringworld district output and upkeep are affected by
+# world machine district output/upkeep modifiers
+
+# Auto-Machine World generator districts are NOT (affected by wm district output/mult)
+
+# category = planet_technician
+category = xvcv_mdlc_world_machines_generator_districts
+cost = {
+	trigger = {
+		is_planet_class = xvcv_mdlc_pc_machine_auto
+	}
+	minerals = @xvcv_mdlc_district_cost_2
+	mult = value:scripted_modifier_mult|MODIFIER|rikk_mdlc_world_machine_districts_mineral_cost_add|
+}
+cost = {
+	trigger = {
+		is_planet_class = xvcv_mdlc_pc_ringworld_machine_auto
+	}
+	minerals = @rw_cost
+	rare_crystals = @rw_cost_sr
+}
+produces = {
+	trigger = { is_planet_class = xvcv_mdlc_pc_machine_auto }
+	energy = $ENERGY$ # 16  # 8 base technician output * 2 jobs provided by default district
+}
+upkeep = {
+	trigger = {
+		is_planet_class = xvcv_mdlc_pc_machine_auto
+		NOT = { has_active_building = oxr_mdlc_world_machines_biofuel_refit_1 }
+	}
+	minerals = $UPKEEP$  # 2
+}
+produces = {
+	trigger = { is_planet_class = xvcv_mdlc_pc_ringworld_machine_auto }
+	energy = $ENERGY$  # 80
+	# Apply world machines output modifier (+/- percent)
+	mult = $PRODUCES_MULT$
+}
+upkeep = {
+	trigger = {
+		is_planet_class = xvcv_mdlc_pc_ringworld_machine_auto
+		NOT = { has_active_building = oxr_mdlc_world_machines_biofuel_refit_1 }
+	}
+	minerals = $UPKEEP$
+	rare_crystals = 1  # static 1 per district
+	mult = $UPKEEP_MULT$
+}
+# BIOFUEL
+upkeep = {
+	trigger = {
+		has_active_building = oxr_mdlc_world_machines_biofuel_refit_1
+	}
+	food = $BIOFUEL_UPKEEP$
+}

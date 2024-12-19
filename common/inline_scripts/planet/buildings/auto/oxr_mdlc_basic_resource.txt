@@ -1,0 +1,19 @@
+base_buildtime = @[ $TIER$ * 180 + 180 ]
+category = resource
+resources = {
+	category = $CATEGORY$
+	cost = {
+		$RS_BUILD$ = @[ $TIER$ * 200 + 200 ]
+		$RS_RARE$ = @[ $TIER$ * 2 - 50 ]
+	}
+	produces = {
+		$PRODUCES$ = @[ $TIER$ * 2 * $BASE_JOB_OUTPUT$ ]
+	}
+	upkeep = {
+		# All pops have 1 energy upkeep
+		# plus there is upkeep for the building itself
+		# charge pop upkeep + some building upkeep
+		$RS_UPKEEP$ = @[ $TIER$ * 2.5 ]
+		$RS_RARE$ = @[ $TIER$ * 3 ]
+	}
+}

@@ -1,0 +1,134 @@
+# 50 core storage per building
+oxr_mdlc_planet_calculate_max_core_storage = {
+	base = 0
+	complex_trigger_modifier = {
+		trigger = num_buildings
+		parameters = {
+			type = oxr_mdlc_world_machines_building_storage_cradle
+			disabled = no
+		}
+		mode = add
+	}
+	mult = 50
+}
+
+oxr_mdlc_planet_count_district_defense_armies = {
+	base = 0
+	complex_trigger_modifier = {
+		trigger = count_planet_army
+		parameters = {
+			limit = {
+				# exists = owner
+				army_type = oxr_mdlc_world_machine_district_defense_army
+			}
+		}
+		mode = add
+	}
+}
+oxr_mdlc_planet_count_max_possible_district_armies = {
+	base = 0
+	complex_trigger_modifier = {
+		trigger = num_districts
+		parameters = { type = any }
+		mode = add
+	}
+}
+oxr_mdlc_planet_count_built_districts = {
+	complex_trigger_modifier = {
+		trigger = num_free_districts
+		parameters = {
+			type = any
+		}
+		mode = add
+	}
+}
+oxr_mdlc_planet_count_free_districts = {
+	complex_trigger_modifier = {
+		trigger = num_districts
+		parameters = {
+			type = any
+		}
+		mode = add
+	}
+}
+
+# Yes lots of repeated code in this file, I see that, gimme a break I'll fix it later 
+
+oxr_mdlc_planet_num_district_armies_to_refill = {
+	base = value:oxr_mdlc_planet_count_max_possible_district_armies
+	subtract = value:oxr_mdlc_planet_count_district_defense_armies
+}
+
+# TODO: Code these to use planet vars and set up triggers to update the vars on_actions
+oxr_mdlc_planet_calculate_army_refill_time = {
+	base = value:oxr_mdlc_planet_num_district_armies_to_refill
+	mult = @oxr_mdlc_world_machine_defense_armies_refill_time  # 7 days to refill one army
+}
+
+oxr_mdlc_planet_calculate_army_refill_cost = {
+	base = value:oxr_mdlc_planet_num_district_armies_to_refill
+	mult = @oxr_mdlc_world_machine_defense_armies_refill_cost  # charge 100 energy per army
+}
+
+# oxr_mdlc_empire_artisan_job_mult = {
+# 	min = 1
+# 	complex_trigger_modifier = {
+# 		trigger = x
+# 		mode = set
+# 	}
+# }
+
+oxr_mdlc_wm_output = {
+	base = 1
+	add = $OUTPUT_VAR$
+}
+oxr_mdlc_join_mults = {
+	base = 1
+	add = $MULT1$
+	add = $MULT2$
+}
+#The below is already done in vanilla via scripted_modifier_mult
+#oxr_add_modifier_to_base_1 = {
+#	base = 1
+#	add = $MODIFIER$
+#}
+# vanilla
+# scripted_modifier_add = {
+# 	base = 0
+# 	add = modifier:$MODIFIER$
+# }
+# scripted_modifier_mult = {
+# 	base = 1
+# 	add = modifier:$MODIFIER$
+# 	min = 0
+# }
+
+oxr_mdlc_num_base_science_buildings = {
+	base = 0
+	complex_trigger_modifier = {
+		trigger = num_buildings
+		parameters = {
+			OR = {
+				type = oxr_mdlc_world_machines_building_fractal_sanitizer
+				type = oxr_mdlc_world_machines_building_fractal_sanitizer_2
+				type = oxr_mdlc_world_machines_building_fractal_sanitizer_3
+				type = oxr_mdlc_world_machines_building_fractal_sanitizer_4
+			}
+		}
+		mode = add
+	}
+}
+oxr_mdlc_num_science_districts = {
+	base = 0
+	complex_trigger_modifier = {
+		trigger = num_districts
+		parameters = {
+			OR = {
+				type = xvcv_mdlc_pc_machine_cpu_district_engineering
+				type = xvcv_mdlc_pc_machine_cpu_district_society
+				type = xvcv_mdlc_pc_machine_cpu_district_physics
+			}
+		}
+		mode = add
+	}
+}

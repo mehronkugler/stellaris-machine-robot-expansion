@@ -1,0 +1,457 @@
+base_buildtime = $BUILD_TIME$
+capital = yes
+can_build = no
+can_demolish = no
+can_be_ruined = no
+can_be_disabled = no
+position_priority = 0
+
+category = government
+
+resources = {
+	# category = planet_buildings
+	category = oxr_mdlc_world_machines_government_buildings
+	cost = { minerals = $COST$ }
+	upkeep = { energy = $UPKEEP$ }
+}
+
+planet_modifier = {
+	planet_housing_add = $HOUSING_ADD$
+	planet_amenities_add = $AMENITIES_ADD$
+	# job_oxr_mdlc_world_machine_hibernation_slot_add = $HIBERNATION_JOBS$
+	job_oxr_mdlc_world_machine_hibernation_slot_add = 3
+	planet_max_buildings_add = $MAX_BUILDINGS_ADD$
+	defense_armies_add = $DEFENSE_ARMIES$
+}
+
+
+triggered_planet_modifier = {
+	potential = {
+		space_owner = {
+			has_tradition = tr_discovery_faith_in_science
+		}
+	}
+	oxr_mdlc_world_machines_science_buildings_upkeep_mult = -0.1
+	oxr_mdlc_world_machines_science_buildings_produces_mult = 0.1
+
+}
+# triggered_desc = {
+# 	trigger = {
+# 		space_owner = { has_tradition = tr_discovery_faith_in_science }
+# 	}
+# 	text = oxr_mdlc_capital_has_tr_discovery_faith
+# }
+
+allow = {
+	num_districts = {
+		type = any
+		value >= $REQ_MIN_NUM_DISTRICTS$
+	}
+}
+
+destroy_trigger = {
+	exists = owner
+	owner = {
+		NOT = { has_origin = oxr_mdlc_origin_world_machine_awakened }
+	}
+}
+
+triggered_planet_modifier = {
+	potential = {
+		exists = owner
+		owner = { has_technology = tech_capital_productivity_1 }
+		OR = {
+			has_building = oxr_mdlc_world_machines_building_auto_capital_upgraded
+			has_building = oxr_mdlc_world_machines_building_auto_capital_major_upgraded
+			has_building = oxr_mdlc_world_machines_building_auto_capital_fully_upgraded
+		}
+		OR = {
+			is_planet_class = xvcv_mdlc_pc_machine_auto
+			xvcv_mdlc_world_machines_planet_classes_trigger = yes
+		}
+	}
+	modifier = {
+		# planet_jobs_productive_upkeep_mult = 0.1
+		# planet_jobs_productive_produces_mult = 0.1
+
+		xvcv_mdlc_world_machines_districts_produces_mult = 0.05
+		xvcv_mdlc_world_machines_districts_upkeep_mult = 0.05
+		oxr_mdlc_category_world_machines_buildings_produces_mult = 0.05
+		oxr_mdlc_category_world_machines_buildings_upkeep_mult = 0.05
+	}
+}
+triggered_planet_modifier = {
+	potential = {
+		exists = owner
+		owner = { has_technology = tech_capital_productivity_2 }
+		OR = {
+			has_building = oxr_mdlc_world_machines_building_auto_capital_major_upgraded
+			has_building = oxr_mdlc_world_machines_building_auto_capital_fully_upgraded
+		}
+		OR = {
+			is_planet_class = xvcv_mdlc_pc_machine_auto
+			xvcv_mdlc_world_machines_planet_classes_trigger = yes
+		}
+	}
+	modifier = {
+		# planet_jobs_productive_upkeep_mult = 0.1
+		# planet_jobs_productive_produces_mult = 0.1
+
+		xvcv_mdlc_world_machines_districts_produces_mult = 0.05
+		xvcv_mdlc_world_machines_districts_upkeep_mult = 0.05
+		oxr_mdlc_category_world_machines_buildings_produces_mult = 0.05
+		oxr_mdlc_category_world_machines_buildings_upkeep_mult = 0.05
+	}
+}
+triggered_planet_modifier = {
+	potential = {
+		exists = owner
+		owner = { has_technology = tech_capital_productivity_3 }
+		has_building = oxr_mdlc_world_machines_building_auto_capital_fully_upgraded
+		OR = {
+			is_planet_class = xvcv_mdlc_pc_machine_auto
+			xvcv_mdlc_world_machines_planet_classes_trigger = yes
+		}
+	}
+	modifier = {
+		# planet_jobs_productive_upkeep_mult = 0.1
+		# planet_jobs_productive_produces_mult = 0.1
+
+		xvcv_mdlc_world_machines_districts_produces_mult = 0.05
+		xvcv_mdlc_world_machines_districts_upkeep_mult = 0.05
+		oxr_mdlc_category_world_machines_buildings_produces_mult = 0.05
+		oxr_mdlc_category_world_machines_buildings_upkeep_mult = 0.05
+	}
+}
+
+# Stacking all tech modifiers on the capital building
+# has the same effect as an empire-wide modifier
+# Here, I apply tech bonuses meant for pops to districts and buildings
+
+# PHYS TECH
+# tech_administrative_ai
+triggered_planet_modifier = {
+	potential = {
+		exists = owner
+		owner = { has_technology = tech_administrative_ai }
+	}
+	custom_tooltip = ""
+	oxr_mdlc_world_machines_science_buildings_upkeep_mult = 0.05
+}
+# triggered_desc = {
+# 	trigger = {
+# 		owner = { has_technology = tech_administrative_ai }
+# 	}
+# 	text = oxr_mdlc_capital_has_tech_administrative_ai
+# }
+triggered_planet_modifier = {
+	potential = {
+		exists = owner
+		owner = { has_technology = tech_administrative_ai }
+		is_planet_class = xvcv_mdlc_pc_machine_cpu
+	}
+	xvcv_mdlc_world_machines_computer_districts_upkeep_mult = 0.05
+}
+# tech_power_plant_2
+triggered_planet_modifier = {
+	potential = {
+		exists = owner
+		owner = { has_technology = tech_power_plant_2 }
+	}
+	xvcv_mdlc_world_machines_generator_districts_produces_mult = 0.2
+	oxr_mdlc_world_machines_generator_buildings_produces_mult = 0.2
+}
+# tech_power_plant_3
+triggered_planet_modifier = {
+	potential = {
+		exists = owner
+		owner = { has_technology = tech_power_plant_3 }
+	}
+	xvcv_mdlc_world_machines_generator_districts_produces_mult = 0.2
+	oxr_mdlc_world_machines_generator_buildings_produces_mult = 0.2
+}
+# tech_power_plant_4
+triggered_planet_modifier = {
+	potential = {
+		exists = owner
+		owner = { has_technology = tech_power_plant_4 }
+	}
+	xvcv_mdlc_world_machines_generator_districts_produces_mult = 0.2
+	oxr_mdlc_world_machines_generator_buildings_produces_mult = 0.2
+}
+
+# ENG TECH
+
+# tech_mining_1
+triggered_planet_modifier = {
+	potential = {
+		exists = owner
+		owner = { has_technology = tech_mining_1 }
+	}
+	xvcv_mdlc_world_machines_mining_districts_produces_mult = 0.2
+	oxr_mdlc_world_machines_mining_buildings_produces_mult = 0.2
+}
+# tech_mining_2
+triggered_planet_modifier = {
+	potential = {
+		exists = owner
+		owner = { has_technology = tech_mining_2 }
+	}
+	xvcv_mdlc_world_machines_mining_districts_produces_mult = 0.2
+	oxr_mdlc_world_machines_mining_buildings_produces_mult = 0.2
+}
+# tech_mining_3
+triggered_planet_modifier = {
+	potential = {
+		exists = owner
+		owner = { has_technology = tech_mining_3 }
+	}
+	xvcv_mdlc_world_machines_mining_districts_produces_mult = 0.2
+	oxr_mdlc_world_machines_mining_buildings_produces_mult = 0.2
+}
+# tech_advanced_metallurgy_1 - BUILDING
+triggered_planet_modifier = {
+	potential = {
+		exists = owner
+		owner = { has_technology = tech_advanced_metallurgy_1 }
+	}
+	oxr_mdlc_world_machines_foundry_buildings_produces_mult = 0.2
+}
+# tech_advanced_metallurgy_2 - BUILDING
+triggered_planet_modifier = {
+	potential = {
+		exists = owner
+		owner = { has_technology = tech_advanced_metallurgy_2 }
+	}
+	oxr_mdlc_world_machines_foundry_buildings_produces_mult = 0.2
+}
+# tech_advanced_metallurgy_1 - DISTRICT (T2)
+triggered_planet_modifier = {
+	potential = {
+		exists = owner
+		owner = { has_technology = tech_advanced_metallurgy_1 }
+		oxr_mdlc_col_is_foundry = yes
+		is_planet_class = xvcv_mdlc_pc_machine_auto
+	}
+	xvcv_mdlc_world_machines_industrial_districts_produces_mult = 0.2
+}
+# tech_advanced_metallurgy_2 - DISTRICT (T2)
+triggered_planet_modifier = {
+	potential = {
+		exists = owner
+		owner = { has_technology = tech_advanced_metallurgy_2 }
+		oxr_mdlc_col_is_foundry = yes
+		is_planet_class = xvcv_mdlc_pc_machine_auto
+	}
+	xvcv_mdlc_world_machines_industrial_districts_produces_mult = 0.2
+}
+# tech_advanced_metallurgy_1 - DISTRICT (T3)
+triggered_planet_modifier = {
+	potential = {
+		exists = owner
+		owner = { has_technology = tech_advanced_metallurgy_1 }
+		oxr_mdlc_col_is_foundry = yes
+	}
+	xvcv_mdlc_world_machines_foundry_districts_produces_mult = 0.2
+}
+# tech_advanced_metallurgy_2 - DISTRICT (T3)
+triggered_planet_modifier = {
+	potential = {
+		exists = owner
+		owner = { has_technology = tech_advanced_metallurgy_2 }
+		oxr_mdlc_col_is_foundry = yes
+	}
+	xvcv_mdlc_world_machines_foundry_districts_produces_mult = 0.2
+}
+
+## FOOD
+# tech_eco_simulation
+triggered_planet_modifier = {
+	potential = {
+		exists = owner
+		owner = { has_technology = tech_eco_simulation }
+	}
+	xvcv_mdlc_world_machines_food_districts_produces_mult = 0.2
+	oxr_mdlc_world_machines_food_buildings_produces_mult = 0.2
+}
+# tech_gene_crops
+triggered_planet_modifier = {
+	potential = {
+		exists = owner
+		owner = { has_technology = tech_gene_crops }
+	}
+	xvcv_mdlc_world_machines_food_districts_produces_mult = 0.2
+	oxr_mdlc_world_machines_food_buildings_produces_mult = 0.2
+}
+# tech_nano_vitality_crops
+triggered_planet_modifier = {
+	potential = {
+		exists = owner
+		owner = { has_technology = tech_gene_crops }
+	}
+	xvcv_mdlc_world_machines_food_districts_produces_mult = 0.2
+	oxr_mdlc_world_machines_food_buildings_produces_mult = 0.2
+}
+# tech_nutrient_replication
+triggered_planet_modifier = {
+	potential = {
+		exists = owner
+		owner = { has_technology = tech_nutrient_replication }
+	}
+	xvcv_mdlc_world_machines_food_districts_produces_mult = 0.15
+	oxr_mdlc_world_machines_food_buildings_produces_mult = 0.15
+}
+# tech_resource_processing_algorithms
+triggered_planet_modifier = {
+	potential = {
+		exists = owner
+		owner = { has_technology = tech_resource_processing_algorithms }
+	}
+	xvcv_mdlc_world_machines_districts_produces_mult = 0.05
+	oxr_mdlc_category_world_machines_buildings_produces_mult = 0.05
+}
+
+### EDICTS
+# capacity_subsidies
+triggered_planet_modifier = {
+	potential = {
+		exists = owner
+		owner = { has_edict = capacity_subsidies }
+	}
+	xvcv_mdlc_world_machines_generator_districts_produces_mult = 0.5
+	xvcv_mdlc_world_machines_generator_districts_energy_upkeep_add = 0.5
+	oxr_mdlc_world_machines_generator_buildings_produces_mult = 0.5
+	oxr_mdlc_world_machines_generator_buildings_energy_upkeep_add = 0.5
+}
+# mining_subsidies
+triggered_planet_modifier = {
+	potential = {
+		exists = owner
+		owner = { has_edict = mining_subsidies }
+	}
+	xvcv_mdlc_world_machines_mining_districts_produces_mult = 0.5
+	xvcv_mdlc_world_machines_mining_districts_energy_upkeep_add = 0.5
+	oxr_mdlc_world_machines_mining_buildings_produces_mult = 0.5
+	oxr_mdlc_world_machines_mining_buildings_energy_upkeep_add = 0.5
+}
+# farming_subsidies
+triggered_planet_modifier = {
+	potential = {
+		exists = owner
+		owner = { has_edict = farming_subsidies }
+	}
+	xvcv_mdlc_world_machines_food_districts_produces_mult = 0.5
+	xvcv_mdlc_world_machines_food_districts_energy_upkeep_add = 0.5
+	oxr_mdlc_world_machines_food_buildings_produces_mult = 0.5
+	oxr_mdlc_world_machines_food_buildings_energy_upkeep_add = 0.5
+}
+# industrial_subsidies - AUTO MACHINE WORLD (T2)
+triggered_planet_modifier = {
+	potential = {
+		exists = owner
+		owner = { has_edict = industrial_subsidies }
+		is_planet_class = xvcv_mdlc_pc_machine_auto
+		oxr_mdlc_col_is_factory = yes
+	}
+	xvcv_mdlc_world_machines_industrial_districts_produces_mult = 0.1
+	xvcv_mdlc_world_machines_industrial_districts_energy_upkeep_add = 1
+	oxr_mdlc_world_machines_factory_buildings_produces_mult = 0.1
+	oxr_mdlc_world_machines_factory_buildings_energy_upkeep_add = 1
+}
+# industrial_subsidies - T3 WORLD
+triggered_planet_modifier = {
+	potential = {
+		exists = owner
+		owner = { has_edict = industrial_subsidies }
+		NOT = { is_planet_class = xvcv_mdlc_pc_machine_auto }
+		# oxr_mdlc_col_is_factory = yes
+	}
+	xvcv_mdlc_world_machines_factory_districts_produces_mult = 0.1
+	xvcv_mdlc_world_machines_factory_districts_energy_upkeep_add = 1
+	oxr_mdlc_world_machines_factory_buildings_produces_mult = 0.1
+	oxr_mdlc_world_machines_factory_buildings_energy_upkeep_add = 1
+}
+# forge_subsidies -  AUTO MACHINE WORLD (T2)
+triggered_planet_modifier = {
+	potential = {
+		exists = owner
+		owner = { has_edict = forge_subsidies }
+		is_planet_class = xvcv_mdlc_pc_machine_auto
+		oxr_mdlc_col_is_foundry = yes
+	}
+	xvcv_mdlc_world_machines_industrial_districts_produces_mult = 0.1
+	xvcv_mdlc_world_machines_industrial_districts_energy_upkeep_add = 1
+	oxr_mdlc_world_machines_foundry_buildings_produces_mult = 0.1
+	oxr_mdlc_world_machines_foundry_buildings_energy_upkeep_add = 1
+}
+# forge_subsidies - T3 WORLD
+triggered_planet_modifier = {
+	potential = {
+		exists = owner
+		owner = { has_edict = forge_subsidies }
+		NOT = { is_planet_class = xvcv_mdlc_pc_machine_auto }
+	}
+	xvcv_mdlc_world_machines_foundry_districts_produces_mult = 0.1
+	xvcv_mdlc_world_machines_foundry_districts_energy_upkeep_add = 1
+	oxr_mdlc_world_machines_foundry_buildings_produces_mult = 0.1
+	oxr_mdlc_world_machines_foundry_buildings_energy_upkeep_add = 1
+}
+# research_subsidies
+triggered_planet_modifier = {
+	potential = {
+		exists = owner
+		owner = { has_edict = research_subsidies }
+	}
+	xvcv_mdlc_world_machines_science_districts_produces_mult = 0.1
+	xvcv_mdlc_world_machines_science_districts_energy_upkeep_add = 1
+	oxr_mdlc_world_machines_science_buildings_produces_mult = 0.1
+	oxr_mdlc_world_machines_science_buildings_energy_upkeep_add = 1
+}
+# nanite_actuators
+triggered_planet_modifier = {
+	potential = {
+		exists = owner
+		owner = { has_edict = nanite_actuators }
+	}
+	xvcv_mdlc_world_machines_science_districts_upkeep_mult = 0.1
+	oxr_mdlc_world_machines_science_buildings_upkeep_mult = 0.1
+}
+# scientific_revolution
+triggered_planet_modifier = {
+	potential = {
+		exists = owner
+		owner = { has_edict = scientific_revolution }
+	}
+	xvcv_mdlc_world_machines_science_districts_upkeep_mult = 0.2
+	oxr_mdlc_world_machines_science_buildings_upkeep_mult = 0.2
+}
+# omnifarious_acquisition
+triggered_planet_modifier = {
+	potential = {
+		exists = owner
+		owner = { has_edict = mining_subsidies }
+	}
+	xvcv_mdlc_world_machines_mining_districts_produces_mult = 0.33
+	oxr_mdlc_world_machines_mining_buildings_produces_mult = 0.33
+}
+
+## civic_machine_astromining_drones
+triggered_planet_modifier = {
+	potential = {
+		exists = owner
+		owner = { has_civic = civic_machine_astromining_drones }
+	}
+	xvcv_mdlc_world_machines_mining_districts_produces_mult = -0.75
+	oxr_mdlc_world_machines_mining_buildings_produces_mult = -0.75
+	xvcv_mdlc_world_machines_generator_districts_produces_mult = -0.62
+	oxr_mdlc_world_machines_generator_buildings_produces_mult = -0.62
+	xvcv_mdlc_world_machines_food_districts_produces_mult = -0.5
+	oxr_mdlc_world_machines_food_buildings_produces_mult = -0.5
+}
+triggered_desc = {
+	trigger = {
+		exists = owner
+		owner = { has_civic = civic_machine_astromining_drones }
+	}
+	text = oxr_mdlc_capital_has_civic_astromining
+}

@@ -1,0 +1,1593 @@
+## TABLE OF CONTENTS ##
+#
+# GAME SETUP	0x001
+# BLOCKERS      0x002
+# MILITARY		0x003
+# ARC SITES     0x004
+# CORE MATHS    0x005
+
+
+#region game_start_0x001
+oxr_mdlc_origin_world_machine_awakened_game_start_setup = {
+	prev = {
+		set_country_flag = oxr_mdlc_origin_world_machine_feature_enabled
+	}
+	owner = {
+		set_variable = {
+			which = oxr_mdlc_world_machine_defense_armies_per_district
+			value = @oxr_mdlc_world_machine_defense_armies_per_district
+		}
+	}
+	# set homeworld to auto-capital
+	set_colony_type = xvcv_mdlc_col_machine_auto_capital
+
+	# optimize_memory
+	# This is starting in the PLANET scope
+	# prev = { set_country_flag = oxr_mdlc_origin_world_machine_awakened }
+	export_trigger_value_to_variable = {
+		trigger = num_districts
+		parameters = { type = any }
+		variable = num_starting_districts
+	}
+
+	# Swap in districts
+	while = {
+		limit = { has_district = district_city }
+		remove_district = district_city
+		# add_district = xvcv_mdlc_pc_machine_auto_district_nexus
+		add_district = xvcv_mdlc_pc_machine_auto_district_mining
+	}
+	while = {
+		limit = { has_district = district_nexus }
+		remove_district = district_nexus
+		add_district = xvcv_mdlc_pc_machine_auto_district_mining
+	}
+	while = {
+		limit = { has_district = district_generator }
+		remove_district = district_generator
+		add_district = xvcv_mdlc_pc_machine_auto_district_generator
+	}
+	while = {
+		limit = { has_district = district_mining }
+		remove_district = district_mining
+		add_district = xvcv_mdlc_pc_machine_auto_district_mining
+	}
+	while = {
+		limit = { has_district = xvcv_mdlc_common_district_mining }
+		remove_district = xvcv_mdlc_common_district_mining
+		add_district = xvcv_mdlc_pc_machine_auto_district_mining
+	}
+
+	# Have a check here that looks whether the empire uses food.
+	# If not, convert these to generator
+	while = {
+		limit = { has_district = district_farming }
+		remove_district = district_farming
+		add_district = xvcv_mdlc_pc_machine_auto_district_farming
+	}
+	while = {
+		limit = { has_district = district_industrial }
+		remove_district = district_industrial
+		add_district = xvcv_mdlc_pc_machine_auto_district_industrial
+	}
+	# Note the difference in starting vs now
+	export_trigger_value_to_variable = {
+		trigger = num_districts
+		parameters = { type = any }
+		variable = num_ending_districts
+	}
+	set_variable = {
+		which = starting_districts_difference
+		value = num_starting_districts
+	}
+	subtract_variable = {
+		which = starting_districts_difference
+		value = num_ending_districts
+	}
+	log = "Starting districts: \\[This.num_starting_districts]. End with \\[This.num_ending_districts]. Difference \\[This.starting_districts_difference]"
+	clear_variable = num_starting_districts
+	clear_variable = num_ending_districts
+	clear_variable = starting_districts_difference
+
+
+	# Trim population
+	while = {
+		limit = {
+			num_pops > 3
+		}
+		random_owned_pop = {
+			kill_pop = yes
+			root = { add_resource = { alloys = 10 } }  # was 75
+		}
+	}
+	log = "Reduced starting population to 3"
+
+	# Stop pop assembly
+	add_modifier = { modifier = "planet_population_control_gestalt" days = -1 }
+
+	# Add blockers to homeworld
+	# First get rid of game-generated blockers & deposits
+	clear_blockers = yes
+	clear_deposits = yes
+	oxr_mdlc_origin_world_machine_random_add_all_blockers = yes
+
+	# Set up first digsite
+	# Always guarantee this charge controller deposit is present.
+	# from here, on_action will add more dig sites.
+	# By starting the player from here, it will ensure the first digsite is not an insight blocker
+	if = {
+		limit = {
+			has_deposit = oxr_mdlc_d_world_machine_collapsed_charge_controller
+		}
+		create_archaeological_site = oxr_mdlc_collapsed_charge_controller_site
+	}
+	else = {
+		add_blocker = { type = oxr_mdlc_d_world_machine_collapsed_charge_controller }
+		create_archaeological_site = oxr_mdlc_collapsed_charge_controller_site
+	}
+
+	# Install world machine core
+	add_deposit = oxr_mdlc_d_world_machine_core
+
+	# give_technology
+	prev = {
+		give_technology = {
+			tech = oxr_mdlc_tech_world_machines_unlocked
+			message = no
+		}
+		# give_technology = {
+		# 	tech = tech_terrestrial_sculpting
+		# 	message = no
+		# }
+	}
+	# Set up WMC counter vars
+	prev = {
+		set_variable = {
+			which = oxr_mdlc_origin_wm_cores_total_produced_count
+			value = 0
+		}
+		set_variable = {
+			which = oxr_mdlc_origin_wm_cores_current_count
+			value = 0
+		}
+		set_variable = {
+			which = oxr_mdlc_origin_wm_cores_max
+			value = value:oxr_mdlc_count_wmc_max
+		}
+		# Storage bonus
+		add_modifier = {
+			modifier = oxr_mdlc_origin_world_machine_start_modifier_1
+		}
+		add_resource = {
+			oxr_mdlc_world_machine_core = @oxr_mdlc_world_machine_starting_cores_amount
+		}
+		oxr_mdlc_country_world_machine_cores_recalc_amount = yes
+	}
+	# Now, calculate the planet's storage, since we are doing WMC stuff here
+	oxr_mdlc_planet_calculate_max_core_storage = yes
+	oxr_mdlc_planet_increment_stored_wm_cores = yes
+
+
+	# Start "recover lost tech" situation
+	prev = {
+		start_situation = {
+			type = oxr_mdlc_origin_wm_situation_recover_core_tech
+			target = root
+			effect = {
+				set_situation_approach = oxr_mdlc_origin_wm_situation_recover_core_tech_approach
+			}
+		}
+		# Guide player to set up new WM planets
+		begin_event_chain = {
+			event_chain = oxr_mdlc_origin_wm_chain_deploy_world_cores
+		}
+		# Guidance to gather insights
+		begin_event_chain = {
+			event_chain = oxr_mdlc_origin_wm_chain_gather_insights
+		}
+		begin_event_chain = {
+			event_chain = oxr_mdlc_origin_wm_chain_clear_blockers
+		}		
+		# WM counter
+		begin_event_chain = {
+			event_chain = oxr_mdlc_origin_wm_chain_empire_data
+		}
+		# WM LORE TRACKER
+		begin_event_chain = {
+			event_chain = oxr_mdlc_origin_wm_lore_databank
+		}
+		# By completing a special project right away, it can double as
+		# an info-only project
+		enable_special_project = {
+			name = OXR_MDLC_ORIGIN_WM_WHO_WE_ARE_1
+		}
+		complete_special_project = {
+			type = OXR_MDLC_ORIGIN_WM_WHO_WE_ARE_1
+		}
+		enable_special_project = {
+			name = OXR_MDLC_ORIGIN_WM_WHAT_WE_KNOW_1
+		}
+		complete_special_project = {
+			type = OXR_MDLC_ORIGIN_WM_WHAT_WE_KNOW_1
+		}
+	}
+
+	## Swap buildings
+	### Unity
+	while = {
+		limit = { has_building = building_uplink_node }
+		remove_building = building_uplink_node
+		add_building = oxr_mdlc_world_machines_building_auto_unity_1
+	}
+	### Research
+	while = {
+		limit = { has_building = building_research_lab_1 }
+		remove_building = building_research_lab_1
+		add_building = oxr_mdlc_world_machines_building_fractal_sanitizer
+	}
+	### Military
+	while = {
+		limit = { has_building = building_military_academy }
+		remove_building = building_military_academy
+		add_building = oxr_mdlc_world_machines_building_maintenance_legion
+	}
+	### Roleplaying
+	# add_building = oxr_mdlc_world_machines_building_storage_cradle
+	# ruin_building = oxr_mdlc_world_machines_building_storage_cradle
+	### Capital
+	if = {
+		limit = {
+			has_building = building_machine_capital
+		}
+		remove_building = building_machine_capital
+		add_building = oxr_mdlc_world_machines_building_auto_capital
+	}
+
+	### Free up a slot
+	if = {
+		limit = { has_building = building_machine_assembly_plant }
+		remove_building = building_machine_assembly_plant
+	}
+	# Food adjustment
+	if = {
+		limit = {
+			prev = {
+				OR = {
+					has_civic = civic_machine_beastmasters
+					has_civic = civic_machine_catalytic_processing
+				}
+			}
+		}
+		add_district = xvcv_mdlc_pc_machine_auto_district_farming
+		prev = {
+			add_resource = {
+				food = 100
+			}
+		}
+	}
+
+	# Add armies! there should be a few districts already
+	# oxr_mdlc_origin_world_machine_add_armies_at_start = yes
+	# Use the event instead to make the modifier appear, and alert players to the concept
+	export_trigger_value_to_variable = {
+		trigger = num_districts
+		parameters = { type = any }
+		variable = oxr_mdlc_world_machine_num_districts
+	}
+	oxr_mdlc_origin_world_machine_calc_max_district_armies = yes
+	oxr_mdlc_origin_world_machine_calc_current_district_armies = yes
+	# Trigger restock after vars have been initialized
+	# add_modifier = {
+	# 	modifier = oxr_mdlc_world_machine_district_army_restock_in_progress
+	# 	days = 7
+	# }
+	planet_event = {
+		id = oxr_mdlc_origin_wm_main.2000
+	}
+
+	# Fix founder species habitability *eyeroll*
+	# STILL NOT FIXED? >:O
+	# event_target:last_created_species = {
+	owner.species = {
+		if = {
+			limit = { has_trait = trait_wet_planet_preference }
+			change_species_characteristics = { remove_trait = trait_wet_planet_preference }
+		}
+		else_if = {
+			limit = { has_trait = trait_dry_planet_preference }
+			change_species_characteristics = { remove_trait = trait_dry_planet_preference }
+		}
+		else_if = {
+			limit = { has_trait = trait_frozen_planet_preference }
+			change_species_characteristics = { remove_trait = trait_frozen_planet_preference }
+		}
+		change_species_characteristics = {
+			add_trait = trait_oxr_mdlc_pc_auto_world_specialist_preference
+			add_traits_at_start_of_list = yes
+		}
+	}
+
+	# Set a few vars and show info modifier
+	# lore says the empire started 800 years ago ;)
+	set_saved_date = {
+		key = oxr_mdlc_world_machine_founded_date
+		days_from_present = -288000
+		expires = -1
+	}
+	add_modifier = {
+		modifier = oxr_mdlc_planet_origin_world_machine_info
+		days = -1
+	}
+	set_variable = {
+		which = oxr_mdlc_total_world_machines
+		value = 1
+	}
+
+	# Make a ruined world machine in a neighboring system
+	prev = {
+		oxr_mdlc_find_neighbor_planet_and_convert_to_ruined_world_machine = yes
+	}
+
+}
+#endregion
+
+#region blockers_0x002
+oxr_mdlc_origin_world_machine_random_add_all_blockers = {
+	# Randomly add some easy, normal, and rare blockers to a world machine
+	# when it is constructed or spawned/discovered
+	oxr_mdlc_origin_world_machine_add_random_simple_blockers = yes
+	oxr_mdlc_origin_world_machine_add_random_normal_blockers = yes
+	oxr_mdlc_origin_world_machine_add_random_insight_blockers = yes
+}
+oxr_mdlc_origin_world_machine_add_simple_blocker = {
+	random_list = {
+		20 = {
+			add_blocker = { type = oxr_mdlc_d_world_machine_collapsed_charge_controller }
+		}
+		20 = {
+			add_blocker = { type = oxr_mdlc_d_world_machine_flooded_borehole }
+		}
+		20 = {
+			add_blocker = { type = oxr_mdlc_d_world_machine_fossilized_nutrient_bog }
+		}
+		20 = {
+			add_blocker = { type = oxr_mdlc_d_world_machine_clogged_furnace_discharge }
+		}
+		20 = {
+			add_blocker = { type = oxr_mdlc_d_world_machine_irradiated_drone_storage }
+		}
+	}
+}
+
+oxr_mdlc_origin_world_machine_add_normal_blocker = {
+	# normal blockers
+	random_list = {
+		25 = {
+			add_blocker = { type = oxr_mdlc_d_world_machine_meteor_shower_impacts }
+		}
+		25 = {
+			add_blocker = { type = oxr_mdlc_d_world_machine_collapsed_transportation_hubs }
+		}
+		25 = {
+			add_blocker = { type = oxr_mdlc_d_world_machine_exposed_structural_chasms }
+		}
+		25 = {
+			add_blocker = { type = oxr_mdlc_d_world_machine_dense_geologic_mass }
+		}
+	}
+}
+
+oxr_mdlc_origin_world_machine_add_insight_blocker = {
+	# hard / insight blockers
+	random_list = {
+		25 = {
+			add_blocker = { type = oxr_mdlc_d_world_machine_offline_data_routers }
+		}
+		25 = {
+			add_blocker = { type = oxr_mdlc_d_world_machine_damaged_data_cold_storages }
+		}
+		25 = {
+			add_blocker = { type = oxr_mdlc_d_world_machine_frozen_waterway_pistons }
+		}
+		25 = {
+			add_blocker = { type = oxr_mdlc_d_world_machine_incomplete_construction_bays }
+		}
+	}
+}
+
+oxr_mdlc_origin_world_machine_add_random_simple_blockers = {
+	set_variable_to_random_value = {
+		which = oxr_mdlc_world_machine_random_blockers
+		min = 2 max = 4
+	}
+	while = {
+		limit = {
+			check_variable = {
+				which = oxr_mdlc_world_machine_random_blockers
+				value > 0
+			}
+		}
+		subtract_variable = {
+			which = oxr_mdlc_world_machine_random_blockers
+			value = 1
+		}
+		oxr_mdlc_origin_world_machine_add_simple_blocker = yes
+	}
+	clear_variable = oxr_mdlc_world_machine_random_blockers
+}
+
+oxr_mdlc_origin_world_machine_add_random_normal_blockers = {
+	set_variable_to_random_value = {
+		which = oxr_mdlc_world_machine_random_blockers
+		min = 2 max = 2
+	}
+	while = {
+		limit = {
+			check_variable = {
+				which = oxr_mdlc_world_machine_random_blockers
+				value > 0
+			}
+		}
+		subtract_variable = {
+			which = oxr_mdlc_world_machine_random_blockers
+			value = 1
+		}
+		oxr_mdlc_origin_world_machine_add_normal_blocker = yes
+	}
+	clear_variable = oxr_mdlc_world_machine_random_blockers
+}
+
+oxr_mdlc_origin_world_machine_add_random_insight_blockers = {
+	set_variable_to_random_value = {
+		which = oxr_mdlc_world_machine_random_blockers
+		min = 1 max = 2
+	}
+	while = {
+		limit = {
+			check_variable = {
+				which = oxr_mdlc_world_machine_random_blockers
+				value > 0
+			}
+		}
+		subtract_variable = {
+			which = oxr_mdlc_world_machine_random_blockers
+			value = 1
+		}
+		oxr_mdlc_origin_world_machine_add_insight_blocker = yes
+	}
+	clear_variable = oxr_mdlc_world_machine_random_blockers
+}
+#endregion
+
+#region army_0x003
+### ARMY ###
+oxr_mdlc_origin_world_machine_add_district_defense_army_t1 = {
+	create_army = {
+		owner = THIS
+		type = oxr_mdlc_world_machine_district_defense_army
+		name = "NAME_oxr_mdlc_world_machine_district_defense_army"
+	}
+}
+
+oxr_mdlc_origin_world_machine_calc_max_district_armies = {
+	optimize_memory
+	export_trigger_value_to_variable = {
+		trigger = num_districts
+		parameters = { type = any }
+		variable = oxr_mdlc_world_machine_num_max_district_armies_temp
+	}
+	multiply_variable = {
+		which = oxr_mdlc_world_machine_num_max_district_armies_temp
+		value = owner.oxr_mdlc_world_machine_defense_armies_per_district
+	}
+	set_variable = {
+		which = oxr_mdlc_world_machine_num_max_district_armies
+		value = oxr_mdlc_world_machine_num_max_district_armies_temp
+	}
+	clear_variable = oxr_mdlc_world_machine_num_max_district_armies_temp
+}
+oxr_mdlc_origin_world_machine_calc_current_district_armies = {
+	optimize_memory
+	set_variable = {
+		which = oxr_mdlc_world_machine_num_existing_district_armies
+		value = value:oxr_mdlc_planet_count_district_defense_armies
+	}
+	# export_trigger_value_to_variable = {
+	# 	trigger = count_planet_army
+	# 	parameters = {
+	# 		# count = all
+	# 		is_defensive_army = yes
+	# 		army_type = oxr_mdlc_world_machine_district_defense_army
+	# 	}
+	# 	variable = oxr_mdlc_world_machine_num_existing_district_armies
+	# }
+}
+
+
+oxr_mdlc_origin_world_machine_add_armies_at_start = {
+	# Call at planet scope
+	export_trigger_value_to_variable = {
+		trigger = num_districts
+		parameters = { type = any }
+		variable = oxr_mdlc_world_machine_starting_army_count_temp
+	}
+	log = "Going to add \\[This.oxr_mdlc_world_machine_starting_army_count_temp] district defense armies."
+	while = {
+		limit = {
+			check_variable = {
+				which = oxr_mdlc_world_machine_starting_army_count_temp
+				value > 0
+			}
+		}
+		# Make 2 defense armies per district
+		# Later, this will be controlled by a var and can be increased
+		oxr_mdlc_origin_world_machine_add_district_defense_army_t1 = yes
+		oxr_mdlc_origin_world_machine_add_district_defense_army_t1 = yes
+		subtract_variable = {
+			which = oxr_mdlc_world_machine_starting_army_count_temp
+			value = 1
+		}
+	}
+	clear_variable = oxr_mdlc_world_machine_starting_army_count_temp
+}
+
+oxr_mdlc_origin_world_machine_refill_armies = {
+	# After an invasion, see if some district armies got destroyed,
+	# And regenerate those that got destroyed
+	# THE PLAN:
+	# 1. Count districts
+	# 2. Multiply by 2
+	# 3. Count existing DISTRICT DEFENSE armies
+	# 4. Find the difference between (districts * 2) and num armies
+	# 5. Create that many armies
+	# TODO: Update the parameters when new district army types are added
+	export_trigger_value_to_variable = {
+		trigger = num_districts
+		parameters = { type = any }
+		variable = oxr_mdlc_world_machines_num_armies_to_restock_temp
+	}
+	export_trigger_value_to_variable = {
+		trigger = count_planet_army
+		parameters = {
+			exists = owner
+			army_type = oxr_mdlc_world_machine_district_defense_army
+		}
+		variable = oxr_mdlc_world_machine_num_existing_district_armies_temp
+	}
+	log = "Found \\[This.oxr_mdlc_world_machine_num_existing_district_armies_temp] district armies on the planet."
+
+	multiply_variable = {
+		which = oxr_mdlc_world_machines_num_armies_to_restock_temp
+		value = owner.oxr_mdlc_world_machine_defense_armies_per_district
+	}
+	subtract_variable = {
+		which = oxr_mdlc_world_machines_num_armies_to_restock_temp
+		value = oxr_mdlc_world_machine_num_existing_district_armies_temp
+	}
+	# Loop and count down, creating armies
+	log = "After mathing, we will restock \\[This.oxr_mdlc_world_machines_num_armies_to_restock_temp], because there are \\[This.oxr_mdlc_world_machine_num_districts_temp] districts active, times 2, minus existing armies."
+	while = {
+		limit = {
+			check_variable = {
+				which = oxr_mdlc_world_machines_num_armies_to_restock_temp
+				value > 0
+			}
+		}
+		# Make 2 defense armies per district
+		# Later, this will be controlled by a var and can be increased
+		oxr_mdlc_origin_world_machine_add_district_defense_army_t1 = yes
+		subtract_variable = {
+			which = oxr_mdlc_world_machines_num_armies_to_restock_temp
+			value = 1
+		}
+	}
+	clear_variable = oxr_mdlc_world_machine_num_districts_temp
+	clear_variable = oxr_mdlc_world_machine_num_existing_district_armies_temp
+	clear_variable = oxr_mdlc_world_machines_num_armies_to_restock_temp
+}
+#endregion
+
+#region arc_sites_0x004
+### ARC SITE ###
+oxr_mdlc_origin_world_machine_create_digsite_for_blocker = {
+	# Iterate through each special blocker type, and make a dig site
+	# unless the player has the tech for unblocking them
+	# use else-if and not switch to ensure 1 dig at a time is created
+
+	random_deposit = {
+		limit = {
+			oxr_mdlc_deposit_is_world_machine_blocker = yes
+		}
+		if = {
+			limit = { is_deposit_type = oxr_mdlc_d_world_machine_collapsed_charge_controller }
+			this.planet = { create_archaeological_site = oxr_mdlc_collapsed_charge_controller_site }
+			log = "Created collapsed_charge_controller digsite on \\[This.planet.GetName]"
+		}
+		else_if = {
+			limit = { is_deposit_type = oxr_mdlc_d_world_machine_flooded_borehole }
+			this.planet = { create_archaeological_site = oxr_mdlc_world_machine_flooded_borehole_site }
+			log = "Created flooded_borehole digsite on \\[This.planet.GetName]"
+		}
+		else_if = {
+			limit = { is_deposit_type = oxr_mdlc_d_world_machine_fossilized_nutrient_bog }
+			this.planet = { create_archaeological_site = oxr_mdlc_fossilized_nutrient_bog_site }
+			log = "Created fossilized_nutrient_bog digsite on \\[This.planet.GetName]"
+		}
+		else_if = {
+			limit = { is_deposit_type = oxr_mdlc_d_world_machine_clogged_furnace_discharge }
+			this.planet = { create_archaeological_site = oxr_mdlc_world_machine_clogged_furnace_discharge_site }
+			log = "Created clogged_furnace_discharge digsite on \\[This.planet.GetName]"
+		}
+		else_if = {
+			limit = { is_deposit_type = oxr_mdlc_d_world_machine_irradiated_drone_storage }
+			this.planet = { create_archaeological_site = oxr_mdlc_world_machine_irradiated_drone_storage_site }
+			log = "Created irradiated_drone_storage digsite on \\[This.planet.GetName]"
+		}
+		else_if = {
+			limit = { is_deposit_type = oxr_mdlc_d_world_machine_meteor_shower_impacts }
+			this.planet = { create_archaeological_site = oxr_mdlc_world_machine_meteor_shower_impacts_site }
+			log = "Created meteor_shower_impacts digsite on \\[This.planet.GetName]"
+		}
+		else_if = {
+			limit = { is_deposit_type = oxr_mdlc_d_world_machine_collapsed_transportation_hubs }
+			this.planet = { create_archaeological_site = oxr_mdlc_world_machine_collapsed_transportation_hubs_site }
+			log = "Created collapsed_transportation_hubs digsite on \\[This.planet.GetName]"
+		}
+		else_if = {
+			limit = { is_deposit_type = oxr_mdlc_d_world_machine_exposed_structural_chasms }
+			this.planet = { create_archaeological_site = oxr_mdlc_world_machine_exposed_structural_chasms_site }
+			log = "Created exposed_structural_chasms digsite on \\[This.planet.GetName]"
+		}
+		else_if = {
+			limit = { is_deposit_type = oxr_mdlc_d_world_machine_dense_geologic_mass }
+			this.planet = { create_archaeological_site = oxr_mdlc_world_machine_dense_geologic_mass_site }
+			log = "Created dense_geologic_mass digsite on \\[This.planet.GetName]"
+		}
+		else_if = {
+			limit = { is_deposit_type = oxr_mdlc_d_world_machine_offline_data_routers }
+			this.planet = { create_archaeological_site = oxr_mdlc_world_machine_offline_data_routers_site }
+			log = "Created offline_data_routers digsite on \\[This.planet.GetName]"
+		}
+		else_if = {
+			limit = { is_deposit_type = oxr_mdlc_d_world_machine_damaged_data_cold_storages }
+			this.planet = { create_archaeological_site = oxr_mdlc_world_machine_damaged_data_cold_storages_site }
+			log = "Created data_cold_storages digsite on \\[This.planet.GetName]"
+		}
+		else_if = {
+			limit = { is_deposit_type = oxr_mdlc_d_world_machine_frozen_waterway_pistons }
+			this.planet = { create_archaeological_site = oxr_mdlc_world_machine_frozen_waterway_pistons_site }
+			log = "Created frozen_waterway_pistons digsite on \\[This.planet.GetName]"
+		}
+		else_if = {
+			limit = { is_deposit_type = oxr_mdlc_d_world_machine_incomplete_construction_bays }
+			this.planet = { create_archaeological_site = oxr_mdlc_world_machine_incomplete_construction_bays_site }
+			log = "Created 'Incomplete Construction Bay' digsite on \\[This.planet.GetName]"
+		}
+		else = {
+			log = "Didnt find a matching site for this deposit: \\[This.GetName]"
+		}
+	}
+}
+#endregion
+
+#region core_maths_0x005
+### MATHS ###
+oxr_mdlc_world_machine_cores_add = {
+	# Call at country scope
+	add_resource = {
+		oxr_mdlc_world_machine_core = $AMOUNT$
+	}
+	log = "Added $AMOUNT$ World Machine Cores"
+	hidden_effect = {
+		change_variable = {
+			which = oxr_mdlc_origin_wm_cores_current_count
+			value = $AMOUNT$
+		}
+		change_variable = {
+			which = oxr_mdlc_origin_wm_cores_total_produced_count
+			value = $AMOUNT$
+		}
+	}
+}
+oxr_mdlc_world_machine_cores_subtract = {
+	add_resource = {
+		oxr_mdlc_world_machine_core = $AMOUNT$
+		mult = -1
+	}
+	log = "Deducted $AMOUNT$ World Machine Cores"
+	hidden_effect = {
+		subtract_variable = {
+			which = oxr_mdlc_origin_wm_cores_current_count
+			value = $AMOUNT$
+		}
+	}
+}
+oxr_mdlc_world_machine_cores_update_max_var = {
+	set_variable = {
+		which = oxr_mdlc_origin_wm_cores_max
+		value = modifier:country_resource_max_oxr_mdlc_world_machine_core_add
+	}
+}
+oxr_mdlc_country_world_machine_cores_recalc_amount = {
+	export_resource_stockpile_to_variable = {
+		resource = oxr_mdlc_world_machine_core
+		variable = oxr_mdlc_origin_wm_cores_current_count
+	}
+	set_variable = {
+		which = oxr_mdlc_origin_wm_cores_max
+		value = modifier:country_resource_max_oxr_mdlc_world_machine_core_add
+	}
+}
+oxr_mdlc_world_machines_planet_recalc_storage_max = {
+	set_variable = {
+		which = oxr_mdlc_planet_world_machine_cores_amount_max
+		value = value:oxr_mdlc_planet_calculate_max_core_storage
+	}
+}
+
+
+#endregion
+
+oxr_mdlc_situation_core_insights_add_progress = {
+	# optimize_memory
+	random_situation = {
+		limit = { is_situation_type = oxr_mdlc_origin_wm_situation_recover_core_tech }
+		add_situation_progress = $AMOUNT$
+	}
+	# THIS MESSAGE IS FINE, DON'T TOUCH IT
+	create_message = {
+		type = OXR_MDLC_SITUATION_CORE_INSIGHTS_PROGRESS_TYPE
+		localization = oxr_mdlc_situation_core_insights_$ON_ACTION_TYPE$
+		target = this.capital_scope
+		days = 25
+	}
+	# change_variable = { which = oxr_mdlc_situation_core_insights_$ON_ACTION_TYPE$_var value = 1 }
+}
+
+oxr_mdlc_find_neighbor_planet_and_convert_to_ruined_world_machine = {
+	# COUNTRY SCOPE
+	# Called at beginning of game
+	capital_scope.solar_system = {
+		random_neighbor_system = {
+			limit = {
+				any_system_planet = {
+					is_colonizable = yes
+				}
+			}
+			random_system_planet = {
+				limit = {
+					is_colonizable = yes
+				}
+				# oxr_mdlc_pc_convert_to_ruined_world_machine = yes
+				change_pc = xvcv_mdlc_pc_machine_auto_ruined
+				clear_blockers = yes
+				clear_deposits = yes
+				# no point to add all the blockers... ruined type is uninhabitable
+				# ... or is it ?
+				# oxr_mdlc_origin_world_machine_random_add_all_blockers = yes
+				log = "Starting setup: Changed \\[This.GetName] to Ruined World Machine"
+				set_planet_flag = oxr_mdlc_ruined_world_machine
+				add_anomaly = {
+					category = oxr_mdlc_anomaly_ruined_wm
+				}
+				clear_planet_modifiers = yes
+			}
+		}
+	}
+}
+
+# country scope
+oxr_mdlc_wmc_manufacture_core_set_tech_level = {
+	# Put highest known tech levels at top, descending
+	
+	if = {
+		limit = { has_technology = tech_zero_point_power }
+		set_variable = {
+			which = oxr_mdlc_wmc_manufacture_core_tech_level
+			value = 3.0
+		}
+	}
+	else_if = {
+		limit = { has_technology = tech_antimatter_power }
+		set_variable = {
+			which = oxr_mdlc_wmc_manufacture_core_tech_level
+			value = 2.5
+		}
+	}
+	else_if = {
+		limit = { has_technology = tech_cold_fusion_power }
+		set_variable = {
+			which = oxr_mdlc_wmc_manufacture_core_tech_level
+			value = 2.0
+		}
+	}
+	else_if = {
+		limit = { has_technology = tech_fusion_power }
+		set_variable = {
+			which = oxr_mdlc_wmc_manufacture_core_tech_level
+			value = 1.5
+		}
+	}
+	else_if = {
+		limit = { has_technology = tech_fission_power }
+		set_variable = {
+			which = oxr_mdlc_wmc_manufacture_core_tech_level
+			value = 1.0
+		}
+	}
+	else = {
+		set_variable = {
+			which = oxr_mdlc_wmc_manufacture_core_tech_level
+			value = 0.5
+		}
+	}
+}
+
+oxr_mdlc_planet_increment_stored_wm_cores = {
+	change_variable = {
+		which = oxr_mdlc_planet_world_machine_cores_amount
+		value = 1
+	}
+}
+oxr_mdlc_planet_decrement_stored_wm_cores = {
+	change_variable = {
+		which = oxr_mdlc_planet_world_machine_cores_amount
+		value = -1
+	}
+}
+oxr_mdlc_planet_calculate_max_core_storage = {
+	set_variable = {
+		which = oxr_mdlc_planet_world_machine_cores_amount_max
+		value = value:oxr_mdlc_planet_calculate_max_core_storage
+	}
+}
+
+oxr_mdlc_planet_start_refilling_district_defense_armies = {
+	optimize_memory
+	set_planet_flag = oxr_mdlc_world_machines_refilling_armies_active
+	add_modifier = {
+		modifier = oxr_mdlc_world_machine_district_army_restock_in_progress
+		days = 7
+	}
+	planet_event = {
+		id = oxr_mdlc_origin_wm_main.2001
+		days = 7
+	}
+}
+
+oxr_mdlc_country_create_world_machine_mass_shipping_country = {
+	if = {
+		limit = {
+			NOT = {
+				any_country = {
+					is_country_type = oxr_mdlc_world_machine_mass_shipping
+				}
+			}
+		}
+		create_country = {
+			name = "name_xvcv_mdlc_trading_machine_controller"
+			type = oxr_mdlc_world_machine_mass_shipping
+			flag = {
+				icon = {
+					category = "special"
+					file = "caravaneer_02.dds"
+				}
+				background = {
+					category = "backgrounds"
+					file = "flag_BG_55.dds"
+				}
+				colors = {
+					"green"
+					"dark_green"
+					"null"
+					"null"
+				}
+			}
+			effect = {
+				save_global_event_target_as = oxr_mdlc_world_machine_mass_shipping
+			}
+		}
+	}
+}
+
+# oxr_mdlc_origin_wm_cheat_gain_core_tech = {
+# 	country_event = {
+# 		id = oxr_mdlc_origin_wm_main.1210
+# 	}
+# 	give_technology = {
+# 		tech = oxr_mdlc_tech_world_machine_planetary_proficiency
+# 		message = no
+# 	}
+# 	give_technology = {
+# 		tech = oxr_mdlc_tech_world_machine_planetary_mastery
+# 		message = no
+# 	}
+# 	give_technology = {
+# 		tech = oxr_mdlc_tech_world_machine_district_infrastructure
+# 		message = no
+# 	}
+# 	give_technology = {
+# 		tech = oxr_mdlc_tech_geologic_world_expansion_theory
+# 	}
+# }
+
+
+oxr_mdlc_planet_self_destruct = {
+	# Apply damage to ships near planet, based on distance
+	# 1) Calculate all damage caused by the planet
+	# 2) Apply full damage to targets within X distance
+	# 3) apply half damage .. quarter damage .. based on range, up to 100 range
+
+	## WE WANT EYE CANDY NAO
+	if = {
+		limit = {
+			is_planet_class = xvcv_mdlc_pc_ringworld_machine_auto
+		}
+		create_ambient_object = {
+			location = this
+			type = ringworld_cracker_object
+			duration = 5
+			play_animation_once = yes
+	
+			use_3d_location = yes
+			base_angle_towards = star
+			entity_face_object = star
+	
+			entity_offset = { min = 0 max = 0 }
+	
+			entity_scale_to_size = yes
+			scale = 0.10
+		}
+	}
+	else = {
+		create_ambient_object = {
+			location = this
+			type = habitat_cracker_object
+			play_animation_once = yes
+			duration = 5
+	
+			use_3d_location = yes
+			base_angle_towards = star
+			entity_face_object = star
+	
+			entity_offset = { min = 0 max = 0 }
+	
+			entity_scale_to_size = yes
+			scale = 0.10
+		}
+	}
+
+	export_trigger_value_to_variable = {
+		trigger = planet_size
+		variable = oxr_mdlc_origin_wm_planet_size_dmg
+	}
+	divide_variable = {
+		which = oxr_mdlc_origin_wm_planet_size_dmg
+		value = 10
+	}
+	export_trigger_value_to_variable = {
+		trigger = num_districts
+		parameters = {
+			type = any
+		}
+		variable = oxr_mdlc_origin_wm_planet_district_dmg
+	}
+	# 100 extra damage per district
+	multiply_variable = {
+		which = oxr_mdlc_origin_wm_planet_district_dmg
+		value = @oxr_mdlc_world_machine_self_destruct_damage_per_district
+	}
+	# Planet size x 2k = base planet explosion damage
+	multiply_variable = {
+		which = oxr_mdlc_origin_wm_planet_size_dmg
+		value = @oxr_mdlc_world_machine_self_destruct_damage
+	}
+	# Create the total damage var, copy district dmg
+	set_variable = {
+		which = oxr_mdlc_origin_wm_planet_self_destruct_total_dmg
+		value = oxr_mdlc_origin_wm_planet_district_dmg
+	}
+	clear_variable = oxr_mdlc_origin_wm_planet_district_dmg
+	# Add base planet dmg
+	change_variable = {
+		which = oxr_mdlc_origin_wm_planet_self_destruct_total_dmg
+		value = oxr_mdlc_origin_wm_planet_size_dmg
+	}
+	clear_variable = oxr_mdlc_origin_wm_planet_size_dmg
+	log = "Self destruct full dmg: \\[This.oxr_mdlc_origin_wm_planet_self_destruct_total_dmg]"
+	# print_scope_effect = yes
+	# Damage ranges:
+	# 0-50: 100%
+	# 50-100: 50%
+	# 100-150: 25%
+	set_variable = {
+		which = oxr_mdlc_self_destruct_min_distance
+		value = 0
+	}
+	set_variable = {
+		which = oxr_mdlc_self_destruct_max_distance
+		value = @oxr_mdlc_world_machine_self_destruct_radius_increment_distance
+	}
+	set_variable = {
+		which = oxr_mdlc_self_destruct_diminishing_return
+		value = @oxr_mdlc_world_machine_self_destruct_diminishing_return_base
+	}
+	# I have to repeat this entire loop manually because 'distance' REFUSES to take dynamic values ( °□°) ︵ ┻━┻
+	### REPEATED ###
+	log = "Will apply \\[This.oxr_mdlc_origin_wm_planet_self_destruct_total_dmg] to ships between \\[This.oxr_mdlc_self_destruct_min_distance] and \\[This.oxr_mdlc_self_destruct_max_distance]"
+	solar_system = {
+		every_ship_in_system = {
+			limit = {
+				NOT = { is_ship_class = shipclass_starbase }  # dont brek game
+				distance = {
+					source = root
+					min_distance >= 0
+					max_distance <= 25
+					same_solar_system = yes
+				}
+			}
+			reduce_hp = root.oxr_mdlc_origin_wm_planet_self_destruct_total_dmg
+			log = "Applied damage to \\[This.GetName]"
+		}
+	}
+	change_variable = {
+		which = oxr_mdlc_self_destruct_max_distance
+		value = @oxr_mdlc_world_machine_self_destruct_radius_increment_distance
+	}
+	change_variable = {
+		which = oxr_mdlc_self_destruct_min_distance
+		value = @oxr_mdlc_world_machine_self_destruct_radius_increment_distance
+	}
+	# Reduce the damage by 10% for each loop, plus 5%
+	change_variable = {
+		which = oxr_mdlc_self_destruct_diminishing_return
+		value = @oxr_mdlc_world_machine_self_destruct_scaling_modifier
+	}
+	multiply_variable = {
+		which = oxr_mdlc_origin_wm_planet_self_destruct_total_dmg
+		value = oxr_mdlc_self_destruct_diminishing_return
+	}
+	### REPEATED ###
+	log = "Will apply \\[This.oxr_mdlc_origin_wm_planet_self_destruct_total_dmg] to ships between \\[This.oxr_mdlc_self_destruct_min_distance] and \\[This.oxr_mdlc_self_destruct_max_distance]"
+	solar_system = {
+		every_ship_in_system = {
+			limit = {
+				NOT = { is_ship_class = shipclass_starbase }  # dont brek game
+				distance = {
+					source = root
+					min_distance >= 25
+					max_distance <= 50
+					same_solar_system = yes
+				}
+			}
+			reduce_hp = root.oxr_mdlc_origin_wm_planet_self_destruct_total_dmg
+			log = "Applied damage to \\[This.GetName]"
+		}
+	}
+	change_variable = {
+		which = oxr_mdlc_self_destruct_max_distance
+		value = @oxr_mdlc_world_machine_self_destruct_radius_increment_distance
+	}
+	change_variable = {
+		which = oxr_mdlc_self_destruct_min_distance
+		value = @oxr_mdlc_world_machine_self_destruct_radius_increment_distance
+	}
+	# Reduce the damage by 10% for each loop, plus 5%
+	change_variable = {
+		which = oxr_mdlc_self_destruct_diminishing_return
+		value = @oxr_mdlc_world_machine_self_destruct_scaling_modifier
+	}
+	multiply_variable = {
+		which = oxr_mdlc_origin_wm_planet_self_destruct_total_dmg
+		value = oxr_mdlc_self_destruct_diminishing_return
+	}
+	### REPEATED ###
+	log = "Will apply \\[This.oxr_mdlc_origin_wm_planet_self_destruct_total_dmg] to ships between \\[This.oxr_mdlc_self_destruct_min_distance] and \\[This.oxr_mdlc_self_destruct_max_distance]"
+	solar_system = {
+		every_ship_in_system = {
+			limit = {
+				NOT = { is_ship_class = shipclass_starbase }  # dont brek game
+				distance = {
+					source = root
+					min_distance >= 50
+					max_distance <= 75
+					same_solar_system = yes
+				}
+			}
+			reduce_hp = root.oxr_mdlc_origin_wm_planet_self_destruct_total_dmg
+			log = "Applied damage to \\[This.GetName]"
+		}
+	}
+	change_variable = {
+		which = oxr_mdlc_self_destruct_max_distance
+		value = @oxr_mdlc_world_machine_self_destruct_radius_increment_distance
+	}
+	change_variable = {
+		which = oxr_mdlc_self_destruct_min_distance
+		value = @oxr_mdlc_world_machine_self_destruct_radius_increment_distance
+	}
+	# Reduce the damage by 10% for each loop, plus 5%
+	change_variable = {
+		which = oxr_mdlc_self_destruct_diminishing_return
+		value = @oxr_mdlc_world_machine_self_destruct_scaling_modifier
+	}
+	multiply_variable = {
+		which = oxr_mdlc_origin_wm_planet_self_destruct_total_dmg
+		value = oxr_mdlc_self_destruct_diminishing_return
+	}
+	### REPEATED ###
+	log = "Will apply \\[This.oxr_mdlc_origin_wm_planet_self_destruct_total_dmg] to ships between \\[This.oxr_mdlc_self_destruct_min_distance] and \\[This.oxr_mdlc_self_destruct_max_distance]"
+	solar_system = {
+		every_ship_in_system = {
+			limit = {
+				NOT = { is_ship_class = shipclass_starbase }  # dont brek game
+				distance = {
+					source = root
+					min_distance >= 75
+					max_distance <= 100
+					same_solar_system = yes
+				}
+			}
+			reduce_hp = root.oxr_mdlc_origin_wm_planet_self_destruct_total_dmg
+			log = "Applied damage to \\[This.GetName]"
+		}
+	}
+	change_variable = {
+		which = oxr_mdlc_self_destruct_max_distance
+		value = @oxr_mdlc_world_machine_self_destruct_radius_increment_distance
+	}
+	change_variable = {
+		which = oxr_mdlc_self_destruct_min_distance
+		value = @oxr_mdlc_world_machine_self_destruct_radius_increment_distance
+	}
+	# Reduce the damage by 10% for each loop, plus 5%
+	change_variable = {
+		which = oxr_mdlc_self_destruct_diminishing_return
+		value = @oxr_mdlc_world_machine_self_destruct_scaling_modifier
+	}
+	multiply_variable = {
+		which = oxr_mdlc_origin_wm_planet_self_destruct_total_dmg
+		value = oxr_mdlc_self_destruct_diminishing_return
+	}
+	### REPEATED ###
+	log = "Will apply \\[This.oxr_mdlc_origin_wm_planet_self_destruct_total_dmg] to ships between \\[This.oxr_mdlc_self_destruct_min_distance] and \\[This.oxr_mdlc_self_destruct_max_distance]"
+	solar_system = {
+		every_ship_in_system = {
+			limit = {
+				NOT = { is_ship_class = shipclass_starbase }  # dont brek game
+				distance = {
+					source = root
+					min_distance >= 100
+					max_distance <= 125
+					same_solar_system = yes
+				}
+			}
+			reduce_hp = root.oxr_mdlc_origin_wm_planet_self_destruct_total_dmg
+			log = "Applied damage to \\[This.GetName]"
+		}
+	}
+	change_variable = {
+		which = oxr_mdlc_self_destruct_max_distance
+		value = @oxr_mdlc_world_machine_self_destruct_radius_increment_distance
+	}
+	change_variable = {
+		which = oxr_mdlc_self_destruct_min_distance
+		value = @oxr_mdlc_world_machine_self_destruct_radius_increment_distance
+	}
+	# Reduce the damage by 10% for each loop, plus 5%
+	change_variable = {
+		which = oxr_mdlc_self_destruct_diminishing_return
+		value = @oxr_mdlc_world_machine_self_destruct_scaling_modifier
+	}
+	multiply_variable = {
+		which = oxr_mdlc_origin_wm_planet_self_destruct_total_dmg
+		value = oxr_mdlc_self_destruct_diminishing_return
+	}
+	### REPEATED ###
+	log = "Will apply \\[This.oxr_mdlc_origin_wm_planet_self_destruct_total_dmg] to ships between \\[This.oxr_mdlc_self_destruct_min_distance] and \\[This.oxr_mdlc_self_destruct_max_distance]"
+	solar_system = {
+		every_ship_in_system = {
+			limit = {
+				NOT = { is_ship_class = shipclass_starbase }  # dont brek game
+				distance = {
+					source = root
+					min_distance >= 125
+					max_distance <= 150
+					same_solar_system = yes
+				}
+			}
+			reduce_hp = root.oxr_mdlc_origin_wm_planet_self_destruct_total_dmg
+			log = "Applied damage to \\[This.GetName]"
+		}
+	}
+	change_variable = {
+		which = oxr_mdlc_self_destruct_max_distance
+		value = @oxr_mdlc_world_machine_self_destruct_radius_increment_distance
+	}
+	change_variable = {
+		which = oxr_mdlc_self_destruct_min_distance
+		value = @oxr_mdlc_world_machine_self_destruct_radius_increment_distance
+	}
+	# Reduce the damage by 10% for each loop, plus 5%
+	change_variable = {
+		which = oxr_mdlc_self_destruct_diminishing_return
+		value = @oxr_mdlc_world_machine_self_destruct_scaling_modifier
+	}
+	multiply_variable = {
+		which = oxr_mdlc_origin_wm_planet_self_destruct_total_dmg
+		value = oxr_mdlc_self_destruct_diminishing_return
+	}
+	## bye bye :'(
+	every_owned_pop = {
+		kill_pop = yes
+	}
+	destroy_colony = yes
+	if = {
+		limit = {
+			OR = {
+				is_planet_class = xvcv_mdlc_pc_ringworld_machine_auto
+			}
+		}
+		change_pc = pc_ringworld_habitable_damaged
+		spawn_ringworld_cracker_effect = yes
+	}
+	else = {
+		change_pc = pc_shattered
+	}
+	
+	reset_planet = yes
+}
+
+# oxr_mdlc_origin_wm_main.500 after terraform finished
+oxr_mdlc_planet_create_world_machine_colony = {
+	create_colony = {
+		owner = from
+		species = from.owner_species
+		# Set name .. read a variable on the planet as a list index
+		# then according to that, set the name
+	}
+	add_deposit = oxr_mdlc_d_world_machine_core
+	remove_building = building_deployment_post
+	add_building = oxr_mdlc_world_machines_building_auto_capital
+	if = {
+		limit = {
+			has_planet_flag = rikk_mdlc_world_machine_suitable
+		}
+		rikk_mdlc_origin_world_machine_add_random_blockers = yes
+		remove_planet_flag = rikk_mdlc_world_machine_suitable
+	}
+	if = {
+		limit = {
+			from = {
+				NOT = {
+					has_technology = oxr_mdlc_tech_world_machine_planetary_mastery
+				}
+			}
+		}
+		oxr_mdlc_origin_world_machine_random_add_all_blockers = yes
+		# Don't trigger the event post-terraform if planet was ruined
+		if = {
+			limit = {
+				has_planet_flag = oxr_mdlc_ruined_world_machine
+			}
+			remove_planet_flag = oxr_mdlc_ruined_world_machine
+		}
+		else = {
+			planet_event = {
+				id = oxr_mdlc_origin_wm_main.501
+			}
+		}
+	}
+	# add arc site, if player lacks tech
+	if = {
+		limit = {
+			from = {
+				NOT = { has_technology = oxr_mdlc_tech_world_machine_planetary_proficiency }
+			}
+		}
+		oxr_mdlc_origin_world_machine_create_digsite_for_blocker = yes
+	}
+	add_modifier = { modifier = "planet_population_control_gestalt" days = -1 }
+	from = {
+		oxr_mdlc_country_world_machine_cores_recalc_amount = yes
+		fire_on_action = {
+			on_action = on_world_machine_core_terraforming_complete
+		}
+	}
+
+	set_saved_date = {
+		key = oxr_mdlc_world_machine_founded_date
+		days_from_present = 0
+		expires = -1
+	}
+	add_modifier = {
+		modifier = oxr_mdlc_planet_origin_world_machine_info
+		days = -1
+	}
+	# Balance pops. Always have 3
+	if = {
+		limit = {
+			num_pops = 2
+			from = {
+				has_origin = oxr_mdlc_origin_world_machine_awakened
+			}
+		}
+		create_pop = {
+			species = from.founder_species
+		}
+		log = "Created one extra Automation species"
+	}
+	# Set these vars
+	oxr_mdlc_origin_world_machine_calc_max_district_armies = yes
+}
+
+oxr_mdlc_planet_create_deposit_upgrade_flags = {
+	# Call before terraform / WM project finishes
+	# Any world machine upgrades will be transferred to the other world machine type
+
+	if = {
+		limit = {
+			has_deposit = rikk_mdlc_d_world_machine_crust_roots
+		}
+		set_planet_flag = has_rikk_mdlc_d_world_machine_crust_roots
+	}
+	if = {
+		limit = {
+			has_deposit = rikk_mdlc_d_world_machine_cooling_towers
+		}
+		set_planet_flag = has_rikk_mdlc_d_world_machine_cooling_towers
+	}
+	if = {
+		limit = {
+			has_deposit = rikk_mdlc_d_world_machine_synchronization_arrays
+		}
+		set_planet_flag = has_rikk_mdlc_d_world_machine_synchronization_arrays
+	}
+	if = {
+		limit = {
+			has_deposit = rikk_mdlc_d_world_machine_mantle_roots
+		}
+		set_planet_flag = has_rikk_mdlc_d_world_machine_mantle_roots
+	}
+	if = {
+		limit = {
+			has_deposit = rikk_mdlc_d_world_machine_mantle_engine
+		}
+		set_planet_flag = has_rikk_mdlc_d_world_machine_mantle_engine
+	}
+	if = {
+		limit = {
+			has_deposit = rikk_mdlc_d_world_machine_mantle_holes
+		}
+		set_planet_flag = has_rikk_mdlc_d_world_machine_mantle_holes
+	}
+	if = {
+		limit = {
+			has_deposit = rikk_mdlc_d_world_machine_mantle_buses
+		}
+		set_planet_flag = has_rikk_mdlc_d_world_machine_mantle_buses
+	}
+	if = {
+		limit = {
+			has_deposit = rikk_mdlc_d_world_machine_outer_core_roots
+		}
+		set_planet_flag = has_rikk_mdlc_d_world_machine_outer_core_roots
+	}
+	if = {
+		limit = {
+			has_deposit = rikk_mdlc_d_world_machine_outer_core_tap
+		}
+		set_planet_flag = has_rikk_mdlc_d_world_machine_outer_core_tap
+	}
+	if = {
+		limit = {
+			has_deposit = rikk_mdlc_d_world_machine_outer_core_cooled
+		}
+		set_planet_flag = has_rikk_mdlc_d_world_machine_outer_core_cooled
+	}
+	if = {
+		limit = {
+			has_deposit = rikk_mdlc_d_world_machine_inner_core_roots
+		}
+		set_planet_flag = has_rikk_mdlc_d_world_machine_inner_core_roots
+	}
+	if = {
+		limit = {
+			has_deposit = rikk_mdlc_d_world_machine_core_core
+		}
+		set_planet_flag = has_rikk_mdlc_d_world_machine_core_core
+	}
+	if = {
+		limit = {
+			has_deposit = rikk_mdlc_d_world_machine_inner_core_tap
+		}
+		set_planet_flag = has_rikk_mdlc_d_world_machine_inner_core_tap
+	}
+	if = {
+		limit = {
+			has_deposit = rikk_mdlc_d_world_machine_core_refuse
+		}
+		set_planet_flag = has_rikk_mdlc_d_world_machine_core_refuse
+	}
+}
+
+oxr_mdlc_planet_restore_deposit_upgrades = {
+	# Look for these flags, and then create the corresponding deposit
+	if = {
+		limit = {
+			has_planet_flag = has_rikk_mdlc_d_world_machine_crust_roots
+		}
+		add_deposit = rikk_mdlc_d_world_machine_crust_roots
+		remove_planet_flag = has_rikk_mdlc_d_world_machine_crust_roots
+	}
+	if = {
+		limit = {
+			has_planet_flag = has_rikk_mdlc_d_world_machine_cooling_towers
+		}
+		add_deposit = rikk_mdlc_d_world_machine_cooling_towers
+		remove_planet_flag = has_rikk_mdlc_d_world_machine_cooling_towers
+	}
+	if = {
+		limit = {
+			has_planet_flag = has_rikk_mdlc_d_world_machine_synchronization_arrays
+		}
+		add_deposit = rikk_mdlc_d_world_machine_synchronization_arrays
+		remove_planet_flag = has_rikk_mdlc_d_world_machine_synchronization_arrays
+	}
+	if = {
+		limit = {
+			has_planet_flag = has_rikk_mdlc_d_world_machine_mantle_roots
+		}
+		add_deposit = rikk_mdlc_d_world_machine_mantle_roots
+		remove_planet_flag = has_rikk_mdlc_d_world_machine_mantle_roots
+	}
+	if = {
+		limit = {
+			has_planet_flag = has_rikk_mdlc_d_world_machine_mantle_engine
+		}
+		add_deposit = rikk_mdlc_d_world_machine_mantle_engine
+		remove_planet_flag = has_rikk_mdlc_d_world_machine_mantle_engine
+	}
+	if = {
+		limit = {
+			has_planet_flag = has_rikk_mdlc_d_world_machine_mantle_holes
+		}
+		add_deposit = rikk_mdlc_d_world_machine_mantle_holes
+		remove_planet_flag = has_rikk_mdlc_d_world_machine_mantle_holes
+	}
+	if = {
+		limit = {
+			has_planet_flag = has_rikk_mdlc_d_world_machine_mantle_buses
+		}
+		add_deposit = rikk_mdlc_d_world_machine_mantle_buses
+		remove_planet_flag = has_rikk_mdlc_d_world_machine_mantle_buses
+	}
+	if = {
+		limit = {
+			has_planet_flag = has_rikk_mdlc_d_world_machine_outer_core_roots
+		}
+		add_deposit = rikk_mdlc_d_world_machine_outer_core_roots
+		remove_planet_flag = has_rikk_mdlc_d_world_machine_outer_core_roots
+	}
+	if = {
+		limit = {
+			has_planet_flag = has_rikk_mdlc_d_world_machine_outer_core_tap
+		}
+		add_deposit = rikk_mdlc_d_world_machine_outer_core_tap
+		remove_planet_flag = has_rikk_mdlc_d_world_machine_outer_core_tap
+	}
+	if = {
+		limit = {
+			has_planet_flag = has_rikk_mdlc_d_world_machine_outer_core_cooled
+		}
+		add_deposit = rikk_mdlc_d_world_machine_outer_core_cooled
+		remove_planet_flag = has_rikk_mdlc_d_world_machine_outer_core_cooled
+	}
+	if = {
+		limit = {
+			has_planet_flag = has_rikk_mdlc_d_world_machine_inner_core_roots
+		}
+		add_deposit = rikk_mdlc_d_world_machine_inner_core_roots
+		remove_planet_flag = has_rikk_mdlc_d_world_machine_inner_core_roots
+	}
+	if = {
+		limit = {
+			has_planet_flag = has_rikk_mdlc_d_world_machine_core_core
+		}
+		add_deposit = rikk_mdlc_d_world_machine_core_core
+		remove_planet_flag = has_rikk_mdlc_d_world_machine_core_core
+	}
+	if = {
+		limit = {
+			has_planet_flag = has_rikk_mdlc_d_world_machine_inner_core_tap
+		}
+		add_deposit = rikk_mdlc_d_world_machine_inner_core_tap
+		remove_planet_flag = has_rikk_mdlc_d_world_machine_inner_core_tap
+	}
+	if = {
+		limit = {
+			has_planet_flag = has_rikk_mdlc_d_world_machine_core_refuse
+		}
+		add_deposit = rikk_mdlc_d_world_machine_core_refuse
+		remove_planet_flag = has_rikk_mdlc_d_world_machine_core_refuse
+	}
+}
+
+oxr_mdlc_planet_add_wmc_core_deposit_if_missing = {
+	if = {
+		limit = {
+			NOT = {
+				has_deposit = oxr_mdlc_d_world_machine_core
+			}
+			is_planet_world_machine = yes
+		}
+		add_deposit = oxr_mdlc_d_world_machine_core
+	}
+}
+
+oxr_mdlc_planet_fix_things_after_restoring_ownership = {
+	# We reclaimed a world-machine after war, but it's a little borked
+	repair_all_buildings = yes
+	
+	if = {
+		limit = { has_building = building_hive_capital }
+		remove_building = building_hive_capital
+	}
+	if = {
+		limit = { has_building = building_colony_shelter }
+		remove_building = building_colony_shelter
+	}
+	if = {
+		limit = { has_building = building_ancient_control_center }
+		remove_building = building_ancient_control_center
+	}
+	if = {
+		limit = { has_building = building_ancient_palace }
+		remove_building = building_ancient_palace
+	}
+	if = {
+		limit = { has_building = building_machine_capital_nanotech }
+		remove_building = building_machine_capital_nanotech
+	}
+	if = {
+		limit = { has_building = building_deployment_post }
+		remove_building = building_deployment_post
+	}
+	if = { limit = { has_building = building_machine_capital } remove_building = building_machine_capital }
+	if = { limit = { has_building = building_machine_major_capital } remove_building = building_machine_major_capital }
+	if = { limit = { has_building = building_machine_system_capital } remove_building = building_machine_system_capital }
+
+	if = {
+		limit = {
+			NOR = {
+				has_building = oxr_mdlc_world_machines_building_auto_capital
+				oxr_mdlc_has_upgraded_capital = yes
+			}
+		}
+		add_building = oxr_mdlc_world_machines_building_auto_capital
+	}
+}
+
+oxr_mdlc_planet_decision_repopulate_world_machine = {
+	# Events killed off our pops and now we have no colony!
+	# Player is at the planet view, going to click 'decision'
+	# and ends up in this effect
+}
+
+oxr_mdlc_planet_add_rikk_terraforming_queued_modifier = {
+	# Add a timed modifier while the decision is in progress to give visual info
+	add_modifier = {
+		modifier = rikk_mdlc_decision_world_machine_convert_$PLANET_CLASS$_on_queued_modifier
+		days = $DAYS$
+	}
+}
+
+oxr_mdlc_country_clear_wm_arc_sites_on_knowledge_gain = {
+	# Remove arc sites after proficiency has been gained
+	every_archaeological_site = {
+		limit = {
+			oxr_mdlc_arc_site_is_wm_blocker = yes
+		}
+		destroy_archaeological_site = this
+	}
+}

@@ -1,0 +1,17 @@
+is_capital = yes
+exists = owner
+owner = {
+	is_country_type = default
+
+	OR = {
+		has_origin = oxr_mdlc_origin_world_machine_awakened
+		has_ascension_perk = xvcv_mdlc_ap_world_machines
+	}
+	OR = {
+		is_ai = no
+		AND = {
+			years_passed > 25
+			num_owned_planets >= 5
+		}
+	}
+}

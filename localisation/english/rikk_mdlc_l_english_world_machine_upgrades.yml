@@ -1,0 +1,296 @@
+﻿l_english:
+
+ #terraforming decisions
+ #solidify molten world
+ rikk_mdlc_decision_world_machine_solidify_molten: "World Machine: Solidify Molten World Surface"
+ rikk_mdlc_decision_world_machine_solidify_molten_desc: "This Molten World, with its large heat supply, could serve as the foundation for an industrial-type World Machine, but its liquid magma surface presents significant engineering challenges.\n\nOur advances into planetary geophysics have yielded insights on how to anchor specialized heat sinks, in the form of massive cooling rods, to stabilize large portions of its surface enough to build on it."
+ rikk_mdlc_decision_world_machine_solidify_molten_effect: "The crust of the planet will be terraformed to create a suitable environment for deploying a World-Machine core."
+
+ # Added by Retro
+ rikk_mdlc_decision_world_machine_convert_pc_molten_on_queued_modifier: "Tectonic plate engineering in progress"
+ rikk_mdlc_decision_world_machine_convert_pc_molten_on_queued_modifier_desc: "Portions of the liquid crust will be cooled and stabilized in preparation for conversion to Auto-Machine World."
+ rikk_mdlc_decision_world_machine_convert_pc_frozen_on_queued_modifier: "Atmospheric and hydrospheric warming is in progress"
+ rikk_mdlc_decision_world_machine_convert_pc_frozen_on_queued_modifier_desc: "The planet will be warmed gradually in preparation for conversion to Auto-Machine World."
+ rikk_mdlc_decision_world_machine_convert_pc_toxic_on_queued_modifier: "Atmospheric and surface scrubbing is in progress"
+ rikk_mdlc_decision_world_machine_convert_pc_toxic_on_queued_modifier_desc: "Corrosive toxins and chemicals are being neutralized in preparation for conversion to Auto-Machine World."
+ 
+ rikk_mdlc_world_machine_molten_mod: "Solidifed Molten World"
+ rikk_mdlc_world_machine_molten_mod_desc: "Once a world of lava flows and eruptions, the crust of this planet has been soldified enough for industrialization. The many natural resources remaining from the cooling process will serve to boost future industries."
+ 
+ MESSAGE_MOLTEN_WORLD_SOLIDIFIED: "A molten world's crust has been solidified for a World Machine."
+
+ 
+ # warm frozen planet
+ rikk_mdlc_decision_world_machine_defrost_cryosphere: "World Machine: Defrost Cryosphere"
+ rikk_mdlc_decision_world_machine_defrost_cryosphere_desc: "Using a large amount of energy, we will use our knowledge of thermodynamics and heat transfer applications to begin warming the planet."
+ rikk_mdlc_decision_world_machine_defrost_cryosphere_effect: "$rikk_mdlc_decision_world_machine_convert_pc_frozen_on_queued_modifier_desc$"
+ 
+ rikk_mdlc_world_machine_frozen_mod: "Defrosted Cryosphere"
+ rikk_mdlc_world_machine_frozen_mod_desc: "This previously frozen world has been sufficiently warmed and stabilized to allow a World-Machine to be installed."
+ 
+ MESSAGE_FROZEN_WORLD_DEFROSTED: "A defrosted world is ready for World-Machine Core deployment."
+ 
+ #cleanse toxic world
+ rikk_mdlc_decision_world_machine_cleanse_toxic: "World Machine: Cleanse Toxins"
+ rikk_mdlc_decision_world_machine_cleanse_toxic_desc: "Toxic worlds are valuable sources of rare and exotic compounds, but are too corrosive and reactive towards most metals and organic compounds for any kind of settlement or construction. We will use new theories and applications from §Y$tech_climate_restoration$§! research to neutralize the damaging effects of the most hostile compounds, and render the remaining ones accessible for industrial use."
+ rikk_mdlc_decision_world_machine_cleanse_toxic_effect: "$rikk_mdlc_decision_world_machine_convert_pc_toxic_on_queued_modifier_desc$"
+
+ rikk_mdlc_world_machine_toxic_mod: "Detoxified Landscapes"
+ rikk_mdlc_world_machine_toxic_mod_desc: "Corrosive compounds have been rendered inert, along with other machine-hostile chemicals. What remains are stable ocean-sized deposits of rare reactants and catalysts for use in the production of exotic resources."
+ 
+ MESSAGE_TOXIC_WORLD_CLEANSED: "A detoxified world is ready for a World Machine"
+ 
+ #harness nanites
+ rikk_mdlc_decision_world_machine_harness_nanites: "World Machine: Harness Nanites"
+ rikk_mdlc_decision_world_machine_harness_nanites_desc: "The nanites that comprise this world -- microscopic, self-replicating micro-machines -- have flooded the planet due to broken reproduction-limiting protocols. In order to stabilize this overgrowth, and prepare the planet for a World-Machine core, we will carefully study their communications protocol, override it, and redirect the swarm to our advantage."
+ MESSAGE_NANITE_WORLD_HARNESSED: "Nanite swarms have been harnessed for a World Machine"
+ 
+ rikk_mdlc_world_machine_nanite_mod: "Subverted Nanites"
+ rikk_mdlc_world_machine_nanite_mod_desc: "The control protocols for the nanites flooding the planet has been overridden, and the nanites now respond to a variety of commands. Most notably, the nanites will be directed to improve planetary construction speeds."
+ 
+ rikk_mdlc_wm_upgrade_events.141.name: "Nanite Worlds"
+ rikk_mdlc_wm_upgrade_events.141.desc: "The Nanite Worlds located within the L-Cluster may be targets for World-Machine expansion. The floods of nanites can be subverted to assist with terraforming and planetary construction. $oxr_mdlc_growth_node$ has identified the potential capacity for the nanites to assist in automated deployment and construction of a World-Machine at staggering rates.\n§SThere is a special decision for any L-Gate nanite world to make them World Machine Candidates.§!"
+ rikk_mdlc_wm_upgrade_events.141.a: "Processing Information."
+ 
+ rikk_mdlc_wm_upgrade_events.142.desc: "We have not found any of the desolate wastelands that the The Gate-builders, on whom we lack sufficient data, have been rumored to leave behind. If we are to find any planets covered in these ancient nanites, $oxr_mdlc_growth_node$ has posited they can be used to directly assemble World Machines at staggering rates.\n§SThere is a special decision for any L-Gate nanite world to make them World Machine Candidates.§!"
+ rikk_mdlc_wm_upgrade_events.142.a: "Processing Information."
+ 
+ #terraforming_deposits 
+ rikk_mdlc_d_world_machine_silica_eruptions: "Silicate Geysers"
+ rikk_mdlc_d_world_machine_silica_eruptions_desc: "Geysers of silicate gases rise from the crust on this planet, creating massive snow-like blankets over portions of the surface. The residue can be processed into basic structural materials."
+ rikk_mdlc_d_world_machine_lightning_delta: "Lightning Delta"
+ rikk_mdlc_d_world_machine_lightning_delta_desc: "One of the molten world's previous largest volcano ranges has cooled down, but the various minerals that have cooled within the flows have formed a wide-area persistent electromagnetic disturbance. Lightning storms strike the area regularly, disrupting electronic communications and equipment, while also producing rare natural mineral formations."
+ rikk_mdlc_d_world_machine_pyroclastic_surges: "Pyroclastic Surges"
+ rikk_mdlc_d_world_machine_pyroclastic_surges_desc: "The ground here remains unstable due to sub-surface flows of gas and rock, exploding at random from the pressure. These dangerous explosions regularly bring new resources to the surface."
+ 
+ rikk_mdlc_d_world_machine_chemical_glacier: "Ammonic Glaciers"
+ rikk_mdlc_d_world_machine_chemical_glacier_desc: "A number of chemicals, chiefly ammonia, have condensed into massive glacial structures in this section of the planet. It may be possible to extract a small amount of exotic resources from this region."
+ rikk_mdlc_d_world_machine_subsurface_sea: "Subsurface Sea"
+ rikk_mdlc_d_world_machine_subsurface_sea_desc: "Below the crust, there is a large sea of chemicals compressed to liquid form by temperature and pressure. Although there is no economic benefit from extracting the chemicals, the deposit may prove useful as a heat sink."
+ rikk_mdlc_d_world_machine_natural_super_geyser: "Super Geyser"
+ rikk_mdlc_d_world_machine_natural_super_geyser_desc: "A large geyser periodically spews the planet's liquid interior high up into its atmosphere, due to tidal pressures. This creates a trail of ice in the stratosphere, which stays in low orbit and forms a thin ring. One possible utilization of the geyser is to sink heat into it."
+ 
+ rikk_mdlc_d_world_machine_sulfur_geysers: "Sulfuric Clouds"
+ rikk_mdlc_d_world_machine_sulfur_geysers_desc: "A dense cloud of sulfuric compounds, including hydrogen sulfide, emitted by numerous ancient processes, cover a portion of the planet. The now-defunct sources of emissions are rich in chemical resources that may be utilized by various industries."
+ rikk_mdlc_d_world_machine_carbonic_sea: "Carbonic Sea"
+ rikk_mdlc_d_world_machine_carbonic_sea_desc: "A sea of carbonic acid covers a potion of the planet. With proper processing, the chemical can be extracted and used in a variety of settings, from medical applications, to synthesizing various compounds, and for various industrial cleaning applications."
+ rikk_mdlc_d_world_machine_acidic_basin: "Acidic Basin"
+ rikk_mdlc_d_world_machine_acidic_basin_desc: "A variety of polycrystals have developed in a large subcontinent-sized basin over millenia. The area may serve a variety of research purposes and contribute towards production; however, the terrain is encased in a dust layer which reacts in a volatile manner to metals of all kinds, and must be carefully cleared in a time-consuming manner."
+
+ #crust roots
+ rikk_mdlc_decision_world_machine_crust_roots: "Geo-Expansion 1: Crust Roots"
+ rikk_mdlc_decision_world_machine_crust_roots_desc: "§YThis can reveal more layers of upgrades§!\nThe surface of the planet has been maximized. The next logical step is to utilie the massive volume of the planet for development, and begin expanding downwards."
+ rikk_mdlc_fail_crust_roots_queued: "£trigger_no£ §RCrust Roots must be queued or built before starting this project.§!"
+ 
+ rikk_mdlc_d_world_machine_crust_roots: "World Machine Crust Roots"
+ rikk_mdlc_d_world_machine_crust_roots_desc: "Large geometric structures connect the surface to the depths of the planet's crust. Much of the structure is dedicated to support, and the free space has been demarcated for district expansion. Due to slightly elevated temperatures, district maintenance is increased."
+ 
+ #cooling towers
+ rikk_mdlc_decision_world_machine_cooling_towers: "World Machine Cooling Towers"
+ rikk_mdlc_decision_world_machine_cooling_towers_desc: "Cooling towers will be erected, tall enough to vent heat into the upper atmosphere via exotic gases. Recyclers at ground level will be constructed to collect the coolant as it rains down onto the planet, and pump it back through the towers."
+ 
+ rikk_mdlc_d_world_machine_cooling_towers: "World Machine Cooling Towers"
+ rikk_mdlc_d_world_machine_cooling_towers_desc: "These towers scrape the upper edges of the atmosphere, dispersing heat through gases, directing energy back into space. Once the gases have radiated their heat, they cool into fluid and rain down on the surface; special collectors drain the fluids and prepare them to be dispersed into the atmosphere again through efficient district-based heat recyclers."
+ 
+ rikk_mdlc_decision_world_machine_synchronization_arrays: "Synchronization Infrastructure"
+ rikk_mdlc_decision_world_machine_synchronization_arrays_desc: "Space elevators will be anchored to the planet's surface with large pylons, along the equator, and communications equipment will be assembled atop it. On the planet's poles, large subspace network arrays, including massive radio dishes, will be fabricated, and once complete, a real-time link will be created with any other World-Machines' arrays. The synchronization will improve supply and demand algorithms and can improve logistics months or years ahead."
+ 
+ rikk_mdlc_d_world_machine_synchronization_arrays: "Synchronization Infrastructure"
+ rikk_mdlc_decision_world_machine_synchronization_arrays_effect: "For every World Machine after the first linked:\n$xvcv_mdlc_world_machines_industrial_districts$ $OUTPUT$/$upkeep$: §G+3%§!/§R+3%§!"
+ rikk_mdlc_d_world_machine_synchronization_arrays_desc: "Crust-anchored equatorial space elevators and massive polar communication arrays links this world to other World Machines in a massive web. Synchronizing with other Machine-Worlds improves demand generation algorithms and improves logistics months or years ahead."
+ 
+ 
+ #mantle roots
+ rikk_mdlc_decision_world_machine_mantle_roots: "Geo-Expansion 2: Mantle Roots"
+ rikk_mdlc_decision_world_machine_mantle_roots_desc: "§YThis can reveal more layers of upgrades§!\nWith the crust stabilized and industrialized, the planet's mantle is the target of the next layer of expansion. Tunnels will be constructed using new technologies permitting construction in this high-temperature, high-pressure environment, and space for more districts will be carved out from the interior."
+ rikk_mdlc_fail_mantle_roots_queued: "£trigger_no£ §RMantle Roots must be queued or built before starting this project.§!"
+ 
+ rikk_mdlc_d_world_machine_mantle_roots: "World Machine Mantle Roots"
+ rikk_mdlc_d_world_machine_mantle_roots_desc: "Large structures mitigate the pressure and heat in the upper mantle of the planet, making it possible to expand the production power of this World-Machine."
+
+ #mantle taps
+ #rikk_mdlc_d_world_machine_mantle_tap: "Mantle Taps"
+ #rikk_mdlc_d_world_machine_mantle_tap_desc: "Mantle Taps"
+ 
+ #mantle engine
+ rikk_mdlc_decision_world_machine_mantle_engine: "Continental Stabilization Engines"
+ rikk_mdlc_decision_world_machine_mantle_engine_desc: "The planet's crust will be secured at subduction points, and at other significant spots where tectonic plates meet to create earthquakes and mountains. Beneath the crust, we will build and arrange diverters in the mantle layer to direct continental motion and reduce planetary friction at the crust layer. This is necessary to permit stable structures from the surface into the mantle. Bombardments will, unfortunately, be much more effective on our buildings."
+ rikk_mdlc_fail_mantle_engine_queued: "£trigger_no£ §RThe Continental Stabilization Engines must be queued or built before starting this project.§!"
+ 
+ rikk_mdlc_d_world_machine_mantle_engine: "Continental Stabilization Engines"
+ rikk_mdlc_d_world_machine_mantle_engine_desc: "Sub-crust flow control structures, placed within the planet's mantle, direct powerful currents away from points in plate tectonics that would otherwise cause volcanoes, earthquakes, tsunami, and other destructive phenomenae."
+ 
+ rikk_mdlc_decision_world_machine_reinforced_planet: "Reinforced Surface Constructions"
+ rikk_mdlc_decision_world_machine_reinforced_planet_effect: "§YContinental Stabilization Engines§!\n    Orbital bombardment damage: §G-30%§!\n\nCost increases with number of districts.\nWorld Machine Districts Mineral Cost: §R+20%§!"
+ rikk_mdlc_decision_world_machine_reinforced_planet_desc: "$oxr_mdlc_legion_node$ has devised shapes for buildings that will lessen the impact of planetary bombardments. The plans include force-dissipating geometry for the material blocks that make up functional structures."
+ 
+ rikk_mdlc_wm_upgrade_events.130.name: "Reinforcing Our World Machines"
+ rikk_mdlc_wm_upgrade_events.130.desc: "The Legion Node has, time and time again, pointed out the frailty we have allowed to slip into our building process thanks to the various factors we can ignore with our Continental Stabilization Engines. The bombardment of our planet has proven the Node correct. We will have to work hard to overcome these failings we have introduced.\nThe Legion Node has devised a way to lay out and construct our buildings so that they will be less vulnerable to bombardment, without compromising construction speed."
+ rikk_mdlc_wm_upgrade_events.130.a: "Inevitable, Unfortunate, Advance-worthy"
+ rikk_mdlc_wm_upgrade_events.130.a.tooltip: "§SUnlocks a decision to reinforce our planets.§!"
+ 
+ #mantle holes
+ rikk_mdlc_decision_world_machine_mantle_holes: "Intra-Planetary Transportation Network"
+ rikk_mdlc_decision_world_machine_mantle_holes_desc: "Massive trains, conveyor systems, and atmospheric shuttlecraft all serve to support the logistics that the planet requires to continue manufacturing at incredible paces. Traveling only along the circumference of the planet can result in congestion and over-crowding of transportation systems.\n\nTo this end we will create fixed transportation depots, and create connections using the shortest distances through the planet's mantle. Cargo will be lowered from the surface and whisked away by mag-lev rail, cutting down on transportation time significantly."
+ 
+ rikk_mdlc_d_world_machine_mantle_holes: "Intra-Planetary Transportation Network"
+ rikk_mdlc_d_world_machine_mantle_holes_desc: "A massive set of shafts run through the planet, serving as transportation lines from continent to continent. Cargo is dropped in one end, accelerated via electromagnetic rails, until it arrives on the other side of the planet."
+ rikk_mdlc_d_world_machine_mantle_holes_effect: "For Every Non-Cooling District:\n - World Machine Industrial Districts Production: §G+1%§!\n- World Machine Industrial Districts Upkeep: §R+0.5%§!\nCurrent Effect:"
+ 
+ #mantle buses
+ rikk_mdlc_decision_world_machine_mantle_buses: "Intra-Planetary Bus Network"
+ rikk_mdlc_decision_world_machine_mantle_buses_desc: "The thick super-conducting conduits that transmit information on our worlds, reminiscent of early under-sea cables but many times larger, pass inefficiently over the crust. By rerouting these lines through the innards of the planet a dramatic decrease in length, and therefore latency, will occur. This will make all processing between continental distances extremely fast."
+ 
+ rikk_mdlc_d_world_machine_mantle_buses: "Intra-Planetary Bus Network"
+ rikk_mdlc_d_world_machine_mantle_buses_desc: "Thick super-conducting conduits, reminiscent of early under-sea cables but many times larger, now run directly through the core of the planet. A dramatic decrease in latency and an inverse increase to efficiency has been extremely effective, allowing our computing complexes to operate faster and faster."
+ rikk_mdlc_d_world_machine_mantle_buses_effect: "For Every Non-Cooling District:\n    World Machine Computer Districts Production: §G+1%§!\n    World Machine Computer Districts Upkeep: §R+0.5%§!\nCurrent Effect:"
+ 
+ #outer core roots
+ rikk_mdlc_decision_world_machine_outer_core_roots: "Geo-Expansion 3: Outer Core Roots"
+ rikk_mdlc_decision_world_machine_outer_core_roots_desc: "With the mantle in our metallic grasp, our reach into this planet will never be truly undone. But the sands of time wear down all empires. Let us convince the unrelenting march of our unwavering, single-minded commitment. We shall go deeper."
+ rikk_mdlc_fail_outer_core_roots_queued: "£trigger_no£ §ROuter Core Roots must be queued or built before starting this project.§!"
+ 
+ rikk_mdlc_d_world_machine_outer_core_roots: "World Machine Outer Core Roots"
+ rikk_mdlc_d_world_machine_outer_core_roots_desc: "With the mantle conquered, our reach into this planet will never be truly undone. But the sands of time wear down all empires. Let us convince the unrelenting march of our unwavering, single-minded commitment. We shall go deeper."
+ 
+ #outer core tap
+ rikk_mdlc_decision_world_machine_outer_core_tap: "Geo-Expansion 4: Outer Core Tap"
+ rikk_mdlc_decision_world_machine_outer_core_tap_desc: "The core of the planet offers both heat and material in staggering amounts. We shall tap this, using our extensive planetary root system. The outer core itself is not as rich as the inner core, but it shall provide a better source of heat. We can route this directly to our furnaces to use, decreasing the cost of running them."
+ 
+ rikk_mdlc_d_world_machine_outer_core_tap: "World Machine Outer Core Tap"
+ rikk_mdlc_d_world_machine_outer_core_tap_desc: "The core of the planet offers both heat and material in staggering amounts. We shall tap this, using our extensive planetary root system. The outer core itself is not as rich as the inner core, but it shall provide a better source of heat. We can route this directly to our furnaces to use, decreasing the cost of running them."
+ 
+ #outer core cooling
+ rikk_mdlc_decision_world_machine_outer_core_cooling: "World Machine Outer Core Cooling"
+ rikk_mdlc_decision_world_machine_outer_core_cooling_desc: "The core of the planet is a molten mess that raises the temperature of our planetary computing network by an unnecessary amount. We should remove this obstacle by cooling the outer core, making our super conducting materials work more efficiently over planetary distances."
+ 
+ rikk_mdlc_d_world_machine_outer_core_cooled: "World Machine Outer Core Cooled"
+ rikk_mdlc_d_world_machine_outer_core_cooled_desc: "The core of the planet was a molten mess that raised the temperature of our planetary computing network by an unnecessary amount. It has been cooled, allowing our processes to be transmitted across the planetary superconductor network more efficient than ever."
+ 
+ rikk_mdlc_world_machine_outer_core_cooling_mod: "Outer Core Cooling"
+ rikk_mdlc_world_machine_outer_core_cooling_mod: "The outer core of this planet is being cooled, at a minor cost to the planet's built-in cooling districts."
+ 
+ #inner core roots
+ rikk_mdlc_decision_world_machine_inner_core_roots: "Geo-Expansion 5: Inner Core Roots"
+ rikk_mdlc_decision_world_machine_inner_core_roots_desc: "The planet is all but ours. Our machines occupy 90% of the planet's volume, the squirming masses of our expanding roots sucking the planet hollow and replacing it with artifical machinery. One last step, and our reign will go forever unchallenged.\nBut this last step is no subtle thing. The core of the planet is heavy. It will give us access to some of the richest fortunes there are, and it is our choice to exploit it or squander it."
+ rikk_mdlc_fail_inner_core_roots_queued: "£trigger_no£ §RInner Core Roots must be queued or built before starting this project.§!"
+ 
+ rikk_mdlc_d_world_machine_inner_core_roots: "World Machine Inner Core Roots"
+ rikk_mdlc_d_world_machine_inner_core_roots_desc: "The last step is here. Our roots permeate the outer core, special metals and cooling systems required to keep them from melting. We shall do the same to this core."
+ 
+ rikk_mdlc_fail_inner_core_project_queued: "£trigger_no£ §RThere is already a core project queued or built.§!"
+ rikk_mdlc_fail_inner_core_project_queued_1: "£trigger_no£ §RThere is already a core project queued or built.§!"
+ rikk_mdlc_fail_inner_core_project_queued_2: "£trigger_no£ §RThere is already a core project queued or built.§!"
+  
+ #core tap
+ rikk_mdlc_decision_world_machine_inner_core_tap: "Geo-Expansion 6: Inner Core Tap"
+ rikk_mdlc_decision_world_machine_inner_core_tap_desc: "§YMutually Exclusive with the World Machine Core\nAn implanted core will replace this deposit if you build it.§!\nThe center of this world should be tapped. It would be an unspeakably large boon to any industrial planet, allowing us to directly extract or supplement the input of industry with the material. It could be used on any world however, as it would give us straight minerals instead."
+ 
+ rikk_mdlc_d_world_machine_inner_core_tap: "World Machine Inner Core Tap"
+ rikk_mdlc_d_world_machine_inner_core_tap_desc: "§YMutually Exclusive with the World Machine Core\nAn implanted core will replace this deposit if you build it.§!\nThe center of this world has been tapped, giving us untold access to the rich materials that permeate the core of this planet."
+ #rikk_mdlc_d_world_machine_inner_core_tap_tooltip: "World Machine Industrial Districts Production: §G+50%§!\nAuto-Processor/Server Worlds:\n  Produces: £minerals£200\n  Upkeep: £energy£50"
+ 
+ #core core decision, situation, deposit, events
+ rikk_mdlc_decision_world_machine_core_core: "Geo-Expansion 7: Core within the Core"
+ rikk_mdlc_decision_world_machine_core_core_desc: "§YMutually Exclusive with the World Machine Tap§!\nThe Core of the planet is the heart of the gravitic and electromagnetic fields. It would be foolish to ignore this opportunity, and the cognitive node has proposed a brilliant way to use it. We shall cool, carve, then deploy our world core into the center of this planet. It shall occupy a point perfectly spaced from all other mechanisms, and as such shall command them with perfect clarity. Not only this, but we shall specially design its systems to abuse the strong gravitic and weakened electromagnetic fields of the planet. This will squander the vast resources set out before us, but this opportunity is worth."
+ 
+ rikk_mdlc_situation_core_core: "World Machine: Core Implanting"
+ rikk_mdlc_situation_core_core_type: "World Machine Upgrade"
+ rikk_mdlc_situation_core_core_cooling_desc: "§HCooling Stage§!\n\nThe core of the planet is the heart of the gravitic and electromagnetic fields. It would be foolish to ignore this opportunity, and the cognitive node has proposed a brilliant way to use it. We shall cool, carve, then deploy our world core into the center of this planet. It shall occupy a point perfectly positioned from all other mechanisms, and as such shall command them with perfectly balanced latency. We shall specially design its systems to abuse the strong gravitic and weakened electromagnetic fields of the planet."
+ rikk_mdlc_situation_core_core_carving_desc: "§HCarving Stage§!\n\nThe core of the planet is the heart of the gravitic and electromagnetic fields. It would be foolish to ignore this opportunity, and the cognitive node has proposed a brilliant way to use it. We shall cool, carve, then deploy our world core into the center of this planet. It shall occupy a point perfectly positioned from all other mechanisms, and as such shall command them with perfectly balanced latency. We shall specially design its systems to abuse the strong gravitic and weakened electromagnetic fields of the planet."
+ rikk_mdlc_situation_core_core_implanting_desc: "§HImplanting Stage§!\n\nThe core of the planet is the heart of the gravitic and electromagnetic fields. It would be foolish to ignore this opportunity, and the cognitive node has proposed a brilliant way to use it. We shall cool, carve, then deploy our world core into the center of this planet. It shall occupy a point perfectly positioned from all other mechanisms, and as such shall command them with perfectly balanced latency. We shall specially design its systems to abuse the strong gravitic and weakened electromagnetic fields of the planet."
+
+ rikk_mdlc_d_world_machine_core_core: "World Machine Core"
+ rikk_mdlc_d_world_machine_core_core_desc: "At the heart of this planet lies one of the intelligence's greatest creations: a computing device so vast it encompasses the core of an entire world which manages each iota of the rest."
+ 
+ #Situation 
+ #every stage approaches
+ rikk_mdlc_situation_core_core_monthly_change_tooltip: "World Core Install Wizard Estimate: 9999 Years"
+ rikk_mdlc_approach_abort: "Cease Operation"
+ rikk_mdlc_approach_abort_effect: "§REnds the attempt to install a World Core!§!"
+ rikk_mdlc_approach_normal: "Steady Installation"
+ rikk_mdlc_approach_normal_effect: "§Y10.0§! Monthly Progress\nOn the carving phase, minerals will be sorted out efficiently"
+ rikk_mdlc_approach_normal_desc: "Standard, safe, predictable installation."
+ rikk_mdlc_approach_extra: "Unrelenting Installation"
+ rikk_mdlc_approach_extra_effect: "§G20.0§! Monthly Progress\nOn the carving phase, minerals will not be sorted out efficiently"
+ rikk_mdlc_approach_extra_desc: "Forgo material cost and planetary stability in exchange for progress."
+ #stage 1 special approach
+ rikk_mdlc_stage_core_core_cooling: "Planet Core Active Cooling"
+ rikk_mdlc_approach_cooling_district: "Cooling District Interconnect"
+ rikk_mdlc_approach_cooling_district_effect: "§G30.0§! Monthly Progress"
+ rikk_mdlc_approach_cooling_district_desc: "Connect the cooling districts via massive channels to the core, allowing the heat to be cooled at an extreme rate. lowers their effectiveness for the length of the approach."
+ #stage 2 special approaches +transitory event
+ rikk_mdlc_stage_core_core_carving: "Planet Core Carving"
+ rikk_mdlc_wm_upgrade_events.20.name: "Planet Cooling Complete; Carving Commencing"
+ rikk_mdlc_wm_upgrade_events.20.desc: "§HApproaches have changed!§!\n\nThe Core of the planet has been fully cooled - and as such, the magnetic field has weakened even further. It will only weaken further during the process of carving it in order to install the gargantuan World Core.\nAny chance there was to tap the core for resources is now gone, and we must make do with the mining we can take from this stage of the process.\n§YThe slower we go, the more resources we might extract§!"
+ rikk_mdlc_wm_upgrade_events.20.a: "Processing Information"
+ rikk_mdlc_wm_upgrade_events.20.b: "Cease These Helpful Alerts."
+ rikk_mdlc_approach_carving_pops: "Sacrifical Carving"
+ rikk_mdlc_approach_carving_pops_effect: "§G30.0§! Monthly Progress\n§RInstantly kills 10 planet pops.§!\n§YWill only trigger once.§!"
+ rikk_mdlc_approach_carving_pops_desc: "Drones are a thing of the past compared to the unbridled power of the World Machines. It is fitting that their replacements shall also become their tombs."
+ rikk_mdlc_approach_dumping_grounds: "Dumping Grounds"
+ rikk_mdlc_approach_dumping_grounds_effect: "§G30.0§! Monthly Progress\n§RCovers the planet in debris, blocking 5 districts.§!\n§YWill only trigger once.§!"
+ rikk_mdlc_approach_dumping_grounds_desc: "The amount of material we dig up substantially reduces the speed of core installation. It would be much easier if we were to simply dump it now and take care of it later."
+ rikk_mdlc_d_world_machine_core_refuse: "World Core Dump"
+ rikk_mdlc_d_world_machine_core_refuse_desc: "A vast portion of the world's core has been dumped here, awaiting clearing. The automated digging devices used to pull it out of the core now pick through the rich refuse for materials."
+ #stage 3 special approach +transitory event
+ rikk_mdlc_stage_core_core_implanting: "World Core Installation"
+ rikk_mdlc_stage_core_core_carving: "World Core Installation"
+ rikk_mdlc_wm_upgrade_events.30.name: "Planet Carving Complete; Implanting Commencing"
+ rikk_mdlc_wm_upgrade_events.30.desc: "§HApproaches have changed!§!\n\nThe Core of the planet has been torn apart and reinforced, the weight of the world supported by gargantuan braces that share the same technology as megastructures. It leaves perfectly designed slots for the World Core to be installed. The loss of so much of the magnetic core has resulted in the near loss of the magnetosphere, but our geodynamo shall activate soon and restore it."
+ rikk_mdlc_wm_upgrade_events.30.a: "Acknowledged."
+ rikk_mdlc_wm_upgrade_events.30.b: "Cease these alerts."
+ rikk_mdlc_approach_tear_new_one: "Tear them Asunder"
+ rikk_mdlc_approach_tear_new_one_effect: "§G30.0§! Monthly Progress"
+ rikk_mdlc_approach_tear_new_one_desc: "The installation speed of this World Core is heavily handicapped by the speed at which components are assembled within the core. If we could bring larger assemblies in, these delays could be vastly hastened. All that would be required is shutting down and tearing out vast portions of the planet's systems to widen the pathways."
+ 
+ #situation finished
+ rikk_mdlc_wm_upgrade_events.40.name: "The World Core installed"
+ rikk_mdlc_wm_upgrade_events.40.desc: "The World Core has been successfully installed, and the World Machine's capabilities have begun to creep ever upwards. The geodynamo installed within shall generate our own magnetic field"
+ rikk_mdlc_wm_upgrade_events.40.a: "Simulated Clapping Noises."
+ rikk_mdlc_wm_upgrade_events.40.a: "Cease these alerts."
+ rikk_mdlc_situation_core_core_complete: "Install the World Core"
+ 
+ #Dyson Deflector/Receiver
+ sm_rikk_mdlc_world_machine_dyson_deflector: "Dyson Energy Deflector Pylon"
+ sm_rikk_mdlc_world_machine_dyson_deflector_desc: "§SStarbase Module§!\n§LThe power of a Dyson Sphere is incredibly useful - but we could also use it to overclock our World Machines, letting them operate at incredible speeds.§!"
+ sm_rikk_mdlc_world_machine_dyson_receiver: "Dyson Energy Receiver Array"
+ sm_rikk_mdlc_world_machine_dyson_receiver_desc: "§SOrbital Ring Module§!\n§LReceiving the energy of a star and forcing it into our World Machine is a risky, but acceptable venture. The raw speed the world's core now operates at is ever-increasing.§!\n§RIf we go above the receiver maximum, a huge upkeep cost will be applied!§!"
+ rikk_mdlc_requires_full_dyson_sphere: "Requires a completed Dyson Sphere in the system"
+ rikk_mdlc_requires_additional_pylons: "YOU MUST CONSTRUCT ADDITIONAL PYLONS."
+ 
+ rikk_mdlc_wm_upgrade_events.120.name: "Dyson Receivers Out Of Power!"
+ rikk_mdlc_wm_upgrade_events.120.desc: "Our Dyson Deflectors aren't producing enough energy for our reflectors to operate properly - instead they've started pulling energy out of our grid at massive scales!"
+ rikk_mdlc_wm_upgrade_events.120.a: "Data received - calculating countermeasure"
+ 
+ #tech
+# rikk_mdlc_tech_world_machine_crust_upgrade: "World Machine Crust Projects"
+# rikk_mdlc_tech_world_machine_crust_upgrade_tooltip: "Unlocks World Machine Planetary Projects in the Decisions Tab"
+# rikk_mdlc_tech_world_machine_crust_upgrade_desc: "Our World Machines will benefit from projects to stabilize the crust, using it to sustain continent spanning designs."
+# rikk_mdlc_tech_world_machine_mantle_upgrade: "World Machine Mantle Projects"
+# rikk_mdlc_tech_world_machine_mantle_upgrade_tooltip: "Unlocks World Machine Planetary Projects in the Decisions Tab"
+# rikk_mdlc_tech_world_machine_mantle_upgrade_desc: "The expansion into the crust of our worlds has yielded many new insights the nodes are still processing. A further analysis of the feasability of even deeper projects will be conducted."
+# rikk_mdlc_tech_world_machine_outer_core_upgrade: "World Machine Outer Core Projects"
+# rikk_mdlc_tech_world_machine_outer_core_upgrade_tooltip: "Unlocks World Machine Planetary Projects in the Decisions Tab"
+# rikk_mdlc_tech_world_machine_outer_core_upgrade_desc: "Projects descending far into the depths of our World Machines has confirmed that our technology knows no bounds. We will expand into the outer cores of our worlds, allowing us access to some of the richest and hottest materials yet."
+# rikk_mdlc_tech_world_machine_inner_core_upgrade: "World Machine Inner Core Projects"
+# rikk_mdlc_tech_world_machine_inner_core_upgrade_tooltip: "Unlocks World Machine Planetary Projects in the Decisions Tab"
+# rikk_mdlc_tech_world_machine_inner_core_upgrade_desc: "The core of a planet is a special place. It is where the gravitic and electromagnetic fields start and end. It is the cradle of the hottest and heaviest materials on the planet. We will be able to abuse both of these to our best of our abilities."
+ rikk_mdlc_tech_world_machine_dyson: "Dyson Energy Deflection"
+ rikk_mdlc_tech_world_machine_dyson_desc: "The cores that run our World Machines are an interesting display of technology, in that it is feasible to overclock them easily - it just takes colossal amounts of pure energy. We can now obtain that through Dyson Spheres."
+ 
+ #modifiers
+ mod_rikk_mdlc_world_machine_districts_mineral_cost_add: "World-Machine Districts Mineral Cost"
+ mod_rikk_mdlc_world_machine_cooling_district_effectiveness: "World-Machine Cooling Districts Effectiveness"
+ mod_rikk_mdlc_world_machine_cooling_district_gases_upkeep: "World-Machine Cooling Districts £exotic_gases£§SExotic Gases§! Upkeep"
+ mod_rikk_mdlc_world_machine_districts_base_production: "World Machine Districts Base Production"
+ rikk_mdlc_world_machine_districts_rare_resource_base_production: "Auto-Factory Synthesizer Districts Base Production"
+ mod_rikk_mdlc_world_machine_districts_rare_resource_base_production: "$rikk_mdlc_world_machine_districts_rare_resource_base_production$"
+ xvcv_mdlc_world_machines_industrial_districts: "World-Machine Production Districts"
+ mod_xvcv_mdlc_world_machines_industrial_districts_produces_mult: "$xvcv_mdlc_world_machines_industrial_districts$ $OUTPUT$"
+ mod_xvcv_mdlc_world_machines_industrial_districts_upkeep_mult: "$xvcv_mdlc_world_machines_industrial_districts$ $upkeep$"
+ xvcv_mdlc_world_machines_computer_districts: "World-Machine Computer Districts"
+ mod_xvcv_mdlc_world_machines_computer_districts_produces_mult: "$xvcv_mdlc_world_machines_computer_districts$ $OUTPUT$"
+ mod_xvcv_mdlc_world_machines_computer_districts_upkeep_mult: "$xvcv_mdlc_world_machines_computer_districts$ $upkeep$"
+ mod_rikk_mdlc_world_machine_dyson_sphere_receiver_max: "Dyson Sphere Receiver Array Max"
+ 

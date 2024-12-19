@@ -191,6 +191,7 @@ country_event = {
 	id = oxr_mdlc.30
 	hide_window = yes
 	is_triggered_only = yes
+	hide_window = yes
 
 	trigger = {
 		from = {
@@ -570,6 +571,7 @@ country_event = {
 	is_triggered_only = yes
 	hide_window = yes
 	diplomatic = yes
+	hide_window = yes
 
 	# Releasing non-machine vassals isn't supported by me yet
 	# trigger = {
