@@ -3,7 +3,7 @@ potential = {
 	owner = {
 		OR = {
 			has_origin = oxr_mdlc_origin_world_machine_awakened
-			# has_ascension_perk = xvcv_mdlc_ap_world_machines
+			has_ascension_perk = xvcv_mdlc_ap_world_machines
 		}
 	}
 	is_planet_world_machine = yes
@@ -11,7 +11,7 @@ potential = {
 show_tech_unlock_if = {
 	OR = {
 		has_origin = oxr_mdlc_origin_world_machine_awakened
-		# has_ascension_perk = xvcv_mdlc_ap_world_machines
+		has_ascension_perk = xvcv_mdlc_ap_world_machines
 	}
 }
 on_built = {

@@ -41,3 +41,31 @@ message_type = {
 
 	ping = "mixed_notification_green"
 }
+# WMC halted bc we ran out of storage
+message_type = {
+	key = "OXR_MDLC_ORIGIN_WM_CORE_FABRICATION_HALTED"
+	icon = "GFX_world_machine_core_halted"
+	icon_frame = 1
+
+	name = "OXR_MDLC_ORIGIN_WM_CORE_FABRICATION_HALTED_MESSAGE_TITLE"
+
+	ping = "mixed_notification_green"
+}
+
+message_type = {
+	key = "OXR_MDLC_MESSAGE_PROJECT_AVAILABLE"
+	icon = "GFX_message_project_ready"
+	icon_frame = 1
+	name = "OXR_MDLC_MESSAGE_PROJECT_AVAILABLE_MESSAGE_TITLE"
+	ping = "mixed_notification_green"
+	category = science
+	# default_toast = yes  # this is a good candidate for a toast
+}
+
+message_type = {
+	key = "OXR_MDLC_WM_COOLING_DISTRICT_REFUND"
+	icon = "GFX_message_planet_construction_removed"
+	icon_frame = 1
+	name = "OXR_MDLC_ORIGIN_WM_COOLING_DISTRICT_REFUND_MESSAGE_TITLE"
+	ping = "mixed_notification_green"
+}

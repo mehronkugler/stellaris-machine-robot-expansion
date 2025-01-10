@@ -22,14 +22,23 @@ rikk_mdlc_world_machine_dyson_deflector = {
 		solar_system = {
 			custom_tooltip = {
 				fail_text = "rikk_mdlc_requires_full_dyson_sphere"
-				has_megastructure = dyson_sphere_5
+				OR = {
+					has_megastructure = dyson_sphere_5
+					has_megastructure = dyson_sphere_5_a_star
+					has_megastructure = dyson_sphere_5_b_star
+					has_megastructure = dyson_sphere_5_f_star
+					has_megastructure = dyson_sphere_5_g_star
+					has_megastructure = dyson_sphere_5_k_star
+					has_megastructure = dyson_sphere_5_m_star
+					has_megastructure = dyson_sphere_5_m_giant_star
+				}
 			}
 		}
 	}
 
 	show_in_tech = "rikk_mdlc_tech_world_machine_dyson"
 	
-	country_modifier = { rikk_mdlc_world_machine_dyson_sphere_receiver_max = 1 }
+	country_modifier = { rikk_mdlc_world_machine_dyson_sphere_receiver_max = 4 }
 	
 	resources = {
 		category = starbase_modules
@@ -37,7 +46,54 @@ rikk_mdlc_world_machine_dyson_deflector = {
 			alloys = 1000
 		}
 		upkeep = {
-			energy = 500
+			energy = 1000
+			mult = owner.value:scripted_modifier_mult|MODIFIER|country_energy_produces_mult|
+		}
+	}
+	
+	ai_weight = {
+		weight = 100
+	}
+	
+	on_destroyed = { 
+		owner = { country_event = { id = rikk_mdlc_wm_upgrade_events.120 days = 1 } }
+	}
+}
+
+#For giga
+rikk_mdlc_world_machine_dyson_deflector_O = {
+	icon = "GFX_solar_panel_network"
+	section = "SCIENCE_STARBASE_SECTION"
+	construction_days = 180
+
+	show_in_tech = "rikk_mdlc_tech_world_machine_dyson"
+	show_tech_unlock_if = { has_global_flag = giga_has_host }
+	
+	potential = {
+		exists = owner
+		is_normal_starbase = yes
+		owner = { has_technology = "rikk_mdlc_tech_world_machine_dyson" }
+		owner = { has_technology = "giga_tech_dyson_o_star" }
+	}
+
+	possible = {
+		solar_system = {
+			custom_tooltip = {
+				fail_text = "rikk_mdlc_requires_full_dyson_sphere"
+				has_megastructure = dyson_sphere_5_o_star
+			}
+		}
+	}
+	
+	country_modifier = { rikk_mdlc_world_machine_dyson_sphere_receiver_max = 20 }
+	
+	resources = {
+		category = giga_megastructures
+		cost = {
+			alloys = 5000
+		}
+		upkeep = {
+			energy = @dyson_p2_produces_energy_o_star
 			mult = owner.value:scripted_modifier_mult|MODIFIER|country_energy_produces_mult|
 		}
 	}
@@ -61,6 +117,8 @@ rikk_mdlc_world_machine_dyson_receiver = {
 		is_orbital_ring = yes
 		owner = { has_technology = "rikk_mdlc_tech_world_machine_dyson" }
 	}
+	
+	show_in_tech = "rikk_mdlc_tech_world_machine_dyson"
 	
 	possible = {
 		owner = {
@@ -87,7 +145,7 @@ rikk_mdlc_world_machine_dyson_receiver = {
 		}
 	}
 	
-	planet_modifier = { rikk_mdlc_world_machine_districts_base_production = 0.05 }
+	planet_modifier = { rikk_mdlc_world_machine_districts_base_production = 0.1 }
 	country_modifier = { rikk_mdlc_world_machine_dyson_sphere_receiver_max = -1 }
 
 	ai_weight = {

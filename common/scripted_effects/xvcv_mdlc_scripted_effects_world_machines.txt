@@ -1,29 +1,20 @@
 xvcv_mdlc_world_machines_output_value_calc_effect = {
-	optimize_memory
-	#for 'xvcv_mdlc_world_machines_districts_heat_indicator_tooltip' tooltips too
-	# BROKEN as of 3.12.* #
-	# export_modifier_to_variable = {
-	# 	modifier = xvcv_mdlc_world_machines_districts_produces_mult
-	# 	variable = xvcv_mdlc_world_machines_districts_output_var
-	# }
-	# END BROKEN #
+	# optimize_memory
+	# This effect is only called from on_built/on_destroy of t3 world districts
 
-	# New stuff to deal with export modifier bug in 3.12.*
-	xvcv_mdlc_count_districts_calculate_output_display_var = yes
-	# end new stuff
-	# **pets old stuff kindly to try and keep it from breaking ** #
-	xvcv_mdlc_world_machines_districts_heat_indicators_calc_effect = yes
-}
-xvcv_mdlc_world_machines_districts_heat_indicators_calc_effect = {
-	optimize_memory
-	#log = "Going into xvcv_mdlc_world_machines_districts_heat_indicators_calc_effect"
-
+	clear_variable = xvcv_mdlc_world_machines_districts_output_var
 	switch = {
 		trigger = has_modifier
 		xvcv_mdlc_world_machines_districts_heat_indicator_good = { remove_modifier = xvcv_mdlc_world_machines_districts_heat_indicator_good }
 		xvcv_mdlc_world_machines_districts_heat_indicator_neutral = { remove_modifier = xvcv_mdlc_world_machines_districts_heat_indicator_neutral }
 		xvcv_mdlc_world_machines_districts_heat_indicator_bad = { remove_modifier = xvcv_mdlc_world_machines_districts_heat_indicator_bad }
 	}
+
+	# create/update 'xvcv_mdlc_world_machines_districts_output_var'
+	# create/update 'xvcv_mdlc_world_machines_districts_current_output_for_display_var'
+	xvcv_mdlc_count_districts_calculate_output_display_var = yes
+
+	#log = "Going into xvcv_mdlc_world_machines_districts_heat_indicators_calc_effect"
 	if = {
 		limit = { check_variable = { which = xvcv_mdlc_world_machines_districts_output_var value > 0 } }
 		add_modifier = { modifier = xvcv_mdlc_world_machines_districts_heat_indicator_good days = -1 }
@@ -51,15 +42,21 @@ xvcv_mdlc_world_machines_districts_heat_indicators_calc_effect = {
 		which = xvcv_mdlc_world_machines_districts_current_output_for_display_var
 		value = 100
 	}
-
-	# Check if non-resource districts need offsets (if output is below 0.0) and add them
-	if = {
-		limit = { xvcv_mdlc_world_machines_non_resource_district_trigger = yes }
-		#log = "Going into xvcv_mdlc_world_machines_recalc_non_resource_offsets_all"
-		xvcv_mdlc_world_machines_recalc_non_resource_offsets_all = yes
-	}
 	#log = "Finished xvcv_mdlc_world_machines_districts_heat_indicators_calc_effect"
 }
+
+oxr_mdlc_world_machines_check_should_balance_cooling_districts = {
+	if = {
+		limit = {
+			check_variable = {
+				which = xvcv_mdlc_world_machines_districts_output_var
+				value > 0.4
+			}
+		}
+		oxr_mdlc_planet_destroy_excess_cooling_districts = yes
+	}
+}
+
 
 # For any non-resource district, when thermal throttling is on, add or remove offset deposits
 # If throttling is off (world machine output is 0 or above), remove offset deposits
@@ -172,28 +169,25 @@ xvcv_mdlc_world_machines_adjust_non_resource_district_offset_entry = {
 	else = {
 		#log = "Didn't add any offset districts as they're not needed."
 	}
-	set_variable = {
-		which = xvcv_mdlc_wm_num_offsets_to_add
-		value = 0
-	}
-	set_variable = {
-		which = xvcv_mdlc_wm_output_var_copy
-		value = 0
-	}
-	export_trigger_value_to_variable = {
-		trigger = num_districts
-		parameters = { type = $DISTRICT_TYPE$ }
-		variable = xvcv_mdlc_num_existing_districts_of_type
-	}
+
+	# export_trigger_value_to_variable = {
+	# 	trigger = num_districts
+	# 	parameters = { type = $DISTRICT_TYPE$ }
+	# 	variable = xvcv_mdlc_num_existing_districts_of_type
+	# }
 	#log = "At the END of this scripted effect, there are \\[This.xvcv_mdlc_num_existing_offsets_of_type]"
 
-	set_variable = {
-		which = xvcv_mdlc_num_existing_districts_of_type
-		value = 0
-	}
+	clear_variable = xvcv_mdlc_num_existing_districts_of_type
+	clear_variable = xvcv_mdlc_num_existing_offsets_of_type
+	clear_variable = xvcv_mdlc_wm_num_offsets_to_add
+	clear_variable = xvcv_mdlc_wm_output_var_copy
 }
 
-# Big one ... called from xvcv_mdlc_world_machines_districts_heat_indicators_calc_effect
+# Called if a t3 district is destroyed, or a t3 deposit-using district is built
+# Example; Planet is overheated, lacking cooling districts.
+# A Drive district is removed, thus bringing up the output modifier
+# In this case, it's not appropriate to keep the same amount of deposit offsets,
+# so recalculate how many deposit offsets need to be in place now with the 1 t3 distict gone
 # Switch planet type and then recalculate offsets for all non-resource districts >_@
 xvcv_mdlc_world_machines_recalc_non_resource_offsets_all = {
 	optimize_memory
@@ -312,80 +306,118 @@ xvcv_mdlc_count_districts_calculate_output_display_var = {
 	# A workaround to properly export the world_machines_district_mult value
 	# because export_modifier_to_variable is broken in on_district_complete in 3.12.* +
 	# HOW THIS WORKS:
-	# 1. Count production districts & Cooling Districts
-	# 2. Process production districts
-	# 3. Process cooling districts
-	# 4. Mix em together, the result is exported to xvcv_mdlc_world_machines_districts_output_var
-	optimize_memory
+	# 1. Count cooling & production districts
+	# 2. Calculate production penalty from districts, and bonus from cooling
+	# 2. For each cooling district, add 0.3, plus the value of rikk_mdlc_world_machine_cooling_district_effectiveness
+	# 5. For each non-cooling district, subtract 0.1
+	# 6. The result is exported to xvcv_mdlc_world_machines_districts_output_var
 	#log = "Beginning calculating the output display var."
+
+	## ESTABLISH COUNTS OF DISTRICTS
 	# 1
-	set_variable = {
-		which = xvcv_mdlc_world_machines_num_production_districts
-		value = value:count_world_machines_districts_not_cooling
+	export_trigger_value_to_variable = {
+		trigger = num_districts
+		parameters = { type = any }
+		variable = xvcv_mdlc_world_machines_num_production_districts
 	}
 	#log = "There are \\[This.xvcv_mdlc_world_machines_num_production_districts] not-cooling districts"
-	set_variable = {
-		which = xvcv_mdlc_world_machines_num_cooling_districts
-		value = value:count_world_machines_districts_of_type|DISTRICT_NAME|xvcv_mdlc_common_district_cooling|
+	export_trigger_value_to_variable = {
+		trigger = num_districts
+		parameters = { type = xvcv_mdlc_common_district_cooling }
+		variable = xvcv_mdlc_world_machines_num_cooling_districts
 	}
 	#log = "There are \\[This.xvcv_mdlc_world_machines_num_cooling_districts] cooling districts"
-	
-	#2
-	set_variable = { #because num_districts is lame
-		which = xvcv_mdlc_world_machines_production_heat_penalty 
-		value = xvcv_mdlc_world_machines_num_production_districts
-	}
-	divide_variable = { #convert 6 districts to -0.6 on the ratio
-		which = xvcv_mdlc_world_machines_production_heat_penalty
-		value = -10
-	}
-	#log = "Production penalty: \\[This.xvcv_mdlc_world_machines_production_heat_penalty]"
-	
-	#3
-	set_variable = { #because num_districts is lame
-		which = xvcv_mdlc_world_machines_cooling_bonus
+	# total count minus cooling is num production districts
+	subtract_variable = {
+		which = xvcv_mdlc_world_machines_num_production_districts
 		value = xvcv_mdlc_world_machines_num_cooling_districts
 	}
-	#calculate effect of rikk_mdlc_world_machine_cooling_district_effectiveness
-	set_variable = { #base of 0.3, so each cooling supports 3 non-cooling districts
-		which = rikk_mdlc_world_machine_cooling_district_effect
+	### CREATE DECIMAL BONUS AND PENALTY
+	## PENALTY
+	# Ex: There are 6 production districts, and 2 cooling
+	#2
+	set_variable = {
+		which = xvcv_mdlc_world_machines_production_penalty 
+		value = xvcv_mdlc_world_machines_num_production_districts
+	}
+	divide_variable = { #convert 6 districts to -0.6
+		which = xvcv_mdlc_world_machines_production_penalty
+		value = -10
+	}
+	#log = "Production penalty: \\[This.xvcv_mdlc_world_machines_production_penalty]"
+	## BONUS
+	set_variable = {
+		which = xvcv_mdlc_world_machines_production_bonus
+		value = xvcv_mdlc_world_machines_num_cooling_districts
+	}
+	# The base value is 0.3 and this never changes
+	set_variable = {
+		which = xvcv_mdlc_cooling_district_strength
 		value = 0.3
 	}
-	#if the bonus is +15% (0.15) then result is every district does 45% cooling (0.45) and supports 4.5 districts
-	change_variable = { 
-		which = rikk_mdlc_world_machine_cooling_district_effect
+	# add rikk's bonuses via modifier, if it exists on the planet
+	change_variable = {
+		which = xvcv_mdlc_cooling_district_strength
 		value = modifier:rikk_mdlc_world_machine_cooling_district_effectiveness
 	}
-	#Multiply the effect of each cooling district by number of cooling districts 
+	# 2 cooling districts count for 0.3 + modifier (ex: 0.1) for total of 0.4
+	# so 2 cooling districts yield a value of 0.8
 	multiply_variable = {
-		which = xvcv_mdlc_world_machines_cooling_bonus
-		value = rikk_mdlc_world_machine_cooling_district_effect
+		which = xvcv_mdlc_world_machines_production_bonus
+		value = xvcv_mdlc_cooling_district_strength
 	}
-	#log = "Cooling bonus: \\[This.xvcv_mdlc_world_machines_cooling_bonus]"
-	
-	#4
+
+	#calculate effect of rikk_mdlc_world_machine_cooling_district_effectiveness
+	# set_variable = { #base of 0.3, so each cooling supports 3 non-cooling districts
+	# 	which = rikk_mdlc_world_machine_cooling_district_effect
+	# 	value = 0.3
+	# }
+	#if the bonus is +15% (0.15) then result is every district does 45% cooling (0.45) and supports 4.5 districts
+	# change_variable = { 
+	# 	which = rikk_mdlc_world_machine_cooling_district_effect
+	# 	value = modifier:rikk_mdlc_world_machine_cooling_district_effectiveness
+	# }
+	#Multiply the effect of each cooling district by number of cooling districts 
+	# multiply_variable = {
+	# 	which = xvcv_mdlc_world_machines_production_bonus
+	# 	value = rikk_mdlc_world_machine_cooling_district_effect
+	# }
+	#log = "Cooling bonus: \\[This.xvcv_mdlc_world_machines_production_bonus]"
+
+	## MATH UP
+	#4 - Add total cooling effectiveness to output penalty
 	set_variable = {
 		which = xvcv_mdlc_world_machines_districts_output_var
-		value = xvcv_mdlc_world_machines_production_heat_penalty
+		value = xvcv_mdlc_world_machines_production_penalty
 	}
 	change_variable = {
 		which = xvcv_mdlc_world_machines_districts_output_var
-		value = xvcv_mdlc_world_machines_cooling_bonus
+		value = xvcv_mdlc_world_machines_production_bonus
 	}
-	
-	# -0.6 plus 0.6 equals 0, a 100% production modifier
+
 	#log = "Districts output display var calculated to be: \\[This.xvcv_mdlc_world_machines_districts_output_var]"
-	
-	#If there are more cooling districts than needed, delete one.
-	if = {
-		limit = {
-			check_variable = {
-				which = xvcv_mdlc_world_machines_districts_output_var
-				value >= rikk_mdlc_world_machine_cooling_district_effect
-			}
-		}
-		remove_district = xvcv_mdlc_common_district_cooling
-	}
+
+	#If there are more cooling districts than needed, delete one, then keep on checking
+	# while = {
+	# 	count = xvcv_mdlc_world_machines_num_cooling_districts
+	# 	if = {
+	# 		limit = {
+	# 			check_variable = {
+	# 				which = xvcv_mdlc_world_machines_districts_output_var
+	# 				value >= rikk_mdlc_world_machine_cooling_district_effect
+	# 			}
+	# 		}
+	# 		remove_district = xvcv_mdlc_common_district_cooling
+	# 		subtract_variable = {
+	# 			which = xvcv_mdlc_world_machines_districts_output_var
+	# 			value = rikk_mdlc_world_machine_cooling_district_effect
+	# 		}
+	# 	}
+	# }
+	clear_variable = xvcv_mdlc_world_machines_production_penalty
+	clear_variable = xvcv_mdlc_world_machines_production_bonus
+	clear_variable = xvcv_mdlc_world_machines_num_cooling_districts
+	# clear_variable = rikk_mdlc_world_machine_cooling_district_effect
 }
 
 xvcv_mdlc_decision_machine_world_automation_effect = {
@@ -461,10 +493,67 @@ xvcv_mdlc_decision_machine_world_automation_effect = {
 			subtract_variable = { which = xvcv_mdlc_pc_machine_auto_district_mining_var value = 1 }
 			add_district = xvcv_mdlc_pc_machine_auto_district_mining
 		}
-		# clear_variable = xvcv_mdlc_pc_machine_auto_district_city_var
-		# clear_variable = xvcv_mdlc_pc_machine_auto_district_industrial_var
-		# clear_variable = xvcv_mdlc_pc_machine_auto_district_generator_var
-		# clear_variable = xvcv_mdlc_pc_machine_auto_district_mining_var
+		clear_variable = xvcv_mdlc_pc_machine_auto_district_city_var
+		clear_variable = xvcv_mdlc_pc_machine_auto_district_industrial_var
+		clear_variable = xvcv_mdlc_pc_machine_auto_district_generator_var
+		clear_variable = xvcv_mdlc_pc_machine_auto_district_mining_var
 	}
 	xvcv_mdlc_planet_terraforming_resolution_breached_effect = yes
+}
+
+oxr_mdlc_planet_destroy_excess_cooling_districts = {
+	# the original formula was not to exceed 130%, and destroy districts above that
+	# max now is 0.45 per district, so let 0.45 be the new maximum
+	# Add 0.1 to try and keep the heat indicator green
+	if = {
+		limit = {
+			has_planet_flag = oxr_lock_oxr_mdlc_planet_destroy_excess_cooling_districts
+		}
+		log = "Not going to rebalance cooling bc it is in progress ..."
+	}
+	else = {
+		set_planet_flag = oxr_lock_oxr_mdlc_planet_destroy_excess_cooling_districts
+		set_variable = {
+			which = cooling_district_limit_tmp
+			value = 0.3
+		}
+		change_variable = {
+			which = cooling_district_limit_tmp
+			value = modifier:rikk_mdlc_world_machine_cooling_district_effectiveness
+		}
+		set_variable = {
+			which = districts_produces_mult_copy_tmp
+			value = modifier:xvcv_mdlc_world_machines_districts_produces_mult
+		}
+	
+		while = {
+			limit = {
+				check_variable = {
+					which = districts_produces_mult_copy_tmp
+					value >= cooling_district_limit_tmp
+				}
+			}
+			remove_district = xvcv_mdlc_common_district_cooling
+			space_owner = {
+				add_resource = {
+					exotic_gases = 100
+					minerals = @xvcv_mdlc_district_cost_5
+				}
+			}
+			set_variable = {
+				which = districts_produces_mult_copy_tmp
+				value = modifier:xvcv_mdlc_world_machines_districts_produces_mult
+			}
+			create_message = {
+				type = OXR_MDLC_WM_COOLING_DISTRICT_REFUND
+				localization = OXR_MDLC_ORIGIN_WM_COOLING_DISTRICT_REFUND_MESSAGE
+				days = 20
+				target = this
+			}
+			log = "(2) districts_produces_mult_copy_tmp is at \\[This.districts_produces_mult_copy_tmp]"
+		}
+		clear_variable = cooling_district_limit_tmp
+		clear_variable = districts_produces_mult_copy_tmp
+		remove_planet_flag = oxr_lock_oxr_mdlc_planet_destroy_excess_cooling_districts
+	}
 }

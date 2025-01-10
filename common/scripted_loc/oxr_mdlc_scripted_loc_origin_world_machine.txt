@@ -230,6 +230,7 @@ defined_text = {
 	text = {
 		trigger = {
 			has_origin = oxr_mdlc_origin_world_machine_awakened
+			NOT = { has_global_flag = has_mdlcwmopatch }
 		}
 		localization_key = tr_discovery_faith_in_science_machine_delayed_wm_note
 	}

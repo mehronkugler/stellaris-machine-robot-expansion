@@ -1,5 +1,11 @@
 ### Planet Modifiers ###
 
+# for wm version of museum exhibits
+rikk_mdlc_world_machine_exhibits = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_museum.dds"
+	oxr_mdlc_world_machines_unity_buildings_produces_mult = 0.20
+}
+
 #For rikk_mdlc_decision_world_machine_outer_core_cooling
 rikk_mdlc_world_machine_outer_core_cooling_mod = {
 	icon = "gfx/interface/icons/planet_modifiers/pm_drilling_for_gas.dds"
@@ -31,7 +37,9 @@ rikk_mdlc_world_machine_toxic_mod = {
 	icon = "gfx/interface/icons/planet_modifiers/pm_seismological_disturbances.dds"
 	icon_frame = 1
 	#custom_tooltip = rikk_mdlc_world_machine_toxic_mod_effect
-	rikk_mdlc_world_machine_districts_rare_resource_base_production = 0.5
+	xvcv_mdlc_world_machines_strategic_resource_districts_exotic_gases_produces_add = 2
+	xvcv_mdlc_world_machines_strategic_resource_districts_volatile_motes_produces_add = 2
+	xvcv_mdlc_world_machines_strategic_resource_districts_rare_crystals_produces_add = 2
 }
 rikk_mdlc_decision_world_machine_convert_pc_toxic_on_queued_modifier = {
 	icon = "gfx/interface/icons/planet_modifiers/pm_seismological_disturbances.dds"
@@ -41,8 +49,9 @@ rikk_mdlc_decision_world_machine_convert_pc_toxic_on_queued_modifier = {
 rikk_mdlc_world_machine_nanite_mod = {
 	icon = "gfx/interface/icons/planet_modifiers/pm_nanite_world.dds"
 	icon_frame = 1
-	planet_building_build_speed_mult = 1.00
-	planet_decision_enact_speed_mult = 1.00
+	planet_building_build_speed_mult = 0.50
+	planet_decision_enact_speed_mult = 0.50
+	terraform_speed_mult = 0.50
 }
 rikk_mdlc_decision_world_machine_convert_pc_gray_goo_on_queued_modifier = {
 	icon = "gfx/interface/icons/planet_modifiers/pm_seismological_disturbances.dds"

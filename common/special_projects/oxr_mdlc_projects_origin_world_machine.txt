@@ -119,6 +119,34 @@ special_project = {
 	icon = "gfx/interface/icons/situation_log/situation_log_scanning_beam.dds"
 	on_success = { }
 }
+# T3 Info projects
+special_project = {
+	key = "OXR_MDLC_ORIGIN_WM_INFO_T3_SERVER"
+	cost = 0
+	picture = GFX_evt_oxr_mdlc_wm_t3_worlds_mid
+	event_chain = oxr_mdlc_origin_wm_lore_databank
+	tech_department = society_technology
+	event_scope = country_event
+	icon = "gfx/interface/icons/situation_log/situation_log_society.dds"
+}
+special_project = {
+	key = "OXR_MDLC_ORIGIN_WM_INFO_T3_CPU"
+	cost = 0
+	picture = GFX_evt_oxr_mdlc_wm_t3_worlds_mid
+	event_chain = oxr_mdlc_origin_wm_lore_databank
+	tech_department = society_technology
+	event_scope = country_event
+	icon = "gfx/interface/icons/situation_log/situation_log_society.dds"
+}
+special_project = {
+	key = "OXR_MDLC_ORIGIN_WM_INFO_T3_ECU"
+	cost = 0
+	picture = GFX_evt_oxr_mdlc_wm_t3_worlds_mid
+	event_chain = oxr_mdlc_origin_wm_lore_databank
+	tech_department = society_technology
+	event_scope = country_event
+	icon = "gfx/interface/icons/situation_log/situation_log_society.dds"
+}
 
 
 ## T3 WORLDS PROJECTS

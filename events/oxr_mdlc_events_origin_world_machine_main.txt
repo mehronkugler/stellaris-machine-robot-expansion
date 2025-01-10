@@ -689,6 +689,27 @@ planet_event = {
 			# Player cancelled the construction, so stop
 			log = "Stopping construction of WMC, from inside the 'watcher' event"
 		}
+		else_if = {
+			limit = {
+				from = {
+					oxr_mdlc_country_has_room_for_more_wmc_using_vars = no
+				}
+			}
+			log = "No more room for WMCs! Stopping construction of WMC, from inside the 'watcher' event"
+			remove_modifier = oxr_mdlc_origin_world_machine_core_manufacturing_in_progress
+			remove_planet_flag = oxr_mdlc_origin_world_machine_core_auto_build_enabled
+			create_message = {
+				type = OXR_MDLC_ORIGIN_WM_CORE_FABRICATION_HALTED
+				localization = OXR_MDLC_ORIGIN_WM_CORE_FABRICATION_HALTED_MESSAGE
+				days = 20
+				target = this
+				variable = {
+					type = name
+					localization = OXR_MDLC_ORIGIN_WM_CORE_FABRICATION_PLANET
+					scope = this
+				}
+			}
+		}
 		else = {
 			# Continue, since the construction is still active
 			subtract_variable = {
@@ -763,8 +784,15 @@ planet_event = {
 					value = 1
 				}
 				oxr_mdlc_country_world_machine_cores_recalc_amount = yes
+				if = {
+					limit = {
+						NOT = { has_country_flag = oxr_mdlc_world_machine_first_core_produced }
+					}
+					country_event = {
+						id = oxr_mdlc_origin_wm_main.1320
+					}
+				}
 			}
-			
 		}
 		# oxr_mdlc_world_machine_cores_update_max_var = yes
 		set_variable = {
@@ -789,6 +817,25 @@ planet_event = {
 		planet_event = {
 			id = oxr_mdlc_origin_wm_main.1299
 		}
+	}
+}
+
+# Congratulate player on first WMC produced
+country_event = {
+	id = oxr_mdlc_origin_wm_main.1320
+	title = oxr_mdlc_origin_wm_main.1320.title
+	desc = oxr_mdlc_origin_wm_main.1320.desc
+	is_triggered_only = yes
+	picture = GFX_first_world_core_produced
+
+	trigger = {
+		NOT = { has_country_flag = oxr_mdlc_world_machine_first_core_produced }
+	}
+	immediate = {
+		set_country_flag = oxr_mdlc_world_machine_first_core_produced
+	}
+	option = {
+		name = oxr_mdlc_origin_wm_main.1320.a
 	}
 }
 
@@ -827,6 +874,11 @@ country_event = {
 				# then show project
 				enable_special_project = {
 					name = OXR_MDLC_ORIGIN_WM_T3_CPU_WORLD
+				}
+				create_message = {
+					type = OXR_MDLC_MESSAGE_PROJECT_AVAILABLE
+					localization = OXR_MDLC_ORIGIN_WM_T3_CPU_RESEARCH_AVAILABLE_MESSAGE
+					days = 20
 				}
 			}
 		}
@@ -869,6 +921,11 @@ country_event = {
 				enable_special_project = {
 					name = OXR_MDLC_ORIGIN_WM_T3_SER_WORLD
 				}
+				create_message = {
+					type = OXR_MDLC_MESSAGE_PROJECT_AVAILABLE
+					localization = OXR_MDLC_ORIGIN_WM_T3_SER_RESEARCH_AVAILABLE_MESSAGE
+					days = 20
+				}
 			}
 		}
 		### Check if all ECU flags are set, trigger the project
@@ -883,6 +940,11 @@ country_event = {
 			# then show project
 			enable_special_project = {
 				name = OXR_MDLC_ORIGIN_WM_T3_ECU_WORLD
+			}
+			create_message = {
+				type = OXR_MDLC_MESSAGE_PROJECT_AVAILABLE
+				localization = OXR_MDLC_ORIGIN_WM_T3_ECU_RESEARCH_AVAILABLE_MESSAGE
+				days = 20
 			}
 		}
 		country_event = {
@@ -905,6 +967,12 @@ country_event = {
 		give_technology = {
 			tech = oxr_mdlc_tech_world_machine_cpu
 		}
+		enable_special_project = {
+			name = OXR_MDLC_ORIGIN_WM_INFO_T3_CPU
+		}
+		complete_special_project = {
+			type = OXR_MDLC_ORIGIN_WM_INFO_T3_CPU
+		}
 	}
 }
 
@@ -921,6 +989,12 @@ country_event = {
 		give_technology = {
 			tech = oxr_mdlc_tech_world_machine_ecu
 		}
+		enable_special_project = {
+			name = OXR_MDLC_ORIGIN_WM_INFO_T3_ECU
+		}
+		complete_special_project = {
+			type = OXR_MDLC_ORIGIN_WM_INFO_T3_ECU
+		}
 	}
 }
 # Award T3 SER tech
@@ -935,6 +1009,12 @@ country_event = {
 		name = oxr_mdlc_origin_wm_main.1515.a
 		give_technology = {
 			tech = oxr_mdlc_tech_world_machine_ser
+		}
+		enable_special_project = {
+			name = OXR_MDLC_ORIGIN_WM_INFO_T3_SERVER
+		}
+		complete_special_project = {
+			type = OXR_MDLC_ORIGIN_WM_INFO_T3_SERVER
 		}
 	}
 }

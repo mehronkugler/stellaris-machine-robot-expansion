@@ -161,9 +161,9 @@ oxr_mdlc_tech_cloning_assemblers = {
 
 oxr_mdlc_tech_organoid_1 = {
 	cost = @tier4cost1
-	area = engineering
+	area = society
 	tier = 4
-	category = { computing }
+	category = { biology }
 	weight = @tier4weight1
 	potential = {
 		if = {
@@ -179,9 +179,9 @@ oxr_mdlc_tech_organoid_1 = {
 }
 oxr_mdlc_tech_organoid_2 = {
 	cost = @tier4cost2
-	area = engineering
+	area = society
 	tier = 4
-	category = { computing }
+	category = { biology }
 	weight = @tier4weight2
 	potential = {
 		NOT = {
@@ -198,9 +198,9 @@ oxr_mdlc_tech_organoid_2 = {
 }
 oxr_mdlc_tech_organoid_3 = {
 	cost = @tier4cost2
-	area = engineering
+	area = society
 	tier = 4
-	category = { computing }
+	category = { biology }
 	weight = @tier4weight2
 	potential = {
 		NOT = {

@@ -307,35 +307,169 @@ oxr_mdlc_decisions_origin_wm_self_destruct = {
 	}
 }
 
-oxr_mdlc_decision_origin_wm_reclaim_colony = {
-	# owned_planets_only = yes
-	enactment_time = 60
+# oxr_mdlc_decision_origin_wm_reclaim_colony = {
+# 	# owned_planets_only = yes
+# 	enactment_time = 60
+# 	resources = {
+# 		category = oxr_mdlc_category_wm_decisions
+# 		cost = {
+# 			energy = 1000
+# 		}
+# 	}
+# 	potential = {
+# 		is_colony = no
+# 		exists = space_owner
+# 		space_owner = {
+# 			has_origin = oxr_mdlc_origin_world_machine_awakened
+# 		}
+# 		is_planet_world_machine = yes
+# 	}
+# 	allow = {
+# 		is_colony = yes
+# 	}
+# 	effect = {
+# 		create_colony = {
+# 			owner = space_owner
+# 			species = space_owner.founder_species
+# 		}
+# 		oxr_mdlc_planet_fix_things_after_restoring_ownership = yes
+# 		# create_pop = {
+# 		# 	species = space_owner.founder_species
+# 		# 	count = 3
+# 		# }
+# 	}
+# }
+
+oxr_mdlc_decision_ap_wm_automate_capital = {
+	enactment_time = 180
 	resources = {
-		category = oxr_mdlc_category_wm_decisions
+		category = decisions
 		cost = {
-			energy = 1000
+			energy = 850
+			minerals = 400
 		}
 	}
 	potential = {
-		is_colony = no
+		is_colony = yes
+		exists = space_owner
+		space_owner = {
+			has_ascension_perk = xvcv_mdlc_ap_world_machines
+		}
+		is_planet_world_machine = yes
+	}
+	allow = {
+		OR = {
+			has_building = building_deployment_post
+			has_building = building_machine_capital
+			has_building = building_machine_major_capital
+			has_building = building_machine_system_capital
+		}
+	}
+	effect = {
+		if = {
+			limit = { has_building = building_deployment_post }
+			remove_building = building_deployment_post
+			add_building = oxr_mdlc_world_machines_building_auto_capital
+		}
+		else_if = {
+			limit = { has_building = building_machine_capital }
+			remove_building = building_machine_capital
+			add_building = oxr_mdlc_world_machines_building_auto_capital_upgraded
+		}
+		else_if = {
+			limit = { has_building = building_machine_major_capital }
+			remove_building = building_machine_major_capital
+			add_building = oxr_mdlc_world_machines_building_auto_capital_major_upgraded
+		}
+		else_if = {
+			limit = { has_building = building_machine_system_capital }
+			remove_building = building_machine_system_capital
+			add_building = oxr_mdlc_world_machines_building_auto_capital_fully_upgraded
+		}
+	}
+}
+
+oxr_mdlc_decision_ap_wm_automate_capital_remove = {
+	enactment_time = 180
+	resources = {
+		category = decisions
+		cost = {
+			energy = 850
+			minerals = 400
+		}
+	}
+	potential = {
+		is_colony = yes
+		exists = space_owner
+		space_owner = {
+			has_ascension_perk = xvcv_mdlc_ap_world_machines
+		}
+		is_planet_world_machine = yes
+	}
+	allow = {
+		OR = {
+			has_building = oxr_mdlc_world_machines_building_auto_capital
+			has_building = oxr_mdlc_world_machines_building_auto_capital_upgraded
+			has_building = oxr_mdlc_world_machines_building_auto_capital_major_upgraded
+			has_building = oxr_mdlc_world_machines_building_auto_capital_fully_upgraded
+		}
+	}
+	effect = {
+		if = {
+			limit = { has_building = oxr_mdlc_world_machines_building_auto_capital }
+			remove_building = oxr_mdlc_world_machines_building_auto_capital
+			add_building = building_deployment_post
+		}
+		else_if = {
+			limit = { has_building = oxr_mdlc_world_machines_building_auto_capital_upgraded }
+			remove_building = oxr_mdlc_world_machines_building_auto_capital_upgraded
+			add_building = building_machine_capital
+		}
+		else_if = {
+			limit = { has_building = oxr_mdlc_world_machines_building_auto_capital_major_upgraded }
+			remove_building = oxr_mdlc_world_machines_building_auto_capital_major_upgraded
+			add_building = building_machine_major_capital
+		}
+		else_if = {
+			limit = { has_building = oxr_mdlc_world_machines_building_auto_capital_fully_upgraded }
+			remove_building = oxr_mdlc_world_machines_building_auto_capital_fully_upgraded
+			add_building = building_machine_system_capital
+		}
+	}
+}
+
+#copied from 05_ancient_relics_decisions
+@minor_artifact_decision_cost = 100
+@minor_artifact_decision_duration = 3600
+rikk_mdlc_decision_world_machine_exhibits = {
+	owned_planets_only = yes
+	sound = event_administrative_work
+	icon = decision_museum
+
+	potential = {
 		exists = space_owner
 		space_owner = {
 			has_origin = oxr_mdlc_origin_world_machine_awakened
 		}
 		is_planet_world_machine = yes
+		has_ancrel = yes
 	}
+
 	allow = {
-		is_colony = no
-	}
-	effect = {
-		create_colony = {
-			owner = space_owner
-			species = space_owner.founder_species
+		NOT = {
+			has_modifier = "rikk_mdlc_world_machine_exhibits"
 		}
-		oxr_mdlc_planet_fix_things_after_restoring_ownership = yes
-		# create_pop = {
-		# 	species = space_owner.founder_species
-		# 	count = 3
-		# }
+	}
+
+	resources = {
+		category = decisions
+		cost = {
+			minor_artifacts = @minor_artifact_decision_cost
+		}
+	}
+
+	effect = {
+		#custom_tooltip = decision_museum_exhibits_effect
+		add_modifier = { modifier = "rikk_mdlc_world_machine_exhibits" days = @minor_artifact_decision_duration }
 	}
 }

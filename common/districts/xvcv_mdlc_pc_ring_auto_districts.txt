@@ -160,7 +160,7 @@ xvcv_mdlc_pc_ringworld_machine_auto_science = {
 	}
 
 	resources = {
-		category = xvcv_mdlc_world_machines_districts
+		category = xvcv_mdlc_world_machines_science_districts
 		cost = {
 			minerals = @rw_cost
 			exotic_gases = @rw_cost_sr
@@ -283,7 +283,7 @@ xvcv_mdlc_pc_ringworld_machine_auto_farming = {
 	}
 
 	resources = {
-		category = xvcv_mdlc_world_machines_districts
+		category = xvcv_mdlc_world_machines_food_districts
 		cost = {
 			minerals = @rw_cost
 			volatile_motes = @rw_cost_sr

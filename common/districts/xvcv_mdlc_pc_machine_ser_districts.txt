@@ -26,10 +26,9 @@ xvcv_mdlc_pc_machine_ser_district_unity = {
 	}
 
 	resources = {
-		category = xvcv_mdlc_world_machines_computer_districts
+		category = xvcv_mdlc_world_machines_unity_districts
 		cost = {
 			minerals = @xvcv_mdlc_district_cost_5
-			mult = value:scripted_modifier_mult|MODIFIER|rikk_mdlc_world_machine_districts_mineral_cost_add|
 		}
 		cost = { rare_crystals = 100 }
 		produces = { 
@@ -46,6 +45,15 @@ xvcv_mdlc_pc_machine_ser_district_unity = {
 		unity = 10
 		trigger = { always = yes }
 	}
+	on_built = {
+		inline_script = planet/districts/on_action/on_t3_completed
+		fire_on_action = { on_action = xvcv_on_world_machine_t3_district_built }
+	}
+	on_destroy = {
+		fire_on_action = { on_action = xvcv_on_world_machine_t3_district_demolished }
+		fire_on_action = { on_action = on_world_machine_district_demolished }
+	}
+	
 }
 xvcv_mdlc_pc_machine_ser_district_admin_cap = {
 	base_buildtime = @xvcv_mdlc_district_time_4
@@ -83,13 +91,20 @@ xvcv_mdlc_pc_machine_ser_district_admin_cap = {
 		category = xvcv_mdlc_world_machines_computer_districts
 		cost = {
 			minerals = @xvcv_mdlc_district_cost_5
-			mult = value:scripted_modifier_mult|MODIFIER|rikk_mdlc_world_machine_districts_mineral_cost_add|
 		}
 		cost = { exotic_gases = 100 }
 		upkeep = {
 			energy = 30
 			exotic_gases = 1
 		}
+	}
+	on_built = {
+		fire_on_action = { on_action = xvcv_on_world_machine_t3_resource_district_built }
+		inline_script = planet/districts/on_action/on_t3_completed
+	}
+	on_destroy = {
+		fire_on_action = { on_action = xvcv_on_world_machine_t3_resource_district_demolished }
+		fire_on_action = { on_action = on_world_machine_district_demolished }
 	}
 }
 
@@ -140,13 +155,20 @@ xvcv_mdlc_pc_machine_ser_district_crime = {
 		category = xvcv_mdlc_world_machines_computer_districts
 		cost = {
 			minerals = @xvcv_mdlc_district_cost_5
-			mult = value:scripted_modifier_mult|MODIFIER|rikk_mdlc_world_machine_districts_mineral_cost_add|
 		}
 		cost = { volatile_motes = 100 }
 		upkeep = {
 			energy = 10
 			volatile_motes = 1
 		}
+	}
+	on_built = {
+		fire_on_action = { on_action = xvcv_on_world_machine_t3_resource_district_built }
+		inline_script = planet/districts/on_action/on_t3_completed
+	}
+	on_destroy = {
+		fire_on_action = { on_action = xvcv_on_world_machine_t3_resource_district_demolished }
+		fire_on_action = { on_action = on_world_machine_district_demolished }
 	}
 }
 
@@ -183,15 +205,22 @@ xvcv_mdlc_pc_machine_ser_district_encryption = {
 	}
 
 	resources = {
-		category = xvcv_mdlc_world_machines_computer_districts
+		category = xvcv_mdlc_world_machines_cybersecurity_districts
 		cost = {
 			minerals = @xvcv_mdlc_district_cost_5
-			mult = value:scripted_modifier_mult|MODIFIER|rikk_mdlc_world_machine_districts_mineral_cost_add|
 		}
 		cost = { rare_crystals = 100 }
 		upkeep = {
 			energy = 15
 			rare_crystals = 1
 		}
+	}
+	on_built = {
+		fire_on_action = { on_action = xvcv_on_world_machine_t3_resource_district_built }
+		inline_script = planet/districts/on_action/on_t3_completed
+	}
+	on_destroy = {
+		fire_on_action = { on_action = xvcv_on_world_machine_t3_resource_district_demolished }
+		fire_on_action = { on_action = on_world_machine_district_demolished }
 	}
 }

@@ -28,11 +28,9 @@ xvcv_mdlc_pc_machine_ecu_district_alloys = {
 	}
 
 	resources = {
-		# category = xvcv_mdlc_world_machines_industrial_districts
 		category = xvcv_mdlc_world_machines_foundry_districts
 		cost = {
 			minerals = @xvcv_mdlc_district_cost_5
-			mult = value:scripted_modifier_mult|MODIFIER|rikk_mdlc_world_machine_districts_mineral_cost_add|
 		}
 		cost = {
 			volatile_motes = 100
@@ -67,6 +65,14 @@ xvcv_mdlc_pc_machine_ecu_district_alloys = {
 		alloys = 10
 		trigger = { always = yes }
 	}
+	on_built = {
+		inline_script = planet/districts/on_action/on_t3_completed
+		fire_on_action = { on_action = xvcv_on_world_machine_t3_district_built }
+	}
+	on_destroy = {
+		fire_on_action = { on_action = xvcv_on_world_machine_t3_district_demolished }
+		fire_on_action = { on_action = on_world_machine_district_demolished }
+	}
 }
 xvcv_mdlc_pc_machine_ecu_district_goods = {
 	base_buildtime = @xvcv_mdlc_district_time_4
@@ -99,7 +105,6 @@ xvcv_mdlc_pc_machine_ecu_district_goods = {
 		category = xvcv_mdlc_world_machines_factory_districts
 		cost = {
 			minerals = @xvcv_mdlc_district_cost_5
-			mult = value:scripted_modifier_mult|MODIFIER|rikk_mdlc_world_machine_districts_mineral_cost_add|
 		}
 		cost = {
 			rare_crystals = 100
@@ -118,6 +123,14 @@ xvcv_mdlc_pc_machine_ecu_district_goods = {
 	ai_resource_production = {
 		consumer_goods = 10
 		trigger = { always = yes }
+	}
+	on_built = {
+		inline_script = planet/districts/on_action/on_t3_completed
+		fire_on_action = { on_action = xvcv_on_world_machine_t3_district_built }
+	}
+	on_destroy = {
+		fire_on_action = { on_action = xvcv_on_world_machine_t3_district_demolished }
+		fire_on_action = { on_action = on_world_machine_district_demolished }
 	}
 }
 xvcv_mdlc_pc_machine_ecu_district_rare_resources = {
@@ -148,22 +161,15 @@ xvcv_mdlc_pc_machine_ecu_district_rare_resources = {
 	}
 
 	resources = {
-		category = xvcv_mdlc_world_machines_industrial_districts
+		category = xvcv_mdlc_world_machines_strategic_resource_districts
 		cost = {
 			minerals = @xvcv_mdlc_district_cost_5
-			mult = value:scripted_modifier_mult|MODIFIER|rikk_mdlc_world_machine_districts_mineral_cost_add|
 		}
 		produces = {
 			volatile_motes = 8
 			exotic_gases = 8
 			rare_crystals = 8
 			mult = value:scripted_modifier_mult|MODIFIER|rikk_mdlc_world_machine_districts_base_production|
-		}
-		produces = {
-			volatile_motes = 8
-			exotic_gases = 8
-			rare_crystals = 8
-			mult = value:scripted_modifier_mult|MODIFIER|rikk_mdlc_world_machine_districts_rare_resource_base_production|
 		}
 		upkeep = {
 			minerals = 80
@@ -182,6 +188,14 @@ xvcv_mdlc_pc_machine_ecu_district_rare_resources = {
 	ai_resource_production = {
 		rare_crystals = 2
 		trigger = { always = yes }
+	}
+	on_built = {
+		inline_script = planet/districts/on_action/on_t3_completed
+		fire_on_action = { on_action = xvcv_on_world_machine_t3_district_built }
+	}
+	on_destroy = {
+		fire_on_action = { on_action = xvcv_on_world_machine_t3_district_demolished }
+		fire_on_action = { on_action = on_world_machine_district_demolished }
 	}
 }
 xvcv_mdlc_pc_machine_ecu_district_naval_cap = {
@@ -217,15 +231,22 @@ xvcv_mdlc_pc_machine_ecu_district_naval_cap = {
 	}
 
 	resources = {
-		category = xvcv_mdlc_world_machines_industrial_districts
+		category = xvcv_mdlc_world_machines_military_districts
 		cost = {
 			minerals = @xvcv_mdlc_district_cost_5
-			mult = value:scripted_modifier_mult|MODIFIER|rikk_mdlc_world_machine_districts_mineral_cost_add|
 		}
 		cost = { volatile_motes = 100 }
 		upkeep = {
 			energy = 15
 			volatile_motes = 1
 		}
+	}
+	on_built = {
+		inline_script = planet/districts/on_action/on_t3_completed
+		fire_on_action = { on_action = xvcv_on_world_machine_t3_resource_district_built }
+	}
+	on_destroy = {
+		fire_on_action = { on_action = xvcv_on_world_machine_t3_resource_district_demolished }
+		fire_on_action = { on_action = on_world_machine_district_demolished }
 	}
 }

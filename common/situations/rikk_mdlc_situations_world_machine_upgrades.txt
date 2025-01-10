@@ -26,7 +26,7 @@ rikk_mdlc_situation_core_core = {
 		stage_1 = {
 			icon = GFX_situation_stage_1
 			icon_background = GFX_situation_stage_frame_green
-			end = 200
+			end = 300
 			custom_tooltip = rikk_mdlc_stage_core_core_cooling
 		}
 	}
@@ -34,7 +34,7 @@ rikk_mdlc_situation_core_core = {
 		stage_2 = {
 			icon = GFX_situation_stage_2
 			icon_background = GFX_situation_stage_frame_green
-			end = 800
+			end = 700
 			custom_tooltip = rikk_mdlc_stage_core_core_carving
 			
 			on_first_enter = { 
@@ -264,27 +264,27 @@ rikk_mdlc_situation_core_core = {
 	monthly_progress = {
 		base = 10
 		modifier = {
-			add = 30
+			add = 10
 			desc = rikk_mdlc_approach_extra_desc
 			current_situation_approach = rikk_mdlc_approach_extra
 		}
 		modifier = {
-			add = 20
+			add = 30
 			desc = rikk_mdlc_approach_cooling_district_desc
 			current_situation_approach = rikk_mdlc_approach_cooling_district
 		}
 		modifier = {
-			add = 20
+			add = 30
 			desc = rikk_mdlc_approach_carving_pops_desc
 			current_situation_approach = rikk_mdlc_approach_carving_pops
 		}
 		modifier = {
-			add = 20
+			add = 30
 			desc = rikk_mdlc_approach_dumping_grounds_desc
 			current_situation_approach = rikk_mdlc_approach_dumping_grounds
 		}
 		modifier = {
-			add = 20
+			add = 30
 			desc = rikk_mdlc_approach_tear_new_one_desc
 			current_situation_approach = rikk_mdlc_approach_tear_new_one
 		}

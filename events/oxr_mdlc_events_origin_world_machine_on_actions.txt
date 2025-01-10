@@ -109,6 +109,61 @@ planet_event = {
 
 	immediate = {
 		add_deposit = oxr_mdlc_d_world_machine_artifact_deposit_1
+		if = {
+			limit = {
+				host_has_dlc = "Ancient Relics Story Pack"
+			}
+			# First, count how many of these deposits there are
+			export_trigger_value_to_variable = {
+				trigger = count_deposits
+				parameters = {
+					limit = {
+						OR = {
+							type = d_artifacts_planet_1
+							type = d_artifacts_planet_2
+							type = d_artifacts_planet_3
+						}
+					}
+				}
+				variable = oxr_ancrel_deposits
+			}
+			# Simply using every_deposit to remove them always leaves 1 of each type behind
+			# This clunky but not-often-fired effect gets the job done better
+			while = {
+				limit = {
+					check_variable = {
+						which = oxr_ancrel_deposits
+						value > 0
+					}
+				}
+				random_deposit = {
+					limit = {
+						OR = {
+							is_deposit_type = d_artifacts_planet_1
+							is_deposit_type = d_artifacts_planet_2
+							is_deposit_type = d_artifacts_planet_3
+						}
+					}
+					remove_deposit = yes
+				}
+				# Yes, I am repeating code, it is safer than running an effect
+				# because there is no risk of breaking the "effects stack limit" this way
+				export_trigger_value_to_variable = {
+					trigger = count_deposits
+					parameters = {
+						limit = {
+							OR = {
+								type = d_artifacts_planet_1
+								type = d_artifacts_planet_2
+								type = d_artifacts_planet_3
+							}
+						}
+					}
+					variable = oxr_ancrel_deposits
+				}
+			} # endwhile
+			
+		} # endif
 	}
 }
 
@@ -125,18 +180,30 @@ country_event = {
 				has_event_chain = "oxr_mdlc_origin_wm_chain_gather_insights"
 				NOT = { has_completed_event_chain = oxr_mdlc_origin_wm_chain_gather_insights }
 			}
-			add_event_chain_counter = {
-				event_chain = "oxr_mdlc_origin_wm_chain_gather_insights"
-				counter = "oxr_mdlc_origin_wm_core_insights"
-				amount = 1
+			# Don't fire message if counter is at max
+			if = {
+				limit = {
+					NOT = {
+						has_completed_event_chain_counter = {
+							event_chain = "oxr_mdlc_origin_wm_chain_gather_insights"
+							counter = "oxr_mdlc_origin_wm_core_insights"
+						}
+					}
+				}
+				add_event_chain_counter = {
+					event_chain = "oxr_mdlc_origin_wm_chain_gather_insights"
+					counter = "oxr_mdlc_origin_wm_core_insights"
+					amount = 1
+				}
+				log = "Incremented World Machine insights by 1"
+				create_message = {
+					type = OXR_MDLC_ORIGIN_WM_CHAIN_GATHER_INSIGHTS_TYPE
+					localization = OXR_MDLC_ORIGIN_WM_CHAIN_GATHER_INSIGHTS_MESSAGE
+					target = this.capital_scope
+					days = 25
+				}
 			}
-			log = "Incremented World Machine insights by 1"
-			create_message = {
-				type = OXR_MDLC_ORIGIN_WM_CHAIN_GATHER_INSIGHTS_TYPE
-				localization = OXR_MDLC_ORIGIN_WM_CHAIN_GATHER_INSIGHTS_MESSAGE
-				target = this.capital_scope
-				days = 25
-			}
+			
 			# Check if this was enough to trigger the finish
 			if = {
 				limit = {

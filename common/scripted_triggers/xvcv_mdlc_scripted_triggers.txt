@@ -66,11 +66,11 @@ xvcv_mdlc_world_machines_districts_heat_indicators_calc_trigger = {
 xvcv_mdlc_world_machines_non_resource_district_trigger = {
 	optimize_memory
 	OR = {
-		last_district_changed = xvcv_mdlc_pc_machine_ecu_district_naval_cap
-		last_district_changed = xvcv_mdlc_pc_machine_cpu_district_decryption
-		last_district_changed = xvcv_mdlc_pc_machine_ser_district_admin_cap
-		last_district_changed = xvcv_mdlc_pc_machine_ser_district_crime
-		last_district_changed = xvcv_mdlc_pc_machine_ser_district_encryption
+		has_district = xvcv_mdlc_pc_machine_ecu_district_naval_cap
+		has_district = xvcv_mdlc_pc_machine_cpu_district_decryption
+		has_district = xvcv_mdlc_pc_machine_ser_district_admin_cap
+		has_district = xvcv_mdlc_pc_machine_ser_district_crime
+		has_district = xvcv_mdlc_pc_machine_ser_district_encryption
 	}
 }
 xvcv_mdlc_situation_machine_learning_add_progress_trigger = {

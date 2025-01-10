@@ -1,3 +1,8 @@
 #### auto-world district SR building produces and upkeep amounts
 @rikk_mdlc_auto_SR_produces = 0.25
 @rikk_mdlc_auto_SR_upkeep = 2
+
+@rikk_mdlc_upgrade_1_crust_roots_districts_mult = 0.1
+@rikk_mdlc_upgrade_2_mantle_roots_districts_mult = 0.1
+@rikk_mdlc_upgrade_3_outer_core_roots_districts_mult = 0.15
+@rikk_mdlc_upgrade_4_inner_core_roots_districts_mult = 0.25

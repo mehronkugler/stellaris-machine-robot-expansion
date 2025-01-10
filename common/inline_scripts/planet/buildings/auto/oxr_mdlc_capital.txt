@@ -28,7 +28,7 @@ planet_modifier = {
 triggered_planet_modifier = {
 	potential = {
 		space_owner = {
-			has_tradition = tr_discovery_faith_in_science
+			has_active_tradition = tr_discovery_faith_in_science
 		}
 	}
 	oxr_mdlc_world_machines_science_buildings_upkeep_mult = -0.1
@@ -52,7 +52,10 @@ allow = {
 destroy_trigger = {
 	exists = owner
 	owner = {
-		NOT = { has_origin = oxr_mdlc_origin_world_machine_awakened }
+		NOR = {
+			has_origin = oxr_mdlc_origin_world_machine_awakened
+			has_ascension_perk = xvcv_mdlc_ap_world_machines
+		}
 	}
 }
 

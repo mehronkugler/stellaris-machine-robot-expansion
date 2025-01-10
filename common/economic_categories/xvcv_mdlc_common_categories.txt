@@ -4,13 +4,15 @@ xvcv_mdlc_world_machines_districts = {
 	generate_mult_modifiers = {
 		produces
 		upkeep
+		cost
 	}
-	# generate_add_modifiers = {
-	# 	produces
-	# 	upkeep
-	# }
+	generate_add_modifiers = {
+	 	produces
+	 	upkeep
+		cost
+	}
 }
-# Added by Rikk
+# to encompass auto and ecu world districts
 xvcv_mdlc_world_machines_industrial_districts = {
 	parent = xvcv_mdlc_world_machines_districts
 	generate_mult_modifiers = {
@@ -18,7 +20,7 @@ xvcv_mdlc_world_machines_industrial_districts = {
 		upkeep
 	}
 	generate_add_modifiers = {
-		# produces
+		produces
 		upkeep
 	}
 	# modifier_category = planet
@@ -30,6 +32,7 @@ xvcv_mdlc_world_machines_industrial_districts = {
 xvcv_mdlc_world_machines_vanilla_industrial_districts = {
 	parent = xvcv_mdlc_world_machines_industrial_districts
 	generate_add_modifiers = {
+		produces
 		upkeep
 	}
 	generate_mult_modifiers = {
@@ -37,6 +40,7 @@ xvcv_mdlc_world_machines_vanilla_industrial_districts = {
 		upkeep
 	}
 }
+# to encompass ser and cpu world districts
 xvcv_mdlc_world_machines_computer_districts = {
 	parent = xvcv_mdlc_world_machines_districts
 	generate_mult_modifiers = {
@@ -44,7 +48,7 @@ xvcv_mdlc_world_machines_computer_districts = {
 		upkeep
 	}
 	generate_add_modifiers = {
-		# produces
+		produces
 		upkeep
 	}
 	modifier_category = planet
@@ -92,7 +96,7 @@ xvcv_mdlc_world_machines_foundry_districts = {
 	parent = xvcv_mdlc_world_machines_industrial_districts
 	modifier_category = planet
 	generate_add_modifiers = {
-		# produces
+		produces
 		upkeep
 	}
 	generate_mult_modifiers = {
@@ -104,7 +108,7 @@ xvcv_mdlc_world_machines_factory_districts = {
 	parent = xvcv_mdlc_world_machines_industrial_districts
 	modifier_category = planet
 	generate_add_modifiers = {
-		# produces
+		produces
 		upkeep
 	}
 	generate_mult_modifiers = {
@@ -114,10 +118,10 @@ xvcv_mdlc_world_machines_factory_districts = {
 }
 # standard research, astral?, dark matter?
 xvcv_mdlc_world_machines_science_districts = {
-	parent = xvcv_mdlc_world_machines_districts
+	parent = xvcv_mdlc_world_machines_computer_districts
 	modifier_category = planet
 	generate_add_modifiers = {
-		# produces
+		produces
 		upkeep
 	}
 	generate_mult_modifiers = {
@@ -126,12 +130,12 @@ xvcv_mdlc_world_machines_science_districts = {
 	}
 }
 xvcv_mdlc_world_machines_unity_districts = {
-	parent = xvcv_mdlc_world_machines_districts
+	parent = xvcv_mdlc_world_machines_computer_districts
 	modifier_category = planet
-	# generate_add_modifiers = {
-	# 	produces
-	# 	upkeep
-	# }
+	generate_add_modifiers = {
+	 	produces
+	 	upkeep
+	}
 	generate_mult_modifiers = {
 		produces
 		upkeep
@@ -139,22 +143,22 @@ xvcv_mdlc_world_machines_unity_districts = {
 }
 # naval cap
 xvcv_mdlc_world_machines_military_districts = {
-	parent = xvcv_mdlc_world_machines_districts
+	parent = xvcv_mdlc_world_machines_industrial_districts
 	modifier_category = planet
-	# generate_add_modifiers = {
-	# 	produces
-	# 	upkeep
-	# }
+	generate_add_modifiers = {
+	 	produces
+	 	upkeep
+	}
 }
 # encryption, decryption, infiltration speed
 # although currently covered by 'computer' districts
 xvcv_mdlc_world_machines_cybersecurity_districts = {
-	parent = xvcv_mdlc_world_machines_districts
+	parent = xvcv_mdlc_world_machines_computer_districts
 	modifier_category = planet
-	# generate_add_modifiers = {
-	# 	produces
-	# 	upkeep
-	# }
+	generate_add_modifiers = {
+	 	produces
+	 	upkeep
+	}
 }
 xvcv_mdlc_world_machines_housing_districts = {
 	parent = xvcv_mdlc_world_machines_districts
@@ -165,18 +169,22 @@ xvcv_mdlc_world_machines_housing_districts = {
 	# }
 }
 xvcv_mdlc_world_machines_strategic_resource_districts = {
-	parent = xvcv_mdlc_world_machines_districts
+	parent = xvcv_mdlc_world_machines_industrial_districts
 	modifier_category = planet
-	# generate_add_modifiers = {
-	# 	produces
-	# 	upkeep
-	# }
+	generate_mult_modifiers = {
+		produces
+		upkeep
+	}
+	generate_add_modifiers = {
+	 	produces
+	 	upkeep
+	}
 }
 xvcv_mdlc_world_machines_cooling_districts = {
 	parent = xvcv_mdlc_world_machines_districts
 	modifier_category = planet
 	generate_add_modifiers = {
-		# produces
+		produces
 		upkeep
 	}
 	generate_mult_modifiers = {

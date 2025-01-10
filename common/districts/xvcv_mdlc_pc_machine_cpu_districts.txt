@@ -27,11 +27,10 @@ xvcv_mdlc_pc_machine_cpu_district_physics = {
 	}
 
 	resources = {
-		category = xvcv_mdlc_world_machines_computer_districts
+		category = xvcv_mdlc_world_machines_science_districts
 		# category = planet_researchers
 		cost = {
 			minerals = @xvcv_mdlc_district_cost_5
-			mult = value:scripted_modifier_mult|MODIFIER|rikk_mdlc_world_machine_districts_mineral_cost_add|
 		}
 		cost = { exotic_gases = 100 }
 		produces = {
@@ -57,6 +56,20 @@ xvcv_mdlc_pc_machine_cpu_district_physics = {
 	ai_resource_production = {
 		physics_research = 10
 		trigger = { always = yes }
+	}
+	triggered_desc = {
+		trigger = {
+			has_active_building = oxr_mdlc_building_auto_organoid_research_center
+		}
+		text = oxr_mdlc_building_auto_research_organoid_active
+	}
+	on_built = {
+		inline_script = planet/districts/on_action/on_t3_completed
+		fire_on_action = { on_action = xvcv_on_world_machine_t3_district_built }
+	}
+	on_destroy = {
+		fire_on_action = { on_action = xvcv_on_world_machine_t3_district_demolished }
+		fire_on_action = { on_action = on_world_machine_district_demolished }
 	}
 }
 xvcv_mdlc_pc_machine_cpu_district_society = {
@@ -88,10 +101,9 @@ xvcv_mdlc_pc_machine_cpu_district_society = {
 	}
 
 	resources = {
-		category = xvcv_mdlc_world_machines_computer_districts
+		category = xvcv_mdlc_world_machines_science_districts
 		cost = {
 			minerals = @xvcv_mdlc_district_cost_5
-			mult = value:scripted_modifier_mult|MODIFIER|rikk_mdlc_world_machine_districts_mineral_cost_add|
 		}
 		cost = { exotic_gases = 100 }
 		produces = {
@@ -114,6 +126,20 @@ xvcv_mdlc_pc_machine_cpu_district_society = {
 	ai_resource_production = {
 		society_research = 10
 		trigger = { always = yes }
+	}
+	triggered_desc = {
+		trigger = {
+			has_active_building = oxr_mdlc_building_auto_organoid_research_center
+		}
+		text = oxr_mdlc_building_auto_research_organoid_active
+	}
+	on_built = {
+		inline_script = planet/districts/on_action/on_t3_completed
+		fire_on_action = { on_action = xvcv_on_world_machine_t3_district_built }
+	}
+	on_destroy = {
+		fire_on_action = { on_action = xvcv_on_world_machine_t3_district_demolished }
+		fire_on_action = { on_action = on_world_machine_district_demolished }
 	}
 }
 xvcv_mdlc_pc_machine_cpu_district_engineering = {
@@ -145,10 +171,9 @@ xvcv_mdlc_pc_machine_cpu_district_engineering = {
 	}
 
 	resources = {
-		category = xvcv_mdlc_world_machines_computer_districts
+		category = xvcv_mdlc_world_machines_science_districts
 		cost = {
 			minerals = @xvcv_mdlc_district_cost_5
-			mult = value:scripted_modifier_mult|MODIFIER|rikk_mdlc_world_machine_districts_mineral_cost_add|
 		}
 		cost = { exotic_gases = 100 }
 		produces = {
@@ -168,6 +193,20 @@ xvcv_mdlc_pc_machine_cpu_district_engineering = {
 	ai_resource_production = {
 		engineering_research = 10
 		trigger = { always = yes }
+	}
+	triggered_desc = {
+		trigger = {
+			has_active_building = oxr_mdlc_building_auto_organoid_research_center
+		}
+		text = oxr_mdlc_building_auto_research_organoid_active
+	}
+	on_built = {
+		inline_script = planet/districts/on_action/on_t3_completed
+		fire_on_action = { on_action = xvcv_on_world_machine_t3_district_built }
+	}
+	on_destroy = {
+		fire_on_action = { on_action = xvcv_on_world_machine_t3_district_demolished }
+		fire_on_action = { on_action = on_world_machine_district_demolished }
 	}
 }
 xvcv_mdlc_pc_machine_cpu_district_decryption = {
@@ -204,15 +243,28 @@ xvcv_mdlc_pc_machine_cpu_district_decryption = {
 	}
 
 	resources = {
-		category = xvcv_mdlc_world_machines_computer_districts
+		category = xvcv_mdlc_world_machines_cybersecurity_districts
 		cost = {
 			minerals = @xvcv_mdlc_district_cost_5
-			mult = value:scripted_modifier_mult|MODIFIER|rikk_mdlc_world_machine_districts_mineral_cost_add|
 		}
 		cost = { rare_crystals = 100 }
 		upkeep = {
 			energy = 15
 			rare_crystals = 1
 		}
+	}
+	triggered_desc = {
+		trigger = {
+			has_active_building = oxr_mdlc_building_auto_organoid_research_center
+		}
+		text = oxr_mdlc_building_auto_research_organoid_active
+	}
+	on_built = {
+		inline_script = planet/districts/on_action/on_t3_completed
+		fire_on_action = { on_action = xvcv_on_world_machine_t3_resource_district_built }
+	}
+	on_destroy = {
+		fire_on_action = { on_action = xvcv_on_world_machine_t3_resource_district_demolished }
+		fire_on_action = { on_action = on_world_machine_district_demolished }
 	}
 }

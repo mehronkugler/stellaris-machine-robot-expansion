@@ -2177,10 +2177,8 @@ oxr_mdlc_building_auto_organoid_research_center = {
 			has_ascension_perk = xvcv_mdlc_ap_world_machines
 		}
 	}
-	allow = {
 
-	}
-	# custom_tooltip = oxr_mdlc_building_auto_organoid_research_center_effect
+	custom_tooltip = oxr_mdlc_building_auto_organoid_research_center_effect
 	planet_modifier = {
 		xvcv_mdlc_world_machines_computer_districts_energy_upkeep_mult = -0.1
 		xvcv_mdlc_world_machines_computer_districts_food_upkeep_add = 3

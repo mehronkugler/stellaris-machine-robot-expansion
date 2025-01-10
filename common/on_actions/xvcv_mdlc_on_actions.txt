@@ -159,20 +159,20 @@ on_terraforming_complete = {
 }
 #A district construction has been completed.
 # This = Planet
-on_district_complete = {
-	events = {
-		xvcv_mdlc.701 #'xvcv_mdlc_world_machines_districts' variable value count
-		xvcv_mdlc.720 #'xvcv_mdlc_d_pc_machine_ser_crime' or 'xvcv_mdlc_d_pc_machine_ser_admin_cap' deposits count
-	}
-}
-# A district construction has demolished.
-# This = Planet
-on_district_demolished = {
-	events = {
-		xvcv_mdlc.710 #'xvcv_mdlc_world_machines_districts' variable value count
-		xvcv_mdlc.720 #'xvcv_mdlc_d_pc_machine_ser_crime' or 'xvcv_mdlc_d_pc_machine_ser_admin_cap' deposits count
-	}
-}
+# on_district_complete = {
+# 	events = {
+# 		xvcv_mdlc.701 #'xvcv_mdlc_world_machines_districts' variable value count
+# 		xvcv_mdlc.720 #'xvcv_mdlc_d_pc_machine_ser_crime' or 'xvcv_mdlc_d_pc_machine_ser_admin_cap' deposits count
+# 	}
+# }
+# # A district construction has demolished.
+# # This = Planet
+# on_district_demolished = {
+# 	events = {
+# 		xvcv_mdlc.710 #'xvcv_mdlc_world_machines_districts' variable value count
+# 		xvcv_mdlc.720 #'xvcv_mdlc_d_pc_machine_ser_crime' or 'xvcv_mdlc_d_pc_machine_ser_admin_cap' deposits count
+# 	}
+# }
 # A planet has been colonized.
 # Scope = Planet
 on_colonized = {
@@ -380,5 +380,30 @@ on_released_as_vassal = {
 on_ascension_perk_picked = {
 	events = {
 		oxr_mdlc_mamp.1
+	}
+}
+
+xvcv_on_world_machine_t3_district_built = {
+	events = {
+		xvcv_mdlc.70  # run xvcv_mdlc_world_machines_output_value_calc_effect
+	}
+}
+xvcv_on_world_machine_t3_resource_district_built = {
+	events = {
+		xvcv_mdlc.700  # run xvcv_mdlc_world_machines_output_value_calc_effect
+					   # and also xvcv_mdlc_world_machines_recalc_non_resource_offsets_all
+		xvcv_mdlc.72  # add or remove special deposits
+	}
+}
+xvcv_on_world_machine_t3_district_demolished = {
+	events = {
+		xvcv_mdlc.71  # run xvcv_mdlc_world_machines_output_value_calc_effect
+	}
+}
+xvcv_on_world_machine_t3_resource_district_demolished = {
+	events = {
+		xvcv_mdlc.710  # run xvcv_mdlc_world_machines_output_value_calc_effect
+					   # and also xvcv_mdlc_world_machines_recalc_non_resource_offsets_all
+		xvcv_mdlc.72 # add or remove special deposits
 	}
 }

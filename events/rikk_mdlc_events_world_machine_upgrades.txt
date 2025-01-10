@@ -138,6 +138,7 @@ planet_event = {
 
 	immediate = {
 		xvcv_mdlc_world_machines_output_value_calc_effect = yes
+		oxr_mdlc_world_machines_check_should_balance_cooling_districts = yes
 	}
 }
 
@@ -163,6 +164,11 @@ country_event = {
 	
 	trigger = {
 		check_modifier_value = { modifier = rikk_mdlc_world_machine_dyson_sphere_receiver_max value < 0 }
+		NOT = { has_country_flag = dysonreceiverwarning }
+	}
+	
+	immediate = {
+		set_country_flag = dysonreceiverwarning
 	}
 	
 	option = {

@@ -108,22 +108,6 @@ oxr_mdlc_planet_can_become_t3_world_machine = {
 	xvcv_mdlc_world_machines_planet_classes_trigger = no
 }
 
-oxr_mdlc_planet_is_core_storage_full = {
-	check_variable = {
-		which = oxr_mdlc_planet_world_machine_cores_amount
-		value <= 50
-	}
-}
-oxr_mdlc_planet_has_room_for_more_cores = {
-	custom_tooltip_fail = {
-		text = "oxr_mdlc_decisions_origin_wm_manufacture_core.fail_no_room"
-		check_variable = {
-			which = oxr_mdlc_planet_world_machine_cores_amount
-			value < oxr_mdlc_planet_world_machine_cores_amount_max
-		}
-	}
-}
-
 oxr_mdlc_planet_can_refill_district_defense_armies = {
 	count_planet_army = {
 		count <= oxr_mdlc_world_machine_num_max_district_armies
@@ -310,6 +294,13 @@ oxr_mdlc_country_has_room_for_more_wmc = {
 	}
 }
 
+oxr_mdlc_country_has_room_for_more_wmc_using_vars = {
+	check_variable = {
+		which = oxr_mdlc_origin_wm_cores_current_count
+		value < oxr_mdlc_origin_wm_cores_max
+	}
+}
+
 oxr_mdlc_arc_site_is_wm_blocker = {
 	OR = {
 		is_site_type = oxr_mdlc_collapsed_charge_controller_site
@@ -327,3 +318,4 @@ oxr_mdlc_arc_site_is_wm_blocker = {
 		is_site_type = oxr_mdlc_world_machine_incomplete_construction_bays_site
 	}
 }
+

@@ -31,7 +31,6 @@ xvcv_mdlc_pc_machine_auto_district_city = {
 		category = planet_districts_cities
 		cost = {
 			minerals = @xvcv_mdlc_district_cost_3
-			mult = value:scripted_modifier_mult|MODIFIER|rikk_mdlc_world_machine_districts_mineral_cost_add|
 		}
 		upkeep = { energy = 2 }
 	}
@@ -134,7 +133,6 @@ xvcv_mdlc_pc_machine_auto_district_nexus = {
 		category = planet_districts_cities
 		cost = {
 			minerals = @xvcv_mdlc_district_cost_3
-			mult = value:scripted_modifier_mult|MODIFIER|rikk_mdlc_world_machine_districts_mineral_cost_add|
 		}
 		upkeep = { energy = 2 }
 	}
@@ -293,7 +291,6 @@ xvcv_mdlc_pc_machine_auto_district_mining = {
 		category = xvcv_mdlc_world_machines_mining_districts
 		cost = {
 			minerals = @xvcv_mdlc_district_cost_2
-			mult = value:scripted_modifier_mult|MODIFIER|rikk_mdlc_world_machine_districts_mineral_cost_add|
 		}
 		produces = { 
 			minerals = 12 
@@ -382,7 +379,6 @@ xvcv_mdlc_pc_machine_auto_district_farming = {
 		category = xvcv_mdlc_world_machines_food_districts
 		cost = {
 			minerals = @xvcv_mdlc_district_cost_2
-			mult = value:scripted_modifier_mult|MODIFIER|rikk_mdlc_world_machine_districts_mineral_cost_add|
 		}
 		produces = { food = 14 } #{1 job = 6 -1 (is_robot_empire = yes) + 2 (building_food_processing_center) minerals} X 2 jobs #stellaris v3.0.3
 		upkeep = { 
@@ -454,7 +450,6 @@ xvcv_mdlc_pc_machine_auto_district_industrial = {
 		category = xvcv_mdlc_world_machines_vanilla_industrial_districts
 		cost = {
 			minerals = @xvcv_mdlc_district_cost_3
-			mult = value:scripted_modifier_mult|MODIFIER|rikk_mdlc_world_machine_districts_mineral_cost_add|
 		}
 		upkeep = { energy = 2 }
 		upkeep = {
@@ -596,7 +591,6 @@ oxr_mdlc_pc_machine_auto_district_infrastructure = {
 		category = xvcv_mdlc_world_machines_districts
 		cost = {
 			minerals = @xvcv_mdlc_district_cost_2
-			mult = value:scripted_modifier_mult|MODIFIER|rikk_mdlc_world_machine_districts_mineral_cost_add|
 		}
 		upkeep = {
 			energy = 3

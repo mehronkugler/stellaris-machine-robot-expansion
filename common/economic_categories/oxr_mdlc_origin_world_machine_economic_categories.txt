@@ -8,11 +8,11 @@ oxr_mdlc_category_world_machines_buildings = {
 	}
 	modifier_category = planet
 	# use_for_ai_budget = yes
-	# generate_add_modifiers = {
+	generate_add_modifiers = {
 	# 	produces
-	# 	upkeep
+	 	upkeep
 	# 	cost
-	# }
+	}
 }
 
 oxr_mdlc_world_machines_government_buildings = {
@@ -131,6 +131,17 @@ oxr_mdlc_world_machines_unity_buildings = {
 }
 oxr_mdlc_world_machines_strategic_resource_buildings = {
 	parent = oxr_mdlc_category_world_machines_buildings
+	modifier_category = planet
+	generate_mult_modifiers = {
+		produces
+		upkeep
+		# cost
+	}
+	generate_add_modifiers = {
+		# produces
+		upkeep
+		# cost
+	}
 }
 oxr_mdlc_world_machines_military_buildings = {
 	parent = oxr_mdlc_category_world_machines_buildings

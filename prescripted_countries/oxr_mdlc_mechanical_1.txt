@@ -1,7 +1,7 @@
 oxr_mechanical_sanchusa = {
 	name = "EMPIRE_DESIGN_oxr_mechanical_sanchusa"
 	adjective = "oxr_mdlc_empire_design_mechanical_sanchusa_adjective"
-	spawn_enabled = always # yes / no / always
+	spawn_enabled = yes # yes / no / always
 	ignore_portrait_duplication = yes
 
 	playable = has_utopia

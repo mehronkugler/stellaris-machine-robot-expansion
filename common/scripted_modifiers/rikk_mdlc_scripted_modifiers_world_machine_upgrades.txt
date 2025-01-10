@@ -21,13 +21,6 @@
 
 # These need to be used in triggered planet modifiers in order to correctly determine the scopes. See 01_ruler_jobs.txt/head_researcher and 04_species_traits.txt/trait_charismatic for examples.
 
-rikk_mdlc_world_machine_districts_mineral_cost_add = {
-	icon = mod_rikk_mdlc_planet_districts_cost_mult
-	percentage = yes
-	good = no
-	category = planet
-}
-
 rikk_mdlc_world_machine_cooling_district_effectiveness = {
 	icon = mod_rikk_mdlc_world_machine_cooling_district_effectiveness
 	percentage = yes
@@ -39,19 +32,6 @@ rikk_mdlc_world_machine_districts_base_production = {
 	icon = mod_rikk_mdlc_world_machine_districts_base_production
 	percentage = yes
 	good = yes
-	category = planet
-}
-
-rikk_mdlc_world_machine_districts_rare_resource_base_production = {
-	icon = mod_rikk_mdlc_world_machine_districts_base_production
-	percentage = yes
-	good = yes
-	category = planet
-}
-
-rikk_mdlc_world_machine_cooling_district_gases_upkeep = {
-	icon = mod_exotic_gases_upkeep_add
-	good = no
 	category = planet
 }
 

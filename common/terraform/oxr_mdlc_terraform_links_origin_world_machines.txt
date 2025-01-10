@@ -77,11 +77,11 @@ terraform_link = {
 	inline_script = country/terraform/oxr_mdlc_to_pc_machine_auto
 }
 # Variants
-terraform_link = {
-	from = "pc_frozen"
-	to = "xvcv_mdlc_pc_machine_auto"
-	inline_script = country/terraform/oxr_mdlc_to_pc_machine_auto
-}
+#terraform_link = {
+#	from = "pc_frozen"
+#	to = "xvcv_mdlc_pc_machine_auto"
+#	inline_script = country/terraform/oxr_mdlc_to_pc_machine_auto
+#}
 # terraform_link = {
 # 	from = "pc_toxic"
 # 	to = "xvcv_mdlc_pc_machine_auto"

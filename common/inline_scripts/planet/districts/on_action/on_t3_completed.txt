@@ -1,0 +1,9 @@
+if = {
+	limit = { 
+		owner = { has_origin = oxr_mdlc_origin_world_machine_awakened }
+	}
+	owner = {
+		fire_on_action = { on_action = on_world_machine_district_completed_country }
+	}
+	fire_on_action = { on_action = on_world_machine_district_completed_planet }
+}

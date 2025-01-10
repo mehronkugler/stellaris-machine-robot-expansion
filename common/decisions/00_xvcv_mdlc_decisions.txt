@@ -322,6 +322,10 @@ xvcv_mdlc_decision_machine_ecu_project = {
 				}
 				oxr_mdlc_planet_fix_things_after_restoring_ownership = yes
 			}
+			set_variable = {
+				which = num_xvcv_mdlc_common_district_cooling
+				value = 0
+			}
 		}
 		owner = {
 			if = {
@@ -409,6 +413,10 @@ xvcv_mdlc_decision_machine_cpu_project = {
 				}
 				oxr_mdlc_planet_fix_things_after_restoring_ownership = yes
 			}
+			set_variable = {
+				which = num_xvcv_mdlc_common_district_cooling
+				value = 0
+			}
 		}
 		owner = {
 			if = {
@@ -481,6 +489,10 @@ xvcv_mdlc_decision_machine_ser_project = {
 						}
 					}
 				}
+			}
+			set_variable = {
+				which = num_xvcv_mdlc_common_district_cooling
+				value = 0
 			}
 			if = {
 				limit = { NOT = { has_modifier = planet_population_control_gestalt } }

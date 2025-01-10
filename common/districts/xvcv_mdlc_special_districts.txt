@@ -177,18 +177,13 @@ xvcv_mdlc_common_district_cooling = {
 	resources = {
 		category = xvcv_mdlc_world_machines_cooling_districts
 		cost = { 
-			minerals = @xvcv_mdlc_district_cost_5 
-			mult = value:scripted_modifier_mult|MODIFIER|rikk_mdlc_world_machine_districts_mineral_cost_add|
+			minerals = @xvcv_mdlc_district_cost_5
 		}
 		cost = {
 			trigger = { has_deposit = rikk_mdlc_d_world_machine_cooling_towers }
 			exotic_gases = 100
 		}
 		upkeep = { energy = 10 }
-		upkeep = {
-			trigger = { has_deposit = rikk_mdlc_d_world_machine_cooling_towers }
-			exotic_gases = 2
-		}
 	}
 
 	planet_modifier = {
@@ -212,5 +207,36 @@ xvcv_mdlc_common_district_cooling = {
 		}
 		planet_housing_add = 5
 		planet_amenities_no_happiness_add = 5
+	}
+	on_destroy = {
+		# fire_on_action = { on_action = xvcv_on_world_machine_t3_resource_district_demolished }
+		planet_event = { id = xvcv_mdlc.710 }
+		change_variable = {
+			which = num_xvcv_mdlc_common_district_cooling
+			value = -1
+		}
+		
+		log = "Cooling district removed on \\[This.GetName]"
+	}
+	on_built = {
+		# fire_on_action = { on_action = xvcv_on_world_machine_t3_resource_district_built }
+		planet_event = { id = xvcv_mdlc.700 }
+		if = {
+			limit = {
+				is_variable_set = num_xvcv_mdlc_common_district_cooling
+			}
+			change_variable = {
+				which = num_xvcv_mdlc_common_district_cooling
+				value = 1
+			}
+		}
+		else = {
+			set_variable = {
+				which = num_xvcv_mdlc_common_district_cooling
+				value = 1
+			}
+		}
+		log = "Cooling district built on \\[This.GetName]"
+		oxr_mdlc_world_machines_check_should_balance_cooling_districts = yes
 	}
 }

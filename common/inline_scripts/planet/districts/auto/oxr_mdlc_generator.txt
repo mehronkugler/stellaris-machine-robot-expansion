@@ -13,7 +13,6 @@ cost = {
 		is_planet_class = xvcv_mdlc_pc_machine_auto
 	}
 	minerals = @xvcv_mdlc_district_cost_2
-	mult = value:scripted_modifier_mult|MODIFIER|rikk_mdlc_world_machine_districts_mineral_cost_add|
 }
 cost = {
 	trigger = {

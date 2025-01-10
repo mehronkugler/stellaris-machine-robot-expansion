@@ -1,7 +1,8 @@
 oxr_mdlc_tr_defensive_directives_adopt = {
 	possible = {
-		has_origin = oxr_mdlc_origin_world_machine_awakened
-		has_tradition = tr_unyielding_finish
+		# has_origin = oxr_mdlc_origin_world_machine_awakened
+		# has_tradition = tr_unyielding_finish
+		always = no
 	}
 	modifier = {
 		# defensive army strength

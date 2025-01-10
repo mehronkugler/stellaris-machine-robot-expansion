@@ -3067,80 +3067,85 @@ country_event = {
 }
 
 ### 'xvcv_mdlc_ap_world_machines' Ascension Perk Events ###
-#'xvcv_mdlc_world_machines_districts' variable value count
-#on district built
+
+## 'xvcv_mdlc_world_machines_districts' variable value count
+
+# xvcv_on_world_machine_t3_district_built
 planet_event = {
 	id = xvcv_mdlc.70
 	hide_window = yes
 	is_triggered_only = yes
 
-	trigger = {
-		# is_planet_world_machine = yes
-		xvcv_mdlc_world_machines_districts_heat_indicators_calc_trigger = yes
-	}
-
+	trigger = { oxr_mdlc_planet_is_t3_world_machine = yes}
 	immediate = {
 		log = "A district was built on \\[This.GetName]."
 		xvcv_mdlc_world_machines_output_value_calc_effect = yes
-	}
-}
-
-# Workaround to get updated modifier state after the district has been built
-# Update it a day later >_>
-planet_event = {
-	id = xvcv_mdlc.701
-	hide_window = yes
-	is_triggered_only = yes
-
-	trigger = { xvcv_mdlc_world_machines_districts_heat_indicators_calc_trigger = yes }
-	immediate = {
-		planet_event = {
-			id = xvcv_mdlc.70 days = 1
+		if = {
+			limit = { xvcv_mdlc_world_machines_non_resource_district_trigger = yes }
+			#log = "Going into xvcv_mdlc_world_machines_recalc_non_resource_offsets_all"
+			xvcv_mdlc_world_machines_recalc_non_resource_offsets_all = yes
 		}
 	}
 }
 
-#on district destroyed
+## xvcv_on_world_machine_t3_resource_district_built
+planet_event = {
+	id = xvcv_mdlc.700
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = { oxr_mdlc_planet_is_t3_world_machine = yes }
+	immediate = {
+		log = "A T3 world resource district was built on \\[This.GetName]"
+		xvcv_mdlc_world_machines_output_value_calc_effect = yes
+		xvcv_mdlc_world_machines_recalc_non_resource_offsets_all = yes
+	}
+}
+
+# xvcv_on_world_machine_t3_district_demolished
 planet_event = {
 	id = xvcv_mdlc.71
 	hide_window = yes
 	is_triggered_only = yes
 
-	trigger = { xvcv_mdlc_world_machines_districts_heat_indicators_calc_trigger = yes }
+	trigger = { oxr_mdlc_planet_is_t3_world_machine = yes }
 	immediate = {
 		log = "A district was removed from \\[This.GetName]."
 		xvcv_mdlc_world_machines_output_value_calc_effect = yes
+		if = {
+			limit = { xvcv_mdlc_world_machines_non_resource_district_trigger = yes }
+			#log = "Going into xvcv_mdlc_world_machines_recalc_non_resource_offsets_all"
+			xvcv_mdlc_world_machines_recalc_non_resource_offsets_all = yes
+		}
 	}
 }
-# on district destroyed
-# Delay updating planet variables for 1 day after 
+# xvcv_on_world_machine_t3_resource_district_demolished
 planet_event = {
 	id = xvcv_mdlc.710
 	hide_window = yes
 	is_triggered_only = yes
-	trigger = { xvcv_mdlc_world_machines_districts_heat_indicators_calc_trigger = yes }
+
+	trigger = { oxr_mdlc_planet_is_t3_world_machine = yes }
 	immediate = {
-		planet_event = { id = xvcv_mdlc.71 days = 1 }
+		log = "A T3 resource district was removed from \\[This.GetName]."
+		xvcv_mdlc_world_machines_output_value_calc_effect = yes
+		# Check if non-resource districts need offsets (if output is below 0.0) and add them
+		if = {
+			limit = { xvcv_mdlc_world_machines_non_resource_district_trigger = yes }
+			#log = "Going into xvcv_mdlc_world_machines_recalc_non_resource_offsets_all"
+			xvcv_mdlc_world_machines_recalc_non_resource_offsets_all = yes
+		}
 	}
 }
 
+
 #'xvcv_mdlc_d_pc_machine_ser_crime' or 'xvcv_mdlc_d_pc_machine_ser_admin_cap' deposits count
 #on district built or destroyed
-planet_event = {
-	id = xvcv_mdlc.720
-	hide_window = yes
-	is_triggered_only = yes
-
-	trigger = { xvcv_mdlc_world_machines_production_district_is_empire_resource = yes }
-	immediate = { planet_event = { id = xvcv_mdlc.72 days = 1 } }
-}
-
 planet_event = {
 	id = xvcv_mdlc.72
 	hide_window = yes
 	is_triggered_only = yes
 
-	trigger = { xvcv_mdlc_world_machines_production_district_is_empire_resource = yes }
+	trigger = { oxr_mdlc_planet_is_t3_world_machine = yes }
 
 	immediate = {
 		switch = {
@@ -3333,6 +3338,7 @@ country_event = {
 		}
 	}
 }
+
 
 ### Species Traits Events ###
 #'xvcv_mdlc_trait_self_replicating_microbot' trait effect event
