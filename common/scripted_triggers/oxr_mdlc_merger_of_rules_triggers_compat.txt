@@ -11,6 +11,25 @@ oxr_mdlc_can_release_vassal_from_species = {
 	}
 }
 
+oxr_mdlc_can_be_leader = {
+	# Inclusive of species from this mod
+	root = {
+		oxr_mdlc_is_non_organic_empire = yes
+	}
+}
+
+oxr_mdlc_can_generate_leader_from_species = {
+	# remember this is in pop scope
+	AND = {
+		has_trait = "trait_mechanical"
+		root = {
+			OR = {
+				has_origin = xvcv_mdlc_origin_mechanical_heritage
+				has_origin = xvcv_mdlc_origin_synth_ascend
+			}
+		}
+	}
+}
 # is_robot_empire in vanilla means 'is this an assembled species / non-biological'
 # it is used a lot to distinguish assembled vs grown/cloned species
 # the terminology is not good so I am changing it,
@@ -18,9 +37,9 @@ oxr_mdlc_can_release_vassal_from_species = {
 
 oxr_mdlc_is_non_organic_empire = {
 	OR = {
-		owner_species = { has_trait = trait_mechanical }
-		oxr_mdlc_is_synthetic_empire = yes
-		oxr_mdlc_is_any_machine_empire = yes
+		owner_species = { has_trait = trait_mechanical }  # is_mechanical_empire
+		oxr_mdlc_is_synthetic_empire = yes  # include species from this mod
+		oxr_mdlc_is_any_machine_empire = yes  # gestalt or individual
 	}
 }
 

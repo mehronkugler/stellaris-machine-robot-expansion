@@ -30,6 +30,7 @@ trait_mechanical = {
 	triggered_planet_growth_habitability_modifier = {
 		potential = {
 			exists = owner
+			has_machines_robots_expac_continued = yes
 			# always = yes
 			owner = {
 				OR = {
@@ -42,5 +43,14 @@ trait_mechanical = {
 		xvcv_mdlc_pc_mechanical_habitability = 1  # MREC
 	}
 
-	inline_script = mod_compat/planetary_diversity/traits/pd_pc_machine_habitability
+	triggered_planet_growth_habitability_modifier = {
+		potential = {
+			exists = owner
+			has_planetary_diversity = yes
+		}
+		pc_pd_machine_cave_habitability = 1.0
+		pc_pd_machine_superhabitable_habitability = 1.0
+		pc_pd_machine_tidally_locked_habitability = 1.0
+	}
+
 }
