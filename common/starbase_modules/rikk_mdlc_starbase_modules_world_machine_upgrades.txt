@@ -80,9 +80,10 @@ rikk_mdlc_world_machine_dyson_deflector_O = {
 	construction_days = 180
 
 	show_in_tech = "rikk_mdlc_tech_world_machine_dyson"
-	show_tech_unlock_if = { has_global_flag = giga_has_host }
-	
+	# show_tech_unlock_if = {  }
+
 	potential = {
+		has_global_flag = giga_has_host
 		exists = owner
 		is_normal_starbase = yes
 		owner = {
@@ -149,11 +150,11 @@ rikk_mdlc_world_machine_dyson_receiver = {
 			has_technology = "rikk_mdlc_tech_world_machine_dyson"
 			has_monthly_income = {
 				resource = engineering_research
-				value > @oxr_mdlc_origin_wm_rikk_dyson_deflector_research_upkeep_giga_o
+				value > @oxr_mdlc_rikk_dyson_deflector_research_upkeep_giga_o
 			}
 			has_monthly_income = {
 				resource = physics_research
-				value = @oxr_mdlc_origin_wm_rikk_dyson_deflector_research_upkeep_giga_o
+				value > @oxr_mdlc_rikk_dyson_deflector_research_upkeep_giga_o
 			}
 		}
 	}
@@ -187,8 +188,8 @@ rikk_mdlc_world_machine_dyson_receiver = {
 			trigger = {
 				always = yes
 			}
-			physics_research = @oxr_mdlc_origin_wm_rikk_dyson_deflector_research_upkeep_giga_o
-			engineering_research = @oxr_mdlc_origin_wm_rikk_dyson_deflector_research_upkeep_giga_o
+			physics_research = @oxr_mdlc_rikk_dyson_deflector_research_upkeep_giga_o
+			engineering_research = @oxr_mdlc_rikk_dyson_deflector_research_upkeep_giga_o
 		}
 	}
 

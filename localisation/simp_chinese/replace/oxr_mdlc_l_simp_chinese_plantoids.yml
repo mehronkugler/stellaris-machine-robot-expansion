@@ -1,0 +1,4 @@
+﻿l_simp_chinese:
+ civic_machine_catalytic_processing_desc: "机械智能将各类有机物质重新加工为适用于太空文明的高级资源。"
+ civic_tooltip_machine_catalytic_processing_effects: "将£job_fabricator£§Y$job_fabricator_plural$§!岗位替换为£job_catalytic_drone£§Y$job_catalytic_drone_plural$§!岗位。$job_catalytic_drone_effect_desc$。$catalytic_gestalt_additional_effects$[ShowCatalyticBiofuelBuildingForOrigin]"
+ oxr_mdlc_civic_tooltip_machine_catalytic_bio_building.wm: "\n\n—研究过恰当的生物反应堆科技后，§Y$oxr_mdlc_world_machines_biofuel_refit_1$§!建筑会对任何['concept_oxr_mdlc_auto_machine_world']存在的能量生产构造物进行重编程，用£food£取代£minerals£作为能量来源。"

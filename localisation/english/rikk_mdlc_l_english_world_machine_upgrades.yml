@@ -84,20 +84,20 @@
  rikk_mdlc_decision_world_machine_crust_roots_desc: "§YThis can reveal more layers of upgrades§!\nThe surface of the planet has been maximized. The next logical step is to utilie the massive volume of the planet for development, and begin expanding downwards."
  rikk_mdlc_fail_crust_roots_queued: "£trigger_no£ §RCrust Roots must be queued or built before starting this project.§!"
  
- rikk_mdlc_d_world_machine_crust_roots: "$oxr_mdlc_gear$ $oxr_wm$ Crust Roots"
+ rikk_mdlc_d_world_machine_crust_roots: "$oxr_wm$ Crust Roots"
  rikk_mdlc_d_world_machine_crust_roots_desc: "Large geometric structures connect the surface to the depths of the planet's crust. Much of the structure is dedicated to support, and the free space has been demarcated for district expansion. Due to slightly elevated temperatures, district maintenance is increased."
  
  #cooling towers
- rikk_mdlc_decision_world_machine_cooling_towers: "$oxr_mdlc_gear$ $oxr_wm$ Cooling Towers"
+ rikk_mdlc_decision_world_machine_cooling_towers: "$oxr_wm$ Cooling Towers"
  rikk_mdlc_decision_world_machine_cooling_towers_desc: "Cooling towers will be erected, tall enough to vent heat into the upper atmosphere via exotic gases. Recyclers at ground level will be constructed to collect the coolant as it rains down onto the planet, and pump it back through the towers."
  
- rikk_mdlc_d_world_machine_cooling_towers: "$oxr_mdlc_gear$ $oxr_wm$ Cooling Towers"
+ rikk_mdlc_d_world_machine_cooling_towers: "$oxr_wm$ Cooling Towers"
  rikk_mdlc_d_world_machine_cooling_towers_desc: "These towers scrape the upper edges of the atmosphere, dispersing heat through gases, directing energy back into space. Once the gases have radiated their heat, they cool into fluid and rain down on the surface; special collectors drain the fluids and prepare them to be dispersed into the atmosphere again through efficient district-based heat recyclers."
  
- rikk_mdlc_decision_world_machine_synchronization_arrays: "$oxr_mdlc_gear$ Synchronization Infrastructure"
+ rikk_mdlc_decision_world_machine_synchronization_arrays: "Synchronization Infrastructure"
  rikk_mdlc_decision_world_machine_synchronization_arrays_desc: "Space elevators will be anchored to the planet's surface with large pylons, along the equator, and communications equipment will be assembled atop it. On the planet's poles, large subspace network arrays, including massive radio dishes, will be fabricated, and once complete, a real-time link will be created with any other World-Machines' arrays. The synchronization will improve supply and demand algorithms and can improve logistics months or years ahead."
 
- rikk_mdlc_d_world_machine_synchronization_arrays: "$oxr_mdlc_gear$ Synchronization Infrastructure"
+ rikk_mdlc_d_world_machine_synchronization_arrays: "Synchronization Infrastructure"
  rikk_mdlc_decision_world_machine_synchronization_arrays_effect: "For every World Machine after the first linked:\n$xvcv_mdlc_world_machines_industrial_districts$ $OUTPUT$/$upkeep$: §G+3%§!/§R+3%§!\n\n§YOther World-Machines in network: [RikkSyncArraysCount]/20§!\n"
  rikk_mdlc_d_world_machine_synchronization_arrays_desc: "Crust-anchored equatorial space elevators and massive polar communication arrays links this world to other World Machines in a massive web. Synchronizing with other Machine-Worlds improves demand generation algorithms and improves logistics months or years ahead.\n\nWith current technology limits, the network can support 20 interconnected planets."
 
@@ -107,7 +107,7 @@
  rikk_mdlc_decision_world_machine_mantle_roots_desc: "§YThis can reveal more layers of upgrades§!\nWith the crust stabilized and industrialized, the planet's mantle is the target of the next layer of expansion. Tunnels will be constructed using new technologies permitting construction in this high-temperature, high-pressure environment, and space for more districts will be carved out from the interior."
  rikk_mdlc_fail_mantle_roots_queued: "£trigger_no£ §RMantle Roots must be queued or built before starting this project.§!"
  
- rikk_mdlc_d_world_machine_mantle_roots: "$oxr_mdlc_geological$ $oxr_wm$ Mantle Roots"
+ rikk_mdlc_d_world_machine_mantle_roots: "$oxr_wm$ Mantle Roots"
  rikk_mdlc_d_world_machine_mantle_roots_desc: "Large structures mitigate the pressure and heat in the upper mantle of the planet, making it possible to expand the production power of this World-Machine."
 
  #mantle taps
@@ -135,7 +135,7 @@
  rikk_mdlc_decision_world_machine_mantle_transport_network: "Intra-Planetary Transportation Network"
  rikk_mdlc_decision_world_machine_mantle_transport_network_desc: "Massive trains, conveyor systems, and atmospheric shuttlecraft all serve to support the logistics that the planet requires to continue manufacturing at incredible paces. Traveling only along the circumference of the planet can result in congestion and over-crowding of transportation systems.\n\nTo this end we will create fixed transportation depots, and create connections using the shortest distances through the planet's mantle. Cargo will be lowered from the surface and whisked away by mag-lev rail, cutting down on transportation time significantly."
  
- rikk_mdlc_d_world_machine_mantle_transport_network: "$oxr_mdlc_gear$ Intra-Planetary Transportation Network"
+ rikk_mdlc_d_world_machine_mantle_transport_network: "Intra-Planetary Transportation Network"
  rikk_mdlc_d_world_machine_mantle_transport_network_desc: "A massive set of shafts run through the planet, serving as transportation lines from continent to continent. Cargo is dropped in one end, accelerated via electromagnetic rails, until it arrives on the other side of the planet."
  rikk_mdlc_d_world_machine_mantle_transport_network_effect: "For Every Non-Cooling District:\n   $xvcv_mdlc_world_machines_industrial_districts$ Production: §G+1%§!\n   $xvcv_mdlc_world_machines_industrial_districts$ Upkeep: §R+0.5%§!\nCurrent Effect:"
  
@@ -143,7 +143,7 @@
  rikk_mdlc_decision_world_machine_mantle_buses: "Intra-Planetary Bus Network"
  rikk_mdlc_decision_world_machine_mantle_buses_desc: "The thick super-conducting conduits that transmit information on our worlds, reminiscent of early under-sea cables but many times larger, pass inefficiently over the crust. By rerouting these lines through the innards of the planet a dramatic decrease in length, and therefore latency, will occur. This will make all processing between continental distances extremely fast."
  
- rikk_mdlc_d_world_machine_mantle_buses: "$oxr_mdlc_gear$ Intra-Planetary Bus Network"
+ rikk_mdlc_d_world_machine_mantle_buses: "Intra-Planetary Bus Network"
  rikk_mdlc_d_world_machine_mantle_buses_desc: "Thick super-conducting conduits, reminiscent of early under-sea cables but many times larger, now run directly through the core of the planet. A dramatic decrease in latency and an inverse increase to efficiency has been extremely effective, allowing our computing complexes to operate faster and faster."
  rikk_mdlc_d_world_machine_mantle_buses_effect: "For Every Non-Cooling District:\n    $xvcv_mdlc_world_machines_computer_districts$ Production: §G+1%§!\n    $xvcv_mdlc_world_machines_computer_districts$ Upkeep: §R+0.5%§!\nCurrent Effect:"
  

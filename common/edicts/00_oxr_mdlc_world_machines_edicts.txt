@@ -245,10 +245,6 @@ oxr_mdlc_edict_wm_industrial_subsidies = {
 		tech_global_production_strategy
 	}
 
-	show_tech_unlock_if = {
-		country_uses_consumer_goods = yes
-	}
-
 	ai_weight = {
 		weight = @EdictMedPrio
 	}

@@ -1,1 +1,5 @@
 has_planetary_diversity = { always = no }
+# Imported from the last known version of Extended Machines by mute
+has_mute_extended_machines = { always = no }
+
+# EOF

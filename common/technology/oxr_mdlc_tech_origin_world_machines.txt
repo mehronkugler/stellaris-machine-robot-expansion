@@ -158,72 +158,72 @@ oxr_mdlc_tech_fractal_basics = {
 		category_oxr_mdlc_tech_physics_category_fractal_field_research_research_speed_mult = 0.15
 	}
 }
-oxr_mdlc_tech_fractal_2_topological_insulators = {
-	inline_script = planet/buildings/auto/oxr_mdlc_fractal
-	cost = @tier2cost1
-	tier = 2
-	weight = @tier2cost1
-	prerequisites = {
-		oxr_mdlc_tech_fractal_basics
-		oxr_mdlc_tech_world_machine_wmc_core
-	}
-	modifier = {
-		oxr_mdlc_world_machines_science_buildings_energy_upkeep_mult = -0.1
-		oxr_mdlc_world_machines_science_buildings_produces_mult = 0.1
-	}
-}
-oxr_mdlc_tech_fractal_3_star_mapping = {
-	inline_script = planet/buildings/auto/oxr_mdlc_fractal
-	cost = @tier2cost3
-	tier = 2
-	weight = @tier2cost3
-	prerequisites = {
-		oxr_mdlc_tech_fractal_2_topological_insulators
-	}
-	modifier = {
-		owned_ship_speed_mult = 0.1
-		# ship_ftl_jumpdrive_range_mult = -0.15
-	}
-}
-oxr_mdlc_tech_fractal_4_perimeter_subdivision = {
-	inline_script = planet/buildings/auto/oxr_mdlc_fractal
-	cost = @tier3cost1
-	tier = 3
-	weight = @tier3cost1
-	prerequisites = {
-		oxr_mdlc_tech_fractal_2_topological_insulators
-	}
-	modifier = {
-		intel_encryption_add = 1
-		ship_cloaking_detection_add = 1
-	}
-}
-oxr_mdlc_tech_fractal_5_shapes_for_sensors = {
-	inline_script = planet/buildings/auto/oxr_mdlc_fractal
-	cost = @tier3cost2
-	tier = 3
-	weight = @tier3cost2
-	prerequisites = {
-		oxr_mdlc_tech_fractal_4_perimeter_subdivision
-	}
-	modifier = {
-		ship_sensor_range_add = 1
-		planet_sensor_range_add = 2
-	}
-}
-oxr_mdlc_tech_fractal_6_fractal_heat_exchanger = {
-	inline_script = planet/buildings/auto/oxr_mdlc_fractal
-	cost = @tier3cost3
-	tier = 3
-	weight = @tier3cost3
-	prerequisites = {
-		oxr_mdlc_tech_fractal_4_perimeter_subdivision
-	}
-	modifier = {
-		all_technology_research_speed = 0.03
-		country_unity_produces_mult = 0.03
-	}
-}
+# oxr_mdlc_tech_fractal_2_topological_insulators = {
+# 	inline_script = planet/buildings/auto/oxr_mdlc_fractal
+# 	cost = @tier2cost1
+# 	tier = 2
+# 	weight = @tier2cost1
+# 	prerequisites = {
+# 		oxr_mdlc_tech_fractal_basics
+# 		oxr_mdlc_tech_world_machine_wmc_core
+# 	}
+# 	modifier = {
+# 		oxr_mdlc_world_machines_science_buildings_energy_upkeep_mult = -0.1
+# 		oxr_mdlc_world_machines_science_buildings_produces_mult = 0.1
+# 	}
+# }
+# oxr_mdlc_tech_fractal_3_star_mapping = {
+# 	inline_script = planet/buildings/auto/oxr_mdlc_fractal
+# 	cost = @tier2cost3
+# 	tier = 2
+# 	weight = @tier2cost3
+# 	prerequisites = {
+# 		oxr_mdlc_tech_fractal_2_topological_insulators
+# 	}
+# 	modifier = {
+# 		owned_ship_speed_mult = 0.1
+# 		# ship_ftl_jumpdrive_range_mult = -0.15
+# 	}
+# }
+# oxr_mdlc_tech_fractal_4_perimeter_subdivision = {
+# 	inline_script = planet/buildings/auto/oxr_mdlc_fractal
+# 	cost = @tier3cost1
+# 	tier = 3
+# 	weight = @tier3cost1
+# 	prerequisites = {
+# 		oxr_mdlc_tech_fractal_2_topological_insulators
+# 	}
+# 	modifier = {
+# 		intel_encryption_add = 1
+# 		ship_cloaking_detection_add = 1
+# 	}
+# }
+# oxr_mdlc_tech_fractal_5_shapes_for_sensors = {
+# 	inline_script = planet/buildings/auto/oxr_mdlc_fractal
+# 	cost = @tier3cost2
+# 	tier = 3
+# 	weight = @tier3cost2
+# 	prerequisites = {
+# 		oxr_mdlc_tech_fractal_4_perimeter_subdivision
+# 	}
+# 	modifier = {
+# 		ship_sensor_range_add = 1
+# 		planet_sensor_range_add = 2
+# 	}
+# }
+# oxr_mdlc_tech_fractal_6_fractal_heat_exchanger = {
+# 	inline_script = planet/buildings/auto/oxr_mdlc_fractal
+# 	cost = @tier3cost3
+# 	tier = 3
+# 	weight = @tier3cost3
+# 	prerequisites = {
+# 		oxr_mdlc_tech_fractal_4_perimeter_subdivision
+# 	}
+# 	modifier = {
+# 		all_technology_research_speed = 0.03
+# 		country_unity_produces_mult = 0.03
+# 	}
+# }
 
 ### TECH BOOSTERS
 oxr_mdlc_tech_boost_1_uniform_resource_locators = {
@@ -297,6 +297,7 @@ oxr_mdlc_tech_boost_4_improved_atom_modeling = {
 }
 oxr_mdlc_tech_boost_5_topological_insulators = {
 	inline_script = planet/buildings/auto/oxr_mdlc_fractal
+	category = { computing }
 	cost = @tier4cost1
 	tier = 2
 	weight = @tier4cost1

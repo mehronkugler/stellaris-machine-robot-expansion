@@ -470,7 +470,11 @@ oxr_mdlc_origin_world_machine_add_district_defense_army_t1 = {
 }
 
 oxr_mdlc_origin_world_machine_calc_max_district_armies = {
-	optimize_memory
+	# optimize_memory
+	# set_variable = {
+	# 	which = oxr_mdlc_world_machine_num_max_district_armies_temp
+	# 	value = 0
+	# }
 	export_trigger_value_to_variable = {
 		trigger = num_districts
 		parameters = { type = any }
@@ -718,12 +722,12 @@ oxr_mdlc_country_world_machine_cores_recalc_amount = {
 		value = modifier:country_resource_max_oxr_mdlc_world_machine_core_add
 	}
 }
-oxr_mdlc_world_machines_planet_recalc_storage_max = {
-	set_variable = {
-		which = oxr_mdlc_planet_world_machine_cores_amount_max
-		value = value:oxr_mdlc_planet_calculate_max_core_storage
-	}
-}
+# oxr_mdlc_world_machines_planet_recalc_storage_max = {
+# 	set_variable = {
+# 		which = oxr_mdlc_planet_world_machine_cores_amount_max
+# 		value = value:oxr_mdlc_planet_calculate_max_core_storage
+# 	}
+# }
 
 
 #endregion
@@ -1321,6 +1325,55 @@ oxr_mdlc_planet_create_world_machine_colony = {
 	oxr_mdlc_origin_world_machine_calc_max_district_armies = yes
 }
 
+oxr_mdlc_planet_do_wm_origin_things_after_project = {
+	remove_if_has_building = { WHICH = building_deployment_post }
+	remove_if_has_building = { WHICH = building_machine_capital }
+	remove_if_has_building = { WHICH = building_machine_major_capital }
+	remove_if_has_building = { WHICH = building_machine_system_capital }
+	# Avoid accidentally adding a duplicate auto-capital, in case this world
+	# was converted from one WM type to another
+	if = {
+		limit = {
+			NOT = { has_building = oxr_mdlc_world_machines_building_auto_capital }
+		}
+		add_building = oxr_mdlc_world_machines_building_auto_capital
+	}
+
+	set_saved_date = {
+		key = oxr_mdlc_world_machine_founded_date
+		days_from_present = 0
+		expires = -1
+	}
+	add_modifier = {
+		modifier = oxr_mdlc_planet_origin_world_machine_info
+		days = -1
+	}
+	# Set these vars
+	if = {
+		limit = {
+			num_districts = { type = any value > 0 }
+		}
+		oxr_mdlc_origin_world_machine_calc_max_district_armies = yes
+	}
+	else = {
+		set_variable = {
+			which = oxr_mdlc_world_machine_num_max_district_armies
+			value = 0
+		}
+		set_variable = {
+			which = oxr_mdlc_world_machine_num_existing_district_armies
+			value = 0
+		}
+	}
+
+	owner = {
+		oxr_mdlc_country_world_machine_cores_recalc_amount = yes
+	}
+
+	log = "(WM ORIGIN) Finished setting a few things for new world."
+
+}
+
 oxr_mdlc_planet_create_deposit_upgrade_flags = {
 	# Call before terraform / WM project finishes
 	# Any world machine upgrades will be transferred to the other world machine type
@@ -1592,5 +1645,23 @@ oxr_mdlc_country_clear_wm_arc_sites_on_knowledge_gain = {
 			oxr_mdlc_arc_site_is_wm_blocker = yes
 		}
 		destroy_archaeological_site = this
+	}
+}
+
+oxr_mdlc_planet_set_initial_cooling_district_count = {
+	if = {
+		limit = {
+			num_districts = { type = num_xvcv_mdlc_common_district_cooling value > 0 }
+		}
+		set_variable = {
+			which = num_xvcv_mdlc_common_district_cooling
+			value = value:count_world_machines_districts_of_type|DISTRICT_NAME|xvcv_mdlc_common_district_cooling|
+		}
+	}
+	else = {
+		set_variable = {
+			which = num_xvcv_mdlc_common_district_cooling
+			value = 0
+		}
 	}
 }

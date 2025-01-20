@@ -1,4 +1,4 @@
 # Irony this is a placeholder file please ignore it
-giga_tech_dyson_o_star = { cost = 0 area = society category = { materials } tier = 5 potential = { merg_has_esc_next = yes } weight = 0 }
+giga_tech_dyson_o_star = { cost = 0 area = society category = { materials } tier = 5 potential = { merg_has_gigastructures = yes } weight = 0 }
 
 # EOF

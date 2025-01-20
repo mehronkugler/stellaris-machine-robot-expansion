@@ -1,0 +1,54 @@
+## With owner scope for planet things
+scope_has_origin = {
+	$SCOPE$ = {
+		has_origin = $ORIGIN$
+	}
+}
+
+scope_has_ap = {
+	$SCOPE$ = {
+		has_ascension_perk = $AP$
+	}
+}
+
+scope_has_wm_origin = {
+	$SCOPE$ = {
+		has_origin = oxr_mdlc_origin_world_machine_awakened
+	}
+}
+
+scope_has_wm_ap = {
+	$SCOPE$ = {
+		has_ascension_perk = xvcv_mdlc_ap_world_machines
+	}
+}
+
+oxr_owner_has_wm_origin = {
+	owner = { has_origin = oxr_mdlc_origin_world_machine_awakened }
+}
+oxr_owner_has_wm_ap = {
+	owner = { has_ascension_perk = xvcv_mdlc_ap_world_machines }
+}
+
+
+doesnt_have_modifier = {
+	NOT = { has_modifier = $MODIFIER$ }
+}
+
+has_scope_flag = {
+	$SCOPE$ = {
+		has_$SCOPE$_flag = $FLAG$
+	}
+}
+
+remove_if_has_building = {
+	optimize_memory
+	if = {
+		limit = {
+			has_building = $WHICH$
+		}
+		remove_building = $WHICH$
+	}
+}
+
+# EOF

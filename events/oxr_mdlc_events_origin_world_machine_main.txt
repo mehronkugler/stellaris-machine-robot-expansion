@@ -719,7 +719,7 @@ planet_event = {
 		}
 		else_if = {
 			limit = {
-				from = {
+				owner = {
 					oxr_mdlc_country_has_room_for_more_wmc_using_vars = no
 				}
 			}
@@ -1289,7 +1289,7 @@ planet_event = {
 	}
 	trigger = {
 		is_planet_world_machine = yes
-		space_owner = {
+		owner = {
 			has_origin = oxr_mdlc_origin_world_machine_awakened
 		}
 	}

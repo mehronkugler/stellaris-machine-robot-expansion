@@ -79,9 +79,11 @@ oxr_mdlc_world_machines_building_archaeostudies_recombinator = {
 			has_modifier = penal_colony
 		}
 		exists = owner
-		OR = {
-			has_origin = oxr_mdlc_origin_world_machine_awakened
-			has_ascension_perk = xvcv_mdlc_ap_world_machines
+		owner = {
+			OR = {
+				has_origin = oxr_mdlc_origin_world_machine_awakened
+				has_ascension_perk = xvcv_mdlc_ap_world_machines
+			}
 		}
 	}
 	show_tech_unlock_if = {
@@ -2213,7 +2215,28 @@ oxr_mdlc_world_machines_building_core_fabrication_depot = {
 	category = manufacturing
 	base_cap_amount = 1
 	inline_script = planet/buildings/oxr_sort_important
-	inline_script = planet/buildings/auto/oxr_mdlc_wm_auto
+	# inline_script = planet/buildings/auto/oxr_mdlc_wm_auto
+	potential = {
+		exists = owner
+		owner = {
+			has_origin = oxr_mdlc_origin_world_machine_awakened
+		}
+		is_planet_world_machine = yes
+	}
+	show_tech_unlock_if = {
+		has_origin = oxr_mdlc_origin_world_machine_awakened
+	}
+	on_built = {
+		owner = {
+			fire_on_action = { on_action = on_world_machine_popless_building_constructed }
+			oxr_mdlc_country_world_machine_cores_recalc_amount = yes
+		}
+	}
+	on_destroy = {
+		owner = {
+			oxr_mdlc_country_world_machine_cores_recalc_amount = yes
+		}
+	}
 
 	resources = {
 		category = oxr_mdlc_category_world_machines_buildings

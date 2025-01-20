@@ -3,3 +3,4 @@
  distar.25.b.tooltip:0 "在[From.GetName]上发现了§B4名£pops£机器人人口§!"
  distar.26.a.tooltip:0 "在[Root.GetName]上获得了§B£pops£机器人人口§!。"
  distar.26.d.tooltip:0 "替换掉[Root.GetName]上面的§B£pops£机器人人口§!。"
+ distar.162.a.machi:1 "[Root.GetAdj]单位对你的系统进行了修复。"

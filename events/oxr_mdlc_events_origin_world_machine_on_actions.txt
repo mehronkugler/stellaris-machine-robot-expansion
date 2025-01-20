@@ -119,9 +119,9 @@ planet_event = {
 				parameters = {
 					limit = {
 						OR = {
-							type = d_artifacts_planet_1
-							type = d_artifacts_planet_2
-							type = d_artifacts_planet_3
+							is_deposit_type = d_artifacts_planet_1
+							is_deposit_type = d_artifacts_planet_2
+							is_deposit_type = d_artifacts_planet_3
 						}
 					}
 				}
@@ -136,7 +136,7 @@ planet_event = {
 						value > 0
 					}
 				}
-				random_deposit = {
+				every_deposit = {
 					limit = {
 						OR = {
 							is_deposit_type = d_artifacts_planet_1
@@ -153,9 +153,9 @@ planet_event = {
 					parameters = {
 						limit = {
 							OR = {
-								type = d_artifacts_planet_1
-								type = d_artifacts_planet_2
-								type = d_artifacts_planet_3
+								is_deposit_type = d_artifacts_planet_1
+								is_deposit_type = d_artifacts_planet_2
+								is_deposit_type = d_artifacts_planet_3
 							}
 						}
 					}
@@ -651,6 +651,18 @@ planet_event = {
 		planet_event = {
 			id = oxr_mdlc_on_world_machine_action.1909  # Recalculate district armies, decommission
 		}
+	}
+}
+
+# oxr_mdlc_planet_fix_things_after_restoring_ownership
+planet_event = {
+	# Check for is_planet_world_machine is not needed bc on action filters for that planet type
+	id = oxr_mdlc_on_world_machine_action.1930
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = {
+		log = "Planet gained: \\[This.GetName]"
+		oxr_mdlc_planet_fix_things_after_restoring_ownership = yes
 	}
 }
 

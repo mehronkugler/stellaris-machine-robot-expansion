@@ -59,7 +59,8 @@ message_type = {
 	name = "OXR_MDLC_MESSAGE_PROJECT_AVAILABLE_MESSAGE_TITLE"
 	ping = "mixed_notification_green"
 	category = science
-	# default_toast = yes  # this is a good candidate for a toast
+	sound = "notification"
+	default_toast = yes  # this is a good candidate for a toast
 }
 
 message_type = {
@@ -68,4 +69,5 @@ message_type = {
 	icon_frame = 1
 	name = "OXR_MDLC_ORIGIN_WM_COOLING_DISTRICT_REFUND_MESSAGE_TITLE"
 	ping = "mixed_notification_green"
+	# default_toast = yes
 }

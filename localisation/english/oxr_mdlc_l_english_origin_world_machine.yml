@@ -354,7 +354,7 @@
  ## World-Machine Tech Upgrades (Geophysics)
  oxr_mdlc_tech_geologic_world_expansion_theory: "World-Machine Expansion Theory"
  oxr_mdlc_tech_geologic_world_expansion_theory_desc: "Cognitive Node and Growth node postulate that with certain technological advancements, and significant time and resource investment, we will be able to exploit the various layers of the planet beneath the surface of a World-Machine to improve resource and manufacturing output. Likewise, §Ynew technologies are certain to arise from this research.§!$oxr_mdlc_mod_tag$"
- oxr_mdlc_tech_geologic_world_expansion_theory_tooltip: "§YNew empire goals have been added to the Situation Log.§!"
+ oxr_mdlc_tech_geologic_world_expansion_theory_tooltip: "§YNew empire goals will appear in the Situation Log.§!"
  oxr_mdlc_tech_category_geophysics_note: "\n\n§LResearch Tree:§! ['concept_oxr_mdlc_tech_geophysics']"
  oxr_mdlc_tech_geologic_heat_shielding_1: "Geological Heat Shielding I"                     # up to 1500'C
  oxr_mdlc_tech_geologic_heat_shielding_1_desc: "Improved energy shielding must be able to tolerate temperatures found in most planetary crusts.$oxr_mdlc_tech_category_geophysics_note$$oxr_mdlc_mod_tag$"
@@ -595,7 +595,7 @@
  # info tooltips
  oxr_mdlc_decisions_origin_wm_start_auto_build_core_stop.tooltip: "The fabricator will be powered down."
  oxr_mdlc_planet_origin_world_machine_info: "Planetary Data"
- oxr_mdlc_planet_origin_world_machine_info_desc: "Max ['concept_oxr_mdlc_world_machine_district_defense_army_plural']: [This.oxr_mdlc_world_machine_num_max_district_armies]\nCurrent Auto-District Defense Armies: [This.oxr_mdlc_world_machine_num_existing_district_armies]\nWorld Core Tech Level: Basic\nInstallation date: [This.oxr_mdlc_world_machine_founded_date]\n\n§HEmpire Data§!\n-------------\n['concept_oxr_mdlc_world_machine_core_resource'] total across empire: £oxr_mdlc_world_machine_core£ [This.owner.oxr_mdlc_origin_wm_cores_current_count]\nMax empire ['concept_oxr_mdlc_world_machine_core_resource'] storage: [This.owner.oxr_mdlc_origin_wm_cores_max]\nTotal World Machines in empire: [This.owner.oxr_mdlc_total_world_machines]"
+ oxr_mdlc_planet_origin_world_machine_info_desc: "Max ['concept_oxr_mdlc_world_machine_district_defense_army_plural']: [This.oxr_mdlc_world_machine_num_max_district_armies]\nCurrent Auto-District Defense Armies: [This.oxr_mdlc_world_machine_num_existing_district_armies]\nWorld Core Tech Level: Basic\nInstallation date: [This.oxr_mdlc_world_machine_founded_date]\n\n§HEmpire Data§!\n-------------\n['concept_oxr_mdlc_world_machine_core_resource'] total across empire: £oxr_mdlc_world_machine_core£ [This.owner.oxr_mdlc_origin_wm_cores_current_count]\nMax empire ['concept_oxr_mdlc_world_machine_core_resource'] storage: [This.owner.oxr_mdlc_origin_wm_cores_max]\nTotal World Machines in empire: [CountryWorldMachinesCount]"
 
  mod_job_oxr_mdlc_world_machine_hibernation_slot_per_pop: "Drone Hibernation Slots Per Pop"
  mod_job_oxr_mdlc_world_machine_hibernation_slot_per_pop_short: "Hibernation Slots"
@@ -805,7 +805,7 @@
 
  ## MAX DISTRICT BLOCKERS
  ### oxr_mdlc_d_world_machine_meteor_shower_impacts
- oxr_mdlc_world_machine_meteor_shower_impacts_site: "Meteor Shower Districts"
+ oxr_mdlc_world_machine_meteor_shower_impacts_site: "Meteor Shower on Districts"
  oxr_mdlc_world_machine_meteor_shower_impacts_site_desc: "$oxr_mdlc_origin_wm_arcsite_blocker_intro$§HInfrastructure related to supporting a larger number of districts is in need of repair.§!$oxr_mdlc_origin_wm_arcsite_blocker_outtro$"
  oxr_mdlc_origin_wm_arc.60.name: "$oxr_mdlc_world_machine_meteor_shower_impacts_site$"
  oxr_mdlc_origin_wm_arc.60.desc: "A meteor shower occurred in the area designated for district expansion after automated processes created zoning for it. There do not seem to be any programming or damage control protocols for this type of event. The impacts are significant enough that the automatons which roll out to do a pre-construction inspection report a 'failure' status, and seem to get stuck in a loop."

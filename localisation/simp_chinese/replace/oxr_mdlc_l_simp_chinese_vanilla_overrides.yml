@@ -25,3 +25,8 @@
  tt_some_need_machine: "在其他大多数情况下，§H$auth_machine_intelligence_plural$§!通常不使用该资源。"
  food_desc_machine_intelligence:3 "§E§H$food$§!（£food£）代表了有机生命为了维持他们脆弱的身体而需要的生物营养。\n\n§H$civic_machine_assimilator_plural$§!会为§H义体人口§!、§H$civic_machine_servitor_plural$§!会为§H$citizenship_organic_trophy$人口§!产出§H$food$§!。此外，§H人机融合体§!与带有§H$xvcv_mdlc_trait_synth_skin$§!特质的机械人口也会消耗食物。$food_desc_end$"
  consumer_goods_desc_machine_intelligence: "$consumer_goods_desc_start$\n\n拥有§H$civic_machine_obsessional_directive$§!的§H$auth_machine_intelligence_plural$§!会产出§H$consumer_goods$§!。其它会生产这类资源的还有：§H$civic_machine_servitor_plural$§!（为§H$citizenship_organic_trophy$人口§!），与带有§H$xvcv_mdlc_civic_goods_distributor$§!的机械帝国。$consumer_goods_desc_end$"
+ civic_spyware_directives:0 "该机械智能在自身所有的应用与通讯协议中，都额外部署了追踪与监视子程序。它专注于解密行动，作为自己信息收集指令的补充。"
+ civic_experience_cache:0 "该机械智能的运作围绕着：对事件数据的详尽记录、归档，以及对事件的深入分析。这是为提高其自身的运行效率。"
+ civic_diplomatic_protocols:0 "该机械智能将自身资源集中用于通讯协议的模式匹配，还指定了额外的子个体与其他帝国进行交互。"
+ civic_warbots:0 "该机械智能很重视强力作战子个体的设计与维护，还额外征调了指挥子个体来对它们进行部署。"
+ civic_rockbreakers_machine:0 "该机械智能发展了专门的算法与设备，用于改进采矿作业。"

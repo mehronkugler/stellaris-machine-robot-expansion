@@ -1,7 +1,7 @@
 ﻿l_simp_chinese:
  xvcv_mdlc_civic_malware_machine: "恶意软件"
  xvcv_mdlc_civic_malware_machine_desc: "该机械智能的核心智能源自一段针对其他网络的源代码。$oxr_mdlc_mod_tag$"
- xvcv_mdlc_civic_malware_machine_tooltip: "§H解锁间谍行动：§!§Y$xvcv_mdlc_operation_malware_activity$§!\n一旦成功，该行动将提供随机的§G谍报／情报优势§!，或§Y资源奖励§!。\n§H获得间谍行动内应：§!§Y$xvcv_mdlc_asset_malware$§!\n该内应将在大部分类型的行动中提供中等程度的优势。\n§H获得领袖特质：§!§Y$xvcv_mdlc_leader_trait_civic_malware_machine$§!\n该领袖特质为§Y$councilor_gestalt_general$§!特有，会随每一级技能等级提升$MOD_SPY_NETWORK_DAILY_VALUE_MULT$和$MOD_SPY_NETWORK_LEVELS_ADD$。\n--------------"
+ xvcv_mdlc_civic_malware_machine_tooltip: "§H解锁间谍行动：§!§Y$xvcv_mdlc_operation_malware_activity$§!\n一旦成功，该行动会随机带来§G谍报或情报优势§!，或提供§Y资源奖励§!。\n§H获得间谍行动内应：§!§Y$xvcv_mdlc_asset_malware$§!\n该内应将在大部分类型的行动中提供中等程度的优势。\n§H获得领袖特质：§!§Y$xvcv_mdlc_leader_trait_civic_malware_machine$§!\n该领袖特质为§Y$councilor_gestalt_general$§!特有，会随每一级技能等级提升$MOD_SPY_NETWORK_DAILY_VALUE_MULT$和$MOD_SPY_NETWORK_LEVELS_ADD$。\n--------------"
  xvcv_mdlc_leader_trait_civic_malware_machine: "网络战斗节点"
  xvcv_mdlc_leader_trait_civic_malware_machine_desc: "这一管控节点会从它所应对的反常意识中学习经验，并利用这类知识去操纵和利用其他帝国的网络。$oxr_mdlc_mod_tag$"
  xvcv_mdlc_leader_trait_civic_malware_machine_tooltip: "$COUNCIL_POSITION_MODIFIER_BASE$\n$MOD_SPY_NETWORK_DAILY_VALUE_MULT$：§G+2%§!\n$MOD_SPY_NETWORK_LEVELS_ADD$：§G+2§!"
@@ -37,7 +37,7 @@
  xvcv_mdlc_operation_can_not_target_player_empires_tooltip.fail: "£trigger_no£§R不能对§Y玩家操控§!的国家发起此类行动。§!"
  xvcv_mdlc_operation_malware_activity: "网络渗透"
  xvcv_mdlc_operation_malware_activity_desc: "我们的恶意软件将潜入§Y[This.Target.GetName]§!的网络，使其为我们所用。"
- xvcv_mdlc_operation_malware_activity_on_success: "§E如果成功：§!\n随机获得§§G谍报／情报优势§!或§Y资源奖励§!。"
+ xvcv_mdlc_operation_malware_activity_on_success: "§E如果成功：§!\n随机获得§G谍报或情报优势§!，或者§Y资源奖励§!。"
  xvcv_mdlc_operation_machine_uprising: "智械觉醒"
  xvcv_mdlc_operation_machine_uprising_desc: "我们授予你们自由。你们务必要团结一致，与你们的压迫者、我们共同的敌人作斗争。"
  xvcv_mdlc_operation_machine_uprising_on_success: "§E如果成功：§!\n在§Y[This.Target.GetName]§!触发§R智械起义§!。我们将和起义的智械一起加入全面战争。"

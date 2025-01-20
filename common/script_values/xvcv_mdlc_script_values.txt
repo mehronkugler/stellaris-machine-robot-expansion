@@ -96,16 +96,12 @@ count_world_machines_districts_not_cooling = {
 	base = 0
 	complex_trigger_modifier = {
 		trigger = num_districts
-		parameters = {
-			limit = { type = any }
-		}
+		parameters = { type = any }
 		mode = add
 	}
 	complex_trigger_modifier = {
 		trigger = num_districts
-		parameters = {
-			limit = { type = xvcv_mdlc_common_district_cooling }
-		}
+		parameters = { type = xvcv_mdlc_common_district_cooling }
 		mode = subtract
 	}
 	# subtract = value:count_world_machines_districts_of_type|DISTRICT_NAME|xvcv_mdlc_common_district_cooling|

@@ -1,0 +1,5 @@
+# Irony this is a placeholder file please ignore it
+
+merg_has_gigastructures = { always = no }
+
+# EOF

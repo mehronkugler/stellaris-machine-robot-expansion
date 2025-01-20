@@ -9,3 +9,11 @@ can_add_genetic_traits = {
 can_remove_beneficial_genetic_traits = {
 	oxr_mdlc_can_remove_beneficial_genetic_traits = yes
 }
+
+can_add_overclocked_traits = {
+	hidden_trigger = { exists = from }
+	OR = {
+		from = { has_origin = rikk_mdlc_origin_overclocked }
+		can_do_advanced_robo_modding = yes
+	}
+}

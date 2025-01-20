@@ -124,6 +124,12 @@ on_world_machine_planet_lost = {
 		oxr_mdlc_origin_wm_main.504    # decrement world machine counter
 	}
 }
+# war, etc
+on_world_machine_planet_gained = {
+	events = {
+		oxr_mdlc_on_world_machine_action.1930  # oxr_mdlc_planet_fix_things_after_restoring_ownership
+	}
+}
 
 ### EXTENSION OF VANILLA ON_ACTIONS ###
 

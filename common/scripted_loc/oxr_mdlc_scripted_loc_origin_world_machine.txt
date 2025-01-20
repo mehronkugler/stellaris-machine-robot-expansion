@@ -255,6 +255,10 @@ defined_text = {
 #     name = scripted_value_test
 #     value = value:desired_science_ships_system_mult
 # }
+defined_text = {
+	name = "CountryWorldMachinesCount"
+	value = value:oxr_mdlc_num_world_machines
+}
 
 ## VANILLA OVERRIDES
 defined_text = {

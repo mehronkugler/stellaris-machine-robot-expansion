@@ -1,3 +1,4 @@
+# XVCV Decisions
 xvcv_mdlc_decision_civic_planet_cracker = {
 	icon = decision_shattered_planet
 
@@ -235,6 +236,18 @@ xvcv_mdlc_decision_machine_world_automation = {
 		# owner = { has_ascension_perk = xvcv_mdlc_ap_world_machines }
 		# is_planet_class = pc_machine
 		oxr_mdlc_planet_can_become_t2_world_machine = yes
+		if = {
+			limit = {
+				owner = { has_ascension_perk = xvcv_mdlc_ap_world_machines }
+			}
+			is_planet_class = pc_machine
+		}
+		else_if = {
+			limit = {
+				owner = { has_origin = oxr_mdlc_origin_world_machine_awakened }
+			}
+			oxr_mdlc_planet_can_become_world_machine = yes
+		}
 	}
 
 	effect = {
@@ -317,15 +330,10 @@ xvcv_mdlc_decision_machine_ecu_project = {
 			xvcv_mdlc_planet_terraforming_resolution_breached_effect = yes
 			# Re-use this trigger to replace the capital with auto-capital
 			if = {
-				limit = {
-					owner = { has_origin = oxr_mdlc_origin_world_machine_awakened }
-				}
-				oxr_mdlc_planet_fix_things_after_restoring_ownership = yes
+				limit = { oxr_owner_has_wm_origin = yes }
+				oxr_mdlc_planet_do_wm_origin_things_after_project = yes
 			}
-			set_variable = {
-				which = num_xvcv_mdlc_common_district_cooling
-				value = 0
-			}
+			oxr_mdlc_planet_set_initial_cooling_district_count = yes
 		}
 		owner = {
 			if = {
@@ -406,17 +414,14 @@ xvcv_mdlc_decision_machine_cpu_project = {
 			}
 			add_modifier = { modifier = xvcv_mdlc_world_machines_districts_heat_indicator_neutral days = -1 }
 			xvcv_mdlc_planet_terraforming_resolution_breached_effect = yes
-			# Re-use this trigger to replace the capital with auto-capital
+			# Set var, add modifier
 			if = {
 				limit = {
-					owner = { has_origin = oxr_mdlc_origin_world_machine_awakened }
+					oxr_owner_has_wm_origin = yes
 				}
-				oxr_mdlc_planet_fix_things_after_restoring_ownership = yes
+				oxr_mdlc_planet_do_wm_origin_things_after_project = yes
 			}
-			set_variable = {
-				which = num_xvcv_mdlc_common_district_cooling
-				value = 0
-			}
+			oxr_mdlc_planet_set_initial_cooling_district_count = yes
 		}
 		owner = {
 			if = {
@@ -500,6 +505,12 @@ xvcv_mdlc_decision_machine_ser_project = {
 			}
 			add_modifier = { modifier = xvcv_mdlc_world_machines_districts_heat_indicator_neutral days = -1 }
 			xvcv_mdlc_planet_terraforming_resolution_breached_effect = yes
+			if = {
+				limit = { oxr_owner_has_wm_origin = yes }
+				# Info modifier, mainly
+				oxr_mdlc_planet_do_wm_origin_things_after_project = yes
+			}
+			oxr_mdlc_planet_set_initial_cooling_district_count = yes
 		}
 		owner = {
 			if = {

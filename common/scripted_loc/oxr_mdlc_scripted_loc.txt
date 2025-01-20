@@ -8,7 +8,7 @@ defined_text = {
 	}
 }
 defined_text = {
-	name = "ShowCatalyticBiofuelBuildingForOrigin"
+	name = ShowCatalyticBiofuelBuildingForOrigin
 	text = {
 		trigger = {
 			OR = {

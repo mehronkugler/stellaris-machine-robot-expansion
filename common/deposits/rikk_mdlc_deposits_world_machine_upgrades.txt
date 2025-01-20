@@ -66,7 +66,7 @@ rikk_mdlc_d_world_machine_mantle_engine = {
 		}
 	}
 }
-
+# ECU
 rikk_mdlc_d_world_machine_mantle_transport_network = {
 	category = oxr_mdlc_planet_world_machine_improvements
 	potential = { always = no }
@@ -79,6 +79,7 @@ rikk_mdlc_d_world_machine_mantle_transport_network = {
 	}
 }
 
+# CPU
 rikk_mdlc_d_world_machine_mantle_buses = {
 	category = oxr_mdlc_planet_world_machine_improvements
 	potential = { always = no }

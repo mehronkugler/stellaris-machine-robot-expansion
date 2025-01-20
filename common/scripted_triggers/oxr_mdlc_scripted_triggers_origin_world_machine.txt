@@ -124,17 +124,16 @@ oxr_mdlc_country_origin_wm_can_unlock_t3_ecu = {
 	has_country_flag = oxr_mdlc_origin_world_machine_t3_ecu_naval_cap_target_met
 }
 oxr_mdlc_country_origin_wm_met_t3_ecu_alloy_target = {
-	OR = {
+	# OR = {
 		has_monthly_income = {
 			resource = alloys
 			value >= @oxr_mdlc_t3_ecu_alloys_target
 		}
-		has_country_flag = oxr_mdlc_origin_world_machine_t3_ecu_alloys_target_met
-	}
-	
+		# has_country_flag = oxr_mdlc_origin_world_machine_t3_ecu_alloys_target_met
+	# }
 }
 oxr_mdlc_country_origin_wm_met_t3_ecu_sr_target = {
-	OR = {
+	# OR = {
 		AND = {
 			has_monthly_income = {
 				resource = volatile_motes
@@ -149,15 +148,15 @@ oxr_mdlc_country_origin_wm_met_t3_ecu_sr_target = {
 				value >= @oxr_mdlc_t3_ecu_sr_target
 			}
 		}
-		has_country_flag = oxr_mdlc_origin_world_machine_t3_ecu_sr_target_met
-	}
+		# has_country_flag = oxr_mdlc_origin_world_machine_t3_ecu_sr_target_met
+	# }
 }
 
 oxr_mdlc_country_origin_wm_can_unlock_t3_cpu = {
 	has_country_flag = oxr_mdlc_origin_world_machine_t3_cpu_any_research_target_met
 }
 oxr_mdlc_country_origin_wm_met_t3_cpu_target = {
-	OR = {
+	# OR = {
 		OR = {
 			has_monthly_income = {
 				resource = society_research
@@ -172,8 +171,8 @@ oxr_mdlc_country_origin_wm_met_t3_cpu_target = {
 				value >= @oxr_mdlc_t3_cpu_any_research_target
 			}
 		}
-		has_country_flag = oxr_mdlc_origin_world_machine_t3_cpu_any_research_target_met
-	}
+		# has_country_flag = oxr_mdlc_origin_world_machine_t3_cpu_any_research_target_met
+	# }
 }
 
 
@@ -181,20 +180,20 @@ oxr_mdlc_country_origin_wm_can_unlock_t3_ser = {
 	has_country_flag = oxr_mdlc_origin_world_machine_t3_ser_unity_target_met
 }
 oxr_mdlc_country_origin_wm_met_t3_ser_unity_target = {
-	OR = {
+	# OR = {
 		has_monthly_income = {
 			resource = unity
 			value >= @oxr_mdlc_t3_ser_unity_target
 		}
-		has_country_flag = oxr_mdlc_origin_world_machine_t3_ser_unity_target_met
-	}
+		# has_country_flag = oxr_mdlc_origin_world_machine_t3_ser_unity_target_met
+	# }
 	
 }
 oxr_mdlc_country_origin_wm_met_t3_ecu_naval_target = {
-	OR = {
+	# OR = {
 		max_naval_capacity >= @oxr_mdlc_t3_ecu_naval_cap_target
-		has_country_flag = oxr_mdlc_origin_world_machine_t3_ecu_naval_cap_target_met
-	}
+		# has_country_flag = oxr_mdlc_origin_world_machine_t3_ecu_naval_cap_target_met
+	# }
 }
 
 oxr_mdlc_trigger_variable_distance = {
@@ -319,3 +318,6 @@ oxr_mdlc_arc_site_is_wm_blocker = {
 	}
 }
 
+oxr_yes = {
+	always = yes
+}

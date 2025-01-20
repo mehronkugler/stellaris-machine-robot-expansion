@@ -97,7 +97,7 @@ spriteTypes = {
 	# text icons
 	spriteType = {
 		name = "GFX_text_oxr_geological"
-		textureFile = "gfx/interface/icons/text_icons/text_icon_planet.dds"
+		textureFile = "gfx/interface/icons/text_icons/text_icon_oxr_planet.dds"
 	}
 	spriteType = {
 		name = "GFX_text_oxr_mdlc_gear"

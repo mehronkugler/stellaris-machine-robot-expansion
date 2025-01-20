@@ -132,3 +132,22 @@ oxr_mdlc_num_science_districts = {
 		mode = add
 	}
 }
+oxr_mdlc_num_world_machines = {
+	base = 0
+	complex_trigger_modifier = {
+		trigger = count_owned_planet
+		trigger_scope = owner
+		parameters = {
+			limit = {
+				OR = {
+					is_planet_class = xvcv_mdlc_pc_machine_auto
+					is_planet_class = xvcv_mdlc_pc_machine_ecu
+					is_planet_class = xvcv_mdlc_pc_machine_ecu
+					is_planet_class = xvcv_mdlc_pc_machine_ecu
+					is_planet_class = xvcv_mdlc_pc_ringworld_machine_auto
+				}
+			}
+		}
+		mode = add
+	}
+}
